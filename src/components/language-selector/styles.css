@@ -1,0 +1,28 @@
+.language-selector {
+  padding: 0.563rem 0.75rem;
+  max-width: 85%;
+  border-radius: 0.313rem;
+}
+
+.language-selector:hover {
+  background-color: #f0f0f0;
+  transition: all 0.2s ease-in-out;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 3.125rem;
+}
+.list-item {
+  width: 25%;
+  cursor: pointer;
+}
+.region {
+  color: rgb(106, 106, 106);
+}
