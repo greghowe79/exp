@@ -1,0 +1,10 @@
+{
+  "locale": "fr-FR",
+  "name": "fr (FR)",
+  "translations": {
+    "navbar_about": "À propos de nous",
+    "navbar_services": "Services",
+    "navbar_contact": "Contactez-nous",
+    "navbar_login": "Connexion"
+  }
+}

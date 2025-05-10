@@ -26,3 +26,8 @@
 .region {
   color: rgb(106, 106, 106);
 }
+
+.language-link {
+  text-decoration: none;
+  color: #333;
+}

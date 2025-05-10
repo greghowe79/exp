@@ -1,0 +1,10 @@
+{
+  "locale": "ja-JP",
+  "name": "ja (JP)",
+  "translations": {
+    "navbar_about": "私たちについて",
+    "navbar_services": "サービス",
+    "navbar_contact": "お問い合わせ",
+    "navbar_login": "ログイン"
+  }
+}

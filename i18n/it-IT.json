@@ -1,0 +1,12 @@
+{
+  "locale": "it-IT",
+  "name": "it (IT)",
+  "translations": {
+    "welcome": "Benvenuti nel nostro sito!",
+    "main_content": "Questo è il contenuto principale della pagina.",
+    "navbar_about": "Chi siamo",
+    "navbar_services": "Servizi",
+    "navbar_contact": "Contatti",
+    "navbar_login": "Accedi"
+  }
+}

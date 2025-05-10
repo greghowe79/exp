@@ -1,0 +1,10 @@
+{
+  "locale": "zh-CN",
+  "name": "zh (CN)",
+  "translations": {
+    "navbar_about": "关于我们",
+    "navbar_services": "服务",
+    "navbar_contact": "联系我们",
+    "navbar_login": "登录"
+  }
+}

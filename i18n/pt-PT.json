@@ -1,0 +1,10 @@
+{
+  "locale": "pt-PT",
+  "name": "pt (PT)",
+  "translations": {
+    "navbar_about": "Sobre nós",
+    "navbar_services": "Serviços",
+    "navbar_contact": "Contate-nos",
+    "navbar_login": "Entrar"
+  }
+}

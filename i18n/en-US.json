@@ -1,0 +1,12 @@
+{
+  "locale": "en-US",
+  "name": "en (US)",
+  "translations": {
+    "welcome": "Welcome to our website!",
+    "main_content": "This is the main content of the page.",
+    "navbar_about": "About us",
+    "navbar_services": "Services",
+    "navbar_contact": "Contact us",
+    "navbar_login": "Login"
+  }
+}

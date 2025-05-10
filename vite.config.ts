@@ -6,6 +6,7 @@ import { defineConfig, type UserConfig } from "vite";
 import { qwikVite } from "@builder.io/qwik/optimizer";
 import { qwikCity } from "@builder.io/qwik-city/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import {i18nPlugin} from 'compiled-i18n/vite'
 import pkg from "./package.json";
 
 type PkgDep = Record<string, string>;
@@ -21,7 +22,14 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies);
  */
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
-    plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
+    plugins: [
+      i18nPlugin({
+        locales: ['it-IT', 'en-US','es-ES','fr-FR','pt-PT','ja-JP','zh-CN'], 
+      }),
+      
+    qwikCity(), 
+    qwikVite(), 
+    tsconfigPaths()],
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
       // Put problematic deps that break bundling here, mostly those with binaries.

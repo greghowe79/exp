@@ -1,0 +1,12 @@
+{
+  "locale": "es-ES",
+  "name": "es (ES)",
+  "translations": {
+    "welcome": "¡Bienvenidos a nuestro sitio!",
+    "main_content": "Este es el contenido principal de la página.",
+    "navbar_about": "Sobre nosotros",
+    "navbar_services": "Servicios",
+    "navbar_contact": "Contáctanos",
+    "navbar_login": "Iniciar sesión"
+  }
+}
