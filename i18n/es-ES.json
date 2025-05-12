@@ -7,6 +7,14 @@
     "navbar_about": "Sobre nosotros",
     "navbar_services": "Servicios",
     "navbar_contact": "Contáctanos",
-    "navbar_login": "Iniciar sesión"
+    "navbar_login": "Iniciar sesión",
+    "page_contact_title": "Página de Contacto",
+    "page_services_title": "Página de Servicios",
+    "page_about_title": "Página Sobre Nosotros",
+    "page_login_title": "Página de Inicio de Sesión",
+    "slug_about": "sobre-nosotros",
+    "slug_services": "servicios",
+    "slug_contact": "contacto",
+    "slug_login": "iniciar-sesion"
   }
 }

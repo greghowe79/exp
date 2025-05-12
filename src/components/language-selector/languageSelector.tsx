@@ -1,6 +1,7 @@
 import { component$, type Signal, useStyles$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { useLocation } from '@builder.io/qwik-city';
+import { pageMap, resolvePageKey } from '~/lib/pageMap';
 
 export interface LanguagesProps {
   languages: Array<{ code: string; label: string; region: string }>;
@@ -11,16 +12,19 @@ export interface LanguagesProps {
 const LanguageSelector = component$<LanguagesProps>(({ languages, isModalOpen }) => {
   useStyles$(styles);
   const location = useLocation();
-
-  const currentPathWithoutLocale = location.url.pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/, '');
+  const lang = location.params.locale;
+  const slug = location.params.slug;
+  const pageKey = resolvePageKey(slug, lang);
 
   return (
     <ul class="list" aria-label="Language list">
       {languages.map((language) => {
+        const translatedSlug = pageKey ? pageMap[pageKey]?.[language.code] : '';
+        const href = translatedSlug ? `/${language.code}/${translatedSlug}` : `/${language.code}`;
         return (
           <li key={language.code} class="list-item">
             <a
-              href={`/${language.code}${currentPathWithoutLocale}`}
+              href={href}
               onClick$={() => {
                 isModalOpen.value = false;
               }}

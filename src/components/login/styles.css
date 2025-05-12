@@ -1,0 +1,28 @@
+.login-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.login-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafb;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.login-right {
+  flex: 1;
+  background-image: url('https://static.xolo.io/h-202505-006/hub/images/login/login-background.svg'); /* cambia path se necessario */
+  background-size: cover;
+  background-position: center;
+}

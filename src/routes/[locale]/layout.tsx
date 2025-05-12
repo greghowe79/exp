@@ -6,7 +6,7 @@ import { useNavigationActions } from '~/hooks/useNavigationActions';
 import { getListItems } from '~/data/nav-data';
 import { languages } from '~/data/language-selector-data';
 import LanguageSelector from '~/components/language-selector/languageSelector';
-import { guessLocale, locales, getLocale } from 'compiled-i18n';
+import { guessLocale, locales, getLocale, _ } from 'compiled-i18n';
 
 const replaceLocale = (pathname: string, oldLocale: string, locale: string) => {
   const idx = pathname.indexOf(oldLocale);
@@ -47,7 +47,7 @@ export default component$(() => {
 
   return (
     <>
-      {normalizedPath !== '/login/' && (
+      {normalizedPath !== `/${_('slug_login')}/` && (
         <NavigationMenu ariaLabel="Menu principale" logoComponent={Logo} listItems={listItems} actions={actions} locale={currentLocale} />
       )}
 

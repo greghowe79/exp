@@ -2,9 +2,19 @@
   "locale": "pt-PT",
   "name": "pt (PT)",
   "translations": {
+    "welcome": "Bem-vindo ao nosso site!",
+    "main_content": "Este é o conteúdo principal da página.",
     "navbar_about": "Sobre nós",
     "navbar_services": "Serviços",
     "navbar_contact": "Contate-nos",
-    "navbar_login": "Entrar"
+    "navbar_login": "Entrar",
+    "page_contact_title": "Página de Contacto",
+    "page_services_title": "Página de Serviços",
+    "page_about_title": "Página Sobre Nós",
+    "page_login_title": "Página de Login",
+    "slug_about": "sobre-nos",
+    "slug_services": "servicos",
+    "slug_contact": "contacto",
+    "slug_login": "entrar"
   }
 }

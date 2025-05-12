@@ -11,7 +11,7 @@ export const useNavigationActions = (navigate: RouteNavigate, isModalOpen: Signa
       id: 'login',
       label: _('navbar_login'),
       onClick$: $(async () => {
-        await navigate(`/${currentLocale}/login/`);
+        await navigate(`/${currentLocale}/${_('slug_login')}/`);
       }),
       variant: 'primary' as ButtonVariant,
     },

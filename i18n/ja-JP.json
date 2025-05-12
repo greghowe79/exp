@@ -2,9 +2,19 @@
   "locale": "ja-JP",
   "name": "ja (JP)",
   "translations": {
+    "welcome": "私たちのウェブサイトへようこそ！",
+    "main_content": "これはページの主要なコンテンツです。",
     "navbar_about": "私たちについて",
     "navbar_services": "サービス",
     "navbar_contact": "お問い合わせ",
-    "navbar_login": "ログイン"
+    "navbar_login": "ログイン",
+    "page_contact_title": "お問い合わせページ",
+    "page_services_title": "サービスページ",
+    "page_about_title": "私たちについてのページ",
+    "page_login_title": "ログインページ",
+    "slug_about": "私たちについて",
+    "slug_services": "サービス",
+    "slug_contact": "お問い合わせ",
+    "slug_login": "login"
   }
 }
