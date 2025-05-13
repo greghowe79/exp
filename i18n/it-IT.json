@@ -8,6 +8,7 @@
     "navbar_services": "Servizi",
     "navbar_contact": "Contatti",
     "navbar_login": "Accedi",
+    "navbar_signup": "Registrati",
     "page_contact_title": "Pagina Contatti",
     "page_services_title": "Pagina Servizi",
     "page_about_title": "Pagina Chi Siamo",
@@ -16,6 +17,7 @@
     "slug_services": "servizi",
     "slug_contact": "contatti",
     "slug_login": "accesso",
+    "slug_signup": "registrazione",
     "form_submit": "Invia"
   }
 }

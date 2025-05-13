@@ -16,6 +16,14 @@ export const useNavigationActions = (navigate: RouteNavigate, isModalOpen: Signa
       variant: 'primary' as ButtonVariant,
     },
     {
+      id: 'signup',
+      label: _('navbar_signup'),
+      onClick$: $(async () => {
+        await navigate(`/${currentLocale}/${_('slug_signup')}/`);
+      }),
+      variant: 'primary' as ButtonVariant,
+    },
+    {
       id: 'language',
       onClick$: $(() => (isModalOpen.value = !isModalOpen.value)),
       icon: FaGlobe,

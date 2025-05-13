@@ -8,6 +8,7 @@
     "navbar_services": "服务",
     "navbar_contact": "联系我们",
     "navbar_login": "登录",
+    "navbar_signup": "注册",
     "page_contact_title": "联系我们页面",
     "page_services_title": "服务页面",
     "page_about_title": "关于我们页面",
@@ -15,6 +16,7 @@
     "slug_about": "关于我们",
     "slug_services": "服务",
     "slug_contact": "联系",
-    "slug_login": "login"
+    "slug_login": "login",
+    "slug_signup": "signup"
   }
 }

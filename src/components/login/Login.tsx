@@ -1,20 +1,8 @@
-import { _ } from 'compiled-i18n';
+import { _, getLocale } from 'compiled-i18n';
 import { $, component$, useSignal, useStylesScoped$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { Modal } from '@greghowe79/the-lib';
-import { Form, server$ } from '@builder.io/qwik-city';
-
-// export const useAddUser = routeAction$(async (data, requestEvent) => {
-//   // This will only run on the server when the user submits the form (or when the action is called programmatically)
-//   const userID = await db.users.add({
-//     firstName: data.firstName,
-//     lastName: data.lastName,
-//   });
-//   return {
-//     success: true,
-//     userID,
-//   };
-// });
+import { Form, Link, server$ } from '@builder.io/qwik-city';
 
 export const addUser = server$(function (email: string, password: string) {
   const greeting = `Hello ${email} ${password}`;
@@ -27,6 +15,7 @@ export const Login = component$(() => {
   const open = useSignal(true);
   const email = useSignal('');
   const password = useSignal('');
+  const currentLocale = getLocale();
 
   const createNewUser = $(async () => {
     const greeting = await addUser(email.value, password.value);
@@ -56,6 +45,7 @@ export const Login = component$(() => {
             // When the action is done successfully, the `action.value` property will contain the return value of the action
             <p>User {action.value.userID} added successfully</p>
           )} */}
+          <Link href={`/${currentLocale}/${_('slug_signup')}`}>{_('slug_signup')}</Link>
         </Modal>
       </div>
       <div class="login-right"></div>

@@ -47,7 +47,7 @@ export default component$(() => {
 
   return (
     <>
-      {normalizedPath !== `/${_('slug_login')}/` && (
+      {normalizedPath !== `/${_('slug_login')}/` && normalizedPath !== `/${_('slug_signup')}/` && (
         <NavigationMenu ariaLabel="Menu principale" logoComponent={Logo} listItems={listItems} actions={actions} locale={currentLocale} />
       )}
 

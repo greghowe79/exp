@@ -1,3 +1,5 @@
+import { sign } from "crypto";
+
 // src/lib/pageMap.ts
 export const pageMap:any = {
   about: {
@@ -35,9 +37,16 @@ export const pageMap:any = {
     'fr-FR': 'connexion',
     'pt-PT': 'entrar',
     'ja-JP': 'login',
-    'zh-CN': 'login',
-
-    
+    'zh-CN': 'login', 
+  },
+  signup:{
+    'en-US': 'signup',
+    'it-IT': 'registrazione',
+    'es-ES': 'registro',
+    'fr-FR': 'inscription',
+    'pt-PT': 'registro',
+    'ja-JP': 'signup',
+    'zh-CN': 'signup',
   }
 };
 

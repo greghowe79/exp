@@ -8,6 +8,7 @@
     "navbar_services": "Services",
     "navbar_contact": "Contact us",
     "navbar_login": "Login",
+    "navbar_signup": "Sign up",
     "page_contact_title": "Contact Page",
     "page_services_title": "Services Page",
     "page_about_title": "About Us Page",
@@ -16,6 +17,7 @@
     "slug_services": "services",
     "slug_contact": "contact",
     "slug_login": "login",
+    "slug_signup": "signup",
     "form_submit": "Submit"
   }
 }

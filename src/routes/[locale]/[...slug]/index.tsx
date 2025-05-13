@@ -5,6 +5,7 @@ import { Services } from '~/components/services/Services';
 import { Contact } from '~/components/contact/Contact';
 import { resolvePageKey } from '~/lib/pageMap';
 import { Login } from '~/components/login/Login';
+import { SignUp } from '~/components/signup/SignUp';
 
 export default component$(() => {
   const loc = useLocation();
@@ -24,6 +25,8 @@ export default component$(() => {
       return <Contact />;
     case 'login':
       return <Login />;
+    case 'signup':
+      return <SignUp />;
     default:
       return <h1>404 - Page Not Found</h1>;
   }

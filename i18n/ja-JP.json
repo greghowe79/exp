@@ -8,6 +8,7 @@
     "navbar_services": "サービス",
     "navbar_contact": "お問い合わせ",
     "navbar_login": "ログイン",
+    "navbar_signup": "サインアップ",
     "page_contact_title": "お問い合わせページ",
     "page_services_title": "サービスページ",
     "page_about_title": "私たちについてのページ",
@@ -15,6 +16,7 @@
     "slug_about": "私たちについて",
     "slug_services": "サービス",
     "slug_contact": "お問い合わせ",
-    "slug_login": "login"
+    "slug_login": "login",
+    "slug_signup": "signup"
   }
 }
