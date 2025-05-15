@@ -1,21 +1,9 @@
 import { _ } from 'compiled-i18n';
-import { $, component$, useSignal, useStore, useStylesScoped$ } from '@builder.io/qwik';
+import { $, component$, useComputed$, useSignal, useStylesScoped$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
-import { Button, Modal } from '@greghowe79/the-lib';
-//import { Form } from '@builder.io/qwik-city';
+import { Button, Modal, Input } from '@greghowe79/the-lib';
 import { supabase } from '~/lib/db';
-
-interface messageStore {
-  message?: string;
-  status: string;
-}
-export const validateEmail = (email: string) => {
-  const regex = new RegExp(/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/);
-  if (regex.test(email)) {
-    return true;
-  }
-  return false;
-};
+import { validateEmail, validatePassword } from '~/utility/validators';
 
 export const SignUp = component$(() => {
   useStylesScoped$(styles);
@@ -23,49 +11,30 @@ export const SignUp = component$(() => {
   const formIsVisible = useSignal(false);
   const email = useSignal('');
   const password = useSignal('');
-  const messageStore = useStore<messageStore>({ message: '', status: 'error' });
+  const emailError = useSignal<string | null>(null);
+  const passwordError = useSignal<string | null>(null);
+  const emailTouched = useSignal(false);
+  const passwordTouched = useSignal(false);
   const isLoading = useSignal(false);
 
+  const isSubmitDisabled = useComputed$(() => {
+    return !!emailError.value || !emailTouched.value || !!passwordError.value || !passwordTouched.value || isLoading.value;
+  });
+
   const handleSignUp = $(async () => {
-    // Initialize resets
-    messageStore.message = undefined;
-    messageStore.status = 'error';
     isLoading.value = true;
 
-    // Value extraction
-    const emailValue = email.value;
-    //const isTerms = event.target.terms.checked;
-    const isEmailValid = validateEmail(emailValue);
-
-    // Email validation
-    if (!isEmailValid) {
-      messageStore.message = 'You must have a valid email';
-      isLoading.value = false;
-      return;
-    }
-
-    // Terms validation
-    // if (!isTerms) {
-    //   message.message = 'You must agree to our terms, privacy and disclaimer before signing up';
-    //   isLoading.value = false;
-    //   return;
-    // }
-
-    // Create user in supabase
     const { data, error } = await supabase.auth.signUp({
       email: email.value,
       password: password.value,
     });
 
-    // Confirm signup
     if (data.user?.id) {
-      messageStore.message = 'Success. Please check your email/spam folder';
-      messageStore.status = 'success';
       email.value = '';
       password.value = '';
       isLoading.value = false;
+      open.value = false;
     } else {
-      messageStore.message = 'There was a problem creating a user. ' + error?.message;
       isLoading.value = false;
     }
   });
@@ -79,19 +48,35 @@ export const SignUp = component$(() => {
         primaryAction={handleSignUp}
         isLoading={isLoading}
         primaryButtonLabel={formIsVisible.value && _('navbar_signup')}
+        primaryButtonDisabled={isSubmitDisabled}
       >
         {formIsVisible.value ? (
-          // <h1>{_('navbar_signup')}</h1>
           <form class="form">
-            <label>
-              <input bind:value={email} type="email" placeholder="Email" class="input" />
-            </label>
-            <div>{messageStore.message}</div>
-            <label>
-              <input bind:value={password} placeholder="Password" class="input" />
-            </label>
+            <Input
+              id="input_email"
+              type="email"
+              placeholder="Email"
+              value={email}
+              error={emailError}
+              onValidate$={async (value) => {
+                emailError.value = await validateEmail(value);
+                return emailError.value!;
+              }}
+              onInput$={() => (emailTouched.value = true)}
+            />
 
-            {/* <div>{messageStore.message}</div> */}
+            <Input
+              id="input_password"
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              error={passwordError}
+              onValidate$={async (value) => {
+                passwordError.value = await validatePassword(value);
+                return passwordError.value!;
+              }}
+              onInput$={() => (passwordTouched.value = true)}
+            />
           </form>
         ) : (
           <div class="button-container">

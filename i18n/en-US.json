@@ -18,6 +18,9 @@
     "slug_contact": "contact",
     "slug_login": "login",
     "slug_signup": "signup",
-    "form_submit": "Submit"
+    "form_submit": "Submit",
+    "form.errors.invalidEmail": "Please enter a valid email address",
+    "form.errors.invalidPassword": "Password must be 8-16 characters long and include at least one digit, one lowercase letter, one uppercase letter, and one special character.",
+    "form.errors.inputRequired": " Field required"
   }
 }
