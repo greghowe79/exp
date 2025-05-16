@@ -22,7 +22,8 @@
     "form.errors.invalidEmail": "Inserisci un indirizzo email valido",
     "form.errors.invalidPassword": "La password deve essere lunga 8-16 caratteri e includere almeno una cifra, una lettera minuscola, una lettera maiuscola e un carattere speciale.",
     "form.errors.inputRequired": "Campo obbligatorio",
-    "popup.signupTitle": "Operazione completata con successo.",
+    "popup.signupSuccessTitle": "Operazione completata con successo.",
+    "popup.signupErrorTitle": "Operazione non riuscita",
     "popup.signupDescription": "Controlla la tua email per confermare la registrazione."
   }
 }

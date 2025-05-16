@@ -16,6 +16,14 @@
     "slug_about": "sobre-nos",
     "slug_services": "servicos",
     "slug_contact": "contacto",
-    "slug_login": "entrar"
+    "slug_login": "entrar",
+    "slug_signup": "registrazione",
+    "form_submit": "Enviar",
+    "form.errors.invalidEmail": "Insira um endereço de email válido",
+    "form.errors.invalidPassword": "A senha deve ter entre 8 e 16 caracteres e incluir pelo menos um número, uma letra minúscula, uma letra maiúscula e um caractere especial.",
+    "form.errors.inputRequired": "Campo obrigatório",
+    "popup.signupSuccessTitle": "Operação concluída com sucesso.",
+    "popup.signupErrorTitle": "Falha na operação",
+    "popup.signupDescription": "Verifique seu email para confirmar o cadastro."
   }
 }

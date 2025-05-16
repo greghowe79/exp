@@ -1,52 +1,26 @@
-import { _, getLocale } from 'compiled-i18n';
-import { $, component$, useComputed$, useContext, useSignal, useStylesScoped$ } from '@builder.io/qwik';
+import { _ } from 'compiled-i18n';
+import { component$, useStylesScoped$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { Button, Modal, Input } from '@greghowe79/the-lib';
-import { supabase } from '~/lib/db';
 import { validateEmail, validatePassword } from '~/utility/validators';
-import { PopupContext } from '~/root';
+import { useSignUp } from '~/hooks/useSignUp';
 
 export const SignUp = component$(() => {
   useStylesScoped$(styles);
-  const open = useSignal(true);
-  const formIsVisible = useSignal(false);
-  const email = useSignal('');
-  const password = useSignal('');
-  const emailError = useSignal<string | null>(null);
-  const passwordError = useSignal<string | null>(null);
-  const emailTouched = useSignal(false);
-  const passwordTouched = useSignal(false);
-  const isLoading = useSignal(false);
-  const popupContext = useContext(PopupContext);
-  const currentLocale = getLocale();
 
-  const isSubmitDisabled = useComputed$(() => {
-    return !!emailError.value || !emailTouched.value || !!passwordError.value || !passwordTouched.value || isLoading.value;
-  });
-
-  const handleSignUp = $(async () => {
-    isLoading.value = true;
-
-    const { data, error } = await supabase.auth.signUp({
-      email: email.value,
-      password: password.value,
-    });
-
-    if (data.user?.id) {
-      email.value = '';
-      password.value = '';
-      isLoading.value = false;
-      open.value = false;
-      popupContext.open('RESULT_POPUP', {
-        title: _('popup.signupTitle'),
-        description: _('popup.signupDescription'),
-        isSuccess: true,
-        redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
-      });
-    } else {
-      isLoading.value = false;
-    }
-  });
+  const {
+    open,
+    formIsVisible,
+    email,
+    password,
+    emailError,
+    passwordError,
+    emailTouched,
+    passwordTouched,
+    isLoading,
+    isSubmitDisabled,
+    handleSignUp,
+  } = useSignUp();
 
   return (
     <div class="login-container">

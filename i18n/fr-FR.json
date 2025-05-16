@@ -22,7 +22,8 @@
     "form.errors.invalidEmail": "Veuillez entrer une adresse e-mail valide",
     "form.errors.invalidPassword": "Le mot de passe doit comporter entre 8 et 16 caractères et inclure au moins un chiffre, une lettre minuscule, une lettre majuscule et un caractère spécial.",
     "form.errors.inputRequired": "Champ requis",
-    "popup.signupTitle": "Opération réussie.",
+    "popup.signupSuccessTitle": "Opération réussie.",
+    "popup.signupErrorTitle": "Opération échouée",
     "popup.signupDescription": "Vérifiez votre e-mail pour confirmer l'inscription."
   }
 }

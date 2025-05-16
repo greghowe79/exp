@@ -17,6 +17,13 @@
     "slug_services": "服务",
     "slug_contact": "联系",
     "slug_login": "login",
-    "slug_signup": "signup"
+    "slug_signup": "signup",
+    "form_submit": "提交",
+    "form.errors.invalidEmail": "请输入有效的电子邮件地址",
+    "form.errors.invalidPassword": "密码必须为8-16个字符，且至少包含一个数字、一个小写字母、一个大写字母和一个特殊字符。",
+    "form.errors.inputRequired": "必填字段",
+    "popup.signupSuccessTitle": "操作成功完成。",
+    "popup.signupErrorTitle": "操作失败",
+    "popup.signupDescription": "请检查您的电子邮件以确认注册。"
   }
 }

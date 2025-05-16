@@ -17,6 +17,13 @@
     "slug_services": "サービス",
     "slug_contact": "お問い合わせ",
     "slug_login": "login",
-    "slug_signup": "signup"
+    "slug_signup": "signup",
+    "form_submit": "送信",
+    "form.errors.invalidEmail": "有効なメールアドレスを入力してください",
+    "form.errors.invalidPassword": "パスワードは8～16文字で、数字、小文字、大文字、特殊文字をそれぞれ少なくとも1つ含める必要があります。",
+    "form.errors.inputRequired": "必須項目です",
+    "popup.signupSuccessTitle": "操作が正常に完了しました。",
+    "popup.signupErrorTitle": "操作に失敗しました",
+    "popup.signupDescription": "登録を確認するためにメールをご確認ください。"
   }
 }
