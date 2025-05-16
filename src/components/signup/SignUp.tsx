@@ -1,9 +1,10 @@
-import { _ } from 'compiled-i18n';
-import { $, component$, useComputed$, useSignal, useStylesScoped$ } from '@builder.io/qwik';
+import { _, getLocale } from 'compiled-i18n';
+import { $, component$, useComputed$, useContext, useSignal, useStylesScoped$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { Button, Modal, Input } from '@greghowe79/the-lib';
 import { supabase } from '~/lib/db';
 import { validateEmail, validatePassword } from '~/utility/validators';
+import { PopupContext } from '~/root';
 
 export const SignUp = component$(() => {
   useStylesScoped$(styles);
@@ -16,6 +17,8 @@ export const SignUp = component$(() => {
   const emailTouched = useSignal(false);
   const passwordTouched = useSignal(false);
   const isLoading = useSignal(false);
+  const popupContext = useContext(PopupContext);
+  const currentLocale = getLocale();
 
   const isSubmitDisabled = useComputed$(() => {
     return !!emailError.value || !emailTouched.value || !!passwordError.value || !passwordTouched.value || isLoading.value;
@@ -34,6 +37,12 @@ export const SignUp = component$(() => {
       password.value = '';
       isLoading.value = false;
       open.value = false;
+      popupContext.open('RESULT_POPUP', {
+        title: _('popup.signupTitle'),
+        description: _('popup.signupDescription'),
+        isSuccess: true,
+        redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
+      });
     } else {
       isLoading.value = false;
     }

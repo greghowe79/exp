@@ -21,6 +21,8 @@
     "form_submit": "Submit",
     "form.errors.invalidEmail": "Please enter a valid email address",
     "form.errors.invalidPassword": "Password must be 8-16 characters long and include at least one digit, one lowercase letter, one uppercase letter, and one special character.",
-    "form.errors.inputRequired": " Field required"
+    "form.errors.inputRequired": " Field required",
+    "popup.signupTitle": "Operation completed successfully.",
+    "popup.signupDescription": "Check your email to confirm the registration."
   }
 }

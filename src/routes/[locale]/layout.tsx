@@ -7,6 +7,7 @@ import { getListItems } from '~/data/nav-data';
 import { languages } from '~/data/language-selector-data';
 import LanguageSelector from '~/components/language-selector/languageSelector';
 import { guessLocale, locales, getLocale, _ } from 'compiled-i18n';
+import { PopupDisplay } from '~/components/popup/Popup';
 
 const replaceLocale = (pathname: string, oldLocale: string, locale: string) => {
   const idx = pathname.indexOf(oldLocale);
@@ -56,7 +57,7 @@ export default component$(() => {
           <LanguageSelector languages={languages} isModalOpen={isModalOpen} />
         </Modal>
       )}
-
+      <PopupDisplay />
       <Slot />
     </>
   );
