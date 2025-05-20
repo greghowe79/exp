@@ -2,8 +2,8 @@
   "locale": "ja-JP",
   "name": "ja (JP)",
   "translations": {
-    "welcome": "私たちのウェブサイトへようこそ！",
-    "main_content": "これはページの主要なコンテンツです。",
+    "hero_title": "あなたにぴったりの専門家を見つけましょう",
+    "hero_content": "どこにいても最高の専門家を見つけましょう",
     "navbar_about": "私たちについて",
     "navbar_services": "サービス",
     "navbar_contact": "お問い合わせ",

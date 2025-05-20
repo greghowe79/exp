@@ -2,8 +2,8 @@
   "locale": "it-IT",
   "name": "it (IT)",
   "translations": {
-    "welcome": "Benvenuti nel nostro sito!",
-    "main_content": "Questo è il contenuto principale della pagina.",
+    "hero_title": "Trova il professionista giusto per te",
+    "hero_content": "Scopri i migliori professionisti, ovunque tu sia",
     "navbar_about": "Chi siamo",
     "navbar_services": "Servizi",
     "navbar_contact": "Contatti",

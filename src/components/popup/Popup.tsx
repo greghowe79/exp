@@ -1,4 +1,4 @@
-import { $, component$, useContext, useSignal } from '@builder.io/qwik';
+import { $, component$, useContext, useSignal, useTask$ } from '@builder.io/qwik';
 import { useNavigate } from '@builder.io/qwik-city';
 import { Modal } from '@greghowe79/the-lib';
 import { PopupContext } from '~/root';
@@ -8,15 +8,18 @@ export const PopupDisplay = component$(() => {
   const popupContext = useContext(PopupContext);
   const isModalOpen = useSignal(true);
 
+  useTask$(({ track }) => {
+    track(() => popupContext.popup);
+    isModalOpen.value = !!popupContext.popup;
+  });
+
   if (!popupContext.popup) {
-    // Nessun popup da mostrare
     return null;
   }
 
   const { data } = popupContext.popup;
 
   const handleClose = $(async () => {
-    isModalOpen.value = false;
     const redirectUrl = await popupContext.close();
     if (redirectUrl) {
       await nav(redirectUrl);
@@ -24,9 +27,18 @@ export const PopupDisplay = component$(() => {
   });
 
   return (
-    <Modal open={isModalOpen} title={data.title} closeButtonVisible={false} primaryAction={handleClose} primaryButtonLabel={'Close'}>
-      <p>{data.description}</p>
-      {data.isSuccess ? <span class="success-icon">✔️</span> : <span class="error-icon">❌</span>}
-    </Modal>
+    <div style={{ position: 'fixed', zIndex: 6000 }}>
+      <Modal
+        open={isModalOpen}
+        title={data.title}
+        closeButtonVisible={false}
+        primaryAction={handleClose}
+        primaryButtonLabel={'Close'}
+        type="small"
+      >
+        <p>{data.description}</p>
+        {data.isSuccess ? <span class="success-icon">✔️</span> : <span class="error-icon">❌</span>}
+      </Modal>
+    </div>
   );
 });

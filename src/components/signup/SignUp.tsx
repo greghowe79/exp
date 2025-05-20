@@ -32,6 +32,7 @@ export const SignUp = component$(() => {
         isLoading={isLoading}
         primaryButtonLabel={formIsVisible.value && _('navbar_signup')}
         primaryButtonDisabled={isSubmitDisabled}
+        type="small"
       >
         {formIsVisible.value ? (
           <form class="form">

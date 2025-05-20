@@ -2,8 +2,8 @@
   "locale": "fr-FR",
   "name": "fr (FR)",
   "translations": {
-    "welcome": "Bienvenue sur notre site web !",
-    "main_content": "Ceci est le contenu principal de la page.",
+    "hero_title": "Trouvez le professionnel qu’il vous faut",
+    "hero_content": "Découvrez les meilleurs professionnels, où que vous soyez",
     "navbar_about": "À propos de nous",
     "navbar_services": "Services",
     "navbar_contact": "Contactez-nous",

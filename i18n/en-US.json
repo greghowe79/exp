@@ -2,8 +2,8 @@
   "locale": "en-US",
   "name": "en (US)",
   "translations": {
-    "welcome": "Welcome to our website!",
-    "main_content": "This is the main content of the page.",
+    "hero_title": "Find the right professional for you",
+    "hero_content": "Discover the best professionals, wherever you are",
     "navbar_about": "About us",
     "navbar_services": "Services",
     "navbar_contact": "Contact us",

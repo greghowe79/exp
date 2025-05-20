@@ -2,8 +2,8 @@
   "locale": "zh-CN",
   "name": "zh (CN)",
   "translations": {
-    "welcome": "欢迎来到我们的网站！",
-    "main_content": "这是页面的主要内容。",
+    "hero_title": "为您找到合适的专业人士",
+    "hero_content": "无论您身在何处，发现最优秀的专业人士",
     "navbar_about": "关于我们",
     "navbar_services": "服务",
     "navbar_contact": "联系我们",
