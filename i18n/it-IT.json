@@ -4,6 +4,9 @@
   "translations": {
     "hero_title": "Trova il professionista giusto per te",
     "hero_content": "Scopri i migliori professionisti, ovunque tu sia",
+    "step_search": "Scopri Professionisti Qualificati",
+    "step_search_description": "Trova il professionista perfetto per le tue esigenze. Esplora profili dettagliati per fare la scelta giusta.",
+    "step_register": "Crea il Tuo Profilo Professionale",
     "navbar_about": "Chi siamo",
     "navbar_services": "Servizi",
     "navbar_contact": "Contatti",

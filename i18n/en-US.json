@@ -4,6 +4,9 @@
   "translations": {
     "hero_title": "Find the right professional for you",
     "hero_content": "Discover the best professionals, wherever you are",
+    "step_search": "Discover Qualified Professionals",
+    "step_search_description": "Find the perfect professional for your needs. Explore detailed profiles to make the right choice.",
+    "step_register": "Create Your Professional Profile",
     "navbar_about": "About us",
     "navbar_services": "Services",
     "navbar_contact": "Contact us",

@@ -4,6 +4,9 @@
   "translations": {
     "hero_title": "Trouvez le professionnel qu’il vous faut",
     "hero_content": "Découvrez les meilleurs professionnels, où que vous soyez",
+    "step_search": "Découvrez des Professionnels Qualifiés",
+    "step_search_description": "Trouvez le professionnel parfait pour vos besoins. Explorez des profils détaillés pour faire le bon choix.",
+    "step_register": "Créez Votre Profil Professionnel",
     "navbar_about": "À propos de nous",
     "navbar_services": "Services",
     "navbar_contact": "Contactez-nous",

@@ -1,14 +1,8 @@
 body {
   margin: 0;
 }
-/* ul a {
-  min-width: 125px;
-  text-align: center;
-  white-space: nowrap;
+#home_step {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-span {
-  min-width: 125px;
-  text-align: center;
-  white-space: nowrap;
-} */

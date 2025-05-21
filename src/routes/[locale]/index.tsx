@@ -1,10 +1,12 @@
 import { component$, Resource, useResource$, useSignal } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { Hero } from '@greghowe79/the-lib';
+import { Hero, OnboardingSteps } from '@greghowe79/the-lib';
 import { _ } from 'compiled-i18n';
 import SearchBar from '~/components/search-bar/SearchBar';
+import { useSteps } from '~/hooks/useSteps';
 
 export default component$(() => {
+  const steps = useSteps();
   const query = useSignal('');
   const result = useSignal(0);
 
@@ -13,9 +15,6 @@ export default component$(() => {
 
   const jokes = useResource$<{ value: string }[]>(async ({ track, cleanup }) => {
     track(() => query.value);
-    // A good practice is to use `AbortController` to abort the fetching of data if
-    // new request comes in. We create a new `AbortController` and register a `cleanup`
-    // function which is called when this function re-runs.
     const controller = new AbortController();
     cleanup(() => controller.abort());
 
@@ -33,9 +32,14 @@ export default component$(() => {
   });
   return (
     <main id="contenuto-home">
-      <Hero title={heroTitle} content={heroContent}>
-        <SearchBar query={query} />
-      </Hero>
+      <section id="home_hero">
+        <Hero title={heroTitle} content={heroContent}>
+          <SearchBar query={query} />
+        </Hero>
+      </section>
+      <section id="home_step">
+        <OnboardingSteps steps={steps} />
+      </section>
       <section>
         <Resource
           value={jokes}

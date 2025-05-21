@@ -4,6 +4,9 @@
   "translations": {
     "hero_title": "为您找到合适的专业人士",
     "hero_content": "无论您身在何处，发现最优秀的专业人士",
+    "step_search": "发现合格的专业人士",
+    "step_search_description": "找到适合您需求的完美专业人士。探索详细资料以做出正确选择。",
+    "step_register": "创建您的专业资料",
     "navbar_about": "关于我们",
     "navbar_services": "服务",
     "navbar_contact": "联系我们",

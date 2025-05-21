@@ -4,6 +4,9 @@
   "translations": {
     "hero_title": "あなたにぴったりの専門家を見つけましょう",
     "hero_content": "どこにいても最高の専門家を見つけましょう",
+    "step_search": "資格のある専門家を探す",
+    "step_search_description": "あなたのニーズに合った完璧な専門家を見つけましょう。正しい選択をするために詳細なプロフィールを探索してください。",
+    "step_register": "プロのプロフィールを作成する",
     "navbar_about": "私たちについて",
     "navbar_services": "サービス",
     "navbar_contact": "お問い合わせ",

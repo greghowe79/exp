@@ -1,7 +1,7 @@
 import { $, type Signal } from '@builder.io/qwik';
 import type { RouteNavigate } from '@builder.io/qwik-city';
-import { FaGlobe } from '../assets/world';
 import { _ } from 'compiled-i18n';
+import { FaGlobe } from '~/assets/world';
 
 type ButtonVariant = 'primary' | 'icon' | 'secondary';
 
