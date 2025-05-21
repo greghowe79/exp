@@ -22,6 +22,7 @@
     "slug_login": "login",
     "slug_signup": "signup",
     "form_submit": "提交",
+    "slug_dashboard": "dashboard",
     "form.errors.invalidEmail": "请输入有效的电子邮件地址",
     "form.errors.invalidPassword": "密码必须为8-16个字符，且至少包含一个数字、一个小写字母、一个大写字母和一个特殊字符。",
     "form.errors.inputRequired": "必填字段",

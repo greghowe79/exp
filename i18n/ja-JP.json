@@ -22,6 +22,7 @@
     "slug_login": "login",
     "slug_signup": "signup",
     "form_submit": "送信",
+    "slug_dashboard": "dashboard",
     "form.errors.invalidEmail": "有効なメールアドレスを入力してください",
     "form.errors.invalidPassword": "パスワードは8～16文字で、数字、小文字、大文字、特殊文字をそれぞれ少なくとも1つ含める必要があります。",
     "form.errors.inputRequired": "必須項目です",

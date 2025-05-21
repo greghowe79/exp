@@ -7,12 +7,15 @@ import { resolvePageKey } from '~/lib/pageMap';
 import { Login } from '~/components/login/Login';
 import { SignUp } from '~/components/signup/SignUp';
 
+import Dashboard from '~/components/dashboard/Dashboard';
+
 export default component$(() => {
   const loc = useLocation();
   const lang = loc.params.locale;
   const slugParam = loc.params.slug;
   const slugArr = Array.isArray(slugParam) ? slugParam : [slugParam];
-  const slug = slugArr[0];
+  const slug = slugArr[0].split('/')[0];
+  const userId = slugArr[0].split('/')[1];
 
   const pageKey = resolvePageKey(slug, lang);
 
@@ -27,6 +30,8 @@ export default component$(() => {
       return <Login />;
     case 'signup':
       return <SignUp />;
+    case `dashboard`:
+      return userId ? <Dashboard userId={userId} /> : <h1>404 - Page Not Found</h1>;
     default:
       return <h1>404 - Page Not Found</h1>;
   }

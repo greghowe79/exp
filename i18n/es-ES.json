@@ -22,6 +22,7 @@
     "slug_signup": "registro",
     "slug_login": "iniciar-sesion",
     "form_submit": "Enviar",
+    "slug_dashboard": "panel-de-control",
     "form.errors.invalidEmail": "Por favor, introduce una dirección de correo electrónico válida",
     "form.errors.invalidPassword": "La contraseña debe tener entre 8 y 16 caracteres e incluir al menos un dígito, una letra minúscula, una letra mayúscula y un carácter especial.",
     "form.errors.inputRequired": "Campo requerido",

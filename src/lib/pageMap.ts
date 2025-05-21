@@ -1,6 +1,3 @@
-import { sign } from "crypto";
-
-// src/lib/pageMap.ts
 export const pageMap:any = {
   about: {
     'en-US': 'about',
@@ -47,14 +44,25 @@ export const pageMap:any = {
     'pt-PT': 'registro',
     'ja-JP': 'signup',
     'zh-CN': 'signup',
-  }
+  },
+    dashboard:{
+    'en-US': 'dashboard',
+    'it-IT': 'pannello-di-controllo',
+    'es-ES': 'panel-de-control',
+    'fr-FR': 'tableau-de-bord',
+    'pt-PT': 'painel-de-controle',
+    'ja-JP': 'dashboard',
+    'zh-CN': 'dashboard',
+  },
 };
 
 export function resolvePageKey(slug: string, lang: string): keyof typeof pageMap | null {
   for (const key in pageMap) {
-    if (pageMap[key][lang] === slug) {
+    if (pageMap[key][lang] === slug ) {
       return key as keyof typeof pageMap;
     }
   }
   return null;
 }
+
+

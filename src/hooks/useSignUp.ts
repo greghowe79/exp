@@ -2,8 +2,9 @@ import { $, useComputed$, useSignal, useContext } from '@builder.io/qwik';
 import { PopupContext } from '~/root';
 import { _, getLocale } from 'compiled-i18n';
 import { AuthService } from '~/services/auth.service';
+import type { RouteNavigate } from '@builder.io/qwik-city';
 
-export const useSignUp = () => {
+export const useAuth = (type: string, navigate: RouteNavigate) => {
   const open = useSignal(true);
   const formIsVisible = useSignal(false);
   const email = useSignal('');
@@ -28,51 +29,77 @@ export const useSignUp = () => {
     );
   });
 
-  const handleSignUp = $(async () => {
-    isLoading.value = true;
+  const handleAuth = $(async () => {
+    if (type === 'SIGNUP') {
+      isLoading.value = true;
+      const { data, error: emailError } = await AuthService.checkEmailExists(email.value);
 
-    const { data, error: emailError } = await AuthService.checkEmailExists(email.value);
-
-    if (emailError) {
-      console.error(emailError);
-      return;
-    }
-    if (data.length > 0) {
-      popupContext.open('RESULT_POPUP', {
-        title: _('popup.signupErrorTitle'),
-        description: 'Email già utilizzata',
-        isSuccess: false,
-      });
-      email.value = '';
-      password.value = '';
-      isLoading.value = false;
-      return;
-    }
-
-    try {
-      const data = await AuthService.signUp(email.value, password.value);
-
-      if (data.user?.id) {
+      if (emailError) {
+        console.error(emailError);
+        return;
+      }
+      if (data.length > 0) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.signupSuccessTitle'),
-          description: _('popup.signupDescription'),
-          isSuccess: true,
-          redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
+          title: _('popup.signupErrorTitle'),
+          description: 'Email già utilizzata',
+          isSuccess: false,
         });
         email.value = '';
         password.value = '';
         isLoading.value = false;
-        open.value = false;
+        return;
       }
-    } catch (error: any) {
-      popupContext.open('RESULT_POPUP', {
-        title: _('popup.signupErrorTitle'),
-        description: error.message,
-        isSuccess: false,
-      });
-      email.value = '';
-      password.value = '';
-      isLoading.value = false;
+
+      try {
+        const data = await AuthService.signUp(email.value, password.value);
+
+        if (data.user?.id) {
+          popupContext.open('RESULT_POPUP', {
+            title: _('popup.signupSuccessTitle'),
+            description: _('popup.signupDescription'),
+            isSuccess: true,
+            redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
+          });
+          email.value = '';
+          password.value = '';
+          isLoading.value = false;
+          open.value = false;
+        }
+      } catch (error: any) {
+        popupContext.open('RESULT_POPUP', {
+          title: _('popup.signupErrorTitle'),
+          description: error.message,
+          isSuccess: false,
+        });
+        email.value = '';
+        password.value = '';
+        isLoading.value = false;
+      }
+    }
+    if (type === 'LOGIN') {
+      isLoading.value = true;
+      try {
+        const data = await AuthService.signInWithPassword(email.value, password.value);
+
+        console.log('DATA', data);
+
+        if (data.user.id) {
+          await navigate(`/${currentLocale}/${_('slug_dashboard')}/${data.user.id}`);
+          email.value = '';
+          password.value = '';
+          isLoading.value = false;
+          open.value = false;
+        }
+      } catch (error: any) {
+        popupContext.open('RESULT_POPUP', {
+          title: _('popup.signupErrorTitle'),
+          description: error.message,
+          isSuccess: false,
+        });
+        email.value = '';
+        password.value = '';
+        isLoading.value = false;
+      }
     }
   });
 
@@ -87,6 +114,6 @@ export const useSignUp = () => {
     passwordTouched,
     isLoading,
     isSubmitDisabled,
-    handleSignUp,
+    handleAuth,
   };
 };

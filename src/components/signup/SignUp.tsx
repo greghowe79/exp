@@ -3,7 +3,7 @@ import { component$, useStylesScoped$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { Button, Modal, Input } from '@greghowe79/the-lib';
 import { validateEmail, validatePassword } from '~/utility/validators';
-import { useSignUp } from '~/hooks/useSignUp';
+import { useAuth } from '~/hooks/useSignUp';
 
 export const SignUp = component$(() => {
   useStylesScoped$(styles);
@@ -19,16 +19,16 @@ export const SignUp = component$(() => {
     passwordTouched,
     isLoading,
     isSubmitDisabled,
-    handleSignUp,
-  } = useSignUp();
+    handleAuth,
+  } = useAuth('SIGNUP');
 
   return (
-    <div class="login-container">
+    <div class="form-container">
       <Modal
         open={open}
         title={_('navbar_signup')}
         closeButtonVisible={false}
-        primaryAction={handleSignUp}
+        primaryAction={handleAuth}
         isLoading={isLoading}
         primaryButtonLabel={formIsVisible.value && _('navbar_signup')}
         primaryButtonDisabled={isSubmitDisabled}

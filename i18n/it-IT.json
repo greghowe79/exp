@@ -22,6 +22,7 @@
     "slug_login": "accesso",
     "slug_signup": "registrazione",
     "form_submit": "Invia",
+    "slug_dashboard": "pannello-di-controllo",
     "form.errors.invalidEmail": "Inserisci un indirizzo email valido",
     "form.errors.invalidPassword": "La password deve essere lunga 8-16 caratteri e includere almeno una cifra, una lettera minuscola, una lettera maiuscola e un carattere speciale.",
     "form.errors.inputRequired": "Campo obbligatorio",
