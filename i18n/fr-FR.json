@@ -2,8 +2,9 @@
   "locale": "fr-FR",
   "name": "fr (FR)",
   "translations": {
-    "hero_title": "Trouvez le professionnel qu’il vous faut",
-    "hero_content": "Découvrez les meilleurs professionnels, où que vous soyez",
+    "hero_title": "Créez votre page web professionnelle",
+    "hero_content": "Soyez trouvé par de nouveaux clients où que vous soyez.",
+    "hero_cta": "Commencer",
     "step_search": "Découvrez des Professionnels Qualifiés",
     "step_search_description": "Trouvez le professionnel parfait pour vos besoins. Explorez des profils détaillés pour faire le bon choix.",
     "step_register": "Créez Votre Profil Professionnel",
@@ -22,12 +23,19 @@
     "slug_signup": "inscription",
     "slug_login": "connexion",
     "form_submit": "Soumettre",
+    "form_reset_password": "Mot de passe oublié ?",
     "slug_dashboard": "tableau-de-bord",
+    "slug_reset_password": "reinitialiser-mot-de-passe",
     "form.errors.invalidEmail": "Veuillez entrer une adresse e-mail valide",
     "form.errors.invalidPassword": "Le mot de passe doit comporter entre 8 et 16 caractères et inclure au moins un chiffre, une lettre minuscule, une lettre majuscule et un caractère spécial.",
     "form.errors.inputRequired": "Champ requis",
     "popup.signupSuccessTitle": "Opération réussie.",
     "popup.signupErrorTitle": "Opération échouée",
-    "popup.signupDescription": "Vérifiez votre e-mail pour confirmer l'inscription."
+    "popup.signupDescription": "Vérifiez votre e-mail pour confirmer l'inscription.",
+    "popup.reset_password_description": "Vérifiez votre email et suivez le lien pour réinitialiser le mot de passe de votre utilisateur",
+    "slug_update_password": "mettre-a-jour-mot-de-passe",
+    "form_reset_password-title": "Réinitialiser le mot de passe",
+    "form_reset_password-description": "Pour continuer, saisissez l'adresse email associée à votre compte.",
+    "form_reset_password-button": "Continuer"
   }
 }

@@ -2,8 +2,9 @@
   "locale": "pt-PT",
   "name": "pt (PT)",
   "translations": {
-    "hero_title": "Encontre o profissional certo para você",
-    "hero_content": "Descubra os melhores profissionais, onde quer que esteja",
+    "hero_title": "Crie a sua página web profissional",
+    "hero_content": "Seja encontrado por novos clientes onde quer que esteja.",
+    "hero_cta": "Começar",
     "step_search": "Descubra Profissionais Qualificados",
     "step_search_description": "Encontre o profissional perfeito para suas necessidades. Explore perfis detalhados para fazer a escolha certa.",
     "step_register": "Crie Seu Perfil Profissional",
@@ -22,12 +23,19 @@
     "slug_login": "entrar",
     "slug_signup": "registro",
     "form_submit": "Enviar",
+    "slug_reset_password": "redefinir-senha",
+    "form_reset_password": "Esqueceu a senha?",
     "slug_dashboard": "painel-de-controle",
     "form.errors.invalidEmail": "Insira um endereço de email válido",
     "form.errors.invalidPassword": "A senha deve ter entre 8 e 16 caracteres e incluir pelo menos um número, uma letra minúscula, uma letra maiúscula e um caractere especial.",
     "form.errors.inputRequired": "Campo obrigatório",
     "popup.signupSuccessTitle": "Operação concluída com sucesso.",
     "popup.signupErrorTitle": "Falha na operação",
-    "popup.signupDescription": "Verifique seu email para confirmar o cadastro."
+    "popup.signupDescription": "Verifique seu email para confirmar o cadastro.",
+    "popup.reset_password_description": "Verifique seu email e siga o link para redefinir a senha do seu usuário",
+    "slug_update_password": "atualizar-palavra-passe",
+    "form_reset_password-title": "Redefinir palavra-passe",
+    "form_reset_password-description": "Para continuar, insira o endereço de email associado à sua conta.",
+    "form_reset_password-button": "Continuar"
   }
 }

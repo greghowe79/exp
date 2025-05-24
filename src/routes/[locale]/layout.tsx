@@ -58,7 +58,9 @@ export default component$(() => {
         </Modal>
       )}
       <PopupDisplay />
-      <Slot />
+      <div class={normalizedPath !== `/${_('slug_login')}/` && normalizedPath !== `/${_('slug_signup')}/` && 'spacer'}>
+        <Slot />
+      </div>
     </>
   );
 });

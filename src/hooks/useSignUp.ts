@@ -4,7 +4,7 @@ import { _, getLocale } from 'compiled-i18n';
 import { AuthService } from '~/services/auth.service';
 import type { RouteNavigate } from '@builder.io/qwik-city';
 
-export const useAuth = (type: string, navigate: RouteNavigate) => {
+export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const open = useSignal(true);
   const formIsVisible = useSignal(false);
   const email = useSignal('');
@@ -84,7 +84,7 @@ export const useAuth = (type: string, navigate: RouteNavigate) => {
         console.log('DATA', data);
 
         if (data.user.id) {
-          await navigate(`/${currentLocale}/${_('slug_dashboard')}/${data.user.id}`);
+          await navigate?.(`/${currentLocale}/${_('slug_dashboard')}/${data.user.id}`);
           email.value = '';
           password.value = '';
           isLoading.value = false;
@@ -98,6 +98,29 @@ export const useAuth = (type: string, navigate: RouteNavigate) => {
         });
         email.value = '';
         password.value = '';
+        isLoading.value = false;
+      }
+    }
+    if (type === 'RESET-PASSWORD') {
+      isLoading.value = true;
+      try {
+        await AuthService.resetPassword(email.value, currentLocale);
+
+        popupContext.open('RESULT_POPUP', {
+          title: _('popup.signupSuccessTitle'),
+          description: _('popup.reset_password_description'),
+          isSuccess: true,
+        });
+        email.value = '';
+        isLoading.value = false;
+        open.value = false;
+      } catch (error: any) {
+        popupContext.open('RESULT_POPUP', {
+          title: _('popup.signupErrorTitle'),
+          description: error.message,
+          isSuccess: false,
+        });
+        email.value = '';
         isLoading.value = false;
       }
     }

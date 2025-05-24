@@ -1,19 +1,31 @@
-import { _ } from 'compiled-i18n';
-import { component$, useStylesScoped$ } from '@builder.io/qwik';
+import { _, getLocale } from 'compiled-i18n';
+import { component$, useStyles$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { Modal, Input } from '@greghowe79/the-lib';
 import { validateEmail, validatePassword } from '~/utility/validators';
 import { useAuth } from '~/hooks/useSignUp';
-import { useNavigate } from '@builder.io/qwik-city';
+import { Link, useNavigate } from '@builder.io/qwik-city';
 
 export const Login = component$(() => {
-  useStylesScoped$(styles);
+  useStyles$(styles);
   const nav = useNavigate();
+  const currentLocale = getLocale();
   const { open, email, password, emailError, passwordError, emailTouched, passwordTouched, isLoading, isSubmitDisabled, handleAuth } =
     useAuth('LOGIN', nav);
 
+  // const resetPassword = $(async () => {
+  //   console.log('email', email.value);
+  //   const { data, error } = await supabase.auth.resetPasswordForEmail(email.value, {
+  //     redirectTo: `/${currentLocale}/update-password`,
+  //   });
+  //   if (error) {
+  //     console.error(error);
+  //   }
+  //   console.log('DATA', data);
+  // });
+
   return (
-    <div class="login-container">
+    <div class="form-container">
       <Modal
         open={open}
         title={_('navbar_login')}
@@ -50,6 +62,9 @@ export const Login = component$(() => {
             }}
             onInput$={() => (passwordTouched.value = true)}
           />
+          <Link href={`/${currentLocale}/${_('slug_reset_password')}`} aria-label="reset-password" class="reset_password">
+            {_('form_reset_password')}
+          </Link>
         </form>
       </Modal>
     </div>

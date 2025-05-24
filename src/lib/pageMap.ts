@@ -54,6 +54,24 @@ export const pageMap:any = {
     'ja-JP': 'dashboard',
     'zh-CN': 'dashboard',
   },
+    reset:{
+    'en-US': 'reset-password',
+    'it-IT': 'ripristina-password',
+    'es-ES': 'restablecer-contraseña',
+    'fr-FR': 'reinitialiser-mot-de-passe',
+    'pt-PT': 'redefinir-senha',
+    'ja-JP': 'reset-password',
+    'zh-CN': 'reset-password',
+  },
+    update:{
+    'en-US': 'update-password',
+    'it-IT': 'aggiorna-password',
+    'es-ES': 'actualizar-contraseña',
+    'fr-FR': 'mettre-a-jour-mot-de-passe',
+    'pt-PT': 'atualizar-palavra-passe',
+    'ja-JP': 'update-password',
+    'zh-CN': 'update-password',
+  },
 };
 
 export function resolvePageKey(slug: string, lang: string): keyof typeof pageMap | null {

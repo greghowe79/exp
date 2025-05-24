@@ -2,8 +2,9 @@
   "locale": "en-US",
   "name": "en (US)",
   "translations": {
-    "hero_title": "Find the right professional for you",
-    "hero_content": "Discover the best professionals, wherever you are",
+    "hero_title": "Create your professional web page",
+    "hero_content": "Get found by new clients wherever you are",
+    "hero_cta": "Get Started",
     "step_search": "Discover Qualified Professionals",
     "step_search_description": "Find the perfect professional for your needs. Explore detailed profiles to make the right choice.",
     "step_register": "Create Your Professional Profile",
@@ -22,12 +23,19 @@
     "slug_login": "login",
     "slug_signup": "signup",
     "slug_dashboard": "dashboard",
+    "slug_reset_password": "reset-password",
     "form_submit": "Submit",
+    "form_reset_password": "Forgot your password?",
     "form.errors.invalidEmail": "Please enter a valid email address",
     "form.errors.invalidPassword": "Password must be 8-16 characters long and include at least one digit, one lowercase letter, one uppercase letter, and one special character.",
     "form.errors.inputRequired": " Field required",
     "popup.signupSuccessTitle": "Operation completed successfully.",
     "popup.signupErrorTitle": "Operation failed",
-    "popup.signupDescription": "Check your email to confirm the registration."
+    "popup.signupDescription": "Check your email to confirm the registration.",
+    "popup.reset_password_description": "Check your email and follow the link to reset the password for your user",
+    "slug_update_password": "update-password",
+    "form_reset_password-title": "Reset Password",
+    "form_reset_password-description": "To continue, enter the email address associated with your account.",
+    "form_reset_password-button": "Continue"
   }
 }

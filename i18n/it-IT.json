@@ -2,8 +2,9 @@
   "locale": "it-IT",
   "name": "it (IT)",
   "translations": {
-    "hero_title": "Trova il professionista giusto per te",
-    "hero_content": "Scopri i migliori professionisti, ovunque tu sia",
+    "hero_title": "Crea la tua pagina web professionale",
+    "hero_content": "Fatti trovare da nuovi clienti ovunque tu sia.",
+    "hero_cta": "Inizia ora",
     "step_search": "Scopri Professionisti Qualificati",
     "step_search_description": "Trova il professionista perfetto per le tue esigenze. Esplora profili dettagliati per fare la scelta giusta.",
     "step_register": "Crea il Tuo Profilo Professionale",
@@ -22,12 +23,19 @@
     "slug_login": "accesso",
     "slug_signup": "registrazione",
     "form_submit": "Invia",
+    "form_reset_password": "Hai dimenticato la password?",
     "slug_dashboard": "pannello-di-controllo",
+    "slug_reset_password": "ripristina-password",
     "form.errors.invalidEmail": "Inserisci un indirizzo email valido",
     "form.errors.invalidPassword": "La password deve essere lunga 8-16 caratteri e includere almeno una cifra, una lettera minuscola, una lettera maiuscola e un carattere speciale.",
     "form.errors.inputRequired": "Campo obbligatorio",
     "popup.signupSuccessTitle": "Operazione completata con successo.",
     "popup.signupErrorTitle": "Operazione non riuscita",
-    "popup.signupDescription": "Controlla la tua email per confermare la registrazione."
+    "popup.signupDescription": "Controlla la tua email per confermare la registrazione.",
+    "popup.reset_password_description": "Controlla la tua email e segui il link per reimpostare la password per il tuo utente",
+    "slug_update_password": "aggiorna-password",
+    "form_reset_password-title": "Ripristina la password",
+    "form_reset_password-description": "Per continuare, inserisci l’indirizzo email associato al tuo account.",
+    "form_reset_password-button": "Continua"
   }
 }

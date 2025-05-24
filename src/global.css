@@ -6,3 +6,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+#cta {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 12.5rem;
+}
+.spacer {
+  margin-top: 5rem;
+}

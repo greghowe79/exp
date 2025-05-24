@@ -1,17 +1,21 @@
 import { component$, Resource, useResource$, useSignal } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
-import { Hero, OnboardingSteps } from '@greghowe79/the-lib';
-import { _ } from 'compiled-i18n';
-import SearchBar from '~/components/search-bar/SearchBar';
+import { useNavigate, type DocumentHead } from '@builder.io/qwik-city';
+import { Button, Hero, OnboardingSteps } from '@greghowe79/the-lib';
+import { _, getLocale } from 'compiled-i18n';
+//import SearchBar from '~/components/search-bar/SearchBar';
 import { useSteps } from '~/hooks/useSteps';
 
 export default component$(() => {
   const steps = useSteps();
   const query = useSignal('');
   const result = useSignal(0);
+  const nav = useNavigate();
+  const currentLocale = getLocale();
 
   const heroTitle = _('hero_title');
   const heroContent = _('hero_content');
+
+  const heroCta = _('hero_cta');
 
   const jokes = useResource$<{ value: string }[]>(async ({ track, cleanup }) => {
     track(() => query.value);
@@ -34,7 +38,15 @@ export default component$(() => {
     <main id="contenuto-home">
       <section id="home_hero">
         <Hero title={heroTitle} content={heroContent}>
-          <SearchBar query={query} />
+          <div id="cta">
+            <Button
+              id="call_to_action"
+              label={heroCta}
+              size="sm"
+              onClick$={async () => await nav(`/${currentLocale}/${_('slug_signup')}/`)}
+            />
+          </div>
+          {/*  <SearchBar query={query} /> */}
         </Hero>
       </section>
       <section id="home_step">

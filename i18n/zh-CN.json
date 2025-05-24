@@ -2,8 +2,9 @@
   "locale": "zh-CN",
   "name": "zh (CN)",
   "translations": {
-    "hero_title": "为您找到合适的专业人士",
-    "hero_content": "无论您身在何处，发现最优秀的专业人士",
+    "hero_title": "创建您的专业网页",
+    "hero_content": "无论你身在何处，都能被新客户找到。",
+    "hero_cta": "开始使用",
     "step_search": "发现合格的专业人士",
     "step_search_description": "找到适合您需求的完美专业人士。探索详细资料以做出正确选择。",
     "step_register": "创建您的专业资料",
@@ -22,12 +23,19 @@
     "slug_login": "login",
     "slug_signup": "signup",
     "form_submit": "提交",
+    "form_reset_password": "忘记密码了？",
     "slug_dashboard": "dashboard",
+    "slug_reset_password": "reset-password",
     "form.errors.invalidEmail": "请输入有效的电子邮件地址",
     "form.errors.invalidPassword": "密码必须为8-16个字符，且至少包含一个数字、一个小写字母、一个大写字母和一个特殊字符。",
     "form.errors.inputRequired": "必填字段",
     "popup.signupSuccessTitle": "操作成功完成。",
     "popup.signupErrorTitle": "操作失败",
-    "popup.signupDescription": "请检查您的电子邮件以确认注册。"
+    "popup.signupDescription": "请检查您的电子邮件以确认注册。",
+    "popup.reset_password_description": "请查看您的电子邮件并点击链接重置用户密码",
+    "slug_update_password": "update-password",
+    "form_reset_password-title": "重置密码",
+    "form_reset_password-description": "要继续，请输入您账户注册的电子邮箱地址。",
+    "form_reset_password-button": "继续"
   }
 }

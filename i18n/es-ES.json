@@ -2,8 +2,9 @@
   "locale": "es-ES",
   "name": "es (ES)",
   "translations": {
-    "hero_title": "Encuentra al profesional adecuado para ti",
-    "hero_content": "Descubre a los mejores profesionales, dondequiera que estés",
+    "hero_title": "Crea tu página web profesional",
+    "hero_content": "Haz que nuevos clientes te encuentren dondequiera que estés.",
+    "hero_cta": "Empieza ahora",
     "step_search": "Descubre Profesionales Calificados",
     "step_search_description": "Encuentra al profesional perfecto para tus necesidades. Explora perfiles detallados para hacer la elección correcta.",
     "step_register": "Crea Tu Perfil Profesional",
@@ -22,12 +23,19 @@
     "slug_signup": "registro",
     "slug_login": "iniciar-sesion",
     "form_submit": "Enviar",
+    "form_reset_password": "¿Olvidaste tu contraseña?",
     "slug_dashboard": "panel-de-control",
+    "slug_reset_password": "restablecer-contraseña",
     "form.errors.invalidEmail": "Por favor, introduce una dirección de correo electrónico válida",
     "form.errors.invalidPassword": "La contraseña debe tener entre 8 y 16 caracteres e incluir al menos un dígito, una letra minúscula, una letra mayúscula y un carácter especial.",
     "form.errors.inputRequired": "Campo requerido",
     "popup.signupSuccessTitle": "Operación completada con éxito.",
     "popup.signupErrorTitle": "Operación fallida",
-    "popup.signupDescription": "Revisa tu correo electrónico para confirmar el registro."
+    "popup.signupDescription": "Revisa tu correo electrónico para confirmar el registro.",
+    "popup.reset_password_description": "Revisa tu correo electrónico y sigue el enlace para restablecer la contraseña de tu usuario",
+    "slug_update_password": "actualizar-contraseña",
+    "form_reset_password-title": "Restablecer contraseña",
+    "form_reset_password-description": "Para continuar, introduce el correo electrónico asociado a tu cuenta.",
+    "form_reset_password-button": "Continuar"
   }
 }

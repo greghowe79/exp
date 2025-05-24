@@ -18,13 +18,3 @@
 .input {
   width: 100%;
 }
-
-.reset_password {
-  align-self: center !important;
-  color: #06c;
-  text-decoration: none;
-}
-
-.reset_password:hover {
-  text-decoration: underline;
-}
