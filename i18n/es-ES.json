@@ -35,6 +35,9 @@
     "popup.reset_password_description": "Revisa tu correo electrónico y sigue el enlace para restablecer la contraseña de tu usuario",
     "slug_update_password": "actualizar-contraseña",
     "form_reset_password-title": "Restablecer contraseña",
+    "form_update_password-title": "Actualizar contraseña",
+    "form_update_password-description": "Para continuar, introduce una nueva contraseña",
+    "popup.update_password_description": "Contraseña actualizada con éxito. Inicia sesión en tu cuenta.",
     "form_reset_password-description": "Para continuar, introduce el correo electrónico asociado a tu cuenta.",
     "form_reset_password-button": "Continuar"
   }

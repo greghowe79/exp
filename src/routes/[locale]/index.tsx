@@ -34,6 +34,7 @@ export default component$(() => {
     result.value = json.result.length;
     return json.result;
   });
+
   return (
     <main id="contenuto-home">
       <section id="home_hero">

@@ -35,6 +35,9 @@
     "popup.reset_password_description": "Check your email and follow the link to reset the password for your user",
     "slug_update_password": "update-password",
     "form_reset_password-title": "Reset Password",
+    "form_update_password-title": "Update Password",
+    "form_update_password-description": "To continue, enter a new password",
+    "popup.update_password_description": "Password updated successfully. Log in to your account.",
     "form_reset_password-description": "To continue, enter the email address associated with your account.",
     "form_reset_password-button": "Continue"
   }

@@ -1,4 +1,4 @@
-import { component$, Slot, useSignal } from '@builder.io/qwik';
+import { component$, Slot, useContext, useSignal } from '@builder.io/qwik';
 import { useLocation, useNavigate, type RequestHandler } from '@builder.io/qwik-city';
 import { NavigationMenu, Modal } from '@greghowe79/the-lib';
 import { Logo } from '~/components/logo/logo';
@@ -8,6 +8,7 @@ import { languages } from '~/data/language-selector-data';
 import LanguageSelector from '~/components/language-selector/languageSelector';
 import { guessLocale, locales, getLocale, _ } from 'compiled-i18n';
 import { PopupDisplay } from '~/components/popup/Popup';
+import { SessionLoadingContext } from '~/root';
 
 const replaceLocale = (pathname: string, oldLocale: string, locale: string) => {
   const idx = pathname.indexOf(oldLocale);
@@ -38,6 +39,7 @@ export default component$(() => {
   const nav = useNavigate();
   const currentLocale = getLocale();
   const location = useLocation();
+  const isSessionLoading = useContext(SessionLoadingContext);
 
   // Ottieni il percorso senza il locale
   const normalizedPath = location.url.pathname.replace(new RegExp(`^/${currentLocale}/`), '/');
@@ -46,10 +48,12 @@ export default component$(() => {
 
   const listItems = getListItems(currentLocale);
 
+  const newAction = !isSessionLoading.value ? actions : [];
+
   return (
     <>
       {normalizedPath !== `/${_('slug_login')}/` && normalizedPath !== `/${_('slug_signup')}/` && (
-        <NavigationMenu ariaLabel="Menu principale" logoComponent={Logo} listItems={listItems} actions={actions} locale={currentLocale} />
+        <NavigationMenu ariaLabel="Menu principale" logoComponent={Logo} listItems={listItems} actions={newAction} locale={currentLocale} />
       )}
 
       {isModalOpen.value && (

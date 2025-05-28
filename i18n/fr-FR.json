@@ -35,6 +35,9 @@
     "popup.reset_password_description": "Vérifiez votre email et suivez le lien pour réinitialiser le mot de passe de votre utilisateur",
     "slug_update_password": "mettre-a-jour-mot-de-passe",
     "form_reset_password-title": "Réinitialiser le mot de passe",
+    "form_update_password-title": "Mettre à jour le mot de passe",
+    "form_update_password-description": "Pour continuer, saisissez un nouveau mot de passe",
+    "popup.update_password_description": "Mot de passe mis à jour avec succès. Connectez-vous à votre compte.",
     "form_reset_password-description": "Pour continuer, saisissez l'adresse email associée à votre compte.",
     "form_reset_password-button": "Continuer"
   }

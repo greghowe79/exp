@@ -13,17 +13,6 @@ export const Login = component$(() => {
   const { open, email, password, emailError, passwordError, emailTouched, passwordTouched, isLoading, isSubmitDisabled, handleAuth } =
     useAuth('LOGIN', nav);
 
-  // const resetPassword = $(async () => {
-  //   console.log('email', email.value);
-  //   const { data, error } = await supabase.auth.resetPasswordForEmail(email.value, {
-  //     redirectTo: `/${currentLocale}/update-password`,
-  //   });
-  //   if (error) {
-  //     console.error(error);
-  //   }
-  //   console.log('DATA', data);
-  // });
-
   return (
     <div class="form-container">
       <Modal

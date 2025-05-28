@@ -34,8 +34,11 @@
     "popup.signupDescription": "登録を確認するためにメールをご確認ください。",
     "popup.reset_password_description": "メールを確認し、リンクを辿ってユーザーパスワードをリセットしてください",
     "slug_update_password": "update-password",
+    "form_update_password-title": "パスワードを更新",
+    "form_update_password-description": "続行するには、新しいパスワードを入力してください",
     "form_reset_password-title": "パスワードのリセット",
     "form_reset_password-description": "続行するには、アカウントに登録されているメールアドレスを入力してください。",
-    "form_reset_password-button": "続行"
+    "form_reset_password-button": "続行",
+    "popup.update_password_description": "パスワードが正常に更新されました。アカウントにログインしてください。"
   }
 }

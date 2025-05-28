@@ -34,8 +34,11 @@
     "popup.signupDescription": "Verifique seu email para confirmar o cadastro.",
     "popup.reset_password_description": "Verifique seu email e siga o link para redefinir a senha do seu usuário",
     "slug_update_password": "atualizar-palavra-passe",
+    "form_update_password-title": "Atualizar senha",
+    "form_update_password-description": "Para continuar, insira uma nova senha",
     "form_reset_password-title": "Redefinir palavra-passe",
     "form_reset_password-description": "Para continuar, insira o endereço de email associado à sua conta.",
-    "form_reset_password-button": "Continuar"
+    "form_reset_password-button": "Continuar",
+    "popup.update_password_description": "Senha atualizada com sucesso. Faça login na sua conta."
   }
 }

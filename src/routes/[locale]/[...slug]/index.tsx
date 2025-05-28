@@ -6,7 +6,6 @@ import { Contact } from '~/components/contact/Contact';
 import { resolvePageKey } from '~/lib/pageMap';
 import { Login } from '~/components/login/Login';
 import { SignUp } from '~/components/signup/SignUp';
-
 import Dashboard from '~/components/dashboard/Dashboard';
 import { ResetPassword } from '~/components/reset-password/ResetPassword';
 import { UpdatePassword } from '~/components/update-password/UpdatePassword';

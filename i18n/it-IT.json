@@ -35,7 +35,10 @@
     "popup.reset_password_description": "Controlla la tua email e segui il link per reimpostare la password per il tuo utente",
     "slug_update_password": "aggiorna-password",
     "form_reset_password-title": "Ripristina la password",
+    "form_update_password-title": "Aggiorna la password",
+    "form_update_password-description": "Per continuare, inserisci una nuova password",
     "form_reset_password-description": "Per continuare, inserisci l’indirizzo email associato al tuo account.",
-    "form_reset_password-button": "Continua"
+    "form_reset_password-button": "Continua",
+    "popup.update_password_description": "Password aggiornata con successo. Effettua l' accesso  al tuo account."
   }
 }

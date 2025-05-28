@@ -81,8 +81,6 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
       try {
         const data = await AuthService.signInWithPassword(email.value, password.value);
 
-        console.log('DATA', data);
-
         if (data.user.id) {
           await navigate?.(`/${currentLocale}/${_('slug_dashboard')}/${data.user.id}`);
           email.value = '';
@@ -110,6 +108,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           title: _('popup.signupSuccessTitle'),
           description: _('popup.reset_password_description'),
           isSuccess: true,
+          redirectAfterClose: `/${currentLocale}/`,
         });
         email.value = '';
         isLoading.value = false;
@@ -121,6 +120,31 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           isSuccess: false,
         });
         email.value = '';
+        isLoading.value = false;
+      }
+    }
+
+    if (type === 'UPDATE-PASSWORD') {
+      isLoading.value = true;
+      try {
+        await AuthService.updatePassword(password.value);
+
+        popupContext.open('RESULT_POPUP', {
+          title: _('popup.signupSuccessTitle'),
+          description: _('popup.update_password_description'),
+          isSuccess: true,
+          redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
+        });
+        password.value = '';
+        isLoading.value = false;
+        open.value = false;
+      } catch (error: any) {
+        popupContext.open('RESULT_POPUP', {
+          title: _('popup.signupErrorTitle'),
+          description: error.message,
+          isSuccess: false,
+        });
+        password.value = '';
         isLoading.value = false;
       }
     }

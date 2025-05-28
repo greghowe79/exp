@@ -1,9 +1,21 @@
-import { $, component$, createContextId, type QRL, useContextProvider, useStore, useTask$ } from '@builder.io/qwik';
+import {
+  $,
+  component$,
+  createContextId,
+  type QRL,
+  type Signal,
+  useContextProvider,
+  useSignal,
+  useStore,
+  useTask$,
+  useVisibleTask$,
+} from '@builder.io/qwik';
 import { QwikCityProvider, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import { RouterHead } from './components/router-head/router-head';
 import { isDev } from '@builder.io/qwik';
 
 import './global.css';
+import { supabase } from './lib/db';
 
 export interface PopupData {
   title: string;
@@ -23,9 +35,31 @@ export interface PopupContextState {
   close: QRL<(redirectUrl?: string) => Promise<string | undefined>>;
 }
 
+export type UserSess = {
+  userId: string | null;
+  isLoggedIn: boolean;
+  stripe_seller: any;
+  charges_enabled: boolean;
+  seller_info: any;
+};
+
 export const PopupContext = createContextId<PopupContextState>('popup-context');
+export const FormContext = createContextId<Signal<boolean>>('form-context');
+export const UserSessionContext = createContextId<UserSess>('user-session');
+export const SessionLoadingContext = createContextId<Signal<boolean>>('loading-session');
 
 export default component$(() => {
+  const isFormVisible = useSignal(false);
+  const userSession = useStore<UserSess>({
+    userId: '',
+    isLoggedIn: false,
+    stripe_seller: {},
+    charges_enabled: false,
+    seller_info: {},
+  });
+  const isSessionLoading = useSignal(true);
+
+  //const userStore = useStore(userSession);
   /**
    * The root of a QwikCity site always start with the <QwikCityProvider> component,
    * immediately followed by the document's <head> and <body>.
@@ -51,7 +85,66 @@ export default component$(() => {
     });
   });
 
+  useVisibleTask$(async () => {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    if (session?.access_token && session.refresh_token) {
+      const apiResponse = await fetch('/api/login/', {
+        method: 'POST',
+        body: JSON.stringify({
+          accessToken: session.access_token,
+          refreshToken: session.refresh_token,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        credentials: 'include',
+      });
+
+      if (!apiResponse.ok) {
+        throw new Error('Failed to establish session');
+      }
+      console.log('Sessione trovata al refresh:', session.user);
+      userSession.userId = session.user.id;
+      userSession.isLoggedIn = true;
+      isSessionLoading.value = false;
+    } else {
+      console.log('Nessuna sessione attiva');
+      userSession.isLoggedIn = false;
+      isSessionLoading.value = false;
+    }
+
+    const {
+      data: { subscription: authListener },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log(event, session);
+      if (event === 'PASSWORD_RECOVERY') {
+        isFormVisible.value = true;
+      } else if (event === 'SIGNED_IN' && session?.access_token && session.refresh_token) {
+        userSession.userId = session.user.id;
+        userSession.isLoggedIn = true;
+        isSessionLoading.value = false;
+      } else if (event === 'SIGNED_OUT') {
+        userSession.isLoggedIn = false;
+        userSession.userId = '';
+      } else if (event === 'INITIAL_SESSION' && session?.access_token && session.refresh_token) {
+        userSession.userId = session.user.id;
+        userSession.isLoggedIn = true;
+      }
+    });
+
+    return () => {
+      authListener.unsubscribe();
+    };
+  });
+
   useContextProvider(PopupContext, state);
+  useContextProvider(FormContext, isFormVisible);
+  useContextProvider(UserSessionContext, userSession);
+  useContextProvider(SessionLoadingContext, isSessionLoading);
 
   return (
     <QwikCityProvider>

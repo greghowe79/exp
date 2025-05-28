@@ -34,8 +34,11 @@
     "popup.signupDescription": "请检查您的电子邮件以确认注册。",
     "popup.reset_password_description": "请查看您的电子邮件并点击链接重置用户密码",
     "slug_update_password": "update-password",
+    "form_update_password-title": "更新密码",
+    "form_update_password-description": "要继续，请输入新密码",
     "form_reset_password-title": "重置密码",
     "form_reset_password-description": "要继续，请输入您账户注册的电子邮箱地址。",
-    "form_reset_password-button": "继续"
+    "form_reset_password-button": "继续",
+    "popup.update_password_description": "密码更新成功。请登录您的账户。"
   }
 }

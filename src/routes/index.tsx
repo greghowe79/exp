@@ -1,4 +1,4 @@
-import type { RequestHandler } from '@builder.io/qwik-city';
+import { type RequestHandler } from '@builder.io/qwik-city';
 import { guessLocale } from 'compiled-i18n';
 
 export const onGet: RequestHandler = async ({ request, redirect, url }) => {
