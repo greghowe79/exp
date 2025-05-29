@@ -91,22 +91,22 @@ export default component$(() => {
     } = await supabase.auth.getSession();
 
     if (session?.access_token && session.refresh_token) {
-      const apiResponse = await fetch('/api/login/', {
-        method: 'POST',
-        body: JSON.stringify({
-          accessToken: session.access_token,
-          refreshToken: session.refresh_token,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${session.access_token}`,
-        },
-        credentials: 'include',
-      });
+      // const apiResponse = await fetch('/api/login/', {
+      //   method: 'POST',
+      //   body: JSON.stringify({
+      //     accessToken: session.access_token,
+      //     refreshToken: session.refresh_token,
+      //   }),
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     Authorization: `Bearer ${session.access_token}`,
+      //   },
+      //   credentials: 'include',
+      // });
 
-      if (!apiResponse.ok) {
-        throw new Error('Failed to establish session');
-      }
+      // if (!apiResponse.ok) {
+      //   throw new Error('Failed to establish session');
+      // }
       console.log('Sessione trovata al refresh:', session.user);
       userSession.userId = session.user.id;
       userSession.isLoggedIn = true;

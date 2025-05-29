@@ -14,17 +14,19 @@ export const onPost: RequestHandler = async ({ request, cookie, json }) => {
   dateAccess.setHours(dateAccess.getHours() + 1);
   dateRefresh.setDate(dateRefresh.getDate() + 1);
   cookie.set('server-access-token', accessToken, {
-    secure: false,
+    secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
     expires: dateAccess,
     sameSite: 'lax',
+    path: '/',
   });
 
   cookie.set('server-refresh-token', refreshToken, {
-    secure: false,
+    secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
     expires: dateRefresh,
     sameSite: 'lax',
+    path: '/',
   });
 
   json(200, { message: 'Tokens stored' });
