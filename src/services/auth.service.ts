@@ -35,6 +35,17 @@ export const AuthService = {
     return data;
   },
 
+  async signOut() {
+    const apiResponse = await fetch('/api/logout/', {
+      method: 'POST',
+      credentials: 'include', // per inviare i cookie
+    });
+    if (!apiResponse.ok) {
+      throw new Error('Failed to logout');
+    }
+    await supabase.auth.signOut();
+  },
+
   async resetPassword(email: string, currentLocale: Locale) {
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `http://localhost:5173/${currentLocale}/${_('slug_update_password')}/`,

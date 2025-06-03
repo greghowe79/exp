@@ -1,5 +1,6 @@
 import { component$ } from '@builder.io/qwik';
-import { _ } from 'compiled-i18n';
+import type { RouteLocation } from '@builder.io/qwik-city';
+import { _, setLocaleGetter } from 'compiled-i18n';
 import { Register } from '~/assets/register';
 import { Rocket } from '~/assets/rocket';
 import { Search } from '~/assets/search';
@@ -8,7 +9,8 @@ const IconWrapper = component$<{ icon: any }>(({ icon: Icon }) => {
   return <Icon />;
 });
 
-export const useSteps = () => {
+export const useSteps = (location: RouteLocation) => {
+  setLocaleGetter(() => location.params.locale);
   return [
     {
       id: 'step-1',

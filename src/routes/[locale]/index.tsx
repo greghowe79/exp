@@ -1,21 +1,18 @@
 import { component$, Resource, useResource$, useSignal } from '@builder.io/qwik';
-import { useNavigate, type DocumentHead } from '@builder.io/qwik-city';
+import { useLocation, useNavigate, type DocumentHead } from '@builder.io/qwik-city';
 import { Button, Hero, OnboardingSteps } from '@greghowe79/the-lib';
-import { _, getLocale } from 'compiled-i18n';
+import { _, setLocaleGetter } from 'compiled-i18n';
 //import SearchBar from '~/components/search-bar/SearchBar';
 import { useSteps } from '~/hooks/useSteps';
 
 export default component$(() => {
-  const steps = useSteps();
+  const location = useLocation();
+  const steps = useSteps(location);
   const query = useSignal('');
   const result = useSignal(0);
   const nav = useNavigate();
-  const currentLocale = getLocale();
 
-  const heroTitle = _('hero_title');
-  const heroContent = _('hero_content');
-
-  const heroCta = _('hero_cta');
+  setLocaleGetter(() => location.params.locale);
 
   const jokes = useResource$<{ value: string }[]>(async ({ track, cleanup }) => {
     track(() => query.value);
@@ -38,13 +35,13 @@ export default component$(() => {
   return (
     <main id="contenuto-home">
       <section id="home_hero">
-        <Hero title={heroTitle} content={heroContent}>
+        <Hero title={_('hero_title')} content={_('hero_content')}>
           <div id="cta">
             <Button
               id="call_to_action"
-              label={heroCta}
+              label={_('hero_cta')}
               size="sm"
-              onClick$={async () => await nav(`/${currentLocale}/${_('slug_signup')}/`)}
+              onClick$={async () => await nav(`/${location.params.locale}/${_('slug_signup')}/`)}
             />
           </div>
           {/*  <SearchBar query={query} /> */}

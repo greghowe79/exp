@@ -9,6 +9,7 @@ import LanguageSelector from '~/components/language-selector/languageSelector';
 import { guessLocale, locales, getLocale, _ } from 'compiled-i18n';
 import { PopupDisplay } from '~/components/popup/Popup';
 import { SessionLoadingContext } from '~/root';
+import { AutoLogout } from '~/components/auto-logout/AutoLogout';
 
 const replaceLocale = (pathname: string, oldLocale: string, locale: string) => {
   const idx = pathname.indexOf(oldLocale);
@@ -65,6 +66,7 @@ export default component$(() => {
       <div class={normalizedPath !== `/${_('slug_login')}/` && normalizedPath !== `/${_('slug_signup')}/` && 'spacer'}>
         <Slot />
       </div>
+      <AutoLogout />
     </>
   );
 });

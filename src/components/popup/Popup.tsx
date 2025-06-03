@@ -20,6 +20,9 @@ export const PopupDisplay = component$(() => {
   const { data } = popupContext.popup;
 
   const handleClose = $(async () => {
+    if (data.onPrimaryAction) {
+      await data.onPrimaryAction();
+    }
     const redirectUrl = await popupContext.close();
     if (redirectUrl) {
       await nav(redirectUrl);
@@ -33,7 +36,7 @@ export const PopupDisplay = component$(() => {
         title={data.title}
         closeButtonVisible={false}
         primaryAction={handleClose}
-        primaryButtonLabel={'Close'}
+        primaryButtonLabel={data.primaryButtonLabel || 'Close'}
         type="small"
       >
         <p>{data.description}</p>

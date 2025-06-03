@@ -2,8 +2,8 @@ import { $, useContext, type Signal } from '@builder.io/qwik';
 import type { RouteNavigate } from '@builder.io/qwik-city';
 import { _ } from 'compiled-i18n';
 import { FaGlobe } from '~/assets/world';
-import { supabase } from '~/lib/db';
 import { UserSessionContext } from '~/root';
+import { AuthService } from '~/services/auth.service';
 
 type ButtonVariant = 'primary' | 'icon' | 'secondary';
 
@@ -15,8 +15,12 @@ export const useNavigationActions = (navigate: RouteNavigate, isModalOpen: Signa
         id: 'login',
         label: _('navbar_logout'),
         onClick$: $(async () => {
-          await supabase.auth.signOut();
-          await navigate(`/${currentLocale}/`);
+          try {
+            await AuthService.signOut();
+            await navigate(`/${currentLocale}/`);
+          } catch (error) {
+            console.error('Logout failed:', error);
+          }
         }),
         variant: 'primary' as ButtonVariant,
       },

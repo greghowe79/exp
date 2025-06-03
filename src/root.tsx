@@ -22,6 +22,8 @@ export interface PopupData {
   description: string;
   isSuccess: boolean;
   redirectAfterClose?: string;
+  primaryButtonLabel?: string;
+  onPrimaryAction?: QRL<() => void>;
 }
 
 export interface PopupProps {
