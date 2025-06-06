@@ -43,6 +43,8 @@ export type UserSess = {
   stripe_seller: any;
   charges_enabled: boolean;
   seller_info: any;
+  plan: 'free' | 'premium' | 'pro'; // Aggiungi altri piani se necessario
+  username?: string; // Aggiungi username se necessario
 };
 
 export const PopupContext = createContextId<PopupContextState>('popup-context');
@@ -58,6 +60,8 @@ export default component$(() => {
     stripe_seller: {},
     charges_enabled: false,
     seller_info: {},
+    plan: 'free',
+    username: undefined,
   });
   const isSessionLoading = useSignal(true);
 

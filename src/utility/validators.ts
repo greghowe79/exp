@@ -16,3 +16,18 @@ export const validatePassword = $((value: string): string | null => {
   const isValid = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/.test(value);
   return isValid ? null : _('form.errors.invalidPassword');
 });
+
+export const validatePhone = $((value: string): string | null => {
+  const digitsOnly = value.replace(/\D/g, '');
+
+  if (digitsOnly.length === 0) {
+    // Campo vuoto? OK, non obbligatorio → nessun errore.
+    return null;
+  }
+
+  if (digitsOnly.length < 6) {
+    return _('form.errors.invalidPhone');
+  }
+
+  return null;
+});

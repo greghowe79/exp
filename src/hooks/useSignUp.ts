@@ -9,11 +9,15 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const formIsVisible = useSignal(false);
   const email = useSignal('');
   const password = useSignal('');
+  const phone = useSignal('');
   const emailError = useSignal<string | null>(null);
   const passwordError = useSignal<string | null>(null);
+  const phoneError = useSignal<string | null>(null);
   const emailTouched = useSignal(false);
   const passwordTouched = useSignal(false);
+  const phoneTouched = useSignal(false);
   const isLoading = useSignal(false);
+  const selectedCountry = useSignal('');
   const popupContext = useContext(PopupContext);
   const currentLocale = getLocale();
 
@@ -148,6 +152,31 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         isLoading.value = false;
       }
     }
+
+    // if (type === 'USER_PROFILE') {
+    //   isLoading.value = true;
+    //   try {
+    //     await AuthService.resetPassword(email.value, currentLocale);
+
+    //     popupContext.open('RESULT_POPUP', {
+    //       title: _('popup.signupSuccessTitle'),
+    //       description: _('popup.reset_password_description'),
+    //       isSuccess: true,
+    //       redirectAfterClose: `/${currentLocale}/`,
+    //     });
+    //     email.value = '';
+    //     isLoading.value = false;
+    //     open.value = false;
+    //   } catch (error: any) {
+    //     popupContext.open('RESULT_POPUP', {
+    //       title: _('popup.signupErrorTitle'),
+    //       description: error.message,
+    //       isSuccess: false,
+    //     });
+    //     email.value = '';
+    //     isLoading.value = false;
+    //   }
+    // }
   });
 
   return {
@@ -155,10 +184,14 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     formIsVisible,
     email,
     password,
+    phone,
     emailError,
     passwordError,
+    phoneError,
     emailTouched,
     passwordTouched,
+    phoneTouched,
+    selectedCountry,
     isLoading,
     isSubmitDisabled,
     handleAuth,
