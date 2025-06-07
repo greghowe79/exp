@@ -48,7 +48,6 @@ export default component$(() => {
   const slugParam = loc.params.slug;
   const slugArr = Array.isArray(slugParam) ? slugParam : [slugParam];
   const slug = slugArr[0].split('/')[0];
-  const userIdParam = slugArr[0].split('/')[1];
   const pageKey = resolvePageKey(slug, lang);
 
   switch (pageKey) {
@@ -63,7 +62,7 @@ export default component$(() => {
     case 'signup':
       return <SignUp />;
     case 'dashboard':
-      return <Dashboard userId={userIdParam} />;
+      return <Dashboard />;
     case `reset`:
       return <ResetPassword />;
     case `update`:

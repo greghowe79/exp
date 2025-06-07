@@ -14,40 +14,51 @@ export const UpdatePassword = component$(() => {
   const title = _('form_update_password-title');
   const buttonLabel = _('form_reset_password-button');
   const isFormVisible = useContext(FormContext);
+  console.log('isFormVisible:', isFormVisible.value);
 
   return (
     <>
-      {isFormVisible.value && (
-        <div class="login-container">
-          <Modal
-            open={open}
-            title={title}
-            closeButtonVisible={false}
-            primaryAction={handleAuth}
-            isLoading={isLoading}
-            primaryButtonLabel={buttonLabel}
-            primaryButtonDisabled={isSubmitDisabled}
-            type="small"
+      <div class="login-container">
+        <Modal
+          open={open}
+          title={title}
+          closeButtonVisible={false}
+          primaryAction={handleAuth}
+          isLoading={isLoading}
+          primaryButtonLabel={buttonLabel}
+          primaryButtonDisabled={isSubmitDisabled}
+          type="small"
+        >
+          <p>{_('form_update_password-description')}</p>
+          <form
+            class="form"
+            preventdefault:submit
+            onSubmit$={async (event) => {
+              event.preventDefault();
+              passwordError.value = await validatePassword(password.value);
+              passwordTouched.value = true;
+
+              if (!passwordError.value) {
+                await handleAuth();
+              }
+            }}
           >
-            <p>{_('form_update_password-description')}</p>
-            <form class="form">
-              <Input
-                id="input_password"
-                type="password"
-                placeholder="New password"
-                value={password}
-                error={passwordError}
-                onValidate$={async (value) => {
-                  passwordError.value = await validatePassword(value);
-                  isSubmitDisabled.value = !!passwordError.value;
-                  return passwordError.value!;
-                }}
-                onInput$={() => (passwordTouched.value = true)}
-              />
-            </form>
-          </Modal>
-        </div>
-      )}
+            <Input
+              id="input_password"
+              type="password"
+              placeholder="New password"
+              value={password}
+              error={passwordError}
+              onValidate$={async (value) => {
+                passwordError.value = await validatePassword(value);
+                isSubmitDisabled.value = !!passwordError.value;
+                return passwordError.value!;
+              }}
+              onInput$={() => (passwordTouched.value = true)}
+            />
+          </form>
+        </Modal>
+      </div>
     </>
   );
 });

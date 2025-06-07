@@ -25,7 +25,19 @@ export const ResetPassword = component$(() => {
         type="small"
       >
         <p>{_('form_reset_password-description')}</p>
-        <form class="form">
+        <form
+          class="form"
+          preventdefault:submit
+          onSubmit$={async (event) => {
+            event.preventDefault();
+            emailError.value = await validateEmail(email.value);
+            emailTouched.value = true;
+
+            if (!emailError.value) {
+              await handleAuth();
+            }
+          }}
+        >
           <Input
             id="input_email"
             type="email"

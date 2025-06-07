@@ -1,6 +1,9 @@
 import { type Locale } from 'compiled-i18n';
 import { supabase } from '~/lib/db';
 import { _ } from 'compiled-i18n';
+import type { UserProfile, UserSess } from '~/root';
+import type { Signal } from '@builder.io/qwik';
+import { v4 as uuidv4 } from 'uuid';
 
 export const AuthService = {
   async checkEmailExists(email: string) {
@@ -66,5 +69,28 @@ export const AuthService = {
     const { data, error } = await supabase.auth.signUp({ email, password });
     if (error) throw error;
     return data;
+  },
+  async uploadImageProfileToTheStorage(
+    userSession: UserSess,
+    currentFile: Signal<any>,
+    imgUrl: Signal<string>,
+    images: Signal<any>,
+    CDNURL: string
+  ) {
+    const { data, error } = await supabase.storage.from('professionals').upload(userSession.userId + '/' + uuidv4(), currentFile.value);
+
+    if (data) {
+      imgUrl.value = CDNURL + data.path;
+      //await getImages(userSession, images);
+    } else {
+      console.log(error);
+    }
+  },
+  async insertUser(userProfile: UserProfile) {
+    const { error: insertUserError } = await supabase.from('professionals').insert(userProfile);
+    //getProducts(productsTable);
+    if (insertUserError) {
+      console.error(insertUserError);
+    }
   },
 };

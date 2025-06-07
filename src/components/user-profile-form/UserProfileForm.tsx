@@ -1,5 +1,5 @@
-import { component$, useSignal, $, useStyles$ } from '@builder.io/qwik';
-import { Button, Input, Select } from '@greghowe79/the-lib';
+import { component$, useSignal, useStyles$ } from '@builder.io/qwik';
+import { Button, Input, Select, TextArea } from '@greghowe79/the-lib';
 import { useAuth } from '~/hooks/useSignUp';
 import { validateEmail, validatePhone } from '~/utility/validators';
 import styles from './styles.css?inline';
@@ -8,35 +8,34 @@ import { Linkedin } from '~/assets/linkedin';
 import { Email } from '~/assets/email';
 import { Marker } from '~/assets/marker';
 import { Mobile } from '~/assets/mobile';
+import { _ } from 'compiled-i18n';
 
 const UserProfileForm = component$(() => {
   useStyles$(styles);
-  const currentFile = useSignal<File | null>(null);
-  const selectedFile = useSignal('Upload your profile image');
-  const facebook = useSignal<string>('');
-  const linkedin = useSignal<string>('');
-  const bio = useSignal('');
 
-  const firstName = useSignal('');
-  const lastName = useSignal('');
+  const selectedFile = useSignal(_('user_profile_image'));
 
-  const position = useSignal('');
-  const social = useSignal('');
-  const profilePic = useSignal('');
-  const { email, emailError, emailTouched, phone, phoneError, phoneTouched, selectedCountry, isLoading, isSubmitDisabled, handleAuth } =
-    useAuth('USER_PROFILE');
-
-  const saveProfile = $(() => {
-    // Salva su server (es. chiamata API)
-    console.log({
-      bio: bio.value,
-      phone: phone.value,
-      email: email.value,
-      position: position.value,
-      social: social.value,
-      profilePic: profilePic.value,
-    });
-  });
+  const {
+    emailError,
+    emailTouched,
+    phone,
+    phoneError,
+    phoneTouched,
+    selectedCountry,
+    currentFile,
+    firstName,
+    lastName,
+    jobTitle,
+    description,
+    email,
+    prefix,
+    facebook,
+    linkedin,
+    position,
+    isLoading,
+    isSubmitDisabled,
+    handleAuth,
+  } = useAuth('USER_PROFILE');
 
   const options: Array<{ value: string; label: string }> = [
     { value: '39IT', label: 'Italia (+39)' },
@@ -56,21 +55,18 @@ const UserProfileForm = component$(() => {
     { value: '30GR', label: 'Grecia (+30)' },
   ];
 
-  console.log('selectedCountry', selectedCountry.value);
-
   return (
     <form preventdefault:submit onSubmit$={handleAuth} class="form">
       <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} />
-      <Input id="firstName_user_profile" type="text" placeholder="Nome *" value={firstName} bgLight />
-      <Input id="lastName_user_profile" type="text" placeholder="Cognome *" value={lastName} bgLight />
-
-      <label>
-        Biografia: <textarea bind:value={bio} class="textarea" />
-      </label>
+      <Input id="firstName_user_profile" type="text" placeholder={_('user_profile_name')} value={firstName} bgLight required />
+      <Input id="lastName_user_profile" type="text" placeholder={_('user_profile_lastname')} value={lastName} bgLight required />
+      <Input id="lastName_user_profile" type="text" placeholder="Job title *" value={jobTitle} bgLight required />
 
       {/* <label>
-        Email: <input type="email" bind:value={email} class="input" />
+        Biografia: <textarea bind:value={description} class="textarea" />
       </label> */}
+
+      <TextArea id="description_user_profile" content={description} required bgLight placeholder="Something about you *" />
 
       <Input
         id="input_email_user_profile"
@@ -85,15 +81,16 @@ const UserProfileForm = component$(() => {
         onInput$={() => (emailTouched.value = true)}
         icon={Email}
         bgLight
+        required
       />
-      <Select id="country" label="Paese o area geografica" options={options} selected={selectedCountry} />
+      <Select id="country" label="Paese o area geografica" options={options} selected={selectedCountry} prefix={prefix} />
       <Input
         id="telephone_user_profile"
         type="tel"
         placeholder="Numero di telefono"
         value={phone}
         icon={Mobile}
-        prefix={selectedCountry.value}
+        prefix={prefix.value}
         onInput$={() => (phoneTouched.value = true)}
         error={phoneError}
         onValidate$={async (value) => {
@@ -120,7 +117,7 @@ const UserProfileForm = component$(() => {
       />
       <Input id="position_user_profile" type="url" placeholder="Inserisci la posizione" value={position} icon={Marker} bgLight />
 
-      <Button id="save_user_form" type="submit" label="Salva" size="sm" disabled isLoading={isLoading}></Button>
+      <Button id="save_user_form" type="submit" label="Salva" size="sm" isLoading={isLoading} disabled={isSubmitDisabled.value}></Button>
     </form>
   );
 });

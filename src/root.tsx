@@ -17,6 +17,21 @@ import { isDev } from '@builder.io/qwik';
 import './global.css';
 import { supabase } from './lib/db';
 
+export interface UserProfile {
+  id: string;
+  img_url: string;
+  first_name: string;
+  last_name: string;
+  job_title: string;
+  description: string;
+  email: string;
+  telephone: string;
+  facebook: string;
+  linkedin: string;
+  position: string;
+  created_at: string;
+}
+
 export interface PopupData {
   title: string;
   description: string;
@@ -51,6 +66,7 @@ export const PopupContext = createContextId<PopupContextState>('popup-context');
 export const FormContext = createContextId<Signal<boolean>>('form-context');
 export const UserSessionContext = createContextId<UserSess>('user-session');
 export const SessionLoadingContext = createContextId<Signal<boolean>>('loading-session');
+export const ImagesContext = createContextId<Signal<any>>('images-context');
 
 export default component$(() => {
   const isFormVisible = useSignal(false);
@@ -64,6 +80,7 @@ export default component$(() => {
     username: undefined,
   });
   const isSessionLoading = useSignal(true);
+  const images: Signal<any> = useSignal([]);
 
   //const userStore = useStore(userSession);
   /**
@@ -125,7 +142,7 @@ export default component$(() => {
 
     const {
       data: { subscription: authListener },
-    } = supabase.auth.onAuthStateChange((event, session) => {
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
       console.log(event, session);
       if (event === 'PASSWORD_RECOVERY') {
         isFormVisible.value = true;
@@ -138,6 +155,7 @@ export default component$(() => {
         userSession.userId = '';
       } else if (event === 'INITIAL_SESSION' && session?.access_token && session.refresh_token) {
         userSession.userId = session.user.id;
+        //userSession.isLoggedIn = false;
         userSession.isLoggedIn = true;
       }
     });
@@ -151,6 +169,7 @@ export default component$(() => {
   useContextProvider(FormContext, isFormVisible);
   useContextProvider(UserSessionContext, userSession);
   useContextProvider(SessionLoadingContext, isSessionLoading);
+  useContextProvider(ImagesContext, images);
 
   return (
     <QwikCityProvider>
