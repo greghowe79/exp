@@ -9,6 +9,7 @@ import { Email } from '~/assets/email';
 import { Marker } from '~/assets/marker';
 import { Mobile } from '~/assets/mobile';
 import { _ } from 'compiled-i18n';
+import { options } from '~/data/country-code-data';
 
 const UserProfileForm = component$(() => {
   useStyles$(styles);
@@ -37,36 +38,14 @@ const UserProfileForm = component$(() => {
     handleAuth,
   } = useAuth('USER_PROFILE');
 
-  const options: Array<{ value: string; label: string }> = [
-    { value: '39IT', label: 'Italia (+39)' },
-    { value: '33FR', label: 'Francia (+33)' },
-    { value: '34ES', label: 'Spagna (+34)' },
-    { value: '49DE', label: 'Germania (+49)' },
-    { value: '1US', label: 'Stati Uniti (+1)' },
-    { value: '44GB', label: 'Regno Unito (+44)' },
-    { value: '41CH', label: 'Svizzera (+41)' },
-    { value: '43AT', label: 'Austria (+43)' },
-    { value: '32BE', label: 'Belgio (+32)' },
-    { value: '31NL', label: 'Paesi Bassi (+31)' },
-    { value: '351PT', label: 'Portogallo (+351)' },
-    { value: '46SE', label: 'Svezia (+46)' },
-    { value: '47NO', label: 'Norvegia (+47)' },
-    { value: '48PL', label: 'Polonia (+48)' },
-    { value: '30GR', label: 'Grecia (+30)' },
-  ];
-
   return (
     <form preventdefault:submit onSubmit$={handleAuth} class="form">
       <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} />
       <Input id="firstName_user_profile" type="text" placeholder={_('user_profile_name')} value={firstName} bgLight required />
       <Input id="lastName_user_profile" type="text" placeholder={_('user_profile_lastname')} value={lastName} bgLight required />
-      <Input id="lastName_user_profile" type="text" placeholder="Job title *" value={jobTitle} bgLight required />
+      <Input id="lastName_user_profile" type="text" placeholder={_('user_profile_job')} value={jobTitle} bgLight required />
 
-      {/* <label>
-        Biografia: <textarea bind:value={description} class="textarea" />
-      </label> */}
-
-      <TextArea id="description_user_profile" content={description} required bgLight placeholder="Something about you *" />
+      <TextArea id="description_user_profile" content={description} required bgLight placeholder={_('user_profile_summary')} />
 
       <Input
         id="input_email_user_profile"
@@ -83,11 +62,11 @@ const UserProfileForm = component$(() => {
         bgLight
         required
       />
-      <Select id="country" label="Paese o area geografica" options={options} selected={selectedCountry} prefix={prefix} />
+      <Select id="country" label={_('user_profile_country')} options={options} selected={selectedCountry} prefix={prefix} />
       <Input
         id="telephone_user_profile"
         type="tel"
-        placeholder="Numero di telefono"
+        placeholder={_('user_profile_phone')}
         value={phone}
         icon={Mobile}
         prefix={prefix.value}
@@ -102,7 +81,7 @@ const UserProfileForm = component$(() => {
       <Input
         id="facebook_user_profile"
         type="url"
-        placeholder="https://www.facebook.com/tuoProfilo"
+        placeholder={`https://www.facebook.com/${_('user_profile_social')}`}
         value={facebook}
         icon={Facebook}
         bgLight
@@ -110,12 +89,12 @@ const UserProfileForm = component$(() => {
       <Input
         id="linkedin_user_profile"
         type="url"
-        placeholder="https://www.linkedin.com/tuoProfilo"
+        placeholder={`https://www.linkedin.com/${_('user_profile_social')}`}
         value={linkedin}
         icon={Linkedin}
         bgLight
       />
-      <Input id="position_user_profile" type="url" placeholder="Inserisci la posizione" value={position} icon={Marker} bgLight />
+      <Input id="position_user_profile" type="url" placeholder={_('user_profile_position')} value={position} icon={Marker} bgLight />
 
       <Button id="save_user_form" type="submit" label="Salva" size="sm" isLoading={isLoading} disabled={isSubmitDisabled.value}></Button>
     </form>
