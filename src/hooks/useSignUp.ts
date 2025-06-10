@@ -7,7 +7,6 @@ import type { RouteNavigate } from '@builder.io/qwik-city';
 export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const open = useSignal(true);
   const formIsVisible = useSignal(false);
-
   const password = useSignal('');
   const phone = useSignal('');
   const emailError = useSignal<string | null>(null);
@@ -33,7 +32,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const linkedin = useSignal<string>('');
   const position = useSignal('');
   const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
-
+  const selectedFile = useSignal(_('user_profile_image'));
   const currentLocale = getLocale();
 
   // const isSubmitDisabled = useComputed$(() => {
@@ -98,7 +97,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
       }
       if (data.length > 0) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.signupErrorTitle'),
+          title: _('popup.genericErrorTitle'),
           description: 'Email già utilizzata',
           isSuccess: false,
         });
@@ -113,7 +112,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
 
         if (data.user?.id) {
           popupContext.open('RESULT_POPUP', {
-            title: _('popup.signupSuccessTitle'),
+            title: _('popup.genericSuccessTitle'),
             description: _('popup.signupDescription'),
             isSuccess: true,
             redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
@@ -125,7 +124,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         }
       } catch (error: any) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.signupErrorTitle'),
+          title: _('popup.genericErrorTitle'),
           description: error.message,
           isSuccess: false,
         });
@@ -148,7 +147,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         }
       } catch (error: any) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.signupErrorTitle'),
+          title: _('popup.genericErrorTitle'),
           description: error.message,
           isSuccess: false,
         });
@@ -163,7 +162,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         await AuthService.resetPassword(email.value, currentLocale);
 
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.signupSuccessTitle'),
+          title: _('popup.genericSuccessTitle'),
           description: _('popup.reset_password_description'),
           isSuccess: true,
           redirectAfterClose: `/${currentLocale}/`,
@@ -173,7 +172,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         open.value = false;
       } catch (error: any) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.signupErrorTitle'),
+          title: _('popup.genericErrorTitle'),
           description: error.message,
           isSuccess: false,
         });
@@ -188,7 +187,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         await AuthService.updatePassword(password.value);
 
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.signupSuccessTitle'),
+          title: _('popup.genericSuccessTitle'),
           description: _('popup.update_password_description'),
           isSuccess: true,
           redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
@@ -198,7 +197,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         open.value = false;
       } catch (error: any) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.signupErrorTitle'),
+          title: _('popup.genericErrorTitle'),
           description: error.message,
           isSuccess: false,
         });
@@ -209,58 +208,60 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
 
     if (type === 'USER_PROFILE') {
       isLoading.value = true;
-      if (userSession.userId) {
-        try {
-          await AuthService.uploadImageProfileToTheStorage(userSession, currentFile, imgUrl, images, CDNURL);
 
-          const currentDate = new Date().toISOString();
-          const userProfile: UserProfile = {
-            id: userSession.userId,
-            img_url: imgUrl.value,
-            first_name: firstName.value,
-            last_name: lastName.value,
-            job_title: jobTitle.value,
-            description: description.value,
-            email: email.value,
-            telephone: `${prefix.value.trim()} ${phone.value.trim()}`,
-            facebook: facebook.value,
-            linkedin: linkedin.value,
-            position: position.value,
-            created_at: currentDate,
-          };
+      try {
+        if (!userSession.userId) throw new Error('User ID mancante');
 
-          await AuthService.insertUser(userProfile);
+        await AuthService.uploadImageProfileToTheStorage(userSession, currentFile, imgUrl, images, CDNURL);
 
-          popupContext.open('RESULT_POPUP', {
-            title: _('popup.signupSuccessTitle'),
-            description: _('popup.reset_password_description'),
-            isSuccess: true,
-            redirectAfterClose: `/${currentLocale}/`,
-          });
-          email.value = '';
-          isLoading.value = false;
-          open.value = false;
-        } catch (error: any) {
-          popupContext.open('RESULT_POPUP', {
-            title: _('popup.signupErrorTitle'),
-            description: error.message,
-            isSuccess: false,
-          });
-          email.value = '';
-          firstName.value = '';
-          lastName.value = '';
-          jobTitle.value = '';
-          description.value = '';
-          phone.value = '';
-          selectedCountry.value = '';
-          prefix.value = '';
-          facebook.value = '';
-          linkedin.value = '';
-          position.value = '';
-          currentFile.value = null;
-          imgUrl.value = '';
-          isLoading.value = false;
+        const currentDate = new Date().toISOString();
+        const userProfile: UserProfile = {
+          id: userSession.userId,
+          img_url: imgUrl.value,
+          first_name: firstName.value,
+          last_name: lastName.value,
+          job_title: jobTitle.value,
+          description: description.value,
+          email: email.value,
+          telephone: `${prefix.value.trim()} ${phone.value.trim()}`,
+          facebook: facebook.value,
+          linkedin: linkedin.value,
+          position: position.value,
+          created_at: currentDate,
+        };
+
+        await AuthService.insertUser(userProfile);
+        await navigate?.(`/${currentLocale}/${_('slug_preview')}/${userSession.userId}`);
+      } catch (error: any) {
+        let errorMessage = _('generic_errorMessage');
+
+        if (error?.message === 'User ID mancante') {
+          errorMessage = _('popup.userIdMissing');
         }
+
+        popupContext.open('RESULT_POPUP', {
+          title: _('popup.genericErrorTitle'),
+          description: errorMessage,
+          isSuccess: false,
+        });
+
+        // Reset campi
+        email.value = '';
+        firstName.value = '';
+        lastName.value = '';
+        jobTitle.value = '';
+        description.value = '';
+        phone.value = '';
+        selectedFile.value = _('user_profile_image');
+        selectedCountry.value = '';
+        prefix.value = '';
+        facebook.value = '';
+        linkedin.value = '';
+        position.value = '';
+        currentFile.value = null;
+        imgUrl.value = '';
+      } finally {
+        isLoading.value = false;
       }
     }
   });
@@ -276,6 +277,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     emailTouched,
     passwordTouched,
     phoneTouched,
+    selectedFile,
     selectedCountry,
     currentFile,
     firstName,

@@ -1,21 +1,15 @@
-import { component$, useContext } from '@builder.io/qwik';
-import { UserSessionContext } from '~/root';
+import { component$ } from '@builder.io/qwik';
 
 import UserProfileForm from '../user-profile-form/UserProfileForm';
-import CardPreview from '../card-preview/CardPreview';
 
 const Dashboard = component$(() => {
-  const userSession = useContext(UserSessionContext);
-
-  const hasPremium = userSession.plan === 'premium';
-
   return (
     <section class="p-6 max-w-4xl mx-auto">
       <h1 class="text-2xl font-bold mb-4">Dashboard del Professionista</h1>
 
       <UserProfileForm />
 
-      <div class="mt-8">
+      {/* <div class="mt-8">
         <h2 class="text-xl font-semibold mb-2">Anteprima Card</h2>
         <CardPreview />
       </div>
@@ -28,7 +22,7 @@ const Dashboard = component$(() => {
         ) : (
           <p>🔒 Attiva il piano Premium per rendere pubblica la tua pagina personale.</p>
         )}
-      </div>
+      </div> */}
     </section>
   );
 });

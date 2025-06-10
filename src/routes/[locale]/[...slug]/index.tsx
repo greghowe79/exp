@@ -7,6 +7,7 @@ import { resolvePageKey } from '~/lib/pageMap';
 import { Login } from '~/components/login/Login';
 import { SignUp } from '~/components/signup/SignUp';
 import Dashboard from '~/components/dashboard/Dashboard';
+import Preview from '~/components/preview/Preview';
 import { ResetPassword } from '~/components/reset-password/ResetPassword';
 import { UpdatePassword } from '~/components/update-password/UpdatePassword';
 import { verifyTokenWithSupabase } from '~/lib/auth-utils';
@@ -24,7 +25,7 @@ export const onGet = async ({ cookie, redirect, params }: RequestEvent) => {
     return;
   }
 
-  if (slug === _('slug_dashboard')) {
+  if (slug === _('slug_dashboard') || slug === _('slug_preview')) {
     const token = cookie.get('server-access-token')?.value;
 
     if (!token) {
@@ -63,6 +64,8 @@ export default component$(() => {
       return <SignUp />;
     case 'dashboard':
       return <Dashboard />;
+    case 'preview':
+      return <Preview />;
     case `reset`:
       return <ResetPassword />;
     case `update`:

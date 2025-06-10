@@ -29,6 +29,7 @@
     "@types/node": "20.14.11",
     "@typescript-eslint/eslint-plugin": "7.16.1",
     "@typescript-eslint/parser": "7.16.1",
+    "@unpic/qwik": "^1.0.0",
     "eslint": "8.57.0",
     "eslint-plugin-qwik": "^1.13.0",
     "prettier": "3.3.3",
@@ -39,7 +40,7 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
-    "@greghowe79/the-lib": "^0.9.7",
+    "@greghowe79/the-lib": "^1.0.1",
     "@supabase/supabase-js": "^2.49.4",
     "@types/uuid": "^10.0.0",
     "compiled-i18n": "^1.1.1",

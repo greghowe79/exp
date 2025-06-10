@@ -54,6 +54,15 @@ export const pageMap:any = {
     'ja-JP': 'dashboard',
     'zh-CN': 'dashboard',
   },
+    preview:{
+    'en-US': 'preview',
+    'it-IT': 'anteprima',
+    'es-ES': 'vista-previa',
+    'fr-FR': 'aperçu',
+    'pt-PT': 'pré-visualização',
+    'ja-JP': 'preview',
+    'zh-CN': 'preview',
+  },
     reset:{
     'en-US': 'reset-password',
     'it-IT': 'ripristina-password',

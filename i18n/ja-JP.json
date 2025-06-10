@@ -35,12 +35,15 @@
     "form_submit": "送信",
     "form_reset_password": "パスワードをお忘れですか？",
     "slug_dashboard": "dashboard",
+    "slug_preview": "preview",
     "slug_reset_password": "reset-password",
     "form.errors.invalidEmail": "有効なメールアドレスを入力してください",
     "form.errors.invalidPassword": "パスワードは8～16文字で、数字、小文字、大文字、特殊文字をそれぞれ少なくとも1つ含める必要があります。",
     "form.errors.inputRequired": "必須項目です",
-    "popup.signupSuccessTitle": "操作が正常に完了しました。",
-    "popup.signupErrorTitle": "操作に失敗しました",
+    "popup.genericSuccessTitle": "操作が正常に完了しました。",
+    "popup.userIdMissing": "ユーザーIDが見つかりません。もう一度お試しください。",
+    "popup.genericErrorTitle": "操作に失敗しました",
+    "generic_errorMessage": "問題が発生しました。しばらくしてからもう一度お試しください。",
     "popup.signupDescription": "登録を確認するためにメールをご確認ください。",
     "popup.reset_password_description": "メールを確認し、リンクを辿ってユーザーパスワードをリセットしてください",
     "slug_update_password": "update-password",
@@ -49,6 +52,8 @@
     "form_reset_password-title": "パスワードのリセット",
     "form_reset_password-description": "続行するには、アカウントに登録されているメールアドレスを入力してください。",
     "form_reset_password-button": "続行",
-    "popup.update_password_description": "パスワードが正常に更新されました。アカウントにログインしてください。"
+    "popup.update_password_description": "パスワードが正常に更新されました。アカウントにログインしてください。",
+    "profile_card_link": "プロフィールへ移動",
+    "profile_about_section": "概要"
   }
 }

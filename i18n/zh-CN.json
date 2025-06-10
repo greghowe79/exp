@@ -35,12 +35,15 @@
     "form_submit": "提交",
     "form_reset_password": "忘记密码了？",
     "slug_dashboard": "dashboard",
+    "slug_preview": "preview",
     "slug_reset_password": "reset-password",
     "form.errors.invalidEmail": "请输入有效的电子邮件地址",
     "form.errors.invalidPassword": "密码必须为8-16个字符，且至少包含一个数字、一个小写字母、一个大写字母和一个特殊字符。",
     "form.errors.inputRequired": "必填字段",
-    "popup.signupSuccessTitle": "操作成功完成。",
-    "popup.signupErrorTitle": "操作失败",
+    "popup.genericSuccessTitle": "操作成功完成。",
+    "popup.userIdMissing": "用户ID缺失。请再试一次。",
+    "popup.genericErrorTitle": "操作失败",
+    "generic_errorMessage": "出了点问题。请稍后再试。",
     "popup.signupDescription": "请检查您的电子邮件以确认注册。",
     "popup.reset_password_description": "请查看您的电子邮件并点击链接重置用户密码",
     "slug_update_password": "update-password",
@@ -49,6 +52,8 @@
     "form_reset_password-title": "重置密码",
     "form_reset_password-description": "要继续，请输入您账户注册的电子邮箱地址。",
     "form_reset_password-button": "继续",
-    "popup.update_password_description": "密码更新成功。请登录您的账户。"
+    "popup.update_password_description": "密码更新成功。请登录您的账户。",
+    "profile_card_link": "前往个人资料",
+    "profile_about_section": "关于"
   }
 }

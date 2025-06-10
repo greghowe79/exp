@@ -1,4 +1,4 @@
-import { component$, useSignal, useStyles$ } from '@builder.io/qwik';
+import { component$, useStyles$ } from '@builder.io/qwik';
 import { Button, Input, Select, TextArea } from '@greghowe79/the-lib';
 import { useAuth } from '~/hooks/useSignUp';
 import { validateEmail, validatePhone } from '~/utility/validators';
@@ -10,11 +10,11 @@ import { Marker } from '~/assets/marker';
 import { Mobile } from '~/assets/mobile';
 import { _ } from 'compiled-i18n';
 import { options } from '~/data/country-code-data';
+import { useNavigate } from '@builder.io/qwik-city';
 
 const UserProfileForm = component$(() => {
+  const nav = useNavigate();
   useStyles$(styles);
-
-  const selectedFile = useSignal(_('user_profile_image'));
 
   const {
     emailError,
@@ -24,6 +24,7 @@ const UserProfileForm = component$(() => {
     phoneTouched,
     selectedCountry,
     currentFile,
+    selectedFile,
     firstName,
     lastName,
     jobTitle,
@@ -36,7 +37,7 @@ const UserProfileForm = component$(() => {
     isLoading,
     isSubmitDisabled,
     handleAuth,
-  } = useAuth('USER_PROFILE');
+  } = useAuth('USER_PROFILE', nav);
 
   return (
     <form preventdefault:submit onSubmit$={handleAuth} class="form">

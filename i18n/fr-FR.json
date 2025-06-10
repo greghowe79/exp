@@ -35,12 +35,15 @@
     "form_submit": "Soumettre",
     "form_reset_password": "Mot de passe oublié ?",
     "slug_dashboard": "tableau-de-bord",
+    "slug_preview": "aperçu",
     "slug_reset_password": "reinitialiser-mot-de-passe",
     "form.errors.invalidEmail": "Veuillez entrer une adresse e-mail valide",
     "form.errors.invalidPassword": "Le mot de passe doit comporter entre 8 et 16 caractères et inclure au moins un chiffre, une lettre minuscule, une lettre majuscule et un caractère spécial.",
     "form.errors.inputRequired": "Champ requis",
-    "popup.signupSuccessTitle": "Opération réussie.",
-    "popup.signupErrorTitle": "Opération échouée",
+    "popup.genericSuccessTitle": "Opération réussie.",
+    "popup.userIdMissing": "Identifiant utilisateur manquant. Veuillez réessayer.",
+    "popup.genericErrorTitle": "Opération échouée",
+    "generic_errorMessage": "Quelque chose a mal tourné. Veuillez réessayer plus tard.",
     "popup.signupDescription": "Vérifiez votre e-mail pour confirmer l'inscription.",
     "popup.reset_password_description": "Vérifiez votre email et suivez le lien pour réinitialiser le mot de passe de votre utilisateur",
     "slug_update_password": "mettre-a-jour-mot-de-passe",
@@ -49,6 +52,8 @@
     "form_update_password-description": "Pour continuer, saisissez un nouveau mot de passe",
     "popup.update_password_description": "Mot de passe mis à jour avec succès. Connectez-vous à votre compte.",
     "form_reset_password-description": "Pour continuer, saisissez l'adresse email associée à votre compte.",
-    "form_reset_password-button": "Continuer"
+    "form_reset_password-button": "Continuer",
+    "profile_card_link": "Aller au profil",
+    "profile_about_section": "À PROPOS"
   }
 }

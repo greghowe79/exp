@@ -26,8 +26,10 @@ export interface UserProfile {
   description: string;
   email: string;
   telephone: string;
-  facebook: string;
-  linkedin: string;
+  facebook?: string;
+  twitter?: string;
+  instagram?: string;
+  linkedin?: string;
   position: string;
   created_at: string;
 }

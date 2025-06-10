@@ -35,12 +35,15 @@
     "form_submit": "Invia",
     "form_reset_password": "Hai dimenticato la password?",
     "slug_dashboard": "pannello-di-controllo",
+    "slug_preview": "anteprima",
     "slug_reset_password": "ripristina-password",
     "form.errors.invalidEmail": "Inserisci un indirizzo email valido",
     "form.errors.invalidPassword": "La password deve essere lunga 8-16 caratteri e includere almeno una cifra, una lettera minuscola, una lettera maiuscola e un carattere speciale.",
     "form.errors.inputRequired": "Campo obbligatorio",
-    "popup.signupSuccessTitle": "Operazione completata con successo.",
-    "popup.signupErrorTitle": "Operazione non riuscita",
+    "popup.genericSuccessTitle": "Operazione completata con successo.",
+    "popup.genericErrorTitle": "Operazione non riuscita",
+    "generic_errorMessage": "Qualcosa è andato storto. Per favore riprova più tardi.",
+    "popup.userIdMissing": "ID utente mancante. Riprova, per favore.",
     "popup.signupDescription": "Controlla la tua email per confermare la registrazione.",
     "popup.reset_password_description": "Controlla la tua email e segui il link per reimpostare la password per il tuo utente",
     "slug_update_password": "aggiorna-password",
@@ -49,6 +52,8 @@
     "form_update_password-description": "Per continuare, inserisci una nuova password",
     "form_reset_password-description": "Per continuare, inserisci l’indirizzo email associato al tuo account.",
     "form_reset_password-button": "Continua",
-    "popup.update_password_description": "Password aggiornata con successo. Effettua l' accesso  al tuo account."
+    "popup.update_password_description": "Password aggiornata con successo. Effettua l' accesso  al tuo account.",
+    "profile_card_link": "Vai al profilo",
+    "profile_about_section": "INFORMAZIONI"
   }
 }

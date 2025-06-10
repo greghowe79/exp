@@ -88,6 +88,7 @@ export const AuthService = {
   },
   async insertUser(userProfile: UserProfile) {
     const { error: insertUserError } = await supabase.from('professionals').insert(userProfile);
+
     //getProducts(productsTable);
     if (insertUserError) {
       console.error(insertUserError);
