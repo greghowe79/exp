@@ -42,6 +42,8 @@ export default component$(() => {
   const location = useLocation();
   const isSessionLoading = useContext(SessionLoadingContext);
 
+  const id = location.params.slug.split('/')[1];
+
   // Ottieni il percorso senza il locale
   const normalizedPath = location.url.pathname.replace(new RegExp(`^/${currentLocale}/`), '/');
 
@@ -53,9 +55,17 @@ export default component$(() => {
 
   return (
     <>
-      {normalizedPath !== `/${_('slug_login')}/` && normalizedPath !== `/${_('slug_signup')}/` && (
-        <NavigationMenu ariaLabel="Menu principale" logoComponent={Logo} listItems={listItems} actions={newAction} locale={currentLocale} />
-      )}
+      {normalizedPath !== `/${_('slug_login')}/` &&
+        normalizedPath !== `/${_('slug_signup')}/` &&
+        normalizedPath !== `/${_('slug_website')}/${id}/` && (
+          <NavigationMenu
+            ariaLabel="Menu principale"
+            logoComponent={Logo}
+            listItems={listItems}
+            actions={newAction}
+            locale={currentLocale}
+          />
+        )}
 
       {isModalOpen.value && (
         <Modal open={isModalOpen} title="Languages">
@@ -63,7 +73,14 @@ export default component$(() => {
         </Modal>
       )}
       <PopupDisplay />
-      <div class={normalizedPath !== `/${_('slug_login')}/` && normalizedPath !== `/${_('slug_signup')}/` && 'spacer'}>
+      <div
+        class={
+          normalizedPath !== `/${_('slug_login')}/` &&
+          normalizedPath !== `/${_('slug_signup')}/` &&
+          normalizedPath !== `/${_('slug_website')}/${id}/` &&
+          'spacer'
+        }
+      >
         <Slot />
       </div>
       <AutoLogout />

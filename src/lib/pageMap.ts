@@ -63,6 +63,15 @@ export const pageMap:any = {
     'ja-JP': 'preview',
     'zh-CN': 'preview',
   },
+   website: {
+  'en-US': 'website',
+  'it-IT': 'sito-web',
+  'es-ES': 'sitio-web',
+  'fr-FR': 'site-web',
+  'pt-PT': 'site',
+  'ja-JP': 'website',
+  'zh-CN': 'website',
+},
     reset:{
     'en-US': 'reset-password',
     'it-IT': 'ripristina-password',

@@ -36,6 +36,7 @@
     "form_reset_password": "Hai dimenticato la password?",
     "slug_dashboard": "pannello-di-controllo",
     "slug_preview": "anteprima",
+    "slug_website": "sito-web",
     "slug_reset_password": "ripristina-password",
     "form.errors.invalidEmail": "Inserisci un indirizzo email valido",
     "form.errors.invalidPassword": "La password deve essere lunga 8-16 caratteri e includere almeno una cifra, una lettera minuscola, una lettera maiuscola e un carattere speciale.",

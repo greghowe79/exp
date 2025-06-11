@@ -10,6 +10,7 @@ import Dashboard from '~/components/dashboard/Dashboard';
 import Preview from '~/components/preview/Preview';
 import { ResetPassword } from '~/components/reset-password/ResetPassword';
 import { UpdatePassword } from '~/components/update-password/UpdatePassword';
+import { Website } from '~/components/website/Website';
 import { verifyTokenWithSupabase } from '~/lib/auth-utils';
 import { _, setLocaleGetter } from 'compiled-i18n';
 
@@ -70,6 +71,8 @@ export default component$(() => {
       return <ResetPassword />;
     case `update`:
       return <UpdatePassword />;
+    case `website`:
+      return <Website />;
     default:
       return <h1>404 - Page Not Found</h1>;
   }
@@ -93,6 +96,7 @@ export const head: DocumentHead = ({ params }) => {
     preview: _('page_preview'),
     reset: _('page_reset'),
     update: _('page_update'),
+    //website: _('page_website'),
   };
 
   const descriptions: Record<string, string> = {
@@ -105,6 +109,7 @@ export const head: DocumentHead = ({ params }) => {
     preview: _('desc_preview'),
     reset: _('desc_reset'),
     update: _('desc_update'),
+    //website: _('desc_website'),
   };
 
   return {

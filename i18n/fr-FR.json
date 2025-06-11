@@ -36,6 +36,7 @@
     "form_reset_password": "Mot de passe oublié ?",
     "slug_dashboard": "tableau-de-bord",
     "slug_preview": "aperçu",
+    "slug_website": "site-web",
     "slug_reset_password": "reinitialiser-mot-de-passe",
     "form.errors.invalidEmail": "Veuillez entrer une adresse e-mail valide",
     "form.errors.invalidPassword": "Le mot de passe doit comporter entre 8 et 16 caractères et inclure au moins un chiffre, une lettre minuscule, une lettre majuscule et un caractère spécial.",

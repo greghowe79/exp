@@ -36,6 +36,7 @@
     "form_reset_password": "パスワードをお忘れですか？",
     "slug_dashboard": "dashboard",
     "slug_preview": "preview",
+    "slug_website": "website",
     "slug_reset_password": "reset-password",
     "form.errors.invalidEmail": "有効なメールアドレスを入力してください",
     "form.errors.invalidPassword": "パスワードは8～16文字で、数字、小文字、大文字、特殊文字をそれぞれ少なくとも1つ含める必要があります。",

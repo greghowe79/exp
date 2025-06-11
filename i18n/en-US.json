@@ -34,6 +34,7 @@
     "slug_signup": "signup",
     "slug_dashboard": "dashboard",
     "slug_preview": "preview",
+    "slug_website": "website",
     "slug_reset_password": "reset-password",
     "form_submit": "Submit",
     "form_reset_password": "Forgot your password?",

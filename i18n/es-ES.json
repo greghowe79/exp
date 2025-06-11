@@ -36,6 +36,7 @@
     "form_reset_password": "¿Olvidaste tu contraseña?",
     "slug_dashboard": "panel-de-control",
     "slug_preview": "vista-previa",
+    "slug_website": "sitio-web",
     "slug_reset_password": "restablecer-contraseña",
     "form.errors.invalidEmail": "Por favor, introduce una dirección de correo electrónico válida",
     "form.errors.invalidPassword": "La contraseña debe tener entre 8 y 16 caracteres e incluir al menos un dígito, una letra minúscula, una letra mayúscula y un carácter especial.",

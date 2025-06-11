@@ -37,6 +37,7 @@
     "form_reset_password": "Esqueceu a senha?",
     "slug_dashboard": "painel-de-controle",
     "slug_preview": "pré-visualização",
+    "slug_website": "site",
     "form.errors.invalidEmail": "Insira um endereço de email válido",
     "form.errors.invalidPassword": "A senha deve ter entre 8 e 16 caracteres e incluir pelo menos um número, uma letra minúscula, uma letra maiúscula e um caractere especial.",
     "form.errors.inputRequired": "Campo obrigatório",
