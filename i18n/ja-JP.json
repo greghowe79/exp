@@ -54,6 +54,24 @@
     "form_reset_password-button": "続行",
     "popup.update_password_description": "パスワードが正常に更新されました。アカウントにログインしてください。",
     "profile_card_link": "プロフィールへ移動",
-    "profile_about_section": "概要"
+    "profile_about_section": "概要",
+    "page_about": "私たちについて",
+    "page_services": "サービス",
+    "page_contact": "お問い合わせ",
+    "page_login": "ログイン",
+    "page_signup": "サインアップ",
+    "page_dashboard": "ダッシュボード",
+    "page_preview": "プレビュー",
+    "page_reset": "パスワードリセット",
+    "page_update": "パスワード更新",
+    "desc_about": "私たちについて、歴史、そして日々の使命をご紹介します。",
+    "desc_services": "ニーズに応じたプロフェッショナルなサービスをご覧ください。",
+    "desc_contact": "情報やサポート、見積もり依頼はお気軽にお問い合わせください。",
+    "desc_login": "アカウントにログインしてデータを管理し、サービスを利用しましょう。",
+    "desc_signup": "新規登録して、すべての機能を利用し始めましょう。",
+    "desc_dashboard": "個人用ダッシュボードにアクセスしてプロフィールを管理しましょう。",
+    "desc_preview": "限定コンテンツを迅速かつ安全にプレビューします。",
+    "desc_reset": "パスワードを安全にリセットしてアクセスを回復しましょう。",
+    "desc_update": "アカウントのセキュリティを保つためにパスワードを更新しましょう。"
   }
 }

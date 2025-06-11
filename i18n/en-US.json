@@ -54,6 +54,24 @@
     "form_reset_password-description": "To continue, enter the email address associated with your account.",
     "form_reset_password-button": "Continue",
     "profile_card_link": "Go to profile",
-    "profile_about_section": "ABOUT"
+    "profile_about_section": "ABOUT",
+    "page_about": "About us",
+    "page_services": "Services",
+    "page_contact": "Contact",
+    "page_login": "Login",
+    "page_signup": "Sign Up",
+    "page_dashboard": "Dashboard",
+    "page_preview": "Preview",
+    "page_reset": "Reset Password",
+    "page_update": "Update Password",
+    "desc_about": "Learn who we are, our history, and the mission that drives us every day.",
+    "desc_services": "Explore all our professional services designed to meet your needs.",
+    "desc_contact": "Contact us for information, support, or a personalized quote.",
+    "desc_login": "Log in to your account to manage your data and access our services.",
+    "desc_signup": "Sign up to start using all the features available on our platform.",
+    "desc_dashboard": "Access your personal area to monitor activities and manage your profile.",
+    "desc_preview": "Quickly and securely preview private content before publishing.",
+    "desc_reset": "Reset your password easily and securely to regain access.",
+    "desc_update": "Update your password to ensure your account's maximum security."
   }
 }

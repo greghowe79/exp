@@ -54,6 +54,24 @@
     "form_reset_password-button": "Continua",
     "popup.update_password_description": "Password aggiornata con successo. Effettua l' accesso  al tuo account.",
     "profile_card_link": "Vai al profilo",
-    "profile_about_section": "INFORMAZIONI"
+    "profile_about_section": "INFORMAZIONI",
+    "page_about": "Chi siamo",
+    "page_services": "Servizi",
+    "page_contact": "Contatti",
+    "page_login": "Accedi",
+    "page_signup": "Registrati",
+    "page_dashboard": "Dashboard",
+    "page_preview": "Anteprima",
+    "page_reset": "Reset Password",
+    "page_update": "Aggiorna Password",
+    "desc_about": "Scopri chi siamo, la nostra storia e la missione che ci guida ogni giorno.",
+    "desc_services": "Esplora tutti i nostri servizi professionali pensati per soddisfare le tue esigenze.",
+    "desc_contact": "Contattaci per ricevere informazioni, supporto o richiedere un preventivo personalizzato.",
+    "desc_login": "Accedi al tuo account per gestire i tuoi dati e usufruire dei nostri servizi.",
+    "desc_signup": "Registrati per iniziare a usare tutti i servizi disponibili sulla nostra piattaforma.",
+    "desc_dashboard": "Accedi al tuo spazio personale per monitorare attività e gestire il tuo profilo.",
+    "desc_preview": "Visualizza un’anteprima dei contenuti riservati in modo rapido e sicuro.",
+    "desc_reset": "Resetta la tua password in modo semplice e sicuro per accedere nuovamente.",
+    "desc_update": "Aggiorna la tua password per garantire la massima sicurezza del tuo account."
   }
 }

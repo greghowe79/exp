@@ -54,6 +54,24 @@
     "form_reset_password-description": "Pour continuer, saisissez l'adresse email associée à votre compte.",
     "form_reset_password-button": "Continuer",
     "profile_card_link": "Aller au profil",
-    "profile_about_section": "À PROPOS"
+    "profile_about_section": "À PROPOS",
+    "page_about": "À propos",
+    "page_services": "Services",
+    "page_contact": "Contact",
+    "page_login": "Connexion",
+    "page_signup": "Inscription",
+    "page_dashboard": "Tableau de bord",
+    "page_preview": "Aperçu",
+    "page_reset": "Réinitialiser le mot de passe",
+    "page_update": "Mettre à jour le mot de passe",
+    "desc_about": "Découvrez qui nous sommes, notre histoire et notre mission au quotidien.",
+    "desc_services": "Découvrez tous nos services professionnels adaptés à vos besoins.",
+    "desc_contact": "Contactez-nous pour obtenir des informations, de l’aide ou un devis personnalisé.",
+    "desc_login": "Connectez-vous à votre compte pour gérer vos données et accéder à nos services.",
+    "desc_signup": "Inscrivez-vous pour profiter de toutes les fonctionnalités de notre plateforme.",
+    "desc_dashboard": "Accédez à votre espace personnel pour suivre vos activités et gérer votre profil.",
+    "desc_preview": "Prévisualisez rapidement et en toute sécurité les contenus réservés.",
+    "desc_reset": "Réinitialisez facilement votre mot de passe pour retrouver l’accès.",
+    "desc_update": "Mettez à jour votre mot de passe pour renforcer la sécurité de votre compte."
   }
 }

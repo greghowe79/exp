@@ -54,6 +54,24 @@
     "form_reset_password-button": "Continuar",
     "popup.update_password_description": "Senha atualizada com sucesso. Faça login na sua conta.",
     "profile_card_link": "Ir para o perfil",
-    "profile_about_section": "SOBRE"
+    "profile_about_section": "SOBRE",
+    "page_about": "Sobre nós",
+    "page_services": "Serviços",
+    "page_contact": "Contato",
+    "page_login": "Entrar",
+    "page_signup": "Registrar",
+    "page_dashboard": "Painel",
+    "page_preview": "Pré-visualização",
+    "page_reset": "Redefinir senha",
+    "page_update": "Atualizar senha",
+    "desc_about": "Saiba quem somos, nossa história e a missão que nos move todos os dias.",
+    "desc_services": "Conheça todos os nossos serviços profissionais feitos para você.",
+    "desc_contact": "Fale conosco para obter informações, suporte ou um orçamento personalizado.",
+    "desc_login": "Faça login para gerenciar seus dados e acessar nossos serviços.",
+    "desc_signup": "Cadastre-se e comece a usar todos os recursos da plataforma.",
+    "desc_dashboard": "Acesse seu painel pessoal para acompanhar suas atividades.",
+    "desc_preview": "Veja uma prévia segura dos conteúdos exclusivos.",
+    "desc_reset": "Redefina sua senha com facilidade e segurança.",
+    "desc_update": "Atualize sua senha para manter sua conta protegida."
   }
 }
