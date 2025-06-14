@@ -4,7 +4,11 @@ import { supabase } from '~/lib/db';
 import type { UserProfile } from '~/root';
 import { useLocation } from '@builder.io/qwik-city';
 import { Image } from '@unpic/qwik';
-import { Hello } from '~/assets/hello';
+import { Email } from '~/assets/email';
+import { Mobile } from '~/assets/mobile';
+import { Marker } from '~/assets/marker';
+import { FacebookFooter } from '~/assets/facebook_footer';
+import { LinkedinFooter } from '~/assets/linkedin_footer';
 
 export const Website = component$(() => {
   const location = useLocation();
@@ -19,194 +23,173 @@ export const Website = component$(() => {
   useStyles$(styles);
 
   return (
-    <main class="main">
-      <nav class="navbar">
-        <ul>
-          <li>
-            <a href="#hero">Home</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#services">Services</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
+    <Resource
+      value={data}
+      onPending={() => <p>Loading...</p>}
+      onRejected={(err) => <p>Error: {err.message}</p>}
+      onResolved={(profile) => (
+        <main class="main">
+          <header>
+            <nav>
+              <div class="inner_nav">
+                <div class="inner_nav_element_container">
+                  <span class="email">
+                    <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                  </span>
 
-      <Resource
-        value={data}
-        onPending={() => <p>Loading...</p>}
-        onRejected={(err) => <p>Error: {err.message}</p>}
-        onResolved={(profile) => (
-          <>
-            <section id="hero" class="section hero">
-              <div id="header">
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    width: '100%',
-                    // minHeight: '580px',
-                    backgroundColor: '#f5f5f7',
-                    borderRadius: '28px',
-                    maxWidth: '50%',
-                    gap: '15px',
-                  }}
-                >
-                  <div class="dd-details">
-                    <p class="job_title">{profile.job_title}</p>
-                    <p class="user">{`Meet with an expert. ${profile.first_name} ${profile.last_name}`}</p>
+                  <button class="menu-button">
+                    <div class="menu-line line-1"></div>
+                    <div class="menu-line line-2"></div>
+                    <div class="menu-line line-3"></div>
+                  </button>
+                </div>
+              </div>
+            </nav>
+          </header>
+          <section class="hero">
+            <div class="inner_hero">
+              <div class="inner_hero_user_name">
+                <h1 class="first_name">{profile.first_name}</h1>
+                <h1 class="last_name">{profile.last_name}</h1>
+              </div>
+              <Image
+                objectFit="cover"
+                src={'https://crafto.themezaa.com/freelancer/wp-content/uploads/sites/37/2024/04/demo-freelancer-02.png.webp'}
+                layout="constrained"
+                decoding="async"
+                loading="eager"
+                alt={`${profile.first_name} ${profile.last_name}`}
+                class="card-avatar"
+              />
+            </div>
+          </section>
+          <div class="overlapping-text">
+            <p class="bridge-text">{profile.job_title || 'Your position text here'}</p>
+          </div>
+          <div class="general_wrap">
+            <section class="about">
+              <div class="divider"></div>
+              <div class="section_area">
+                <div class="section_content_wrapper">
+                  <div class="content-section">
+                    <div class="header_section">
+                      <div class="title">{`ABOUT ${profile.first_name.toLocaleUpperCase()} ${profile.last_name.toLocaleUpperCase()} `}</div>
+                      <div class="step">01</div>
+                    </div>
+                    <div class="body_section">
+                      <p class="description">{profile.description}</p>
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      // justifyContent: 'center',
-                      paddingInline: '30px',
-                      paddingBlock: '0 30px',
-                      gap: '30px',
-                    }}
-                  >
-                    <Image
-                      objectFit="cover"
-                      width={300}
-                      // height={300}
-                      src={profile.img_url}
-                      layout="constrained"
-                      decoding="async"
-                      loading="eager"
-                      alt={`${profile.first_name} ${profile.last_name}`}
-                      class="card-avatar"
-                    />
+                </div>
+              </div>
+            </section>
+
+            <section class="services">
+              <div class="services_divider"></div>
+              <div class="parent">
+                <div class="first_child">
+                  {' '}
+                  <Image
+                    src={'https://crafto.themezaa.com/freelancer/wp-content/uploads/sites/37/2024/04/demo-freelancer-06.png.webp'}
+                    layout="constrained"
+                    decoding="async"
+                    loading="eager"
+                    alt={`${profile.first_name} ${profile.last_name}`}
+                    class="service_image"
+                  />
+                </div>
+                <div class="second_child">
+                  <div>
                     <div>
-                      <Hello />
+                      <div class="widget-container">
+                        <h4 class="service_heading ">
+                          <span>Our Services, Tailored to Your Vision</span>
+                        </h4>
+                      </div>
+                    </div>
+                    <div class="services_main-content">
+                      <div class="widget-container">
+                        Currently improving users experience and interface design as lead designer director at crafto agency. Creating brand
+                        identities and experiences.
+                      </div>
+                    </div>
+                    <div>
+                      <div class="widget-container">
+                        <div class="progress-wrapper" role="progressbar">
+                          <div class="progress-bar" data-max="80" style="width: 80%;">
+                            <span class="progress-text">WEB DESIGN </span>
+                            <span class="progress-percentage">80% </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="widget-container">
+                        <div class="progress-wrapper" role="progressbar">
+                          <div class="progress-bar" data-max="98" style="width: 98%;">
+                            <span class="progress-text">GRAPHIC DESIGN</span>
+                            <span class="progress-percentage">98% </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="widget-container">
+                        <div class="progress-wrapper" role="progressbar">
+                          <div class="progress-bar" data-max="85" style="width: 85%;">
+                            <span class="progress-text">ART DIRECTION </span>
+                            <span class="progress-percentage">85% </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </section>
-
-            <section id="about" class="section">
-              <div class="content">
-                <h2>About</h2>
-                <p>{profile.position}</p>
-              </div>
-            </section>
-
-            <section id="services" class="section alt">
-              <div class="content">
-                <h2>Services</h2>
-                <p>Custom websites, animations, performance optimization and more.</p>
-              </div>
-            </section>
-
-            <footer id="contact" class="footer-section">
-              <div class="container">
-                <div class="main-title">
-                  <div class="top-left-corner" />
-                  <h4>Contact Me</h4>
-                  <div class="top-right-corner" />
-                </div>
-
-                <div class="content-wrapper">
-                  <div class="contact-info">
-                    <h4 class="sub-title">Contact Info</h4>
-                    <div class="info-grid">
-                      <div class="info-item">
-                        <span class="name">Address</span>
-                        <div class="value">
-                          <i class="fas fa-map-marker-alt"></i>
-                          <span>Rome, Italy</span>
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <span class="name">Phone</span>
-                        <div class="value">
-                          <i class="fas fa-mobile-alt"></i>
-                          <span>{profile.telephone}</span>
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <span class="name">Email</span>
-                        <div class="value">
-                          <i class="fas fa-envelope"></i>
-                          <span>{profile.email}</span>
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <span class="name">Website</span>
-                        <div class="value">
-                          <i class="fas fa-globe"></i>
-                          <a href="https://www.eduardcapanu.com" target="_blank">
-                            www.eduardcapanu.com
-                          </a>
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <span class="name">Social Media</span>
-                        <div class="value socials">
-                          {profile.twitter && (
-                            <a href={profile.twitter} target="_blank">
-                              <i class="fab fa-twitter" />
-                            </a>
-                          )}
-                          {profile.instagram && (
-                            <a href={profile.instagram} target="_blank">
-                              <i class="fab fa-instagram" />
-                            </a>
-                          )}
-                          {profile.linkedin && (
-                            <a href={profile.linkedin} target="_blank">
-                              <i class="fab fa-linkedin-in" />
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                      <div class="info-item">
-                        <span class="name">My Blogs</span>
-                        <div class="value">
-                          <a href="https://medium.com/@capanueduard98" target="_blank">
-                            <i class="fa-brands fa-medium" />
-                          </a>
-                          <a href="https://dev.to/razxssd" target="_blank">
-                            <i class="fa-brands fa-dev" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+            <footer>
+              <div class="footer-container">
+                <div class="footer-column">
+                  <h3>Contatti</h3>
+                  <div class="footer-info">
+                    <Marker /> {profile.position}
                   </div>
-
-                  <div class="contact-form">
-                    <h4 class="sub-title">Contact Form</h4>
-                    <div class="form-container">
-                      <p>Do you need more specific info? Get in touch with me by pressing the link below.</p>
-                      <a href="https://form.typeform.com/to/sUIhAE" target="_blank" class="form-link">
-                        <i class="fas fa-external-link-alt"></i>
-                        <span>Open contact form</span>
-                      </a>
-                    </div>
+                  <div class="footer-info">
+                    <Mobile /> <a href={`tel:${profile.telephone}`}>{profile.telephone}</a>
+                  </div>
+                  <div class="footer-info">
+                    <Email /> <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                  </div>
+                  <div class="footer-info">
+                    <i class="fas fa-globe"></i>{' '}
+                    <a href="https://www.eduardcapanu.com" target="_blank">
+                      www.eduardcapanu.com
+                    </a>
                   </div>
                 </div>
 
-                <div class="inner-footer">
-                  <div class="bottom-left-corner" />
-                  <a class="scroll-up" href="#hero">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                  <div class="bottom-right-corner" />
+                <div class="footer-column">
+                  <h3>Seguimi</h3>
+                  <div class="social-icons">
+                    <a href={profile.facebook} aria-label="Facebook">
+                      <FacebookFooter fill={'#232323'} />
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href={profile.linkedin} aria-label="LinkedIn">
+                      <LinkedinFooter fill={'#232323'} />
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </footer>
-          </>
-        )}
-      />
-    </main>
+          </div>
+        </main>
+      )}
+    />
   );
 });

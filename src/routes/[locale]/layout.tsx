@@ -42,7 +42,8 @@ export default component$(() => {
   const location = useLocation();
   const isSessionLoading = useContext(SessionLoadingContext);
 
-  const id = location.params.slug.split('/')[1];
+  const slug = location.params.slug;
+  const id = slug ? slug.split('/')[1] : undefined;
 
   // Ottieni il percorso senza il locale
   const normalizedPath = location.url.pathname.replace(new RegExp(`^/${currentLocale}/`), '/');
