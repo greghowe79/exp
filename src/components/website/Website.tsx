@@ -1,4 +1,4 @@
-import { component$, useResource$, Resource, useStyles$ } from '@builder.io/qwik';
+import { component$, useResource$, Resource, useStyles$, useSignal } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { supabase } from '~/lib/db';
 import type { UserProfile } from '~/root';
@@ -17,6 +17,7 @@ import { _ } from 'compiled-i18n';
 export const Website = component$(() => {
   const location = useLocation();
   const id = location.params.slug.split('/')[1];
+  const menuOpen = useSignal(false);
 
   const data = useResource$<UserProfile>(async () => {
     const { data, error } = await supabase.from('professionals').select('*').eq('id', id).single();
@@ -41,12 +42,60 @@ export const Website = component$(() => {
                     <a href={`mailto:${profile.email}`}>{profile.email}</a>
                   </span>
 
-                  <button class="menu-button">
+                  <button
+                    class={`menu-button ${menuOpen.value ? 'open' : ''}`}
+                    onClick$={() => (menuOpen.value = !menuOpen.value)}
+                    aria-label="Toggle navigation menu"
+                  >
                     <div class="menu-line line-1"></div>
                     <div class="menu-line line-2"></div>
                     <div class="menu-line line-3"></div>
                   </button>
                 </div>
+              </div>
+
+              <div class={`fullscreen-menu ${menuOpen.value ? 'open' : ''}`}>
+                <ul>
+                  <li>
+                    <a
+                      href="#"
+                      preventdefault:click
+                      onClick$={() => {
+                        const el = document.getElementById('about');
+                        el?.scrollIntoView({ behavior: 'smooth' });
+                        menuOpen.value = false;
+                      }}
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      preventdefault:click
+                      onClick$={() => {
+                        const el = document.getElementById('services');
+                        el?.scrollIntoView({ behavior: 'smooth' });
+                        menuOpen.value = false;
+                      }}
+                    >
+                      Services
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      preventdefault:click
+                      onClick$={() => {
+                        const el = document.getElementById('contact');
+                        el?.scrollIntoView({ behavior: 'smooth' });
+                        menuOpen.value = false;
+                      }}
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
               </div>
             </nav>
           </header>
@@ -71,7 +120,7 @@ export const Website = component$(() => {
           <div class="overlapping-text">
             <p class="bridge-text">{profile.job_title || 'Your position text here'}</p>
           </div>
-          <div class="general_wrap">
+          <div class="general_wrap" id="about">
             <section class="about">
               <div class="divider"></div>
               <div class="section_area">
@@ -89,7 +138,7 @@ export const Website = component$(() => {
               </div>
             </section>
 
-            <section class="services">
+            <section class="services" id="services">
               <div class="services_divider"></div>
               <div class="parent">
                 <div class="first_child">
@@ -107,9 +156,9 @@ export const Website = component$(() => {
                   <div>
                     <div>
                       <div class="widget-container">
-                        <h4 class="service_heading ">
+                        <h2 class="service_heading ">
                           <span>Our Services, Tailored to Your Vision</span>
-                        </h4>
+                        </h2>
                       </div>
                     </div>
                     <div class="services_main-content">
@@ -152,10 +201,10 @@ export const Website = component$(() => {
                 </div>
               </div>
             </section>
-            <footer>
+            <footer id="contact">
               <div class="footer-container">
                 <div class="footer-column">
-                  <h3>{_('page_contact')}</h3>
+                  <h2>{_('page_contact')}</h2>
                   <div class="footer-info">
                     <LocationFooter fill={'#232323'} /> {profile.position}
                   </div>
