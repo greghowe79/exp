@@ -73,6 +73,11 @@
     "desc_dashboard": "进入个人中心，查看活动并管理您的资料。",
     "desc_preview": "快速安全地预览专属内容。",
     "desc_reset": "轻松重置密码，重新获取访问权限。",
-    "desc_update": "更新密码，保障账户安全。"
+    "desc_update": "更新密码，保障账户安全。",
+    "social_media": "社交媒体",
+    "privacy_policy": "隐私政策",
+    "cookie_policy": "Cookie 政策",
+    "terms_of_use": "使用条款",
+    "all_rights_reserved": "版权所有。"
   }
 }

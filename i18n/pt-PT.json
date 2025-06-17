@@ -73,6 +73,11 @@
     "desc_dashboard": "Acesse seu painel pessoal para acompanhar suas atividades.",
     "desc_preview": "Veja uma prévia segura dos conteúdos exclusivos.",
     "desc_reset": "Redefina sua senha com facilidade e segurança.",
-    "desc_update": "Atualize sua senha para manter sua conta protegida."
+    "desc_update": "Atualize sua senha para manter sua conta protegida.",
+    "social_media": "Redes Sociais",
+    "privacy_policy": "Política de Privacidade",
+    "cookie_policy": "Política de Cookies",
+    "terms_of_use": "Termos de Uso",
+    "all_rights_reserved": "Todos os direitos reservados."
   }
 }

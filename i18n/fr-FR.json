@@ -73,6 +73,11 @@
     "desc_dashboard": "Accédez à votre espace personnel pour suivre vos activités et gérer votre profil.",
     "desc_preview": "Prévisualisez rapidement et en toute sécurité les contenus réservés.",
     "desc_reset": "Réinitialisez facilement votre mot de passe pour retrouver l’accès.",
-    "desc_update": "Mettez à jour votre mot de passe pour renforcer la sécurité de votre compte."
+    "desc_update": "Mettez à jour votre mot de passe pour renforcer la sécurité de votre compte.",
+    "social_media": "Réseaux Sociaux",
+    "privacy_policy": "Politique de confidentialité",
+    "cookie_policy": "Politique de cookies",
+    "terms_of_use": "Conditions d'utilisation",
+    "all_rights_reserved": "Tous droits réservés."
   }
 }

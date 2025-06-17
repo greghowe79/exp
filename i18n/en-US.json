@@ -73,6 +73,11 @@
     "desc_dashboard": "Access your personal area to monitor activities and manage your profile.",
     "desc_preview": "Quickly and securely preview private content before publishing.",
     "desc_reset": "Reset your password easily and securely to regain access.",
-    "desc_update": "Update your password to ensure your account's maximum security."
+    "desc_update": "Update your password to ensure your account's maximum security.",
+    "social_media": "Social Media",
+    "privacy_policy": "Privacy Policy",
+    "cookie_policy": "Cookie Policy",
+    "terms_of_use": "Terms of Use",
+    "all_rights_reserved": "All rights reserved."
   }
 }

@@ -4,11 +4,15 @@ import { supabase } from '~/lib/db';
 import type { UserProfile } from '~/root';
 import { useLocation } from '@builder.io/qwik-city';
 import { Image } from '@unpic/qwik';
-import { Email } from '~/assets/email';
-import { Mobile } from '~/assets/mobile';
-import { Marker } from '~/assets/marker';
 import { FacebookFooter } from '~/assets/facebook_footer';
 import { LinkedinFooter } from '~/assets/linkedin_footer';
+import { InstagramFooter } from '~/assets/instagram_footer';
+import { TwitterFooter } from '~/assets/twitter_footer';
+import { GlobeFooter } from '~/assets/globe_footer';
+import { EnvelopeFooter } from '~/assets/envelope_footer';
+import { MobileFooter } from '~/assets/mobile_footer';
+import { LocationFooter } from '~/assets/location_footer';
+import { _ } from 'compiled-i18n';
 
 export const Website = component$(() => {
   const location = useLocation();
@@ -46,12 +50,13 @@ export const Website = component$(() => {
               </div>
             </nav>
           </header>
-          <section class="hero">
+          <section class="hero_section">
             <div class="inner_hero">
               <div class="inner_hero_user_name">
                 <h1 class="first_name">{profile.first_name}</h1>
                 <h1 class="last_name">{profile.last_name}</h1>
               </div>
+
               <Image
                 objectFit="cover"
                 src={'https://crafto.themezaa.com/freelancer/wp-content/uploads/sites/37/2024/04/demo-freelancer-02.png.webp'}
@@ -150,40 +155,73 @@ export const Website = component$(() => {
             <footer>
               <div class="footer-container">
                 <div class="footer-column">
-                  <h3>Contatti</h3>
+                  <h3>{_('page_contact')}</h3>
                   <div class="footer-info">
-                    <Marker /> {profile.position}
+                    <LocationFooter fill={'#232323'} /> {profile.position}
                   </div>
                   <div class="footer-info">
-                    <Mobile /> <a href={`tel:${profile.telephone}`}>{profile.telephone}</a>
+                    <MobileFooter fill={'#232323'} /> <a href={`tel:${profile.telephone}`}>{profile.telephone}</a>
                   </div>
                   <div class="footer-info">
-                    <Email /> <a href={`mailto:${profile.email}`}>{profile.email}</a>
-                  </div>
-                  <div class="footer-info">
-                    <i class="fas fa-globe"></i>{' '}
-                    <a href="https://www.eduardcapanu.com" target="_blank">
-                      www.eduardcapanu.com
+                    <EnvelopeFooter fill={'#232323'} />
+                    <a class="footer_email" href={`mailto:${profile.email}`}>
+                      {profile.email}
                     </a>
                   </div>
+                  {profile.website && (
+                    <div class="footer-info">
+                      <GlobeFooter fill={'#232323'} />
+                      <a href={profile.website} target="_blank">
+                        {profile.website}
+                      </a>
+                    </div>
+                  )}
                 </div>
 
                 <div class="footer-column">
-                  <h3>Seguimi</h3>
+                  <h3>{_('social_media')}</h3>
                   <div class="social-icons">
-                    <a href={profile.facebook} aria-label="Facebook">
-                      <FacebookFooter fill={'#232323'} />
+                    {profile.facebook && (
+                      <a href={profile.facebook} aria-label="Facebook">
+                        <FacebookFooter fill={'#232323'} />
+                      </a>
+                    )}
+                    {profile.instagram && (
+                      <a href={profile.instagram} aria-label="Instagram">
+                        <InstagramFooter fill={'#232323'} />
+                      </a>
+                    )}
+                    {profile.linkedin && (
+                      <a href={profile.linkedin} aria-label="LinkedIn">
+                        <LinkedinFooter fill={'#232323'} />
+                      </a>
+                    )}
+                    {profile.twitter && (
+                      <a href={profile.twitter} aria-label="Twitter">
+                        <TwitterFooter fill={'#232323'} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div class="footer-container">
+                <div class="footer-bottom">
+                  <div class="footer-legal-links">
+                    <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
+                      {_('privacy_policy')}
                     </a>
-                    <a href="#" aria-label="Instagram">
-                      <i class="fab fa-instagram"></i>
+                    <span>|</span>
+                    <a href="/cookie-policy" target="_blank" rel="noopener noreferrer">
+                      {_('cookie_policy')}
                     </a>
-                    <a href={profile.linkedin} aria-label="LinkedIn">
-                      <LinkedinFooter fill={'#232323'} />
-                    </a>
-                    <a href="#" aria-label="GitHub">
-                      <i class="fab fa-github"></i>
+                    <span>|</span>
+                    <a href="/termini-condizioni" target="_blank" rel="noopener noreferrer">
+                      {_('terms_of_use')}
                     </a>
                   </div>
+                  <p class="copyright">
+                    &copy; {new Date().getFullYear()} {profile.first_name} {profile.last_name}. {_('all_rights_reserved')}
+                  </p>
                 </div>
               </div>
             </footer>

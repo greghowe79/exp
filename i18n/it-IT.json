@@ -73,6 +73,11 @@
     "desc_dashboard": "Accedi al tuo spazio personale per monitorare attività e gestire il tuo profilo.",
     "desc_preview": "Visualizza un’anteprima dei contenuti riservati in modo rapido e sicuro.",
     "desc_reset": "Resetta la tua password in modo semplice e sicuro per accedere nuovamente.",
-    "desc_update": "Aggiorna la tua password per garantire la massima sicurezza del tuo account."
+    "desc_update": "Aggiorna la tua password per garantire la massima sicurezza del tuo account.",
+    "social_media": "Social Media",
+    "privacy_policy": "Privacy Policy",
+    "cookie_policy": "Cookie Policy",
+    "terms_of_use": "Condizioni d'Uso",
+    "all_rights_reserved": "Tutti i diritti riservati."
   }
 }

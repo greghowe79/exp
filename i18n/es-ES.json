@@ -73,6 +73,11 @@
     "desc_dashboard": "Accede a tu panel personal para gestionar tu perfil y actividades.",
     "desc_preview": "Previsualiza contenido reservado de forma rápida y segura.",
     "desc_reset": "Restablece tu contraseña fácilmente para recuperar el acceso.",
-    "desc_update": "Actualiza tu contraseña para mantener tu cuenta segura."
+    "desc_update": "Actualiza tu contraseña para mantener tu cuenta segura.",
+    "social_media": "Redes Sociales",
+    "privacy_policy": "Política de Privacidad",
+    "cookie_policy": "Política de Cookies",
+    "terms_of_use": "Términos de Uso",
+    "all_rights_reserved": "Todos los derechos reservados."
   }
 }

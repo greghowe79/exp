@@ -70,8 +70,8 @@ header {
   background-color: white;
 }
 
-.hero {
-  height: 580px;
+.hero_section {
+  height: auto;
   padding: 0 15px;
   background-color: rgb(51 51 51);
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1.95' height='1.95'><rect width='1.9' height='1.9' fill='rgb(191, 3, 31)'/></svg>");
@@ -86,10 +86,13 @@ header {
 .inner_hero {
   display: flex;
   align-items: flex-start;
-  height: auto;
+  /*  height: auto; */
+  justify-content: space-between;
+  height: 100%;
   margin: 0 auto;
   max-width: min(100%, 1190px);
   width: 100%;
+  position: relative;
 }
 
 .inner_hero_user_name {
@@ -124,11 +127,16 @@ header {
 
 .card-avatar {
   overflow: hidden;
+  position: relative;
+  width: 500px;
+  top: 0;
+  right: 0;
 }
 
 .overlapping-text {
   position: absolute;
-  top: 580px;
+
+  transform: translateY(-50%);
   width: 100%;
   z-index: 20;
   pointer-events: none;
@@ -158,6 +166,7 @@ header {
 
 .section_area {
   padding: 0 15px;
+  margin-bottom: 3.5rem;
 }
 
 .section_content_wrapper {
@@ -243,6 +252,7 @@ section {
 
 .first_child {
   width: 60%;
+  position: relative;
 }
 
 .second_child {
@@ -256,6 +266,8 @@ section {
 .service_image {
   width: 100%;
   height: auto;
+  position: absolute;
+  bottom: 0;
 }
 
 .services_divider {
@@ -297,8 +309,8 @@ section {
 }
 .progress-percentage {
   position: absolute;
-  bottom: 17px;
-  right: -20px;
+  bottom: 0.5rem;
+  right: 0px;
   color: #fff;
   font-weight: 500;
   font-size: 11px;
@@ -324,7 +336,7 @@ footer {
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 80%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -340,15 +352,15 @@ footer {
 .footer-column h3 {
   margin-bottom: 15px;
   font-size: 1.2rem;
-  border-bottom: 1px solid #444;
   padding-bottom: 5px;
 }
 
 .footer-info {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   color: #232323;
+  gap: 5px;
 }
 
 .footer-info i {
@@ -384,10 +396,126 @@ footer {
     flex-direction: column;
     align-items: flex-start;
   }
+  .footer-column {
+    flex: 1 1 100px;
+  }
 }
 
 .icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.125em;
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #555;
+  width: 100%;
+}
+
+.footer-legal-links {
+  margin-bottom: 10px;
+}
+
+.footer-legal-links a {
+  color: #232323;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-legal-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-legal-links span {
+  color: #aaa;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-container {
+    max-width: 80%;
+  }
+  .footer-column {
+    min-width: 0;
+    flex: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-legal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.footer-info > .footer_email {
+  color: rgb(0, 102, 204);
+}
+
+.footer_email:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .parent {
+    flex-direction: column-reverse;
+    width: 80%;
+  }
+  .divider {
+    height: 6rem;
+  }
+  section {
+    height: auto;
+  }
+  .first_child,
+  .second_child {
+    width: 100%;
+    position: relative;
+  }
+
+  .service_image {
+    position: relative;
+    bottom: auto;
+    top: auto;
+  }
+}
+
+@media (max-width: 1023px) {
+  .inner_hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .inner_hero_user_name {
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .first_name {
+    font-size: 15vw;
+    line-height: 15vw;
+  }
+
+  .last_name {
+    padding-left: 0;
+    font-size: 15vw;
+  }
+
+  .card-avatar {
+    position: static;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .inner_nav {
+    justify-content: center;
+  }
 }

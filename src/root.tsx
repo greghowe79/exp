@@ -30,6 +30,7 @@ export interface UserProfile {
   twitter?: string;
   instagram?: string;
   linkedin?: string;
+  website?: string;
   position: string;
   created_at: string;
 }
