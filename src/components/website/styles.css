@@ -135,7 +135,6 @@ header {
 
 .overlapping-text {
   position: absolute;
-
   transform: translateY(-50%);
   width: 100%;
   z-index: 20;
@@ -268,6 +267,7 @@ section {
   height: auto;
   position: absolute;
   bottom: 0;
+  display: block;
 }
 
 .services_divider {
