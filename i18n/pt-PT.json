@@ -27,6 +27,8 @@
     "user_profile_phone": "Número de telefone",
     "user_profile_position": "Insira a posição",
     "user_profile_social": "seuPerfil",
+    "user_profile_youtube": "seucanal",
+    "user_profile_website": "seusite",
     "slug_about": "sobre-nos",
     "slug_services": "servicos",
     "slug_contact": "contacto",
@@ -78,6 +80,9 @@
     "privacy_policy": "Política de Privacidade",
     "cookie_policy": "Política de Cookies",
     "terms_of_use": "Termos de Uso",
-    "all_rights_reserved": "Todos os direitos reservados."
+    "all_rights_reserved": "Todos os direitos reservados.",
+    "user_navigation_link_section_about": "Sobre mim",
+    "user_navigation_link_section_services": "Serviços",
+    "user_navigation_link_section_contact": "Contato"
   }
 }

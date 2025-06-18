@@ -30,6 +30,10 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const prefix = useSignal('');
   const facebook = useSignal<string>('');
   const linkedin = useSignal<string>('');
+  const twitter = useSignal<string>('');
+  const youtube = useSignal<string>('');
+  const instagram = useSignal<string>('');
+  const website = useSignal<string>('');
   const position = useSignal('');
   const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
   const selectedFile = useSignal(_('user_profile_image'));
@@ -226,6 +230,10 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           telephone: `${prefix.value.trim()} ${phone.value.trim()}`,
           facebook: facebook.value,
           linkedin: linkedin.value,
+          twitter: twitter.value,
+          youtube: youtube.value,
+          instagram: instagram.value,
+          website: website.value,
           position: position.value,
           created_at: currentDate,
         };
@@ -257,6 +265,10 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         prefix.value = '';
         facebook.value = '';
         linkedin.value = '';
+        twitter.value = '';
+        youtube.value = '';
+        instagram.value = '';
+        website.value = '';
         position.value = '';
         currentFile.value = null;
         imgUrl.value = '';
@@ -288,6 +300,10 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     prefix,
     facebook,
     linkedin,
+    twitter,
+    youtube,
+    instagram,
+    website,
     position,
     isLoading,
     isSubmitDisabled,

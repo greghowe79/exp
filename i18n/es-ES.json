@@ -27,6 +27,8 @@
     "user_profile_phone": "Número de teléfono",
     "user_profile_position": "Introduce la posición",
     "user_profile_social": "tuPerfil",
+    "user_profile_youtube": "tucanal",
+    "user_profile_website": "tusitio",
     "slug_about": "sobre-nosotros",
     "slug_services": "servicios",
     "slug_contact": "contacto",
@@ -78,6 +80,9 @@
     "privacy_policy": "Política de Privacidad",
     "cookie_policy": "Política de Cookies",
     "terms_of_use": "Términos de Uso",
-    "all_rights_reserved": "Todos los derechos reservados."
+    "all_rights_reserved": "Todos los derechos reservados.",
+    "user_navigation_link_section_about": "Sobre mí",
+    "user_navigation_link_section_services": "Servicios",
+    "user_navigation_link_section_contact": "Contacto"
   }
 }

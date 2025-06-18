@@ -27,6 +27,8 @@
     "user_profile_phone": "Phone number",
     "user_profile_position": "Enter the position",
     "user_profile_social": "yourProfile",
+    "user_profile_youtube": "yourchannel",
+    "user_profile_website": "yourwebsite",
     "slug_about": "about",
     "slug_services": "services",
     "slug_contact": "contact",
@@ -78,6 +80,9 @@
     "privacy_policy": "Privacy Policy",
     "cookie_policy": "Cookie Policy",
     "terms_of_use": "Terms of Use",
-    "all_rights_reserved": "All rights reserved."
+    "all_rights_reserved": "All rights reserved.",
+    "user_navigation_link_section_about": "About",
+    "user_navigation_link_section_services": "Services",
+    "user_navigation_link_section_contact": "Contact"
   }
 }

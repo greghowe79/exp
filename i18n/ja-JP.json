@@ -27,6 +27,8 @@
     "user_profile_phone": "電話番号",
     "user_profile_position": "職種を入力してください",
     "user_profile_social": "あなたのプロフィール",
+    "user_profile_youtube": "あなたのチャンネル",
+    "user_profile_website": "あなたのサイト",
     "slug_about": "私たちについて",
     "slug_services": "サービス",
     "slug_contact": "お問い合わせ",
@@ -78,6 +80,9 @@
     "privacy_policy": "プライバシーポリシー",
     "cookie_policy": "クッキーポリシー",
     "terms_of_use": "利用規約",
-    "all_rights_reserved": "全著作権所有。"
+    "all_rights_reserved": "全著作権所有。",
+    "user_navigation_link_section_about": "私について",
+    "user_navigation_link_section_services": "サービス",
+    "user_navigation_link_section_contact": "お問い合わせ"
   }
 }

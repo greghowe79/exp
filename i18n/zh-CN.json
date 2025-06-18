@@ -27,6 +27,8 @@
     "user_profile_phone": "电话号码",
     "user_profile_position": "请输入职位",
     "user_profile_social": "你的个人资料",
+    "user_profile_youtube": "你的频道",
+    "user_profile_website": "你的网站",
     "slug_about": "关于我们",
     "slug_services": "服务",
     "slug_contact": "联系",
@@ -78,6 +80,9 @@
     "privacy_policy": "隐私政策",
     "cookie_policy": "Cookie 政策",
     "terms_of_use": "使用条款",
-    "all_rights_reserved": "版权所有。"
+    "all_rights_reserved": "版权所有。",
+    "user_navigation_link_section_about": "关于我",
+    "user_navigation_link_section_services": "服务",
+    "user_navigation_link_section_contact": "联系我们"
   }
 }

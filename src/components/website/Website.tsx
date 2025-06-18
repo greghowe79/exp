@@ -13,6 +13,7 @@ import { EnvelopeFooter } from '~/assets/envelope_footer';
 import { MobileFooter } from '~/assets/mobile_footer';
 import { LocationFooter } from '~/assets/location_footer';
 import { _ } from 'compiled-i18n';
+import { YouTubeFooter } from '~/assets/youtube_footer';
 
 export const Website = component$(() => {
   const location = useLocation();
@@ -66,7 +67,7 @@ export const Website = component$(() => {
                         menuOpen.value = false;
                       }}
                     >
-                      About
+                      {_('user_navigation_link_section_about')}
                     </a>
                   </li>
                   <li>
@@ -79,7 +80,7 @@ export const Website = component$(() => {
                         menuOpen.value = false;
                       }}
                     >
-                      Services
+                      {_('user_navigation_link_section_services')}
                     </a>
                   </li>
                   <li>
@@ -92,7 +93,7 @@ export const Website = component$(() => {
                         menuOpen.value = false;
                       }}
                     >
-                      Contact
+                      {_('user_navigation_link_section_contact')}
                     </a>
                   </li>
                 </ul>
@@ -220,7 +221,7 @@ export const Website = component$(() => {
                   {profile.website && (
                     <div class="footer-info">
                       <GlobeFooter fill={'#232323'} />
-                      <a href={profile.website} target="_blank">
+                      <a href={profile.website} target="_blank" class="website_url">
                         {profile.website}
                       </a>
                     </div>
@@ -231,23 +232,28 @@ export const Website = component$(() => {
                   <h3>{_('social_media')}</h3>
                   <div class="social-icons">
                     {profile.facebook && (
-                      <a href={profile.facebook} aria-label="Facebook">
+                      <a href={profile.facebook} aria-label="Facebook" target="_blank">
                         <FacebookFooter fill={'#232323'} />
                       </a>
                     )}
                     {profile.instagram && (
-                      <a href={profile.instagram} aria-label="Instagram">
+                      <a href={profile.instagram} aria-label="Instagram" target="_blank">
                         <InstagramFooter fill={'#232323'} />
                       </a>
                     )}
                     {profile.linkedin && (
-                      <a href={profile.linkedin} aria-label="LinkedIn">
+                      <a href={profile.linkedin} aria-label="LinkedIn" target="_blank">
                         <LinkedinFooter fill={'#232323'} />
                       </a>
                     )}
                     {profile.twitter && (
-                      <a href={profile.twitter} aria-label="Twitter">
+                      <a href={profile.twitter} aria-label="Twitter" target="_blank">
                         <TwitterFooter fill={'#232323'} />
+                      </a>
+                    )}
+                    {profile.youtube && (
+                      <a href={profile.youtube} aria-label="YouTube" target="_blank">
+                        <YouTubeFooter fill={'#232323'} />
                       </a>
                     )}
                   </div>

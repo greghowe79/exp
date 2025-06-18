@@ -27,6 +27,8 @@
     "user_profile_phone": "Numero di telefono",
     "user_profile_position": "Inserisci la posizione",
     "user_profile_social": "tuoProfilo",
+    "user_profile_youtube": "tuocanale",
+    "user_profile_website": "tuosito",
     "slug_about": "chi-siamo",
     "slug_services": "servizi",
     "slug_contact": "contatti",
@@ -78,6 +80,9 @@
     "privacy_policy": "Privacy Policy",
     "cookie_policy": "Cookie Policy",
     "terms_of_use": "Condizioni d'Uso",
-    "all_rights_reserved": "Tutti i diritti riservati."
+    "all_rights_reserved": "Tutti i diritti riservati.",
+    "user_navigation_link_section_about": "Su di me",
+    "user_navigation_link_section_services": "Servizi",
+    "user_navigation_link_section_contact": "Contatti"
   }
 }

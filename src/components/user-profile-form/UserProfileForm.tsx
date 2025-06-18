@@ -11,6 +11,10 @@ import { Mobile } from '~/assets/mobile';
 import { _ } from 'compiled-i18n';
 import { options } from '~/data/country-code-data';
 import { useNavigate } from '@builder.io/qwik-city';
+import { XIcon } from '~/assets/twitter';
+import { FaGlobe } from '~/assets/world';
+import { YouTube } from '~/assets/youtube';
+import { Instagram } from '~/assets/instagram';
 
 const UserProfileForm = component$(() => {
   const nav = useNavigate();
@@ -33,6 +37,10 @@ const UserProfileForm = component$(() => {
     prefix,
     facebook,
     linkedin,
+    twitter,
+    youtube,
+    instagram,
+    website,
     position,
     isLoading,
     isSubmitDisabled,
@@ -95,6 +103,39 @@ const UserProfileForm = component$(() => {
         icon={Linkedin}
         bgLight
       />
+      <Input
+        id="x_user_profile"
+        type="url"
+        placeholder={`https://x.com/${_('user_profile_social')}`}
+        value={twitter}
+        icon={XIcon}
+        bgLight
+      />
+      <Input
+        id="instagram_user_profile"
+        type="url"
+        placeholder={`https://www.instagram.com/${_('user_profile_social')}`}
+        value={instagram}
+        icon={Instagram}
+        bgLight
+      />
+      <Input
+        id="youtube_user_profile"
+        type="url"
+        placeholder={`https://www.youtube.com/${_('user_profile_youtube')}`}
+        value={youtube}
+        icon={YouTube}
+        bgLight
+      />
+      <Input
+        id="website_user_profile"
+        type="url"
+        placeholder={`https://www.${_('user_profile_website')}.com`}
+        value={website}
+        icon={FaGlobe}
+        bgLight
+      />
+
       <Input id="position_user_profile" type="url" placeholder={_('user_profile_position')} value={position} icon={Marker} bgLight />
 
       <Button id="save_user_form" type="submit" label="Salva" size="sm" isLoading={isLoading} disabled={isSubmitDisabled.value}></Button>

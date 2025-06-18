@@ -27,6 +27,8 @@
     "user_profile_phone": "Numéro de téléphone",
     "user_profile_position": "Entrez le poste",
     "user_profile_social": "votreProfil",
+    "user_profile_youtube": "tacanal",
+    "user_profile_website": "tonsite",
     "slug_about": "a-propos",
     "slug_services": "services",
     "slug_contact": "contact",
@@ -78,6 +80,9 @@
     "privacy_policy": "Politique de confidentialité",
     "cookie_policy": "Politique de cookies",
     "terms_of_use": "Conditions d'utilisation",
-    "all_rights_reserved": "Tous droits réservés."
+    "all_rights_reserved": "Tous droits réservés.",
+    "user_navigation_link_section_about": "À propos de moi",
+    "user_navigation_link_section_services": "Services",
+    "user_navigation_link_section_contact": "Contact"
   }
 }
