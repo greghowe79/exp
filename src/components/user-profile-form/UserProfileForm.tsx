@@ -136,7 +136,7 @@ const UserProfileForm = component$(() => {
         bgLight
       />
 
-      <Input id="position_user_profile" type="url" placeholder={_('user_profile_position')} value={position} icon={Marker} bgLight />
+      <Input id="position_user_profile" type="text" placeholder={_('user_profile_position')} value={position} icon={Marker} bgLight />
 
       <Button id="save_user_form" type="submit" label="Salva" size="sm" isLoading={isLoading} disabled={isSubmitDisabled.value}></Button>
     </form>

@@ -207,7 +207,15 @@ export const Website = component$(() => {
                 <div class="footer-column">
                   <h2>{_('page_contact')}</h2>
                   <div class="footer-info">
-                    <LocationFooter fill={'#232323'} /> {profile.position}
+                    <LocationFooter fill={'#232323'} />{' '}
+                    <a
+                      class="website_url"
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(profile.position)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {profile.position}
+                    </a>
                   </div>
                   <div class="footer-info">
                     <MobileFooter fill={'#232323'} /> <a href={`tel:${profile.telephone}`}>{profile.telephone}</a>
