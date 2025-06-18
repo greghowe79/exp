@@ -222,14 +222,14 @@ export const Website = component$(() => {
                   </div>
                   <div class="footer-info">
                     <EnvelopeFooter fill={'#232323'} />
-                    <a class="footer_email" href={`mailto:${profile.email}`}>
+                    <a class="footer_email" href={`mailto:${profile.email}`} target="_blank" rel="noopener noreferrer">
                       {profile.email}
                     </a>
                   </div>
                   {profile.website && (
                     <div class="footer-info">
                       <GlobeFooter fill={'#232323'} />
-                      <a href={profile.website} target="_blank" class="website_url">
+                      <a href={profile.website} target="_blank" class="website_url" rel="noopener noreferrer">
                         {profile.website}
                       </a>
                     </div>
@@ -240,27 +240,27 @@ export const Website = component$(() => {
                   <h3>{_('social_media')}</h3>
                   <div class="social-icons">
                     {profile.facebook && (
-                      <a href={profile.facebook} aria-label="Facebook" target="_blank">
+                      <a href={profile.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                         <FacebookFooter fill={'#232323'} />
                       </a>
                     )}
                     {profile.instagram && (
-                      <a href={profile.instagram} aria-label="Instagram" target="_blank">
+                      <a href={profile.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                         <InstagramFooter fill={'#232323'} />
                       </a>
                     )}
                     {profile.linkedin && (
-                      <a href={profile.linkedin} aria-label="LinkedIn" target="_blank">
+                      <a href={profile.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                         <LinkedinFooter fill={'#232323'} />
                       </a>
                     )}
                     {profile.twitter && (
-                      <a href={profile.twitter} aria-label="Twitter" target="_blank">
+                      <a href={profile.twitter} aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                         <TwitterFooter fill={'#232323'} />
                       </a>
                     )}
                     {profile.youtube && (
-                      <a href={profile.youtube} aria-label="YouTube" target="_blank">
+                      <a href={profile.youtube} aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                         <YouTubeFooter fill={'#232323'} />
                       </a>
                     )}
