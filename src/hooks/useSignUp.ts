@@ -33,6 +33,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const twitter = useSignal<string>('');
   const youtube = useSignal<string>('');
   const instagram = useSignal<string>('');
+  const github = useSignal<string>('');
   const website = useSignal<string>('');
   const position = useSignal('');
   const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
@@ -233,6 +234,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           twitter: twitter.value,
           youtube: youtube.value,
           instagram: instagram.value,
+          github: github.value,
           website: website.value,
           position: position.value,
           created_at: currentDate,
@@ -268,6 +270,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         twitter.value = '';
         youtube.value = '';
         instagram.value = '';
+        github.value = '';
         website.value = '';
         position.value = '';
         currentFile.value = null;
@@ -303,6 +306,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     twitter,
     youtube,
     instagram,
+    github,
     website,
     position,
     isLoading,

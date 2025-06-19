@@ -14,6 +14,7 @@ import { MobileFooter } from '~/assets/mobile_footer';
 import { LocationFooter } from '~/assets/location_footer';
 import { _ } from 'compiled-i18n';
 import { YouTubeFooter } from '~/assets/youtube_footer';
+import { GitHubFooter } from '~/assets/github_footer';
 
 export const Website = component$(() => {
   const location = useLocation();
@@ -257,6 +258,11 @@ export const Website = component$(() => {
                     {profile.twitter && (
                       <a href={profile.twitter} aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                         <TwitterFooter fill={'#232323'} />
+                      </a>
+                    )}
+                    {profile.github && (
+                      <a href={profile.github} aria-label="Github" target="_blank" rel="noopener noreferrer">
+                        <GitHubFooter fill={'#232323'} />
                       </a>
                     )}
                     {profile.youtube && (

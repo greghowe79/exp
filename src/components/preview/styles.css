@@ -45,7 +45,7 @@ main {
   width: 100%;
   height: 100%;
   border: none;
-  filter: blur(3px);
+  filter: blur(1px);
   pointer-events: auto;
 }
 

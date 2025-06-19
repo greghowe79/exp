@@ -31,6 +31,7 @@ export interface UserProfile {
   instagram?: string;
   linkedin?: string;
   youtube?: string;
+  github?: string;
   website?: string;
   position: string;
   created_at: string;

@@ -15,6 +15,7 @@ import { XIcon } from '~/assets/twitter';
 import { FaGlobe } from '~/assets/world';
 import { YouTube } from '~/assets/youtube';
 import { Instagram } from '~/assets/instagram';
+import { GitHub } from '~/assets/github';
 
 const UserProfileForm = component$(() => {
   const nav = useNavigate();
@@ -40,6 +41,7 @@ const UserProfileForm = component$(() => {
     twitter,
     youtube,
     instagram,
+    github,
     website,
     position,
     isLoading,
@@ -117,6 +119,14 @@ const UserProfileForm = component$(() => {
         placeholder={`https://www.instagram.com/${_('user_profile_social')}`}
         value={instagram}
         icon={Instagram}
+        bgLight
+      />
+      <Input
+        id="github_user_profile"
+        type="url"
+        placeholder={`https://github.com/${_('user_profile_social')}`}
+        value={github}
+        icon={GitHub}
         bgLight
       />
       <Input
