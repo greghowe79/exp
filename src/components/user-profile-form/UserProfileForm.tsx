@@ -22,6 +22,12 @@ const UserProfileForm = component$(() => {
   useStyles$(styles);
 
   const {
+    servicePrimaryName,
+    serviceSecondaryName,
+    serviceTertiaryName,
+    servicePrimaryPercent,
+    serviceSecondaryPercent,
+    serviceTertiaryPercent,
     emailError,
     emailTouched,
     phone,
@@ -51,103 +57,156 @@ const UserProfileForm = component$(() => {
 
   return (
     <form preventdefault:submit onSubmit$={handleAuth} class="form">
-      <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} />
-      <Input id="firstName_user_profile" type="text" placeholder={_('user_profile_name')} value={firstName} bgLight required />
-      <Input id="lastName_user_profile" type="text" placeholder={_('user_profile_lastname')} value={lastName} bgLight required />
-      <Input id="lastName_user_profile" type="text" placeholder={_('user_profile_job')} value={jobTitle} bgLight required />
+      <div class="contact_form-section">
+        <h3 class="contact_form-section-title">I tuoi 3 servizi principali</h3>
+        <p class="contact_form-section-description">Indica fino a 3 servizi offerti e la tua competenza in percentuale.</p>
 
-      <TextArea id="description_user_profile" content={description} required bgLight placeholder={_('user_profile_summary')} />
+        <div class="contact-entry">
+          <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} />
+          <Input id="firstName_user_profile" type="text" placeholder={_('user_profile_name')} value={firstName} bgLight required />
+          <Input id="lastName_user_profile" type="text" placeholder={_('user_profile_lastname')} value={lastName} bgLight required />
+          <Input id="lastName_user_profile" type="text" placeholder={_('user_profile_job')} value={jobTitle} bgLight required />
 
-      <Input
-        id="input_email_user_profile"
-        type="email"
-        placeholder="Email *"
-        value={email}
-        error={emailError}
-        onValidate$={async (value) => {
-          emailError.value = await validateEmail(value);
-          return emailError.value!;
-        }}
-        onInput$={() => (emailTouched.value = true)}
-        icon={Email}
-        bgLight
-        required
-      />
-      <Select id="country" label={_('user_profile_country')} options={options} selected={selectedCountry} prefix={prefix} />
-      <Input
-        id="telephone_user_profile"
-        type="tel"
-        placeholder={_('user_profile_phone')}
-        value={phone}
-        icon={Mobile}
-        prefix={prefix.value}
-        onInput$={() => (phoneTouched.value = true)}
-        error={phoneError}
-        onValidate$={async (value) => {
-          phoneError.value = await validatePhone(value);
-          return phoneError.value!;
-        }}
-        bgLight
-      />
-      <Input
-        id="facebook_user_profile"
-        type="url"
-        placeholder={`https://www.facebook.com/${_('user_profile_social')}`}
-        value={facebook}
-        icon={Facebook}
-        bgLight
-      />
-      <Input
-        id="linkedin_user_profile"
-        type="url"
-        placeholder={`https://www.linkedin.com/${_('user_profile_social')}`}
-        value={linkedin}
-        icon={Linkedin}
-        bgLight
-      />
-      <Input
-        id="x_user_profile"
-        type="url"
-        placeholder={`https://x.com/${_('user_profile_social')}`}
-        value={twitter}
-        icon={XIcon}
-        bgLight
-      />
-      <Input
-        id="instagram_user_profile"
-        type="url"
-        placeholder={`https://www.instagram.com/${_('user_profile_social')}`}
-        value={instagram}
-        icon={Instagram}
-        bgLight
-      />
-      <Input
-        id="github_user_profile"
-        type="url"
-        placeholder={`https://github.com/${_('user_profile_social')}`}
-        value={github}
-        icon={GitHub}
-        bgLight
-      />
-      <Input
-        id="youtube_user_profile"
-        type="url"
-        placeholder={`https://www.youtube.com/${_('user_profile_youtube')}`}
-        value={youtube}
-        icon={YouTube}
-        bgLight
-      />
-      <Input
-        id="website_user_profile"
-        type="url"
-        placeholder={`https://www.${_('user_profile_website')}.com`}
-        value={website}
-        icon={FaGlobe}
-        bgLight
-      />
+          <TextArea id="description_user_profile" content={description} required bgLight placeholder={_('user_profile_summary')} />
 
-      <Input id="position_user_profile" type="text" placeholder={_('user_profile_position')} value={position} icon={Marker} bgLight />
+          <Input
+            id="input_email_user_profile"
+            type="email"
+            placeholder="Email *"
+            value={email}
+            error={emailError}
+            onValidate$={async (value) => {
+              emailError.value = await validateEmail(value);
+              return emailError.value!;
+            }}
+            onInput$={() => (emailTouched.value = true)}
+            icon={Email}
+            bgLight
+            required
+          />
+          <Select id="country" label={_('user_profile_country')} options={options} selected={selectedCountry} prefix={prefix} />
+          <Input
+            id="telephone_user_profile"
+            type="tel"
+            placeholder={_('user_profile_phone')}
+            value={phone}
+            icon={Mobile}
+            prefix={prefix.value}
+            onInput$={() => (phoneTouched.value = true)}
+            error={phoneError}
+            onValidate$={async (value) => {
+              phoneError.value = await validatePhone(value);
+              return phoneError.value!;
+            }}
+            bgLight
+          />
 
+          <Input
+            id="website_user_profile"
+            type="url"
+            placeholder={`https://www.${_('user_profile_website')}.com`}
+            value={website}
+            icon={FaGlobe}
+            bgLight
+          />
+
+          <Input id="position_user_profile" type="text" placeholder={_('user_profile_position')} value={position} icon={Marker} bgLight />
+        </div>
+      </div>
+
+      <div class="service_form-section">
+        <h3 class="service_form-section-title">{_('main_services')}</h3>
+        <p class="service_form-section-description">{_('main_services_description')}</p>
+
+        <div class="service-entry">
+          <Input
+            id="service_primary_name"
+            type="text"
+            placeholder="Nome servizio (es. Consulenza Legale)"
+            value={servicePrimaryName}
+            bgLight
+          />
+          <Input id="service_primary_percent" type="number" placeholder="Percentuale (es. 80)" value={servicePrimaryPercent} bgLight />
+        </div>
+
+        <div class="service-entry">
+          <Input
+            id="service_secondary_name"
+            type="text"
+            placeholder="Nome servizio (es. Coaching Personale)"
+            value={serviceSecondaryName}
+            bgLight
+          />
+          <Input id="service_secondary_percent" type="number" placeholder="Percentuale (es. 90)" value={serviceSecondaryPercent} bgLight />
+        </div>
+
+        <div class="service-entry">
+          <Input
+            id="service_tertiary_name"
+            type="text"
+            placeholder="Nome servizio (es. Traduzione Professionale)"
+            value={serviceTertiaryName}
+            bgLight
+          />
+          <Input id="service_tertiary_percent" type="number" placeholder="Percentuale (es. 75)" value={serviceTertiaryPercent} bgLight />
+        </div>
+      </div>
+
+      <div class="channel_form-section">
+        <h3 class="channel_form-section-title">I tuoi 3 servizi principali</h3>
+        <p class="channel_form-section-description">Indica fino a 3 servizi offerti e la tua competenza in percentuale.</p>
+
+        <div class="channel-entry">
+          <Input
+            id="facebook_user_profile"
+            type="url"
+            placeholder={`https://www.facebook.com/${_('user_profile_social')}`}
+            value={facebook}
+            icon={Facebook}
+            bgLight
+          />
+          <Input
+            id="linkedin_user_profile"
+            type="url"
+            placeholder={`https://www.linkedin.com/${_('user_profile_social')}`}
+            value={linkedin}
+            icon={Linkedin}
+            bgLight
+          />
+          <Input
+            id="x_user_profile"
+            type="url"
+            placeholder={`https://x.com/${_('user_profile_social')}`}
+            value={twitter}
+            icon={XIcon}
+            bgLight
+          />
+          <Input
+            id="instagram_user_profile"
+            type="url"
+            placeholder={`https://www.instagram.com/${_('user_profile_social')}`}
+            value={instagram}
+            icon={Instagram}
+            bgLight
+          />
+          <Input
+            id="github_user_profile"
+            type="url"
+            placeholder={`https://github.com/${_('user_profile_social')}`}
+            value={github}
+            icon={GitHub}
+            bgLight
+          />
+          <Input
+            id="youtube_user_profile"
+            type="url"
+            placeholder={`https://www.youtube.com/${_('user_profile_youtube')}`}
+            value={youtube}
+            icon={YouTube}
+            bgLight
+          />
+        </div>
+      </div>
       <Button id="save_user_form" type="submit" label="Salva" size="sm" isLoading={isLoading} disabled={isSubmitDisabled.value}></Button>
     </form>
   );

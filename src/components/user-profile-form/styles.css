@@ -6,3 +6,31 @@
   max-width: 30rem;
   margin: 0 auto;
 }
+
+.service-entry,
+.contact-entry,
+.channel-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.service_form-section,
+.contact_form-section,
+.channel_form-section {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.service_form-section-title,
+.contact_form-section-title,
+.channel_form-section-title {
+  letter-spacing: 0.063rem;
+  font-size: 1.5rem;
+}
+
+.service_form-section-description,
+.contact_form-section-description,
+.channel_form-section-description {
+  font-size: 1.125rem;
+}

@@ -35,6 +35,12 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const instagram = useSignal<string>('');
   const github = useSignal<string>('');
   const website = useSignal<string>('');
+  const servicePrimaryName = useSignal<string>('');
+  const serviceSecondaryName = useSignal<string>('');
+  const serviceTertiaryName = useSignal<string>('');
+  const servicePrimaryPercent = useSignal<string>('');
+  const serviceSecondaryPercent = useSignal<string>('');
+  const serviceTertiaryPercent = useSignal<string>('');
   const position = useSignal('');
   const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
   const selectedFile = useSignal(_('user_profile_image'));
@@ -236,6 +242,12 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           instagram: instagram.value,
           github: github.value,
           website: website.value,
+          servicePrimaryName: servicePrimaryName.value,
+          serviceSecondaryName: serviceSecondaryName.value,
+          serviceTertiaryName: serviceTertiaryName.value,
+          servicePrimaryPercent: servicePrimaryPercent.value,
+          serviceSecondaryPercent: serviceSecondaryPercent.value,
+          serviceTertiaryPercent: serviceTertiaryPercent.value,
           position: position.value,
           created_at: currentDate,
         };
@@ -272,6 +284,12 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         instagram.value = '';
         github.value = '';
         website.value = '';
+        servicePrimaryName.value = '';
+        serviceSecondaryName.value = '';
+        serviceTertiaryName.value = '';
+        servicePrimaryPercent.value = '';
+        serviceSecondaryPercent.value = '';
+        serviceTertiaryPercent.value = '';
         position.value = '';
         currentFile.value = null;
         imgUrl.value = '';
@@ -308,6 +326,12 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     instagram,
     github,
     website,
+    servicePrimaryName,
+    serviceSecondaryName,
+    serviceTertiaryName,
+    servicePrimaryPercent,
+    serviceSecondaryPercent,
+    serviceTertiaryPercent,
     position,
     isLoading,
     isSubmitDisabled,

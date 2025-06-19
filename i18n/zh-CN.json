@@ -83,6 +83,8 @@
     "all_rights_reserved": "版权所有。",
     "user_navigation_link_section_about": "关于我",
     "user_navigation_link_section_services": "服务",
-    "user_navigation_link_section_contact": "联系我们"
+    "user_navigation_link_section_contact": "联系我们",
+    "main_services": "你的三个主要服务",
+    "main_services_description": "请填写最多3项你提供的服务，以及你对应的熟练程度(百分比)。"
   }
 }

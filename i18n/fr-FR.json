@@ -83,6 +83,8 @@
     "all_rights_reserved": "Tous droits réservés.",
     "user_navigation_link_section_about": "À propos de moi",
     "user_navigation_link_section_services": "Services",
-    "user_navigation_link_section_contact": "Contact"
+    "user_navigation_link_section_contact": "Contact",
+    "main_services": "Vos 3 services principaux",
+    "main_services_description": "Indiquez jusqu'à 3 services que vous proposez et votre niveau de compétence en pourcentage."
   }
 }

@@ -26,6 +26,12 @@ export interface UserProfile {
   description: string;
   email: string;
   telephone: string;
+  servicePrimaryName: string;
+  serviceSecondaryName: string;
+  serviceTertiaryName: string;
+  servicePrimaryPercent: string;
+  serviceSecondaryPercent: string;
+  serviceTertiaryPercent: string;
   facebook?: string;
   twitter?: string;
   instagram?: string;
