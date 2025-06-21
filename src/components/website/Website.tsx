@@ -36,7 +36,11 @@ export const Website = component$(() => {
       onRejected={(err) => <p>Error: {err.message}</p>}
       onResolved={(profile) => (
         <main class="main">
-          <header>
+          <header
+            style={{
+              backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1.95' height='1.95'><rect width='1.9' height='1.9' fill='${profile.bg_color}'/></svg>")`,
+            }}
+          >
             <nav>
               <div class="inner_nav">
                 <div class="inner_nav_element_container">
@@ -103,9 +107,9 @@ export const Website = component$(() => {
           </header>
           <section
             class="hero_section"
-            // style={{
-            //   backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1.95' height='1.95'><rect width='1.9' height='1.9' fill='rgb(191, 3, 31)'/></svg>")`,
-            // }}
+            style={{
+              backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1.95' height='1.95'><rect width='1.9' height='1.9' fill='${profile.bg_color}'/></svg>")`,
+            }}
           >
             <div class="inner_hero">
               <div class="inner_hero_user_name">
@@ -133,9 +137,13 @@ export const Website = component$(() => {
               <div class="section_area">
                 <div class="section_content_wrapper">
                   <div class="content-section">
-                    <div class="header_section">
-                      <div class="title">{`${_('about_header_title')} ${profile.first_name.toLocaleUpperCase()} ${profile.last_name.toLocaleUpperCase()} `}</div>
-                      <div class="step">01</div>
+                    <div class="header_section" style={{ borderBottom: `2px solid ${profile.bg_color}` }}>
+                      <div class="title" style={{ color: `${profile.bg_color}` }}>
+                        {`${_('about_header_title')} ${profile.first_name.toLocaleUpperCase()} ${profile.last_name.toLocaleUpperCase()} `}
+                      </div>
+                      <div class="step" style={{ color: `${profile.bg_color}` }}>
+                        01
+                      </div>
                     </div>
                     <div class="body_section">
                       <p class="description">{profile.description}</p>
@@ -148,9 +156,9 @@ export const Website = component$(() => {
             <section
               class="services"
               id="services"
-              // style={{
-              //   backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1.95' height='1.95'><rect width='1.9' height='1.9' fill='rgb(191, 3, 31)'/></svg>")`,
-              // }}
+              style={{
+                backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1.95' height='1.95'><rect width='1.9' height='1.9' fill='${profile.bg_color}'/></svg>")`,
+              }}
             >
               <div class="services_divider"></div>
               <div class="parent">
@@ -166,7 +174,7 @@ export const Website = component$(() => {
                   />
                 </div>
                 <div class="second_child">
-                  <div>
+                  <div class="progress_wrapper">
                     <div>
                       <div class="widget-container">
                         <h2 class="service_heading ">
