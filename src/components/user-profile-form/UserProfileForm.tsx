@@ -16,18 +16,23 @@ import { FaGlobe } from '~/assets/world';
 import { YouTube } from '~/assets/youtube';
 import { Instagram } from '~/assets/instagram';
 import { GitHub } from '~/assets/github';
+import { colors } from '~/data/ba_color';
 
 const UserProfileForm = component$(() => {
   const nav = useNavigate();
+
   useStyles$(styles);
 
   const {
+    serviceTitle,
+    serviceDescription,
     servicePrimaryName,
     serviceSecondaryName,
     serviceTertiaryName,
     servicePrimaryPercent,
     serviceSecondaryPercent,
     serviceTertiaryPercent,
+    bgColor,
     emailError,
     emailTouched,
     phone,
@@ -58,8 +63,8 @@ const UserProfileForm = component$(() => {
   return (
     <form preventdefault:submit onSubmit$={handleAuth} class="form">
       <div class="contact_form-section">
-        <h3 class="contact_form-section-title">I tuoi 3 servizi principali</h3>
-        <p class="contact_form-section-description">Indica fino a 3 servizi offerti e la tua competenza in percentuale.</p>
+        <h3 class="contact_form-section-title">{_('main_contact_title')}</h3>
+        <p class="contact_form-section-description">{_('main_contact_description')}</p>
 
         <div class="contact-entry">
           <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} />
@@ -111,6 +116,45 @@ const UserProfileForm = component$(() => {
           />
 
           <Input id="position_user_profile" type="text" placeholder={_('user_profile_position')} value={position} icon={Marker} bgLight />
+
+          <div>
+            <p>Scegli un colore di sfondo:</p>
+
+            <fieldset>
+              <legend>Select a background color:</legend>
+              {colors.map(({ label, value }) => {
+                return (
+                  <div key={value}>
+                    <Input
+                      key={value}
+                      id={`color-${value}`}
+                      nameAttribute="bg-color"
+                      color={value}
+                      label={label}
+                      selectedValue={bgColor}
+                      type="radio"
+                    />
+                    <label for={value}>{label}</label>
+                  </div>
+                );
+              })}
+            </fieldset>
+            <p>
+              Colore scelto: <strong>{bgColor.value}</strong>
+            </p>
+            <div
+              style={{
+                backgroundColor: bgColor.value,
+                height: '100px',
+                marginTop: '10px',
+                border: '1px solid #ccc',
+                borderRadius: '4px',
+                transition: 'background-color 0.3s ease',
+              }}
+            >
+              Questo box cambia colore
+            </div>
+          </div>
         </div>
       </div>
 
@@ -119,6 +163,15 @@ const UserProfileForm = component$(() => {
         <p class="service_form-section-description">{_('main_services_description')}</p>
 
         <div class="service-entry">
+          <Input id="service_section-title" type="text" placeholder="Titolo sezione servizi" value={serviceTitle} bgLight required />
+
+          <TextArea
+            id="service_description"
+            content={serviceDescription}
+            required
+            bgLight
+            placeholder="Inserisci una descrizione dei tuoi servizi "
+          />
           <Input
             id="service_primary_name"
             type="text"
@@ -153,8 +206,8 @@ const UserProfileForm = component$(() => {
       </div>
 
       <div class="channel_form-section">
-        <h3 class="channel_form-section-title">I tuoi 3 servizi principali</h3>
-        <p class="channel_form-section-description">Indica fino a 3 servizi offerti e la tua competenza in percentuale.</p>
+        <h3 class="channel_form-section-title">{_('main_channel_title')}</h3>
+        <p class="channel_form-section-description">{_('main-channel_description')}</p>
 
         <div class="channel-entry">
           <Input

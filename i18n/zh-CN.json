@@ -85,6 +85,11 @@
     "user_navigation_link_section_services": "服务",
     "user_navigation_link_section_contact": "联系我们",
     "main_services": "你的三个主要服务",
-    "main_services_description": "请填写最多3项你提供的服务，以及你对应的熟练程度(百分比)。"
+    "main_services_description": "请填写最多3项你提供的服务，以及你对应的熟练程度(百分比)。",
+    "main_contact_title": "展示最好的自己",
+    "main_contact_description": "输入您的个人信息、资格和简要介绍，以便向潜在客户展示自己。",
+    "main_channel_title": "您的在线资料",
+    "main-channel_description": "添加您的数字资料以提高可见度。",
+    "about_header_title": "关于"
   }
 }

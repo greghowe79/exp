@@ -101,7 +101,12 @@ export const Website = component$(() => {
               </div>
             </nav>
           </header>
-          <section class="hero_section">
+          <section
+            class="hero_section"
+            // style={{
+            //   backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1.95' height='1.95'><rect width='1.9' height='1.9' fill='rgb(191, 3, 31)'/></svg>")`,
+            // }}
+          >
             <div class="inner_hero">
               <div class="inner_hero_user_name">
                 <h1 class="first_name">{profile.first_name}</h1>
@@ -129,7 +134,7 @@ export const Website = component$(() => {
                 <div class="section_content_wrapper">
                   <div class="content-section">
                     <div class="header_section">
-                      <div class="title">{`ABOUT ${profile.first_name.toLocaleUpperCase()} ${profile.last_name.toLocaleUpperCase()} `}</div>
+                      <div class="title">{`${_('about_header_title')} ${profile.first_name.toLocaleUpperCase()} ${profile.last_name.toLocaleUpperCase()} `}</div>
                       <div class="step">01</div>
                     </div>
                     <div class="body_section">
@@ -140,7 +145,13 @@ export const Website = component$(() => {
               </div>
             </section>
 
-            <section class="services" id="services">
+            <section
+              class="services"
+              id="services"
+              // style={{
+              //   backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1.95' height='1.95'><rect width='1.9' height='1.9' fill='rgb(191, 3, 31)'/></svg>")`,
+              // }}
+            >
               <div class="services_divider"></div>
               <div class="parent">
                 <div class="first_child">
@@ -159,22 +170,23 @@ export const Website = component$(() => {
                     <div>
                       <div class="widget-container">
                         <h2 class="service_heading ">
-                          <span>Our Services, Tailored to Your Vision</span>
+                          <span>{profile.service_title}</span>
                         </h2>
                       </div>
                     </div>
                     <div class="services_main-content">
-                      <div class="widget-container">
-                        Currently improving users experience and interface design as lead designer director at crafto agency. Creating brand
-                        identities and experiences.
-                      </div>
+                      <div class="widget-container">{profile.service_description}</div>
                     </div>
                     <div>
                       <div class="widget-container">
                         <div class="progress-wrapper" role="progressbar">
-                          <div class="progress-bar" data-max="80" style="width: 80%;">
-                            <span class="progress-text">WEB DESIGN </span>
-                            <span class="progress-percentage">80% </span>
+                          <div
+                            class="progress-bar"
+                            data-max={profile.service_primary_percent}
+                            style={`width: ${profile.service_primary_percent}%;`}
+                          >
+                            <span class="progress-text">{profile.service_primary_name}</span>
+                            <span class="progress-percentage">{`${profile.service_primary_percent}%`}</span>
                           </div>
                         </div>
                       </div>
@@ -182,9 +194,13 @@ export const Website = component$(() => {
                     <div>
                       <div class="widget-container">
                         <div class="progress-wrapper" role="progressbar">
-                          <div class="progress-bar" data-max="98" style="width: 98%;">
-                            <span class="progress-text">GRAPHIC DESIGN</span>
-                            <span class="progress-percentage">98% </span>
+                          <div
+                            class="progress-bar"
+                            data-max={profile.service_secondary_percent}
+                            style={`width: ${profile.service_secondary_percent}%;`}
+                          >
+                            <span class="progress-text">{profile.service_secondary_name}</span>
+                            <span class="progress-percentage">{`${profile.service_secondary_percent}%`}</span>
                           </div>
                         </div>
                       </div>
@@ -192,9 +208,13 @@ export const Website = component$(() => {
                     <div>
                       <div class="widget-container">
                         <div class="progress-wrapper" role="progressbar">
-                          <div class="progress-bar" data-max="85" style="width: 85%;">
-                            <span class="progress-text">ART DIRECTION </span>
-                            <span class="progress-percentage">85% </span>
+                          <div
+                            class="progress-bar"
+                            data-max={profile.service_tertiary_percent}
+                            style={`width: ${profile.service_tertiary_percent}%;`}
+                          >
+                            <span class="progress-text">{profile.service_tertiary_name}</span>
+                            <span class="progress-percentage">{`${profile.service_tertiary_percent}%`}</span>
                           </div>
                         </div>
                       </div>

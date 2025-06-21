@@ -85,6 +85,11 @@
     "user_navigation_link_section_services": "Services",
     "user_navigation_link_section_contact": "Contact",
     "main_services": "Your 3 main services",
-    "main_services_description": "Indicate up to 3 services you offer and your level of expertise as a percentage."
+    "main_services_description": "Indicate up to 3 services you offer and your level of expertise as a percentage.",
+    "main_contact_title": "Present yourself at your best",
+    "main_contact_description": "Enter your personal details, your qualification, and a brief description to introduce yourself to potential clients.",
+    "main_channel_title": "Your online profiles",
+    "main-channel_description": "Add your digital profiles for greater visibility.",
+    "about_header_title": "ABOUT"
   }
 }

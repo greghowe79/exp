@@ -3,6 +3,7 @@ import { ImagesContext, PopupContext, type UserProfile, UserSessionContext } fro
 import { _, getLocale } from 'compiled-i18n';
 import { AuthService } from '~/services/auth.service';
 import type { RouteNavigate } from '@builder.io/qwik-city';
+import { colors } from '~/data/ba_color';
 
 export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const open = useSignal(true);
@@ -35,12 +36,15 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const instagram = useSignal<string>('');
   const github = useSignal<string>('');
   const website = useSignal<string>('');
+  const serviceTitle = useSignal<string>('');
+  const serviceDescription = useSignal<string>('');
   const servicePrimaryName = useSignal<string>('');
   const serviceSecondaryName = useSignal<string>('');
   const serviceTertiaryName = useSignal<string>('');
   const servicePrimaryPercent = useSignal<string>('');
   const serviceSecondaryPercent = useSignal<string>('');
   const serviceTertiaryPercent = useSignal<string>('');
+  const bgColor = useSignal(colors[0].value);
   const position = useSignal('');
   const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
   const selectedFile = useSignal(_('user_profile_image'));
@@ -242,12 +246,15 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           instagram: instagram.value,
           github: github.value,
           website: website.value,
-          servicePrimaryName: servicePrimaryName.value,
-          serviceSecondaryName: serviceSecondaryName.value,
-          serviceTertiaryName: serviceTertiaryName.value,
-          servicePrimaryPercent: servicePrimaryPercent.value,
-          serviceSecondaryPercent: serviceSecondaryPercent.value,
-          serviceTertiaryPercent: serviceTertiaryPercent.value,
+          service_title: serviceTitle.value,
+          service_description: serviceDescription.value,
+          service_primary_name: servicePrimaryName.value,
+          service_secondary_name: serviceSecondaryName.value,
+          service_tertiary_name: serviceTertiaryName.value,
+          service_primary_percent: servicePrimaryPercent.value,
+          service_secondary_percent: serviceSecondaryPercent.value,
+          service_tertiary_percent: serviceTertiaryPercent.value,
+          bg_color: bgColor.value,
           position: position.value,
           created_at: currentDate,
         };
@@ -284,12 +291,15 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         instagram.value = '';
         github.value = '';
         website.value = '';
+        serviceTitle.value = '';
+        serviceDescription.value = '';
         servicePrimaryName.value = '';
         serviceSecondaryName.value = '';
         serviceTertiaryName.value = '';
         servicePrimaryPercent.value = '';
         serviceSecondaryPercent.value = '';
         serviceTertiaryPercent.value = '';
+        bgColor.value = '';
         position.value = '';
         currentFile.value = null;
         imgUrl.value = '';
@@ -326,12 +336,15 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     instagram,
     github,
     website,
+    serviceTitle,
+    serviceDescription,
     servicePrimaryName,
     serviceSecondaryName,
     serviceTertiaryName,
     servicePrimaryPercent,
     serviceSecondaryPercent,
     serviceTertiaryPercent,
+    bgColor,
     position,
     isLoading,
     isSubmitDisabled,

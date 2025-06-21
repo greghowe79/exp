@@ -85,6 +85,11 @@
     "user_navigation_link_section_services": "Serviços",
     "user_navigation_link_section_contact": "Contato",
     "main_services": "Seus 3 principais serviços",
-    "main_services_description": "Indique até 3 serviços que você oferece e sua competência em percentual."
+    "main_services_description": "Indique até 3 serviços que você oferece e sua competência em percentual.",
+    "main_contact_title": "Apresente-se da melhor forma",
+    "main_contact_description": "Insira seus dados pessoais, sua qualificação e uma breve descrição para se apresentar a potenciais clientes.",
+    "main_channel_title": "Seus perfis online",
+    "main-channel_description": "Adicione seus perfis digitais para aumentar sua visibilidade.",
+    "about_header_title": "SOBRE"
   }
 }

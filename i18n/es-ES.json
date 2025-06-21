@@ -85,6 +85,11 @@
     "user_navigation_link_section_services": "Servicios",
     "user_navigation_link_section_contact": "Contacto",
     "main_services": "Tus 3 servicios principales",
-    "main_services_description": "Indica hasta 3 servicios que ofreces y tu nivel de competencia en porcentaje."
+    "main_services_description": "Indica hasta 3 servicios que ofreces y tu nivel de competencia en porcentaje.",
+    "main_contact_title": "Preséntate de la mejor manera",
+    "main_contact_description": "Ingresa tus datos personales, tu cualificación y una breve descripción para presentarte a posibles clientes.",
+    "main_channel_title": "Tus perfiles en línea",
+    "main-channel_description": "Agrega tus perfiles digitales para una mayor visibilidad.",
+    "about_header_title": "SOBRE"
   }
 }
