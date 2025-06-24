@@ -13,6 +13,7 @@ import { UpdatePassword } from '~/components/update-password/UpdatePassword';
 import { Website } from '~/components/website/Website';
 import { verifyTokenWithSupabase } from '~/lib/auth-utils';
 import { _, setLocaleGetter } from 'compiled-i18n';
+import { Pricing } from '~/components/pricing/Pricing';
 
 export const onGet = async ({ cookie, redirect, params }: RequestEvent) => {
   const locale = params.locale || 'it-IT';
@@ -59,6 +60,8 @@ export default component$(() => {
       return <Services />;
     case 'contact':
       return <Contact />;
+    case 'pricing':
+      return <Pricing />;
     case 'login':
       return <Login />;
     case 'signup':

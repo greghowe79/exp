@@ -1,0 +1,158 @@
+#pricing {
+  font-family: 'Roboto Condensed';
+  background-color: #f5f5f7;
+}
+
+/* Container & layout */
+.pricing-container {
+  padding: 6rem 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.pricing-header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.pricing-title {
+  font-weight: 500;
+  color: rgb(0, 102, 204);
+  margin-bottom: 1.25rem;
+}
+
+.pricing-heading {
+  font-weight: 700;
+  font-size: 1.875rem;
+  letter-spacing: -0.01em;
+  color: #333;
+}
+
+@media (min-width: 1024px) {
+  .pricing-heading {
+    font-size: 3rem;
+  }
+}
+
+/* Plans layout */
+.pricing-plans {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .pricing-plans {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+}
+
+.plan-wrapper {
+  /*   width: 100%; */
+  min-width: 25rem;
+}
+
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  gap: 1.25rem;
+  z-index: 10;
+}
+
+.plan-options {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.radio {
+  accent-color: #333;
+}
+
+.plan-price {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  color: #333;
+}
+
+.price-value {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.price-duration {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.duration-text {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Features list */
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.check-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+/* Subscribe Button */
+.subscribe-button-wrapper {
+  margin-top: 1rem;
+}
+
+.subscribe-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: rgb(0, 102, 204);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}

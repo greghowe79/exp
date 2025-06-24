@@ -27,6 +27,15 @@ export const pageMap:any = {
     'ja-JP': 'お問い合わせ',
     'zh-CN': '联系',
   },
+    pricing: {
+    'en-US': 'pricing',
+    'it-IT': 'prezzi',
+    'es-ES': 'precios',
+    'fr-FR': 'prix',
+    'pt-PT': 'preços',
+    'ja-JP': '価格設定',
+    'zh-CN': '定价',
+  },
   login:{
     'en-US': 'login',
     'it-IT': 'accesso',
