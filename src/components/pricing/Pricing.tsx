@@ -1,10 +1,13 @@
-import { component$, useSignal, useStyles$ } from '@builder.io/qwik';
+import { component$, useContext, useSignal, useStyles$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { _ } from 'compiled-i18n';
 import { usePlans } from '~/data/prices_plan';
 import { useLocation } from '@builder.io/qwik-city';
+import { UserSessionContext } from '~/root';
 
 export const Pricing = component$(() => {
+  const userSession = useContext(UserSessionContext);
+
   const location = useLocation();
   useStyles$(styles);
 
@@ -41,7 +44,7 @@ export const Pricing = component$(() => {
               <div class="plan-price">
                 <p class="price-value">{`€ ${signalPlan.value.price}`}</p>
                 <div class="price-duration">
-                  <p class="duration-text">{`per ${signalPlan.value.duration}`}</p>
+                  <p class="duration-text">{`${signalPlan.value.duration}`}</p>
                 </div>
               </div>
 
@@ -59,7 +62,12 @@ export const Pricing = component$(() => {
               </ul>
 
               <div class="subscribe-button-wrapper">
-                <a class="subscribe-button" href={signalPlan.value.link} target="_blank" rel="noopener noreferrer">
+                <a
+                  class="subscribe-button"
+                  href={signalPlan.value.link + '?prefilled_email=' + userSession.email}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {_('page_pricing_btn')}
                 </a>
               </div>

@@ -1,7 +1,7 @@
 import { component$, Resource, useResource$, useSignal, useStyles$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { supabase } from '~/lib/db';
-import { useLocation } from '@builder.io/qwik-city';
+import { useLocation, useNavigate } from '@builder.io/qwik-city';
 import type { UserProfile } from '~/root';
 import { FaGlobeLight } from '~/assets/worldLight';
 import { _, getLocale } from 'compiled-i18n';
@@ -17,6 +17,7 @@ const Preview = component$(() => {
   const showPreview = useSignal(false);
   const isPremium = useSignal(false);
   const currentLocale = getLocale();
+  const nav = useNavigate();
 
   const data = useResource$(async () => {
     const { data, error } = await supabase.from('professionals').select('*').eq('id', id).single();
@@ -57,7 +58,9 @@ const Preview = component$(() => {
                       <li>{_('premium_feature_custom_domain')}</li>
                       <li>{_('premium_feature_advanced_stats')}</li>
                     </ul>
-                    <button class="upgrade-button">{_('upgrade_to_premium')}</button>
+                    <button class="upgrade-button" onClick$={() => nav(`/${currentLocale}/${_('slug_pricing')}/`)}>
+                      {_('upgrade_to_premium')}
+                    </button>
                   </div>
                 </div>
               </div>

@@ -68,6 +68,7 @@ export interface PopupContextState {
 
 export type UserSess = {
   userId: string | null;
+  email: string | undefined;
   isLoggedIn: boolean;
   stripe_seller: any;
   charges_enabled: boolean;
@@ -86,6 +87,7 @@ export default component$(() => {
   const isFormVisible = useSignal(false);
   const userSession = useStore<UserSess>({
     userId: '',
+    email: '',
     isLoggedIn: false,
     stripe_seller: {},
     charges_enabled: false,
@@ -147,6 +149,7 @@ export default component$(() => {
       console.log('Sessione trovata al refresh:', session.user);
       userSession.userId = session.user.id;
       userSession.isLoggedIn = true;
+      userSession.email = session.user.email;
       isSessionLoading.value = false;
     } else {
       console.log('Nessuna sessione attiva');
@@ -163,6 +166,7 @@ export default component$(() => {
       } else if (event === 'SIGNED_IN' && session?.access_token && session.refresh_token) {
         userSession.userId = session.user.id;
         userSession.isLoggedIn = true;
+        userSession.email = session.user.email;
         isSessionLoading.value = false;
       } else if (event === 'SIGNED_OUT') {
         userSession.isLoggedIn = false;
@@ -171,6 +175,7 @@ export default component$(() => {
         userSession.userId = session.user.id;
         //userSession.isLoggedIn = false;
         userSession.isLoggedIn = true;
+        userSession.email = session.user.email;
       }
     });
 

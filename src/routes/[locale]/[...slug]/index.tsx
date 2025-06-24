@@ -99,6 +99,7 @@ export const head: DocumentHead = ({ params }) => {
     preview: _('page_preview'),
     reset: _('page_reset'),
     update: _('page_update'),
+    pricing: _('page_pricing'),
     //website: _('page_website'),
   };
 
