@@ -70,6 +70,7 @@ export type UserSess = {
   userId: string | null;
   email: string | undefined;
   isLoggedIn: boolean;
+  hasAccess: boolean;
   stripe_seller: any;
   charges_enabled: boolean;
   seller_info: any;
@@ -89,6 +90,7 @@ export default component$(() => {
     userId: '',
     email: '',
     isLoggedIn: false,
+    hasAccess: false,
     stripe_seller: {},
     charges_enabled: false,
     seller_info: {},
@@ -130,6 +132,7 @@ export default component$(() => {
     } = await supabase.auth.getSession();
 
     if (session?.access_token && session.refresh_token) {
+      const { data: user } = await supabase.from('profiles').select().eq('id', session.user.id).single();
       // const apiResponse = await fetch('/api/login/', {
       //   method: 'POST',
       //   body: JSON.stringify({
@@ -149,7 +152,9 @@ export default component$(() => {
       console.log('Sessione trovata al refresh:', session.user);
       userSession.userId = session.user.id;
       userSession.isLoggedIn = true;
+      userSession.hasAccess = user.has_access;
       userSession.email = session.user.email;
+
       isSessionLoading.value = false;
     } else {
       console.log('Nessuna sessione attiva');
@@ -160,12 +165,14 @@ export default component$(() => {
     const {
       data: { subscription: authListener },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
+      const { data: user } = await supabase.from('profiles').select().eq('id', session?.user.id).single();
       console.log(event, session);
       if (event === 'PASSWORD_RECOVERY') {
         isFormVisible.value = true;
       } else if (event === 'SIGNED_IN' && session?.access_token && session.refresh_token) {
         userSession.userId = session.user.id;
         userSession.isLoggedIn = true;
+        userSession.hasAccess = user.has_access;
         userSession.email = session.user.email;
         isSessionLoading.value = false;
       } else if (event === 'SIGNED_OUT') {

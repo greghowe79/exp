@@ -12,7 +12,7 @@ export const useNavigationActions = (navigate: RouteNavigate, isModalOpen: Signa
   if (userSession.isLoggedIn) {
     return [
       {
-        id: 'login',
+        id: 'logout',
         label: _('navbar_logout'),
         onClick$: $(async () => {
           try {

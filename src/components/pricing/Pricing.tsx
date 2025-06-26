@@ -65,7 +65,11 @@ export const Pricing = component$(() => {
               <div class="subscribe-button-wrapper">
                 <a
                   class="subscribe-button"
-                  href={userSession.isLoggedIn ? signalPlan.value.link + '?prefilled_email=' + userSession.email : undefined}
+                  href={
+                    userSession.isLoggedIn && !userSession.hasAccess
+                      ? signalPlan.value.link + '?prefilled_email=' + userSession.email
+                      : undefined
+                  }
                   onClick$={(e) => {
                     if (!userSession.isLoggedIn) {
                       e.preventDefault();
@@ -76,10 +80,21 @@ export const Pricing = component$(() => {
                         isSuccess: false,
                         redirectAfterClose: `/${location.params.locale}/${_('slug_login')}/`,
                       });
+                      return;
+                    }
+                    if (userSession.hasAccess) {
+                      e.preventDefault();
+                      popupContext.open('RESULT_POPUP', {
+                        title: _('popup.already_subscribed_title'),
+                        description: _('popup.already_subscribed_description'),
+                        primaryButtonLabel: _('button_close'),
+                        isSuccess: false,
+                      });
+                      return;
                     }
                   }}
-                  target={userSession.isLoggedIn ? '_blank' : undefined}
-                  rel={userSession.isLoggedIn ? 'noopener noreferrer' : undefined}
+                  target={userSession.isLoggedIn && !userSession.hasAccess ? '_blank' : undefined}
+                  rel={userSession.isLoggedIn && !userSession.hasAccess ? 'noopener noreferrer' : undefined}
                 >
                   {_('page_pricing_btn')}
                 </a>
