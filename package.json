@@ -44,6 +44,7 @@
     "@supabase/supabase-js": "^2.49.4",
     "@types/uuid": "^10.0.0",
     "compiled-i18n": "^1.1.1",
+    "stripe": "^18.2.1",
     "uuid": "^11.1.0"
   }
 }

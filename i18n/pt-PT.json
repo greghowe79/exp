@@ -43,6 +43,7 @@
     "slug_login": "entrar",
     "slug_pricing": "preços",
     "slug_signup": "registro",
+    "slug_success": "sucesso",
     "form_submit": "Enviar",
     "slug_reset_password": "redefinir-senha",
     "form_reset_password": "Esqueceu a senha?",
@@ -58,6 +59,8 @@
     "generic_errorMessage": "Algo deu errado. Por favor, tente novamente mais tarde.",
     "popup.signupDescription": "Verifique seu email para confirmar o cadastro.",
     "popup.reset_password_description": "Verifique seu email e siga o link para redefinir a senha do seu usuário",
+    "popup.pricing_no_login_description": "Faça login para ativar o plano Premium.",
+    "popup.pricing_no_login_title": "Acesso Requerido",
     "slug_update_password": "atualizar-palavra-passe",
     "form_update_password-title": "Atualizar senha",
     "form_update_password-description": "Para continuar, insira uma nova senha",
@@ -86,6 +89,7 @@
     "desc_preview": "Veja uma prévia segura dos conteúdos exclusivos.",
     "desc_reset": "Redefina sua senha com facilidade e segurança.",
     "desc_update": "Atualize sua senha para manter sua conta protegida.",
+    "desc_pricing": "Conheça os planos disponíveis: com o plano Premium, você obtém uma página profissional dedicada, com seções completas, acessível a partir do seu cartão público no diretório de profissionais.",
     "social_media": "Onde me encontrar",
     "privacy_policy": "Política de Privacidade",
     "cookie_policy": "Política de Cookies",
@@ -100,6 +104,7 @@
     "main_contact_description": "Insira seus dados pessoais, sua qualificação e uma breve descrição para se apresentar a potenciais clientes.",
     "main_channel_title": "Seus perfis online",
     "main-channel_description": "Adicione seus perfis digitais para aumentar sua visibilidade.",
-    "about_header_title": "SOBRE"
+    "about_header_title": "SOBRE",
+    "button_close": "Fechar"
   }
 }

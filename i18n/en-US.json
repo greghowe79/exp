@@ -47,6 +47,7 @@
     "slug_preview": "preview",
     "slug_website": "website",
     "slug_reset_password": "reset-password",
+    "slug_success": "success",
     "form_submit": "Submit",
     "form_reset_password": "Forgot your password?",
     "form.errors.invalidEmail": "Please enter a valid email address",
@@ -58,6 +59,8 @@
     "generic_errorMessage": "Something went wrong. Please try again later.",
     "popup.signupDescription": "Check your email to confirm the registration.",
     "popup.reset_password_description": "Check your email and follow the link to reset the password for your user",
+    "popup.pricing_no_login_description": "Log in to proceed with the activation of the Premium plan.",
+    "popup.pricing_no_login_title": "Login Required",
     "slug_update_password": "update-password",
     "form_reset_password-title": "Reset Password",
     "form_update_password-title": "Update Password",
@@ -86,6 +89,7 @@
     "desc_preview": "Quickly and securely preview private content before publishing.",
     "desc_reset": "Reset your password easily and securely to regain access.",
     "desc_update": "Update your password to ensure your account's maximum security.",
+    "desc_pricing": "Discover the available plans: with the Premium plan, you get a dedicated professional page with multiple sections, accessible from your public card in the professionals directory.",
     "social_media": "Where to find me",
     "privacy_policy": "Privacy Policy",
     "cookie_policy": "Cookie Policy",
@@ -100,6 +104,7 @@
     "main_contact_description": "Enter your personal details, your qualification, and a brief description to introduce yourself to potential clients.",
     "main_channel_title": "Your online profiles",
     "main-channel_description": "Add your digital profiles for greater visibility.",
-    "about_header_title": "ABOUT"
+    "about_header_title": "ABOUT",
+    "button_close": "Close"
   }
 }

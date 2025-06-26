@@ -3,7 +3,7 @@ import styles from './styles.css?inline';
 import { _ } from 'compiled-i18n';
 import { usePlans } from '~/data/prices_plan';
 import { useLocation } from '@builder.io/qwik-city';
-import { UserSessionContext } from '~/root';
+import { PopupContext, UserSessionContext } from '~/root';
 
 export const Pricing = component$(() => {
   const userSession = useContext(UserSessionContext);
@@ -12,6 +12,7 @@ export const Pricing = component$(() => {
   useStyles$(styles);
 
   const plans = usePlans(location);
+  const popupContext = useContext(PopupContext);
 
   const signalPlan = useSignal(plans[0]);
 
@@ -57,16 +58,28 @@ export const Pricing = component$(() => {
                       clip-rule="evenodd"
                     />
                   </svg>
-                  <span>NextJS boilerplate</span>
+                  <span>Qwik boilerplate</span>
                 </li>
               </ul>
 
               <div class="subscribe-button-wrapper">
                 <a
                   class="subscribe-button"
-                  href={signalPlan.value.link + '?prefilled_email=' + userSession.email}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={userSession.isLoggedIn ? signalPlan.value.link + '?prefilled_email=' + userSession.email : undefined}
+                  onClick$={(e) => {
+                    if (!userSession.isLoggedIn) {
+                      e.preventDefault();
+                      popupContext.open('RESULT_POPUP', {
+                        title: _('popup.pricing_no_login_title'),
+                        description: _('popup.pricing_no_login_description'),
+                        primaryButtonLabel: _('button_close'),
+                        isSuccess: false,
+                        redirectAfterClose: `/${location.params.locale}/${_('slug_login')}/`,
+                      });
+                    }
+                  }}
+                  target={userSession.isLoggedIn ? '_blank' : undefined}
+                  rel={userSession.isLoggedIn ? 'noopener noreferrer' : undefined}
                 >
                   {_('page_pricing_btn')}
                 </a>

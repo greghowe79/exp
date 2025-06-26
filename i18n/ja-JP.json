@@ -43,6 +43,7 @@
     "slug_login": "login",
     "slug_pricing": "価格設定",
     "slug_signup": "signup",
+    "slug_success": "success",
     "form_submit": "送信",
     "form_reset_password": "パスワードをお忘れですか？",
     "slug_dashboard": "dashboard",
@@ -58,6 +59,8 @@
     "generic_errorMessage": "問題が発生しました。しばらくしてからもう一度お試しください。",
     "popup.signupDescription": "登録を確認するためにメールをご確認ください。",
     "popup.reset_password_description": "メールを確認し、リンクを辿ってユーザーパスワードをリセットしてください",
+    "popup.pricing_no_login_description": "プレミアムプランを有効にするにはログインしてください。",
+    "popup.pricing_no_login_title": "ログインが必要です",
     "slug_update_password": "update-password",
     "form_update_password-title": "パスワードを更新",
     "form_update_password-description": "続行するには、新しいパスワードを入力してください",
@@ -86,6 +89,7 @@
     "desc_preview": "限定コンテンツを迅速かつ安全にプレビューします。",
     "desc_reset": "パスワードを安全にリセットしてアクセスを回復しましょう。",
     "desc_update": "アカウントのセキュリティを保つためにパスワードを更新しましょう。",
+    "desc_pricing": "利用可能なプランをご確認ください。プレミアムプランでは、セクション付きの専用プロフェッショナルページを作成でき、専門家ディレクトリ内の公開カードからアクセスできます。",
     "social_media": "私の情報はこちら",
     "privacy_policy": "プライバシーポリシー",
     "cookie_policy": "クッキーポリシー",
@@ -100,6 +104,7 @@
     "main_contact_description": "個人情報、資格、そして簡単な自己紹介を入力して、見込み顧客に自分をアピールしましょう。",
     "main_channel_title": "あなたのオンラインプロフィール",
     "main-channel_description": "より多くの人に見てもらえるように、デジタルプロフィールを追加しましょう。",
-    "about_header_title": "アレッサンドロについて"
+    "about_header_title": "アレッサンドロについて",
+    "button_close": "閉じる"
   }
 }

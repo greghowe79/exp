@@ -87,6 +87,7 @@
 
 .radio {
   accent-color: #333;
+  cursor: pointer;
 }
 
 .plan-price {
@@ -142,6 +143,7 @@
 /* Subscribe Button */
 .subscribe-button-wrapper {
   margin-top: 1rem;
+  cursor: pointer;
 }
 
 .subscribe-button {

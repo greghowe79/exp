@@ -43,6 +43,7 @@
     "slug_login": "accesso",
     "slug_pricing": "prezzi",
     "slug_signup": "registrazione",
+    "slug_success": "successo",
     "form_submit": "Invia",
     "form_reset_password": "Hai dimenticato la password?",
     "slug_dashboard": "pannello-di-controllo",
@@ -57,6 +58,8 @@
     "generic_errorMessage": "Qualcosa è andato storto. Per favore riprova più tardi.",
     "popup.userIdMissing": "ID utente mancante. Riprova, per favore.",
     "popup.signupDescription": "Controlla la tua email per confermare la registrazione.",
+    "popup.pricing_no_login_description": "Effettua l’accesso per poter procedere con l’attivazione del piano Premium.",
+    "popup.pricing_no_login_title": "Accesso Richiesto",
     "popup.reset_password_description": "Controlla la tua email e segui il link per reimpostare la password per il tuo utente",
     "slug_update_password": "aggiorna-password",
     "form_reset_password-title": "Ripristina la password",
@@ -86,6 +89,7 @@
     "desc_preview": "Visualizza un’anteprima dei contenuti riservati in modo rapido e sicuro.",
     "desc_reset": "Resetta la tua password in modo semplice e sicuro per accedere nuovamente.",
     "desc_update": "Aggiorna la tua password per garantire la massima sicurezza del tuo account.",
+    "desc_pricing": "Scopri i piani disponibili: con il piano Premium ottieni una pagina professionale dedicata, completa di sezioni, accessibile dalla tua card pubblica nella directory dei professionisti",
     "social_media": "Dove trovarmi",
     "privacy_policy": "Privacy Policy",
     "cookie_policy": "Cookie Policy",
@@ -100,6 +104,7 @@
     "main_contact_description": "Inserisci i tuoi dati personali, la tua qualifica e una breve descrizione per presentarti ai potenziali clienti.",
     "main_channel_title": "I tuoi profili online",
     "main-channel_description": "Aggiungi i tuoi profili digitali per una maggiore visibilità.",
-    "about_header_title": "SU"
+    "about_header_title": "SU",
+    "button_close": "Chiudi"
   }
 }

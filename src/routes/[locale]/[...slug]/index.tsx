@@ -7,6 +7,7 @@ import { resolvePageKey } from '~/lib/pageMap';
 import { Login } from '~/components/login/Login';
 import { SignUp } from '~/components/signup/SignUp';
 import Dashboard from '~/components/dashboard/Dashboard';
+
 import Preview from '~/components/preview/Preview';
 import { ResetPassword } from '~/components/reset-password/ResetPassword';
 import { UpdatePassword } from '~/components/update-password/UpdatePassword';
@@ -14,6 +15,7 @@ import { Website } from '~/components/website/Website';
 import { verifyTokenWithSupabase } from '~/lib/auth-utils';
 import { _, setLocaleGetter } from 'compiled-i18n';
 import { Pricing } from '~/components/pricing/Pricing';
+import { Success } from '~/components/success/Success';
 
 export const onGet = async ({ cookie, redirect, params }: RequestEvent) => {
   const locale = params.locale || 'it-IT';
@@ -76,6 +78,8 @@ export default component$(() => {
       return <UpdatePassword />;
     case `website`:
       return <Website />;
+    case `success`:
+      return <Success />;
     default:
       return <h1>404 - Page Not Found</h1>;
   }
@@ -100,6 +104,7 @@ export const head: DocumentHead = ({ params }) => {
     reset: _('page_reset'),
     update: _('page_update'),
     pricing: _('page_pricing'),
+    success: _('page_success'),
     //website: _('page_website'),
   };
 
@@ -113,6 +118,8 @@ export const head: DocumentHead = ({ params }) => {
     preview: _('desc_preview'),
     reset: _('desc_reset'),
     update: _('desc_update'),
+    pricing: _('desc_pricing'),
+    success: _('desc_success'),
     //website: _('desc_website'),
   };
 

@@ -99,6 +99,15 @@ export const pageMap:any = {
     'ja-JP': 'update-password',
     'zh-CN': 'update-password',
   },
+   success:{
+    'en-US': 'success',
+    'it-IT': 'successo',
+    'es-ES': 'exito',
+    'fr-FR': 'succès',
+    'pt-PT': 'sucesso',
+    'ja-JP': 'success',
+    'zh-CN': 'success',
+  },
 };
 
 export function resolvePageKey(slug: string, lang: string): keyof typeof pageMap | null {
