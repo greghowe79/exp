@@ -165,8 +165,11 @@ export default component$(() => {
     const {
       data: { subscription: authListener },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
-      const { data: user } = await supabase.from('profiles').select().eq('id', session?.user.id).single();
-      console.log(event, session);
+      let user = null;
+      if (session?.user.id) {
+        const { data } = await supabase.from('profiles').select().eq('id', session.user.id).single();
+        user = data;
+      }
       if (event === 'PASSWORD_RECOVERY') {
         isFormVisible.value = true;
       } else if (event === 'SIGNED_IN' && session?.access_token && session.refresh_token) {
