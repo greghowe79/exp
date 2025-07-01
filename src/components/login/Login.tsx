@@ -15,6 +15,9 @@ export const Login = component$(() => {
 
   return (
     <div class="form-container">
+      <Link href={`/${currentLocale}`} class="back_button">
+        ← {_('form_back_home')}
+      </Link>
       <Modal
         open={open}
         title={_('navbar_login')}
@@ -24,6 +27,7 @@ export const Login = component$(() => {
         primaryButtonLabel={_('navbar_login')}
         primaryButtonDisabled={isSubmitDisabled}
         type="small"
+        light
       >
         <form class="form">
           <Input

@@ -105,6 +105,7 @@
     "main_channel_title": "Vos profils en ligne",
     "main-channel_description": "Ajoutez vos profils numériques pour plus de visibilité.",
     "about_header_title": "À PROPOS D'",
-    "button_close": "Fermer"
+    "button_close": "Fermer",
+    "form_back_home": "Retour à l'accueil"
   }
 }

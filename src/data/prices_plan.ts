@@ -10,7 +10,7 @@ export const usePlans = (location: RouteLocation) => {
       yearly: 'https://buy.stripe.com/test_6oU4gB77e7YH6F5bfq8Ra06',
     },
     'en-US': {
-      monthly: 'https://buy.stripe.com/test_9B6aEZ1MU3IrgfF3MY8Ra07',
+      monthly: 'https://buy.stripe.com/test_8x2bJ30IQgvd0gHfvG8Ra08',
       yearly: 'https://buy.stripe.com/test_9B6aEZ1MU3IrgfF3MY8Ra07',
     },
     // 'es-ES': {

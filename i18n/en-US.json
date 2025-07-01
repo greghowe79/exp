@@ -105,6 +105,7 @@
     "main_channel_title": "Your online profiles",
     "main-channel_description": "Add your digital profiles for greater visibility.",
     "about_header_title": "ABOUT",
-    "button_close": "Close"
+    "button_close": "Close",
+    "form_back_home": "Back to Home"
   }
 }

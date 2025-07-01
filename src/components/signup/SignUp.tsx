@@ -1,12 +1,14 @@
-import { _ } from 'compiled-i18n';
-import { component$, useStylesScoped$ } from '@builder.io/qwik';
+import { _, getLocale } from 'compiled-i18n';
+import { component$, useStyles$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { Button, Modal, Input } from '@greghowe79/the-lib';
 import { validateEmail, validatePassword } from '~/utility/validators';
 import { useAuth } from '~/hooks/useSignUp';
+import { Link } from '@builder.io/qwik-city';
 
 export const SignUp = component$(() => {
-  useStylesScoped$(styles);
+  const currentLocale = getLocale();
+  useStyles$(styles);
 
   const {
     open,
@@ -24,6 +26,9 @@ export const SignUp = component$(() => {
 
   return (
     <div class="form-container">
+      <Link href={`/${currentLocale}`} class="back_button">
+        ← {_('form_back_home')}
+      </Link>
       <Modal
         open={open}
         title={_('navbar_signup')}
@@ -33,6 +38,7 @@ export const SignUp = component$(() => {
         primaryButtonLabel={formIsVisible.value && _('navbar_signup')}
         primaryButtonDisabled={isSubmitDisabled}
         type="small"
+        light
       >
         {formIsVisible.value ? (
           <form class="form">

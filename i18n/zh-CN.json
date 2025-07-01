@@ -105,6 +105,7 @@
     "main_channel_title": "您的在线资料",
     "main-channel_description": "添加您的数字资料以提高可见度。",
     "about_header_title": "关于",
-    "button_close": "关闭"
+    "button_close": "关闭",
+    "form_back_home": "返回首页"
   }
 }

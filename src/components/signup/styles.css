@@ -3,7 +3,7 @@
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  background-image: url('https://static.xolo.io/h-202505-006/hub/images/login/login-background.svg');
+  /*  background-image: url('https://static.xolo.io/h-202505-006/hub/images/login/login-background.svg'); */
   background-size: cover;
   background-position: center;
 }
@@ -24,4 +24,22 @@
 
 .input {
   width: 100%;
+}
+
+.back_button {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: transparent;
+  border: none;
+  color: #06c;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  z-index: 1100;
+}
+
+.back_button:hover {
+  text-decoration: underline;
 }
