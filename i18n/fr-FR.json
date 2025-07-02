@@ -15,6 +15,7 @@
     "navbar_login": "Connexion",
     "navbar_logout": "Déconnexion",
     "navbar_signup": "Inscription",
+    "navbar_dashboard": "Tableau de bord",
     "page_contact_title": "Page de Contact",
     "page_services_title": "Page des Services",
     "page_about_title": "Page À Propos",
@@ -106,6 +107,8 @@
     "main-channel_description": "Ajoutez vos profils numériques pour plus de visibilité.",
     "about_header_title": "À PROPOS D'",
     "button_close": "Fermer",
-    "form_back_home": "Retour à l'accueil"
+    "form_back_home": "Retour à l'accueil",
+    "premium_success_title": "Félicitations !",
+    "premium_success_message": "Votre abonnement premium a été activé avec succès."
   }
 }

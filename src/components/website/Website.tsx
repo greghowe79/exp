@@ -235,27 +235,31 @@ export const Website = component$(() => {
               <div class="footer-container">
                 <div class="footer-column">
                   <h2>{_('page_contact')}</h2>
-                  <div class="footer-info">
-                    <LocationFooter fill={'#232323'} />{' '}
-                    <a
-                      class="website_url"
-                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(profile.position)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {profile.position}
-                    </a>
-                  </div>
-                  <div class="footer-info">
-                    <MobileFooter fill={'#232323'} /> <a href={`tel:${profile.telephone}`}>{profile.telephone}</a>
-                  </div>
+                  {profile.position && profile.position !== '-' && (
+                    <div class="footer-info">
+                      <LocationFooter fill={'#232323'} />{' '}
+                      <a
+                        class="website_url"
+                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(profile.position)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {profile.position}
+                      </a>
+                    </div>
+                  )}
+                  {profile.telephone && profile.telephone !== ' ' && (
+                    <div class="footer-info">
+                      <MobileFooter fill={'#232323'} /> <a href={`tel:${profile.telephone}`}>{profile.telephone}</a>
+                    </div>
+                  )}
                   <div class="footer-info">
                     <EnvelopeFooter fill={'#232323'} />
                     <a class="footer_email" href={`mailto:${profile.email}`} target="_blank" rel="noopener noreferrer">
                       {profile.email}
                     </a>
                   </div>
-                  {profile.website && (
+                  {profile.website && profile.website !== '-' && (
                     <div class="footer-info">
                       <GlobeFooter fill={'#232323'} />
                       <a href={profile.website} target="_blank" class="website_url" rel="noopener noreferrer">
@@ -268,32 +272,32 @@ export const Website = component$(() => {
                 <div class="footer-column">
                   <h3>{_('social_media')}</h3>
                   <div class="social-icons">
-                    {profile.facebook && (
+                    {profile.facebook && profile.facebook !== '-' && (
                       <a href={profile.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                         <FacebookFooter fill={'#232323'} />
                       </a>
                     )}
-                    {profile.instagram && (
+                    {profile.instagram && profile.instagram !== '-' && (
                       <a href={profile.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                         <InstagramFooter fill={'#232323'} />
                       </a>
                     )}
-                    {profile.linkedin && (
+                    {profile.linkedin && profile.linkedin !== '-' && (
                       <a href={profile.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                         <LinkedinFooter fill={'#232323'} />
                       </a>
                     )}
-                    {profile.twitter && (
+                    {profile.twitter && profile.twitter !== '-' && (
                       <a href={profile.twitter} aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                         <TwitterFooter fill={'#232323'} />
                       </a>
                     )}
-                    {profile.github && (
+                    {profile.github && profile.github !== '-' && (
                       <a href={profile.github} aria-label="Github" target="_blank" rel="noopener noreferrer">
                         <GitHubFooter fill={'#232323'} />
                       </a>
                     )}
-                    {profile.youtube && (
+                    {profile.youtube && profile.youtube !== '-' && (
                       <a href={profile.youtube} aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                         <YouTubeFooter fill={'#232323'} />
                       </a>

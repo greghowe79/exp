@@ -9,8 +9,17 @@ type ButtonVariant = 'primary' | 'icon' | 'secondary';
 
 export const useNavigationActions = (navigate: RouteNavigate, isModalOpen: Signal<boolean>, currentLocale: string) => {
   const userSession = useContext(UserSessionContext);
+  console.log('LOGIN ', userSession.isLoggedIn);
   if (userSession.isLoggedIn) {
     return [
+      {
+        id: 'dashboard',
+        label: _('navbar_dashboard'),
+        onClick$: $(async () => {
+          await navigate(`/${currentLocale}/${_('slug_dashboard')}/${userSession.userId}`);
+        }),
+        variant: 'primary' as ButtonVariant,
+      },
       {
         id: 'logout',
         label: _('navbar_logout'),

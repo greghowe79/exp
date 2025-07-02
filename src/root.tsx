@@ -133,22 +133,22 @@ export default component$(() => {
 
     if (session?.access_token && session.refresh_token) {
       const { data: user } = await supabase.from('profiles').select().eq('id', session.user.id).single();
-      // const apiResponse = await fetch('/api/login/', {
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     accessToken: session.access_token,
-      //     refreshToken: session.refresh_token,
-      //   }),
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //     Authorization: `Bearer ${session.access_token}`,
-      //   },
-      //   credentials: 'include',
-      // });
+      const apiResponse = await fetch('/api/login/', {
+        method: 'POST',
+        body: JSON.stringify({
+          accessToken: session.access_token,
+          refreshToken: session.refresh_token,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        credentials: 'include',
+      });
 
-      // if (!apiResponse.ok) {
-      //   throw new Error('Failed to establish session');
-      // }
+      if (!apiResponse.ok) {
+        throw new Error('Failed to establish session');
+      }
       console.log('Sessione trovata al refresh:', session.user);
       userSession.userId = session.user.id;
       userSession.isLoggedIn = true;
@@ -173,12 +173,14 @@ export default component$(() => {
       if (event === 'PASSWORD_RECOVERY') {
         isFormVisible.value = true;
       } else if (event === 'SIGNED_IN' && session?.access_token && session.refresh_token) {
+        console.log('SIGNED IN');
         userSession.userId = session.user.id;
         userSession.isLoggedIn = true;
         userSession.hasAccess = user.has_access;
         userSession.email = session.user.email;
         isSessionLoading.value = false;
       } else if (event === 'SIGNED_OUT') {
+        console.log('SIGNED OUT');
         userSession.isLoggedIn = false;
         userSession.userId = '';
       } else if (event === 'INITIAL_SESSION' && session?.access_token && session.refresh_token) {

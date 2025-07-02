@@ -15,6 +15,7 @@
     "navbar_login": "Login",
     "navbar_logout": "Logout",
     "navbar_signup": "Sign up",
+    "navbar_dashboard": "Dashboard",
     "page_contact_title": "Contact Page",
     "page_services_title": "Services Page",
     "page_about_title": "About Us Page",
@@ -106,6 +107,8 @@
     "main-channel_description": "Add your digital profiles for greater visibility.",
     "about_header_title": "ABOUT",
     "button_close": "Close",
-    "form_back_home": "Back to Home"
+    "form_back_home": "Back to Home",
+    "premium_success_title": "Congratulations!",
+    "premium_success_message": "Your premium plan has been successfully activated."
   }
 }

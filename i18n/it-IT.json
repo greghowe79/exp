@@ -15,6 +15,7 @@
     "navbar_login": "Accedi",
     "navbar_logout": "Disconnetti",
     "navbar_signup": "Registrati",
+    "navbar_dashboard": "Cruscotto",
     "page_contact_title": "Pagina Contatti",
     "page_services_title": "Pagina Servizi",
     "page_about_title": "Pagina Chi Siamo",
@@ -106,6 +107,8 @@
     "main-channel_description": "Aggiungi i tuoi profili digitali per una maggiore visibilità.",
     "about_header_title": "SU",
     "button_close": "Chiudi",
-    "form_back_home": "Torna alla home"
+    "form_back_home": "Torna alla home",
+    "premium_success_title": "Congratulazioni!",
+    "premium_success_message": "Il tuo piano premium è stato attivato con successo."
   }
 }

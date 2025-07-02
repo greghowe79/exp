@@ -15,6 +15,7 @@
     "navbar_login": "ログイン",
     "navbar_logout": "ログアウト",
     "navbar_signup": "サインアップ",
+    "navbar_dashboard": "ダッシュボード",
     "page_contact_title": "お問い合わせページ",
     "page_services_title": "サービスページ",
     "page_about_title": "私たちについてのページ",
@@ -106,6 +107,8 @@
     "main-channel_description": "より多くの人に見てもらえるように、デジタルプロフィールを追加しましょう。",
     "about_header_title": "アレッサンドロについて",
     "button_close": "閉じる",
-    "form_back_home": "ホームに戻る"
+    "form_back_home": "ホームに戻る",
+    "premium_success_title": "おめでとうございます！",
+    "premium_success_message": "プレミアムプランが正常に有効になりました。"
   }
 }

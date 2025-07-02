@@ -15,6 +15,7 @@
     "navbar_login": "Entrar",
     "navbar_logout": "Sair",
     "navbar_signup": "Registrar",
+    "navbar_dashboard": "Painel",
     "page_contact_title": "Página de Contacto",
     "page_services_title": "Página de Serviços",
     "page_about_title": "Página Sobre Nós",
@@ -106,6 +107,8 @@
     "main-channel_description": "Adicione seus perfis digitais para aumentar sua visibilidade.",
     "about_header_title": "SOBRE",
     "button_close": "Fechar",
-    "form_back_home": "Voltar para a página inicial"
+    "form_back_home": "Voltar para a página inicial",
+    "premium_success_title": "Parabéns!",
+    "premium_success_message": "Seu plano premium foi ativado com sucesso."
   }
 }

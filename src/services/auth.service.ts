@@ -70,6 +70,7 @@ export const AuthService = {
     if (error) throw error;
     return data;
   },
+
   async uploadImageProfileToTheStorage(
     userSession: UserSess,
     currentFile: Signal<any>,
@@ -77,6 +78,14 @@ export const AuthService = {
     images: Signal<any>,
     CDNURL: string
   ) {
+    if (!currentFile.value) {
+      console.error('Nessun file da caricare!');
+      return;
+    }
+    if (!userSession.userId) {
+      console.error('User ID mancante!');
+      return;
+    }
     const { data, error } = await supabase.storage.from('professionals').upload(userSession.userId + '/' + uuidv4(), currentFile.value);
 
     if (data) {
@@ -86,6 +95,7 @@ export const AuthService = {
       console.log(error);
     }
   },
+
   async insertUser(userProfile: UserProfile) {
     const { error: insertUserError } = await supabase.from('professionals').insert(userProfile);
 

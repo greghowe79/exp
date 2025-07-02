@@ -1,6 +1,5 @@
 .main {
   font-family: 'Roboto Condensed', sans-serif;
-
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -262,8 +261,9 @@ section {
 .service_image {
   width: 100%;
   display: block;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
+  height: 100%;
 }
 
 .services_divider {

@@ -58,6 +58,7 @@ export default component$(() => {
     <>
       {normalizedPath !== `/${_('slug_login')}/` &&
         normalizedPath !== `/${_('slug_signup')}/` &&
+        normalizedPath !== `/${_('slug_success')}/` &&
         normalizedPath !== `/${_('slug_website')}/${id}/` && (
           <NavigationMenu
             ariaLabel="Menu principale"
@@ -78,6 +79,7 @@ export default component$(() => {
         class={
           normalizedPath !== `/${_('slug_login')}/` &&
           normalizedPath !== `/${_('slug_signup')}/` &&
+          normalizedPath !== `/${_('slug_success')}/` &&
           normalizedPath !== `/${_('slug_website')}/${id}/` &&
           'spacer'
         }

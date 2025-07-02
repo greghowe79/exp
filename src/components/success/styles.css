@@ -1,0 +1,35 @@
+.success-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  background-color: #f0f8ff;
+  padding: 2rem;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.success-container h1 {
+  font-size: 2.5rem;
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.success-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-home {
+  padding: 0.8rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-home:hover {
+  background-color: #0056b3;
+}
