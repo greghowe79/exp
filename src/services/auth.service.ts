@@ -39,6 +39,7 @@ export const AuthService = {
   },
 
   async signOut() {
+    await supabase.auth.signOut();
     const apiResponse = await fetch('/api/logout/', {
       method: 'POST',
       credentials: 'include', // per inviare i cookie
@@ -46,7 +47,6 @@ export const AuthService = {
     if (!apiResponse.ok) {
       throw new Error('Failed to logout');
     }
-    await supabase.auth.signOut();
   },
 
   async resetPassword(email: string, currentLocale: Locale) {
