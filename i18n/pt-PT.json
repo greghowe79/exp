@@ -109,6 +109,8 @@
     "button_close": "Fechar",
     "form_back_home": "Voltar para a página inicial",
     "premium_success_title": "Parabéns!",
-    "premium_success_message": "Seu plano premium foi ativado com sucesso."
+    "premium_success_message": "Seu plano premium foi ativado com sucesso.",
+    "button_go_live_site": "Visite sua página ao vivo",
+    "button_go_to_dashboard": "Crie sua página"
   }
 }

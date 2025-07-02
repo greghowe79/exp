@@ -109,6 +109,8 @@
     "button_close": "Fermer",
     "form_back_home": "Retour à l'accueil",
     "premium_success_title": "Félicitations !",
-    "premium_success_message": "Votre abonnement premium a été activé avec succès."
+    "premium_success_message": "Votre abonnement premium a été activé avec succès.",
+    "button_go_live_site": "Visitez votre page en direct",
+    "button_go_to_dashboard": "Crée ta page"
   }
 }

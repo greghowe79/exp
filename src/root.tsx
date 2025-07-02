@@ -165,10 +165,12 @@ export default component$(() => {
     const {
       data: { subscription: authListener },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
+      console.log('MANNAIA');
       let user = null;
       if (session?.user.id) {
         const { data } = await supabase.from('profiles').select().eq('id', session.user.id).single();
         user = data;
+        console.log('data', data);
       }
       if (event === 'PASSWORD_RECOVERY') {
         isFormVisible.value = true;

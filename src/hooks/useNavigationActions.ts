@@ -9,7 +9,6 @@ type ButtonVariant = 'primary' | 'icon' | 'secondary';
 
 export const useNavigationActions = (navigate: RouteNavigate, isModalOpen: Signal<boolean>, currentLocale: string) => {
   const userSession = useContext(UserSessionContext);
-  console.log('LOGIN ', userSession.isLoggedIn);
   if (userSession.isLoggedIn) {
     return [
       {

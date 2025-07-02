@@ -109,6 +109,8 @@
     "button_close": "閉じる",
     "form_back_home": "ホームに戻る",
     "premium_success_title": "おめでとうございます！",
-    "premium_success_message": "プレミアムプランが正常に有効になりました。"
+    "premium_success_message": "プレミアムプランが正常に有効になりました。",
+    "button_go_live_site": "あなたのライブページを訪問する",
+    "button_go_to_dashboard": "あなたのページを作成"
   }
 }

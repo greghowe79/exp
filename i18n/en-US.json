@@ -109,6 +109,8 @@
     "button_close": "Close",
     "form_back_home": "Back to Home",
     "premium_success_title": "Congratulations!",
-    "premium_success_message": "Your premium plan has been successfully activated."
+    "premium_success_message": "Your premium plan has been successfully activated.",
+    "button_go_live_site": "Visit your live page",
+    "button_go_to_dashboard": "Create your page"
   }
 }

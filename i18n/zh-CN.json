@@ -109,6 +109,8 @@
     "button_close": "关闭",
     "form_back_home": "返回首页",
     "premium_success_title": "恭喜！",
-    "premium_success_message": "您的高级计划已成功激活。"
+    "premium_success_message": "您的高级计划已成功激活。",
+    "button_go_live_site": "访问您的直播页面",
+    "button_go_to_dashboard": "创建你的页面"
   }
 }

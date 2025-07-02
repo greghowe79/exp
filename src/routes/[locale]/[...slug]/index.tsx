@@ -29,7 +29,7 @@ export const onGet = async ({ cookie, redirect, params }: RequestEvent) => {
     return;
   }
 
-  if (slug === _('slug_dashboard') || slug === _('slug_preview')) {
+  if (slug === _('slug_dashboard') || slug === _('slug_preview') || slug === _('slug_success')) {
     const token = cookie.get('server-access-token')?.value;
 
     if (!token) {
