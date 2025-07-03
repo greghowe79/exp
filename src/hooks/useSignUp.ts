@@ -154,7 +154,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         const data = await AuthService.signInWithPassword(email.value, password.value);
 
         if (data.user.id) {
-          await navigate?.(`/${currentLocale}/${_('slug_dashboard')}/${data.user.id}`);
+          await navigate?.(`/${currentLocale}/`);
           email.value = '';
           password.value = '';
           isLoading.value = false;
@@ -238,14 +238,14 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           job_title: jobTitle.value,
           description: description.value,
           email: email.value,
-          telephone: `${prefix.value.trim()} ${phone.value.trim()}` || ' ',
-          facebook: facebook.value || '-',
-          linkedin: linkedin.value || '-',
-          twitter: twitter.value || '-',
-          youtube: youtube.value || '-',
-          instagram: instagram.value || '-',
-          github: github.value || '-',
-          website: website.value || '-',
+          telephone: `${prefix.value.trim()} ${phone.value.trim()}`,
+          facebook: facebook.value,
+          linkedin: linkedin.value,
+          twitter: twitter.value,
+          youtube: youtube.value,
+          instagram: instagram.value,
+          github: github.value,
+          website: website.value,
           service_title: serviceTitle.value,
           service_description: serviceDescription.value,
           service_primary_name: servicePrimaryName.value,
@@ -255,7 +255,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           service_secondary_percent: serviceSecondaryPercent.value,
           service_tertiary_percent: serviceTertiaryPercent.value,
           bg_color: bgColor.value,
-          position: position.value || '-',
+          position: position.value,
           created_at: currentDate,
         };
 

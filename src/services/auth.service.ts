@@ -86,8 +86,9 @@ export const AuthService = {
       console.error('User ID mancante!');
       return;
     }
+    console.log('PRIMA', currentFile.value);
     const { data, error } = await supabase.storage.from('professionals').upload(userSession.userId + '/' + uuidv4(), currentFile.value);
-
+    console.log('DOPO', currentFile.value);
     if (data) {
       imgUrl.value = CDNURL + data.path;
       //await getImages(userSession, images);
@@ -98,10 +99,11 @@ export const AuthService = {
 
   async insertUser(userProfile: UserProfile) {
     const { error: insertUserError } = await supabase.from('professionals').insert(userProfile);
-
-    //getProducts(productsTable);
     if (insertUserError) {
       console.error(insertUserError);
     }
+
+    console.log('SONO FUORI DA INSERT USER');
+    //getProducts(productsTable);
   },
 };

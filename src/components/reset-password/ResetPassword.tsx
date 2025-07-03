@@ -1,12 +1,14 @@
 import { component$, useSignal, useStyles$ } from '@builder.io/qwik';
-import { _ } from 'compiled-i18n';
+import { _, getLocale } from 'compiled-i18n';
 import styles from './styles.css?inline';
 import { Input, Modal } from '@greghowe79/the-lib';
 import { useAuth } from '~/hooks/useSignUp';
 import { validateEmail } from '~/utility/validators';
+import { Link } from '@builder.io/qwik-city';
 
 export const ResetPassword = component$(() => {
   useStyles$(styles);
+  const currentLocale = getLocale();
   const { open, email, emailError, emailTouched, isLoading, handleAuth } = useAuth('RESET-PASSWORD');
   const isSubmitDisabled = useSignal(true);
   const title = _('form_reset_password-title');
@@ -14,6 +16,9 @@ export const ResetPassword = component$(() => {
 
   return (
     <div class="login-container">
+      <Link href={`/${currentLocale}`} class="back_button">
+        ← {_('form_back_home')}
+      </Link>
       <Modal
         open={open}
         title={title}
@@ -23,6 +28,7 @@ export const ResetPassword = component$(() => {
         primaryButtonLabel={buttonLabel}
         primaryButtonDisabled={isSubmitDisabled}
         type="small"
+        light
       >
         <p>{_('form_reset_password-description')}</p>
         <form
