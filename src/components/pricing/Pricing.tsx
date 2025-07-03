@@ -1,9 +1,10 @@
-import { component$, useContext, useSignal, useStyles$ } from '@builder.io/qwik';
+import { component$, useContext, useSignal, useStyles$, useTask$, useVisibleTask$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { _ } from 'compiled-i18n';
 import { usePlans } from '~/data/prices_plan';
 import { useLocation } from '@builder.io/qwik-city';
 import { PopupContext, UserSessionContext } from '~/root';
+import { supabase } from '~/lib/db';
 
 export const Pricing = component$(() => {
   const userSession = useContext(UserSessionContext);
@@ -15,6 +16,30 @@ export const Pricing = component$(() => {
   const popupContext = useContext(PopupContext);
 
   const signalPlan = useSignal(plans[0]);
+
+  useTask$(({ track, cleanup }) => {
+    const uid = track(() => userSession.userId);
+
+    if (!uid) return;
+
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    (async () => {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('has_access')
+        .eq('id', uid)
+        .abortSignal(controller.signal)
+        .maybeSingle();
+
+      if (error) {
+        console.error('Errore fetch has_access:', error);
+        return;
+      }
+      userSession.hasAccess = data?.has_access ?? false;
+    })();
+  });
 
   return (
     <section id="pricing">
