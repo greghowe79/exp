@@ -1,4 +1,4 @@
-import { component$, useContext, useSignal, useStyles$, useTask$, useVisibleTask$ } from '@builder.io/qwik';
+import { component$, useContext, useSignal, useStyles$, useTask$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { _ } from 'compiled-i18n';
 import { usePlans } from '~/data/prices_plan';
