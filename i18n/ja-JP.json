@@ -111,6 +111,11 @@
     "premium_success_title": "おめでとうございます！",
     "premium_success_message": "プレミアムプランが正常に有効になりました。",
     "button_go_live_site": "あなたのライブページを訪問する",
-    "button_go_to_dashboard": "あなたのページを作成"
+    "button_go_to_dashboard": "あなたのページを作成",
+    "color_preview_first": "ダーククリムゾンレッド",
+    "color_preview_second": "アンスラサイトグレー",
+    "color_preview_third": "ダークターコイズ",
+    "choose_background_color": "背景色を選択してください：",
+    "selected_color": "選択された色："
   }
 }

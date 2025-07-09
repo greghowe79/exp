@@ -16,7 +16,7 @@ import { FaGlobe } from '~/assets/world';
 import { YouTube } from '~/assets/youtube';
 import { Instagram } from '~/assets/instagram';
 import { GitHub } from '~/assets/github';
-import { colors } from '~/data/ba_color';
+import { getListColor } from '~/data/ba_color';
 import { avatars } from '~/data/avatars';
 
 export async function urlToFile(url: string, filename: string, mimeType: string): Promise<File> {
@@ -28,6 +28,7 @@ export async function urlToFile(url: string, filename: string, mimeType: string)
 const UserProfileForm = component$(() => {
   const nav = useNavigate();
   const selectedAvatar = useSignal<string | null>(null);
+  const colors = getListColor();
 
   useStyles$(styles);
 
@@ -163,6 +164,7 @@ const UserProfileForm = component$(() => {
             icon={Email}
             bgLight
             required
+            autocomplete="email"
           />
           <Select id="country" label={_('user_profile_country')} options={options} selected={selectedCountry} prefix={prefix} />
           <Input
@@ -203,10 +205,10 @@ const UserProfileForm = component$(() => {
           />
 
           <div>
-            <h2>Scegli un colore di sfondo:</h2>
+            <h2>{_('choose_background_color')}</h2>
 
-            <fieldset>
-              <legend>Select a background color:</legend>
+            <fieldset class="color-selection">
+              <legend class="sr-only">{_('choose_background_color')}</legend>
               {colors.map(({ label, value }) => {
                 return (
                   <div key={value}>
@@ -219,22 +221,18 @@ const UserProfileForm = component$(() => {
                       selectedValue={bgColor}
                       type="radio"
                     />
-                    <label for={value}>{label}</label>
                   </div>
                 );
               })}
             </fieldset>
+
             <p>
-              Colore scelto: <strong>{bgColor.value}</strong>
+              {_('selected_color')} <strong>{colors.find((c) => c.value === bgColor.value)?.label ?? bgColor.value}</strong>
             </p>
             <div
+              class="color-preview"
               style={{
                 backgroundColor: bgColor.value,
-                height: '100px',
-                marginTop: '10px',
-                border: '1px solid #ccc',
-                borderRadius: '4px',
-                transition: 'background-color 0.3s ease',
               }}
             ></div>
           </div>

@@ -3,7 +3,8 @@ import { PopupContext, type UserProfile, UserSessionContext } from '~/root';
 import { _, getLocale } from 'compiled-i18n';
 import { AuthService } from '~/services/auth.service';
 import type { RouteNavigate } from '@builder.io/qwik-city';
-import { colors } from '~/data/ba_color';
+import { getListColor } from '~/data/ba_color';
+//import { colors } from '~/data/ba_color';
 
 export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const open = useSignal(true);
@@ -46,6 +47,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const servicePrimaryPercent = useSignal<string>('');
   const serviceSecondaryPercent = useSignal<string>('');
   const serviceTertiaryPercent = useSignal<string>('');
+  const colors = getListColor();
   const bgColor = useSignal(colors[0].value);
   const position = useSignal('');
   const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';

@@ -111,6 +111,11 @@
     "premium_success_title": "¡Felicidades!",
     "premium_success_message": "Tu plan premium ha sido activado correctamente.",
     "button_go_live_site": "Visita tu página en vivo",
-    "button_go_to_dashboard": "Crea tu página"
+    "button_go_to_dashboard": "Crea tu página",
+    "color_preview_first": "Rojo carmesí oscuro",
+    "color_preview_second": "Gris antracita",
+    "color_preview_third": "Turquesa oscuro",
+    "choose_background_color": "Elige un color de fondo:",
+    "selected_color": "Color seleccionado:"
   }
 }
