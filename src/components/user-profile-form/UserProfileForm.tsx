@@ -1,4 +1,4 @@
-import { component$, useStyles$ } from '@builder.io/qwik';
+import { $, component$, type NoSerialize, noSerialize, useSignal, useStyles$ } from '@builder.io/qwik';
 import { Button, Input, Select, TextArea } from '@greghowe79/the-lib';
 import { useAuth } from '~/hooks/useSignUp';
 import { validateEmail, validatePhone } from '~/utility/validators';
@@ -17,9 +17,38 @@ import { YouTube } from '~/assets/youtube';
 import { Instagram } from '~/assets/instagram';
 import { GitHub } from '~/assets/github';
 import { colors } from '~/data/ba_color';
+import { avatars } from '~/data/avatars';
+
+export async function urlToFile(url: string, filename: string, mimeType: string): Promise<File> {
+  const response = await fetch(url);
+  const buffer = await response.arrayBuffer();
+  return new File([buffer], filename, { type: mimeType });
+}
+
+// export const urlToFile = $(async (url: string, filename: string, mimeType: string): Promise<File> => {
+//   const response = await fetch(url);
+//   const buffer = await response.arrayBuffer();
+//   return new File([buffer], filename, { type: mimeType });
+// });
 
 const UserProfileForm = component$(() => {
   const nav = useNavigate();
+  const selectedAvatar = useSignal<string | null>(null);
+  const selectedAvatarFile = useSignal<NoSerialize<File> | null>(null);
+
+  const handleSelect$ = $(async (avatarValue: string) => {
+    const avatar = avatars.find((a) => a.value === avatarValue);
+    if (!avatar) return;
+
+    selectedAvatar.value = avatar.value;
+
+    // Qui convertiamo l'immagine in File
+    const file = await urlToFile(avatar.url, `${avatar.value}.png`, 'image/png');
+    selectedAvatarFile.value = noSerialize(file);
+
+    // ✅ Ora `selectedFile.value` contiene il File da usare o inviare
+    console.log('File pronto:', file);
+  });
 
   useStyles$(styles);
 
@@ -68,6 +97,45 @@ const UserProfileForm = component$(() => {
 
         <div class="contact-entry">
           <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} />
+          <div>
+            <h2>Scegli il tuo avatar</h2>
+            <div style={{ display: 'flex', gap: '1rem' }}>
+              {avatars.map((avatar) => (
+                <div key={avatar.value}>
+                  <img
+                    src={avatar.url}
+                    alt={avatar.label}
+                    width={120}
+                    height={120}
+                    style={{
+                      border: selectedAvatar.value === avatar.value ? '3px solid blue' : '3px solid transparent',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                    }}
+                    onClick$={() => handleSelect$(avatar.value)}
+                  />
+                  <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>{avatar.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ marginTop: '1rem' }}>
+              Avatar selezionato:
+              <strong style={{ marginLeft: '0.5rem' }}>{avatars.find((a) => a.value === selectedAvatar.value)?.label ?? 'Nessuno'}</strong>
+            </div>
+
+            {selectedAvatarFile.value && (
+              <div style={{ marginTop: '1rem' }}>
+                <p>
+                  <strong>File pronto per l'upload:</strong>
+                </p>
+                <p>Nome: {selectedAvatarFile.value.name}</p>
+                <p>Tipo: {selectedAvatarFile.value.type}</p>
+                <p>Dimensione: {selectedAvatarFile.value.size} bytes</p>
+              </div>
+            )}
+          </div>
+
           <Input id="firstName_user_profile" type="text" placeholder={_('user_profile_name')} value={firstName} bgLight required />
           <Input id="lastName_user_profile" type="text" placeholder={_('user_profile_lastname')} value={lastName} bgLight required />
           <Input id="lastName_user_profile" type="text" placeholder={_('user_profile_job')} value={jobTitle} bgLight required />

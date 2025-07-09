@@ -261,8 +261,8 @@ section {
 .service_image {
   width: 100%;
   display: block;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute; */
+  /* bottom: 0; */
   /* height: 100%; */
 }
 

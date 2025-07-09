@@ -119,7 +119,8 @@ export const Website = component$(() => {
 
               <Image
                 objectFit="cover"
-                src={'https://crafto.themezaa.com/freelancer/wp-content/uploads/sites/37/2024/04/demo-freelancer-02.png.webp'}
+                // src={'https://crafto.themezaa.com/freelancer/wp-content/uploads/sites/37/2024/04/demo-freelancer-02.png.webp'}
+                src={profile.img_url}
                 layout="constrained"
                 decoding="async"
                 loading="eager"
@@ -165,7 +166,8 @@ export const Website = component$(() => {
                 <div class="first_child">
                   {' '}
                   <Image
-                    src={'https://crafto.themezaa.com/freelancer/wp-content/uploads/sites/37/2024/04/demo-freelancer-06.png.webp'}
+                    //src={'https://crafto.themezaa.com/freelancer/wp-content/uploads/sites/37/2024/04/demo-freelancer-06.png.webp'}
+                    src={profile.img_url}
                     layout="constrained"
                     decoding="async"
                     loading="eager"
