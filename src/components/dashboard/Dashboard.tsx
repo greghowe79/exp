@@ -1,29 +1,21 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useStyles$ } from '@builder.io/qwik';
+import { _, getLocale } from 'compiled-i18n';
+import styles from './styles.css?inline';
 
 import UserProfileForm from '../user-profile-form/UserProfileForm';
+import { Link } from '@builder.io/qwik-city';
 
 const Dashboard = component$(() => {
+  useStyles$(styles);
+  const currentLocale = getLocale();
   return (
-    <section class="p-6 max-w-4xl mx-auto">
-      <h1 class="text-2xl font-bold mb-4">Dashboard del Professionista</h1>
-
+    <main>
+      <h1 class="sr-only">Titolo</h1>
+      <Link href={`/${currentLocale}`} class="back_button">
+        ← {_('form_back_home')}
+      </Link>
       <UserProfileForm />
-
-      {/* <div class="mt-8">
-        <h2 class="text-xl font-semibold mb-2">Anteprima Card</h2>
-        <CardPreview />
-      </div>
-
-      <div class="mt-6 p-4 rounded bg-gray-100 text-sm">
-        {hasPremium ? (
-          <p>
-            ✅ La tua pagina pubblica è attiva e visibile a: <code>/professionisti/{userSession.username}</code>
-          </p>
-        ) : (
-          <p>🔒 Attiva il piano Premium per rendere pubblica la tua pagina personale.</p>
-        )}
-      </div> */}
-    </section>
+    </main>
   );
 });
 

@@ -4,7 +4,8 @@
   gap: 1rem;
   width: 100%;
   max-width: 30rem;
-  margin: 0 auto;
+  margin: 5vw auto;
+  padding: 0.625rem;
 }
 
 .service-entry,
@@ -35,14 +36,14 @@
   font-size: 1.125rem;
 }
 
-.avatar-options {
+/* .avatar-options {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
 }
 
-/* ==== Avatar selection ==== */
+
 
 .avatar-selection {
   margin: 1rem 0;
@@ -69,4 +70,38 @@
   text-align: center;
   font-size: 0.75rem;
   line-height: 1;
+} */
+
+.avatar-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.avatar-item {
+  text-align: center;
+}
+
+.avatar-image {
+  width: 120px;
+  height: 120px;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.avatar-image.selected {
+  border-color: blue;
+}
+
+.avatar-label {
+  margin-top: 0.5rem;
+}
+
+.avatar-selected {
+  margin-top: 1rem;
+}
+
+.avatar-selected strong {
+  margin-left: 0.5rem;
 }

@@ -20,6 +20,7 @@ import { supabase } from './lib/db';
 export interface UserProfile {
   id: string;
   img_url: string;
+  avatar_img_url: string;
   first_name: string;
   last_name: string;
   job_title: string;
@@ -126,6 +127,7 @@ export default component$(() => {
     });
   });
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(async () => {
     const {
       data: { session },

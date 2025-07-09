@@ -60,6 +60,7 @@ export default component$(() => {
         normalizedPath !== `/${_('slug_signup')}/` &&
         normalizedPath !== `/${_('slug_success')}/` &&
         normalizedPath !== `/${_('slug_reset_password')}/` &&
+        normalizedPath !== `/${_('slug_dashboard')}/${id}/` &&
         normalizedPath !== `/${_('slug_website')}/${id}/` && (
           <NavigationMenu
             ariaLabel="Menu principale"
@@ -82,6 +83,7 @@ export default component$(() => {
           normalizedPath !== `/${_('slug_signup')}/` &&
           normalizedPath !== `/${_('slug_success')}/` &&
           normalizedPath !== `/${_('slug_reset_password')}/` &&
+          normalizedPath !== `/${_('slug_dashboard')}/${id}/` &&
           normalizedPath !== `/${_('slug_website')}/${id}/` &&
           'spacer'
         }

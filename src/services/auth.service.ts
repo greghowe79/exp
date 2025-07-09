@@ -71,13 +71,7 @@ export const AuthService = {
     return data;
   },
 
-  async uploadImageProfileToTheStorage(
-    userSession: UserSess,
-    currentFile: Signal<any>,
-    imgUrl: Signal<string>,
-    images: Signal<any>,
-    CDNURL: string
-  ) {
+  async uploadImageProfileToTheStorage(userSession: UserSess, currentFile: Signal<any>, imgUrl: Signal<string>, CDNURL: string) {
     if (!currentFile.value) {
       console.error('Nessun file da caricare!');
       return;
@@ -91,7 +85,6 @@ export const AuthService = {
     console.log('DOPO', currentFile.value);
     if (data) {
       imgUrl.value = CDNURL + data.path;
-      //await getImages(userSession, images);
     } else {
       console.log(error);
     }

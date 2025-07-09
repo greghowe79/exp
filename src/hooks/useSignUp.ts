@@ -1,5 +1,5 @@
-import { $, useComputed$, useSignal, useContext } from '@builder.io/qwik';
-import { ImagesContext, PopupContext, type UserProfile, UserSessionContext } from '~/root';
+import { $, useComputed$, useSignal, useContext, type NoSerialize } from '@builder.io/qwik';
+import { PopupContext, type UserProfile, UserSessionContext } from '~/root';
 import { _, getLocale } from 'compiled-i18n';
 import { AuthService } from '~/services/auth.service';
 import type { RouteNavigate } from '@builder.io/qwik-city';
@@ -20,9 +20,11 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const selectedCountry = useSignal('');
   const popupContext = useContext(PopupContext);
   const userSession = useContext(UserSessionContext);
-  const images = useContext(ImagesContext);
+  // const images = useContext(ImagesContext);
   const currentFile = useSignal<File | null>(null);
+  const selectedAvatarFile = useSignal<NoSerialize<File> | null>(null);
   const imgUrl = useSignal('');
+  const avatarImgUrl = useSignal('');
   const firstName = useSignal('');
   const lastName = useSignal('');
   const jobTitle = useSignal('');
@@ -49,18 +51,6 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
   const selectedFile = useSignal(_('user_profile_image'));
   const currentLocale = getLocale();
-
-  // const isSubmitDisabled = useComputed$(() => {
-  //   return (
-  //     !!emailError.value ||
-  //     !emailTouched.value ||
-  //     !!passwordError.value ||
-  //     !passwordTouched.value ||
-  //     isLoading.value ||
-  //     !email.value ||
-  //     !password.value
-  //   );
-  // });
 
   const isSubmitDisabled = useComputed$(() => {
     if (type === 'LOGIN' || type === 'SIGNUP' || type === 'UPDATE-PASSWORD') {
@@ -227,12 +217,14 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
       try {
         if (!userSession.userId) throw new Error('User ID mancante');
 
-        await AuthService.uploadImageProfileToTheStorage(userSession, currentFile, imgUrl, images, CDNURL);
+        await AuthService.uploadImageProfileToTheStorage(userSession, currentFile, imgUrl, CDNURL);
+        await AuthService.uploadImageProfileToTheStorage(userSession, selectedAvatarFile, avatarImgUrl, CDNURL);
 
         const currentDate = new Date().toISOString();
         const userProfile: UserProfile = {
           id: userSession.userId,
           img_url: imgUrl.value,
+          avatar_img_url: avatarImgUrl.value,
           first_name: firstName.value,
           last_name: lastName.value,
           job_title: jobTitle.value,
@@ -303,6 +295,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         position.value = '';
         currentFile.value = null;
         imgUrl.value = '';
+        avatarImgUrl.value = '';
       } finally {
         isLoading.value = false;
       }
@@ -349,5 +342,6 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     isLoading,
     isSubmitDisabled,
     handleAuth,
+    selectedAvatarFile,
   };
 };
