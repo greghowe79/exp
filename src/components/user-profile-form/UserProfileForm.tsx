@@ -17,7 +17,7 @@ import { YouTube } from '~/assets/youtube';
 import { Instagram } from '~/assets/instagram';
 import { GitHub } from '~/assets/github';
 import { getListColor } from '~/data/ba_color';
-import { avatars } from '~/data/avatars';
+import { getListAvatars } from '~/data/avatars';
 
 export async function urlToFile(url: string, filename: string, mimeType: string): Promise<File> {
   const response = await fetch(url);
@@ -29,6 +29,7 @@ const UserProfileForm = component$(() => {
   const nav = useNavigate();
   const selectedAvatar = useSignal<string | null>(null);
   const colors = getListColor();
+  const avatars = getListAvatars();
 
   useStyles$(styles);
 
@@ -89,7 +90,7 @@ const UserProfileForm = component$(() => {
         <div class="contact-entry">
           <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} />
           <div>
-            <h2>Scegli il tuo avatar</h2>
+            <h2>{_('choose_your_avatar')}</h2>
 
             <div class="avatar-container">
               {avatars.map((avatar) => (
@@ -107,7 +108,7 @@ const UserProfileForm = component$(() => {
               ))}
             </div>
             <div class="avatar-selected">
-              Avatar selezionato:
+              {_('selected_avatar')}
               <strong>{avatars.find((a) => a.value === selectedAvatar.value)?.label ?? 'Nessuno'}</strong>
             </div>
           </div>

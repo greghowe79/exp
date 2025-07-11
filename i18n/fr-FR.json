@@ -113,9 +113,17 @@
     "button_go_live_site": "Visitez votre page en direct",
     "button_go_to_dashboard": "Crée ta page",
     "color_preview_first": "Rouge cramoisi foncé",
-    "color_preview_second": "Gris anthracite",
+    "color_preview_second": "Gris moyen",
     "color_preview_third": "Turquoise foncé",
     "choose_background_color": "Choisissez une couleur de fond :",
-    "selected_color": "Couleur choisie :"
+    "selected_color": "Couleur choisie :",
+    "name_avatar_one": "Créatif",
+    "name_avatar_two": "Soutenu",
+    "name_avatar_three": "Méticuleux",
+    "name_avatar_four": "Réfléchie",
+    "name_avatar_five": "Pétillant",
+    "name_avatar_six": "Brillant",
+    "choose_your_avatar": "Choisissez votre avatar",
+    "selected_avatar": "Avatar sélectionné :"
   }
 }

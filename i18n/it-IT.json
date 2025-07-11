@@ -113,9 +113,17 @@
     "button_go_live_site": "Visita la tua pagina live",
     "button_go_to_dashboard": "Crea la tua pagina",
     "color_preview_first": "Rosso porpora scuro",
-    "color_preview_second": "Grigio antracite",
+    "color_preview_second": "Grigio medio",
     "color_preview_third": "Turchese scuro",
     "choose_background_color": "Scegli un colore di sfondo:",
-    "selected_color": "Colore scelto:"
+    "selected_color": "Colore scelto:",
+    "name_avatar_one": "Creativo",
+    "name_avatar_two": "Sottovalutato",
+    "name_avatar_three": "Meticoloso",
+    "name_avatar_four": "Riflessiva",
+    "name_avatar_five": "Vivace",
+    "name_avatar_six": "Brillante",
+    "choose_your_avatar": "Scegli il tuo avatar",
+    "selected_avatar": "Avatar selezionato:"
   }
 }

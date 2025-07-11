@@ -113,9 +113,17 @@
     "button_go_live_site": "访问您的直播页面",
     "button_go_to_dashboard": "创建你的页面",
     "color_preview_first": "深猩红红色",
-    "color_preview_second": "深石墨灰",
+    "color_preview_second": "中灰色",
     "color_preview_third": "深青绿色",
     "choose_background_color": "选择背景颜色：",
-    "selected_color": "选择的颜色："
+    "selected_color": "选择的颜色：",
+    "name_avatar_one": "有创造力的",
+    "name_avatar_two": "低调的",
+    "name_avatar_three": "一丝不苟的",
+    "name_avatar_four": "深思熟虑的",
+    "name_avatar_five": "活泼的",
+    "name_avatar_six": "杰出的",
+    "choose_your_avatar": "选择你的头像",
+    "selected_avatar": "已选择的头像："
   }
 }

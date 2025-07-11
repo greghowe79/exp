@@ -113,9 +113,17 @@
     "button_go_live_site": "Visit your live page",
     "button_go_to_dashboard": "Create your page",
     "color_preview_first": "Dark crimson red",
-    "color_preview_second": "Anthracite gray",
+    "color_preview_second": "Medium gray",
     "color_preview_third": "Dark turquoise",
     "choose_background_color": "Choose a background color:",
-    "selected_color": "Selected color:"
+    "selected_color": "Selected color:",
+    "name_avatar_one": "Creative",
+    "name_avatar_two": "Understated",
+    "name_avatar_three": "Meticulous",
+    "name_avatar_four": "Thoughtful",
+    "name_avatar_five": "Bubbly",
+    "name_avatar_six": "Brilliant",
+    "choose_your_avatar": "Choose your avatar",
+    "selected_avatar": "Selected avatar:"
   }
 }

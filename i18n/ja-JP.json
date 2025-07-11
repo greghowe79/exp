@@ -113,9 +113,17 @@
     "button_go_live_site": "あなたのライブページを訪問する",
     "button_go_to_dashboard": "あなたのページを作成",
     "color_preview_first": "ダーククリムゾンレッド",
-    "color_preview_second": "アンスラサイトグレー",
+    "color_preview_second": "ミディアムグレー",
     "color_preview_third": "ダークターコイズ",
     "choose_background_color": "背景色を選択してください：",
-    "selected_color": "選択された色："
+    "selected_color": "選択された色：",
+    "name_avatar_one": "クリエイティブ",
+    "name_avatar_two": "控えめな",
+    "name_avatar_three": "細心な",
+    "name_avatar_four": "思慮深い",
+    "name_avatar_five": "明るい",
+    "name_avatar_six": "素晴らしい",
+    "choose_your_avatar": "アバターを選んでください",
+    "selected_avatar": "選択したアバター："
   }
 }
