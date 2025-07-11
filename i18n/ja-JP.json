@@ -124,6 +124,18 @@
     "name_avatar_five": "明るい",
     "name_avatar_six": "素晴らしい",
     "choose_your_avatar": "アバターを選んでください",
-    "selected_avatar": "選択したアバター："
+    "selected_avatar": "選択したアバター：",
+    "none": "なし",
+    "section_services_title": "サービスセクションのタイトル *",
+    "insert_services_description": "あなたのサービスの説明を入力してください *",
+    "service_name_example": "サービス名（例：法律相談） *",
+    "percentage_example": "パーセンテージ（例：80） *",
+    "service_name_example_personal_coaching": "サービス名（例：パーソナルコーチング） *",
+    "percentage_example_90": "パーセンテージ（例：90）",
+    "service_name_example_professional_translation": "サービス名（例：プロの翻訳） *",
+    "percentage_example_75": "パーセンテージ（例：75） *",
+    "primary_service_name": "主要サービス名",
+    "secondary_service_name": "二次サービス名",
+    "tertiary_service_name": "三次サービス名"
   }
 }

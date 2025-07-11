@@ -118,12 +118,24 @@
     "choose_background_color": "Elige un color de fondo:",
     "selected_color": "Color seleccionado:",
     "name_avatar_one": "Creativo",
-    "name_avatar_two": "Sutil",
+    "name_avatar_two": "Sobrio",
     "name_avatar_three": "Meticuloso",
     "name_avatar_four": "Reflexiva",
     "name_avatar_five": "Burbujeante",
     "name_avatar_six": "Brillante",
     "choose_your_avatar": "Elige tu avatar",
-    "selected_avatar": "Avatar seleccionado:"
+    "selected_avatar": "Avatar seleccionado:",
+    "none": "Ninguno",
+    "section_services_title": "Título de la sección de servicios *",
+    "insert_services_description": "Introduce una descripción de tus servicios *",
+    "service_name_example": "Nombre del servicio (ej. Consultoría Legal) *",
+    "percentage_example": "Porcentaje (ej., 80) *",
+    "service_name_example_personal_coaching": "Nombre del servicio (ej., Coaching Personal) *",
+    "percentage_example_90": "Porcentaje (ej., 90) *",
+    "service_name_example_professional_translation": "Nombre del servicio (ej., Traducción Profesional) *",
+    "percentage_example_75": "Porcentaje (ej., 75) *",
+    "primary_service_name": "Nombre del servicio primario",
+    "secondary_service_name": "Nombre del servicio secundario",
+    "tertiary_service_name": "Nombre del servicio terciario"
   }
 }

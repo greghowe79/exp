@@ -124,6 +124,18 @@
     "name_avatar_five": "Bubbly",
     "name_avatar_six": "Brilliant",
     "choose_your_avatar": "Choose your avatar",
-    "selected_avatar": "Selected avatar:"
+    "selected_avatar": "Selected avatar:",
+    "none": "None",
+    "section_services_title": "Services Section Title *",
+    "insert_services_description": "Enter a description of your services *",
+    "service_name_example": "Service Name (e.g., Legal Consulting) *",
+    "percentage_example": "Percentage (e.g., 80) *",
+    "service_name_example_personal_coaching": "Service Name (e.g., Personal Coaching) *",
+    "percentage_example_90": "Percentage (e.g., 90) *",
+    "service_name_example_professional_translation": "Service Name (e.g., Professional Translation) *",
+    "percentage_example_75": "Percentage (e.g., 75) *",
+    "primary_service_name": "Primary Service Name",
+    "secondary_service_name": "Secondary Service Name",
+    "tertiary_service_name": "Tertiary Service Name"
   }
 }

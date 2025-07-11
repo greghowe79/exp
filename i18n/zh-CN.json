@@ -124,6 +124,18 @@
     "name_avatar_five": "活泼的",
     "name_avatar_six": "杰出的",
     "choose_your_avatar": "选择你的头像",
-    "selected_avatar": "已选择的头像："
+    "selected_avatar": "已选择的头像：",
+    "none": "无",
+    "section_services_title": "服务部分标题 *",
+    "insert_services_description": "输入您的服务描述 *",
+    "service_name_example": "服务名称（例如：法律咨询） *",
+    "percentage_example": "百分比（例如：80） *",
+    "service_name_example_personal_coaching": "服务名称（例如：个人辅导） *",
+    "percentage_example_90": "百分比（例如：90） *",
+    "service_name_example_professional_translation": "服务名称（例如：专业翻译） *",
+    "percentage_example_75": "百分比（例如：75） *",
+    "primary_service_name": "主要服务名称",
+    "secondary_service_name": "次要服务名称",
+    "tertiary_service_name": "第三服务名称"
   }
 }

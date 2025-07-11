@@ -109,7 +109,7 @@ const UserProfileForm = component$(() => {
             </div>
             <div class="avatar-selected">
               {_('selected_avatar')}
-              <strong>{avatars.find((a) => a.value === selectedAvatar.value)?.label ?? 'Nessuno'}</strong>
+              <strong>{avatars.find((a) => a.value === selectedAvatar.value)?.label ?? _('none')}</strong>
             </div>
           </div>
 
@@ -212,7 +212,7 @@ const UserProfileForm = component$(() => {
               <legend class="sr-only">{_('choose_background_color')}</legend>
               {colors.map(({ label, value }) => {
                 return (
-                  <div key={value}>
+                  <div key={value} class="color-item">
                     <Input
                       key={value}
                       id={`color-${value}`}
@@ -248,9 +248,9 @@ const UserProfileForm = component$(() => {
           <Input
             id="service_section-title"
             type="text"
-            placeholder="Titolo sezione servizi"
+            placeholder={_('section_services_title')}
             value={serviceTitle}
-            label="Titolo sezione servizi"
+            label={_('section_services_title')}
             bgLight
             required
           />
@@ -260,23 +260,23 @@ const UserProfileForm = component$(() => {
             content={serviceDescription}
             required
             bgLight
-            placeholder="Inserisci una descrizione dei tuoi servizi "
-            title="Inserisci una descrizione dei tuoi servizi "
+            placeholder={_('insert_services_description')}
+            title={_('insert_services_description')}
           />
           <Input
             id="service_primary_name"
             type="text"
-            label="Nome servizio primario"
-            placeholder="Nome servizio (es. Consulenza Legale)"
+            label={_('primary_service_name')}
+            placeholder={_('service_name_example')}
             value={servicePrimaryName}
             bgLight
           />
           <Input
             id="service_primary_percent"
             type="number"
-            placeholder="Percentuale (es. 80)"
+            placeholder={_('percentage_example')}
             value={servicePrimaryPercent}
-            label="Percentuale (es. 80)"
+            label={_('percentage_example')}
             bgLight
           />
         </div>
@@ -285,17 +285,17 @@ const UserProfileForm = component$(() => {
           <Input
             id="service_secondary_name"
             type="text"
-            label="Nome servizio secondario"
-            placeholder="Nome servizio (es. Coaching Personale)"
+            label={_('secondary_service_name')}
+            placeholder={_('service_name_example_personal_coaching')}
             value={serviceSecondaryName}
             bgLight
           />
           <Input
             id="service_secondary_percent"
             type="number"
-            placeholder="Percentuale (es. 90)"
+            placeholder={_('percentage_example_90')}
             value={serviceSecondaryPercent}
-            label="Percentuale (es. 90)"
+            label={_('percentage_example_90')}
             bgLight
           />
         </div>
@@ -304,17 +304,17 @@ const UserProfileForm = component$(() => {
           <Input
             id="service_tertiary_name"
             type="text"
-            label="Nome servizio terziario"
-            placeholder="Nome servizio (es. Traduzione Professionale)"
+            label={_('tertiary_service_name')}
+            placeholder={_('service_name_example_professional_translation')}
             value={serviceTertiaryName}
             bgLight
           />
           <Input
             id="service_tertiary_percent"
             type="number"
-            placeholder="Percentuale (es. 75)"
+            placeholder={_('percentage_example_75')}
             value={serviceTertiaryPercent}
-            label="Percentuale (es. 75)"
+            label={_('percentage_example_75')}
             bgLight
           />
         </div>
