@@ -4,7 +4,7 @@ import { _, getLocale } from 'compiled-i18n';
 import { AuthService } from '~/services/auth.service';
 import type { RouteNavigate } from '@builder.io/qwik-city';
 import { getListColor } from '~/data/ba_color';
-//import { colors } from '~/data/ba_color';
+import { supabase } from '~/lib/db';
 
 export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const open = useSignal(true);
@@ -21,7 +21,6 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const selectedCountry = useSignal('');
   const popupContext = useContext(PopupContext);
   const userSession = useContext(UserSessionContext);
-  // const images = useContext(ImagesContext);
   const currentFile = useSignal<File | null>(null);
   const selectedAvatarFile = useSignal<NoSerialize<File> | null>(null);
   const imgUrl = useSignal('');
@@ -254,7 +253,12 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         };
 
         await AuthService.insertUser(userProfile);
-        await navigate?.(`/${currentLocale}/${_('slug_preview')}/${userSession.userId}`);
+
+        const { data } = await supabase.from('profiles').select('has_access').eq('id', userSession.userId).maybeSingle();
+
+        data?.has_access
+          ? await navigate?.(`/${currentLocale}/${_('slug_website')}/${userSession.userId}`)
+          : await navigate?.(`/${currentLocale}/${_('slug_preview')}/${userSession.userId}`);
       } catch (error: any) {
         let errorMessage = _('generic_errorMessage');
 

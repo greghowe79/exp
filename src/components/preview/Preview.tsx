@@ -29,7 +29,7 @@ const Preview = component$(() => {
   useStyles$(styles);
 
   return (
-    <main>
+    <main class="preview-container">
       <Resource
         value={data}
         onPending={() => <p>Caricamento...</p>}

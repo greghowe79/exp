@@ -45,7 +45,9 @@ export const Website = component$(() => {
               <div class="inner_nav">
                 <div class="inner_nav_element_container">
                   <span class="email">
-                    <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                    <a href={`mailto:${profile.email}`} target="_blank" rel="noopener noreferrer">
+                      {profile.email}
+                    </a>
                   </span>
 
                   <button
