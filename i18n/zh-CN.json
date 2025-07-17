@@ -46,6 +46,7 @@
     "slug_signup": "signup",
     "slug_success": "success",
     "form_submit": "提交",
+    "form_signup": "还没有账号？",
     "form_reset_password": "忘记密码了？",
     "slug_dashboard": "dashboard",
     "slug_preview": "preview",
@@ -136,6 +137,8 @@
     "percentage_example_75": "百分比（例如：75） *",
     "primary_service_name": "主要服务名称",
     "secondary_service_name": "次要服务名称",
-    "tertiary_service_name": "第三服务名称"
+    "tertiary_service_name": "第三服务名称",
+    "customer-type_one": "专业人士",
+    "customer-type_two": "组织"
   }
 }

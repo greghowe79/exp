@@ -46,6 +46,7 @@
     "slug_signup": "signup",
     "slug_success": "success",
     "form_submit": "送信",
+    "form_signup": "アカウントをお持ちでないですか？",
     "form_reset_password": "パスワードをお忘れですか？",
     "slug_dashboard": "dashboard",
     "slug_preview": "preview",
@@ -136,6 +137,8 @@
     "percentage_example_75": "パーセンテージ（例：75） *",
     "primary_service_name": "主要サービス名",
     "secondary_service_name": "二次サービス名",
-    "tertiary_service_name": "三次サービス名"
+    "tertiary_service_name": "三次サービス名",
+    "customer-type_one": "プロフェッショナル",
+    "customer-type_two": "組織"
   }
 }

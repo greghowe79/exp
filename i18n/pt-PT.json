@@ -47,6 +47,7 @@
     "slug_success": "sucesso",
     "form_submit": "Enviar",
     "slug_reset_password": "redefinir-senha",
+    "form_signup": "Não tem uma conta?",
     "form_reset_password": "Esqueceu a senha?",
     "slug_dashboard": "painel-de-controle",
     "slug_preview": "pré-visualização",
@@ -136,6 +137,8 @@
     "percentage_example_75": "Percentagem (ex., 75) *",
     "primary_service_name": "Nome do serviço primário",
     "secondary_service_name": "Nome do serviço secundário",
-    "tertiary_service_name": "Nome do serviço terciário"
+    "tertiary_service_name": "Nome do serviço terciário",
+    "customer-type_one": "Profissional",
+    "customer-type_two": "Organização"
   }
 }

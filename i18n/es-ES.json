@@ -46,6 +46,7 @@
     "slug_pricing": "precios",
     "slug_success": "exito",
     "form_submit": "Enviar",
+    "form_signup": "¿No tienes una cuenta?",
     "form_reset_password": "¿Olvidaste tu contraseña?",
     "slug_dashboard": "panel-de-control",
     "slug_preview": "vista-previa",
@@ -136,6 +137,8 @@
     "percentage_example_75": "Porcentaje (ej., 75) *",
     "primary_service_name": "Nombre del servicio primario",
     "secondary_service_name": "Nombre del servicio secundario",
-    "tertiary_service_name": "Nombre del servicio terciario"
+    "tertiary_service_name": "Nombre del servicio terciario",
+    "customer-type_one": "Profesional",
+    "customer-type_two": "Organización"
   }
 }

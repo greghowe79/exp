@@ -55,9 +55,14 @@ export const Login = component$(() => {
             }}
             onInput$={() => (passwordTouched.value = true)}
           />
-          <Link href={`/${currentLocale}/${_('slug_reset_password')}`} aria-label="reset-password" class="reset_password">
-            {_('form_reset_password')}
-          </Link>
+          <div class="login_form_links_container">
+            <Link href={`/${currentLocale}/${_('slug_signup')}`} aria-label="signup" class="reset_password">
+              {_('form_signup')}
+            </Link>
+            <Link href={`/${currentLocale}/${_('slug_reset_password')}`} aria-label="reset-password" class="reset_password">
+              {_('form_reset_password')}
+            </Link>
+          </div>
         </form>
       </Modal>
     </div>

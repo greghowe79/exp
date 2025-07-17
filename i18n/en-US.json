@@ -50,6 +50,7 @@
     "slug_reset_password": "reset-password",
     "slug_success": "success",
     "form_submit": "Submit",
+    "form_signup": "Don't have an account?",
     "form_reset_password": "Forgot your password?",
     "form.errors.invalidEmail": "Please enter a valid email address",
     "form.errors.invalidPassword": "Password must be 8-16 characters long and include at least one digit, one lowercase letter, one uppercase letter, and one special character.",
@@ -136,6 +137,8 @@
     "percentage_example_75": "Percentage (e.g., 75) *",
     "primary_service_name": "Primary Service Name",
     "secondary_service_name": "Secondary Service Name",
-    "tertiary_service_name": "Tertiary Service Name"
+    "tertiary_service_name": "Tertiary Service Name",
+    "customer-type_one": "Professional",
+    "customer-type_two": "Business"
   }
 }

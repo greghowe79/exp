@@ -41,7 +41,7 @@ export default component$(() => {
               id="call_to_action"
               label={_('hero_cta')}
               size="sm"
-              onClick$={async () => await nav(`/${location.params.locale}/${_('slug_signup')}/`)}
+              onClick$={async () => await nav(`/${location.params.locale}/${_('slug_login')}/`)}
             />
           </div>
           {/*  <SearchBar query={query} /> */}

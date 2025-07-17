@@ -70,8 +70,14 @@ export const SignUp = component$(() => {
           </form>
         ) : (
           <div class="button-container">
-            <Button id="professionista" label="Professionista" size="sm" onClick$={() => (formIsVisible.value = true)} />
-            <Button id="azienda" label="Azienda" size="sm" variant="tertiary" onClick$={() => (formIsVisible.value = true)} />
+            <Button id="professionista" label={_('customer-type_one')} size="sm" onClick$={() => (formIsVisible.value = true)} />
+            <Button
+              id="azienda"
+              label={_('customer-type_two')}
+              size="sm"
+              variant="tertiary"
+              onClick$={() => (formIsVisible.value = true)}
+            />
           </div>
         )}
       </Modal>
