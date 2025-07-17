@@ -139,6 +139,12 @@
     "secondary_service_name": "Nome do serviço secundário",
     "tertiary_service_name": "Nome do serviço terciário",
     "customer-type_one": "Profissional",
-    "customer-type_two": "Organização"
+    "customer-type_two": "Organização",
+    "hero_title_logged": "Bem-vindo de volta!",
+    "hero_content_logged": "Gerencie sua presença online com apenas alguns cliques. Pronto para continuar?",
+    "button_preview_site": "Visualizar prévia",
+    "show_preview": "Mostrar prévia",
+    "hide_preview": "Ocultar prévia",
+    "upgrade_to_premium": "Atualizar para Premium"
   }
 }

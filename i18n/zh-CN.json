@@ -139,6 +139,12 @@
     "secondary_service_name": "次要服务名称",
     "tertiary_service_name": "第三服务名称",
     "customer-type_one": "专业人士",
-    "customer-type_two": "组织"
+    "customer-type_two": "组织",
+    "hero_title_logged": "欢迎回来！",
+    "hero_content_logged": "只需几次点击即可管理您的在线形象。准备继续了吗？",
+    "button_preview_site": "预览网站",
+    "show_preview": "显示预览",
+    "hide_preview": "隐藏预览",
+    "upgrade_to_premium": "升级为高级版"
   }
 }

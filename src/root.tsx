@@ -191,6 +191,7 @@ export default component$(() => {
       } else if (event === 'INITIAL_SESSION' && session?.access_token && session.refresh_token) {
         console.log('DIO IMPALATO');
         userSession.userId = session.user.id;
+
         //userSession.isLoggedIn = false;
         userSession.isLoggedIn = true;
         userSession.email = session.user.email;

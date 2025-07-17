@@ -139,6 +139,12 @@
     "secondary_service_name": "Nom du service secondaire",
     "tertiary_service_name": "Nom du service tertiaire",
     "customer-type_one": "Professionnel",
-    "customer-type_two": "Organisation"
+    "customer-type_two": "Organisation",
+    "hero_title_logged": "Bon retour !",
+    "hero_content_logged": "Gérez votre présence en ligne en quelques clics. Prêt à continuer ?",
+    "button_preview_site": "Aperçu du site",
+    "show_preview": "Afficher l’aperçu",
+    "hide_preview": "Masquer l’aperçu",
+    "upgrade_to_premium": "Passer à Premium"
   }
 }

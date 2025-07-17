@@ -139,6 +139,12 @@
     "secondary_service_name": "Secondary Service Name",
     "tertiary_service_name": "Tertiary Service Name",
     "customer-type_one": "Professional",
-    "customer-type_two": "Business"
+    "customer-type_two": "Business",
+    "hero_title_logged": "Welcome back!",
+    "hero_content_logged": "Manage your online presence in just a few clicks. Ready to continue?",
+    "button_preview_site": "Preview site",
+    "show_preview": "Show preview",
+    "hide_preview": "Hide preview",
+    "upgrade_to_premium": "Upgrade to Premium"
   }
 }
