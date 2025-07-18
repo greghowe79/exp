@@ -178,7 +178,7 @@ export default component$(() => {
         isFormVisible.value = true;
       } else if (event === 'SIGNED_IN' && session?.access_token && session.refresh_token) {
         console.log('SIGNED IN');
-        console.log('DIO MERDA');
+        // console.log('session', session);
         userSession.userId = session.user.id;
         userSession.isLoggedIn = true;
         // userSession.hasAccess = user.has_access;

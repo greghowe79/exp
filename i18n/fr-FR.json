@@ -145,6 +145,8 @@
     "button_preview_site": "Aperçu du site",
     "show_preview": "Afficher l’aperçu",
     "hide_preview": "Masquer l’aperçu",
-    "upgrade_to_premium": "Passer à Premium"
+    "upgrade_to_premium": "Passer à Premium",
+    "email": "Entrez votre adresse e-mail",
+    "password": "Entrez votre mot de passe"
   }
 }

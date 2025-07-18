@@ -14,7 +14,8 @@ export const Login = component$(() => {
     useAuth('LOGIN', nav);
 
   return (
-    <div class="form-container">
+    <main class="form-container">
+      <h1 class="visually-hidden">{_('navbar_login')}</h1>
       <Link href={`/${currentLocale}`} class="back_button">
         ← {_('form_back_home')}
       </Link>
@@ -29,11 +30,26 @@ export const Login = component$(() => {
         type="small"
         light
       >
-        <form class="form">
+        <form
+          class="form"
+          preventdefault:submit
+          onSubmit$={async (event) => {
+            event.preventDefault();
+            emailError.value = await validateEmail(email.value);
+            passwordError.value = await validatePassword(password.value);
+            emailTouched.value = true;
+            passwordTouched.value = true;
+
+            if (!emailError.value && !passwordError.value) {
+              await handleAuth();
+            }
+          }}
+        >
           <Input
             id="input_email"
             type="email"
             placeholder="Email"
+            autocomplete="email"
             value={email}
             error={emailError}
             onValidate$={async (value) => {
@@ -41,12 +57,15 @@ export const Login = component$(() => {
               return emailError.value!;
             }}
             onInput$={() => (emailTouched.value = true)}
+            label={_('email')}
           />
 
           <Input
             id="input_password"
             type="password"
             placeholder="Enter your password"
+            autocomplete="current-password"
+            label={_('password')}
             value={password}
             error={passwordError}
             onValidate$={async (value) => {
@@ -63,8 +82,11 @@ export const Login = component$(() => {
               {_('form_reset_password')}
             </Link>
           </div>
+          <button class="hidden-button" type="submit" aria-label="submit">
+            submit
+          </button>
         </form>
       </Modal>
-    </div>
+    </main>
   );
 });

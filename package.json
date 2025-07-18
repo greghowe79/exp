@@ -41,7 +41,7 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
-    "@greghowe79/the-lib": "^1.2.0",
+    "@greghowe79/the-lib": "^1.2.3",
     "@supabase/supabase-js": "^2.49.4",
     "@types/uuid": "^10.0.0",
     "compiled-i18n": "^1.1.1",

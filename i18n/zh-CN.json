@@ -145,6 +145,8 @@
     "button_preview_site": "预览网站",
     "show_preview": "显示预览",
     "hide_preview": "隐藏预览",
-    "upgrade_to_premium": "升级为高级版"
+    "upgrade_to_premium": "升级为高级版",
+    "email": "请输入您的电子邮箱",
+    "password": "请输入您的密码"
   }
 }

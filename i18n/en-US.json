@@ -145,6 +145,8 @@
     "button_preview_site": "Preview site",
     "show_preview": "Show preview",
     "hide_preview": "Hide preview",
-    "upgrade_to_premium": "Upgrade to Premium"
+    "upgrade_to_premium": "Upgrade to Premium",
+    "email": "Enter your email",
+    "password": "Enter your password"
   }
 }

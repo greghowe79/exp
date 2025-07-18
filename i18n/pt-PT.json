@@ -145,6 +145,8 @@
     "button_preview_site": "Visualizar prévia",
     "show_preview": "Mostrar prévia",
     "hide_preview": "Ocultar prévia",
-    "upgrade_to_premium": "Atualizar para Premium"
+    "upgrade_to_premium": "Atualizar para Premium",
+    "email": "Digite seu e-mail",
+    "password": "Digite sua senha"
   }
 }

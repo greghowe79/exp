@@ -145,6 +145,8 @@
     "button_preview_site": "サイトをプレビュー",
     "show_preview": "プレビューを表示",
     "hide_preview": "プレビューを非表示",
-    "upgrade_to_premium": "プレミアムにアップグレード"
+    "upgrade_to_premium": "プレミアムにアップグレード",
+    "email": "メールアドレスを入力してください",
+    "password": "パスワードを入力してください"
   }
 }

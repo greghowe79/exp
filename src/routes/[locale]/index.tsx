@@ -27,6 +27,11 @@ export default component$(() => {
     if (session) {
       userSession.userId = session.user.id;
       const { data, error } = await supabase.from('professionals').select('*').eq('id', userSession.userId);
+      const { data: user } = await supabase.from('profiles').select().eq('id', userSession.userId).single();
+
+      if (user) {
+        userSession.hasAccess = user.has_access;
+      }
 
       if (error) {
         hasWebsite.value = false;
