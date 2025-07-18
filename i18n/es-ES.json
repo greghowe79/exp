@@ -147,6 +147,9 @@
     "hide_preview": "Ocultar vista previa",
     "upgrade_to_premium": "Mejorar a Premium",
     "email": "Introduce tu correo electrónico",
-    "password": "Introduce tu contraseña"
+    "password": "Introduce tu contraseña",
+    "step_register_description": "Regístrate gratis y aumenta tu visibilidad en línea: muestra quién eres, qué haces y atrae nuevos clientes.",
+    "step_page_title": "Tu Página Web Todo en Uno",
+    "step_page_description": "Con una cuenta premium, crea en pocos clics una página personal que reúna todos tus contactos en línea: redes sociales, sitio web, correo electrónico y mucho más. Perfecta para que te encuentren y cuentes quién eres."
   }
 }

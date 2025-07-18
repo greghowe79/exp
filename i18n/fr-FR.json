@@ -147,6 +147,9 @@
     "hide_preview": "Masquer l’aperçu",
     "upgrade_to_premium": "Passer à Premium",
     "email": "Entrez votre adresse e-mail",
-    "password": "Entrez votre mot de passe"
+    "password": "Entrez votre mot de passe",
+    "step_register_description": "Inscris-toi gratuitement et développe ta visibilité en ligne : montre qui tu es, ce que tu fais et attire de nouveaux clients.",
+    "step_page_title": "Votre Page Web Tout-en-Un",
+    "step_page_description": "Avec un compte premium, créez en quelques clics une page personnelle qui regroupe tous vos contacts en ligne : réseaux sociaux, site web, e-mail et bien plus. Parfaite pour vous faire connaître et raconter qui vous êtes."
   }
 }

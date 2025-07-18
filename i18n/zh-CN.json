@@ -147,6 +147,9 @@
     "hide_preview": "隐藏预览",
     "upgrade_to_premium": "升级为高级版",
     "email": "请输入您的电子邮箱",
-    "password": "请输入您的密码"
+    "password": "请输入您的密码",
+    "step_register_description": "免费注册，提升你的在线可见度：展示你的身份和服务，吸引更多客户。",
+    "step_page_title": "一体化的个人网页",
+    "step_page_description": "使用高级账户，只需几次点击即可创建一个个人页面，汇集你的所有在线联系方式：社交媒体、网站、电子邮件等。帮助你被发现，讲述你的故事。"
   }
 }
