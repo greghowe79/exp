@@ -150,6 +150,9 @@
     "password": "Enter your password",
     "step_register_description": "Register for free and boost your online visibility: show who you are, what you do, and attract new clients.",
     "step_page_title": "Your All-in-One Web Page",
-    "step_page_description": "With a premium account, create a personal page in just a few clicks that brings together all your online contacts: social media, website, email, and more. Perfect to get discovered and tell your story."
+    "step_page_description": "With a premium account, create a personal page in just a few clicks that brings together all your online contacts: social media, website, email, and more. Perfect to get discovered and tell your story.",
+    "network_section_heading": "Find top professionals and organizations near you",
+    "network_section_description": "Looking for an expert or a business? Use our search engine to connect with professionals and organizations from any field.",
+    "network_section_button": "Explore the network"
   }
 }

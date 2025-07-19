@@ -6,10 +6,6 @@ import type { UserProfile } from '~/root';
 import { FaGlobeLight } from '~/assets/worldLight';
 import { _, getLocale } from 'compiled-i18n';
 import { Card } from '@greghowe79/the-lib';
-// import { FacebookLight } from '~/assets/facebookLight';
-// import { TwitterLight } from '~/assets/twitterLight';
-// import { InstagramLight } from '~/assets/instagramLight';
-// import { LinkedinLight } from '~/assets/linkedinLight';
 
 const Preview = component$(() => {
   const location = useLocation();

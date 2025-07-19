@@ -2,6 +2,7 @@ import { component$, useContext, useSignal, useVisibleTask$ } from '@builder.io/
 import { useLocation, useNavigate, type DocumentHead } from '@builder.io/qwik-city';
 import { Button, Hero, OnboardingSteps } from '@greghowe79/the-lib';
 import { _, setLocaleGetter } from 'compiled-i18n';
+import Network from '~/components/network/Network';
 //import SearchBar from '~/components/search-bar/SearchBar';
 import { useSteps } from '~/hooks/useSteps';
 import { supabase } from '~/lib/db';
@@ -129,6 +130,10 @@ export default component$(() => {
           )}
         />
       </section> */}
+
+      <section id="professional_network">
+        <Network />
+      </section>
     </main>
   );
 });

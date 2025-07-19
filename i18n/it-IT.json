@@ -150,6 +150,9 @@
     "password": "Inserisci la tua password",
     "step_register_description": "Registrati gratuitamente e fai crescere la tua visibilità online: mostra chi sei, cosa fai e attira nuovi clienti.",
     "step_page_title": "La Tua Pagina Web, Tutto in Uno",
-    "step_page_description": "Con un account premium, in pochi click crei una pagina personale che raccoglie tutti i tuoi contatti online: social, sito web, email e molto altro. Perfetta per farti trovare e raccontare chi sei."
+    "step_page_description": "Con un account premium, in pochi click crei una pagina personale che raccoglie tutti i tuoi contatti online: social, sito web, email e molto altro. Perfetta per farti trovare e raccontare chi sei.",
+    "network_section_heading": "Trova i migliori professionisti e organizzazioni vicino a te",
+    "network_section_description": "Cerchi un esperto o un' attività. Usa il nostro motore di ricerca per connetterti con professionisti e organizzazioni di ogni settore.",
+    "network_section_button": "Explora la rete"
   }
 }
