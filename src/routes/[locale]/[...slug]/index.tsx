@@ -16,6 +16,7 @@ import { verifyTokenWithSupabase } from '~/lib/auth-utils';
 import { _, setLocaleGetter } from 'compiled-i18n';
 import { Pricing } from '~/components/pricing/Pricing';
 import { Success } from '~/components/success/Success';
+import Search from '~/components/search/Search';
 
 export const onGet = async ({ cookie, redirect, params }: RequestEvent) => {
   const locale = params.locale || 'it-IT';
@@ -80,6 +81,8 @@ export default component$(() => {
       return <Website />;
     case `success`:
       return <Success />;
+    case 'search':
+      return <Search />;
     default:
       return <h1>404 - Page Not Found</h1>;
   }
@@ -105,6 +108,7 @@ export const head: DocumentHead = ({ params }) => {
     update: _('page_update'),
     pricing: _('page_pricing'),
     success: _('page_success'),
+    search: _('page_search'),
     //website: _('page_website'),
   };
 
@@ -120,6 +124,7 @@ export const head: DocumentHead = ({ params }) => {
     update: _('desc_update'),
     pricing: _('desc_pricing'),
     success: _('desc_success'),
+    search: _('desc_search'),
     //website: _('desc_website'),
   };
 

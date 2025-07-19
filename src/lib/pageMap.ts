@@ -108,6 +108,15 @@ export const pageMap:any = {
     'ja-JP': 'success',
     'zh-CN': 'success',
   },
+   search:{
+    'en-US': 'search',
+    'it-IT': 'ricerca',
+    'es-ES': 'busqueda',
+    'fr-FR': 'recherche',
+    'pt-PT': 'pesquisa',
+    'ja-JP': 'search',
+    'zh-CN': 'search',
+  },
 };
 
 export function resolvePageKey(slug: string, lang: string): keyof typeof pageMap | null {

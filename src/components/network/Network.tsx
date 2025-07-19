@@ -19,7 +19,7 @@ const Network = component$(() => {
               id="go_search_page"
               label={_('network_section_button')}
               size="lg"
-              onClick$={async () => await navigate(`/${currentLocale}/${_('slug_login')}/`)}
+              onClick$={async () => await navigate(`/${currentLocale}/${_('slug_search')}/`)}
             />
           </div>
         </div>

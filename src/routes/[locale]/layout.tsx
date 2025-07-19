@@ -59,6 +59,7 @@ export default component$(() => {
       {normalizedPath !== `/${_('slug_login')}/` &&
         normalizedPath !== `/${_('slug_signup')}/` &&
         normalizedPath !== `/${_('slug_success')}/` &&
+        normalizedPath !== `/${_('slug_search')}/` &&
         normalizedPath !== `/${_('slug_reset_password')}/` &&
         normalizedPath !== `/${_('slug_dashboard')}/${id}/` &&
         normalizedPath !== `/${_('slug_website')}/${id}/` && (
@@ -82,6 +83,7 @@ export default component$(() => {
           normalizedPath !== `/${_('slug_login')}/` &&
           normalizedPath !== `/${_('slug_signup')}/` &&
           normalizedPath !== `/${_('slug_success')}/` &&
+          normalizedPath !== `/${_('slug_search')}/` &&
           normalizedPath !== `/${_('slug_reset_password')}/` &&
           normalizedPath !== `/${_('slug_dashboard')}/${id}/` &&
           normalizedPath !== `/${_('slug_website')}/${id}/` &&
