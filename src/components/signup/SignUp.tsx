@@ -41,7 +41,21 @@ export const SignUp = component$(() => {
         light
       >
         {formIsVisible.value ? (
-          <form class="form">
+          <form
+            class="form"
+            preventdefault:submit
+            onSubmit$={async (event) => {
+              event.preventDefault();
+              emailError.value = await validateEmail(email.value);
+              passwordError.value = await validatePassword(password.value);
+              emailTouched.value = true;
+              passwordTouched.value = true;
+
+              if (!emailError.value && !passwordError.value) {
+                await handleAuth();
+              }
+            }}
+          >
             <Input
               id="input_email"
               type="email"
@@ -67,6 +81,9 @@ export const SignUp = component$(() => {
               }}
               onInput$={() => (passwordTouched.value = true)}
             />
+            <button class="hidden-button" type="submit" aria-label="submit">
+              submit
+            </button>
           </form>
         ) : (
           <div class="button-container">

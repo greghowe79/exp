@@ -147,7 +147,7 @@
     "hero_title_logged": "¡Bienvenido de nuevo!",
     "hero_content_logged": "Gestiona tu presencia en línea con solo unos clics. ¿Listo para continuar?",
     "button_preview_site": "Vista previa del sitio",
-    "show_preview": "Mostrar vista previa",
+    "show_preview": "Mostrar una vista previa de tu página web",
     "hide_preview": "Ocultar vista previa",
     "upgrade_to_premium": "Mejorar a Premium",
     "email": "Introduce tu correo electrónico",
@@ -157,6 +157,7 @@
     "step_page_description": "Con una cuenta premium, crea en pocos clics una página personal que reúna todos tus contactos en línea: redes sociales, sitio web, correo electrónico y mucho más. Perfecta para que te encuentren y cuentes quién eres.",
     "network_section_heading": "Encuentra a los mejores profesionales y organizaciones cerca de ti",
     "network_section_description": "¿Buscas un experto o una actividad? Usa nuestro motor de búsqueda para conectar con profesionales y organizaciones de cualquier sector.",
-    "network_section_button": "Explora la red"
+    "network_section_button": "Explora la red",
+    "public_card": "Tarjeta pública"
   }
 }

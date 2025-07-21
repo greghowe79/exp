@@ -1,7 +1,7 @@
 import { component$, Resource, useResource$, useSignal, useStyles$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { supabase } from '~/lib/db';
-import { useLocation, useNavigate } from '@builder.io/qwik-city';
+import { Link, useLocation, useNavigate } from '@builder.io/qwik-city';
 import type { UserProfile } from '~/root';
 import { FaGlobeLight } from '~/assets/worldLight';
 import { _, getLocale } from 'compiled-i18n';
@@ -26,14 +26,20 @@ const Preview = component$(() => {
 
   return (
     <main class="preview-container">
+      <Link href={`/${currentLocale}`} class="back_button">
+        ← {_('form_back_home')}
+      </Link>
+
       <Resource
         value={data}
         onPending={() => <p>Caricamento...</p>}
         onRejected={(err) => <p>Errore: {err.message}</p>}
         onResolved={(item) => (
-          // <Card item={item} icon={FaGlobeLight} subtitle={_('profile_about_section')} link={_('profile_card_link')} path="#" />
           <>
-            <Card item={item} icon={FaGlobeLight} subtitle={_('profile_about_section')} link={_('profile_card_link')} path="#" />
+            <div class="card-wrapper">
+              <span class="card-label">{_('public_card')}</span>
+              <Card item={item} icon={FaGlobeLight} subtitle={_('profile_about_section')} link={_('profile_card_link')} path="#" />
+            </div>
 
             {!isPremium.value && (
               <button onClick$={() => (showPreview.value = !showPreview.value)} class="preview-button">

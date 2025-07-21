@@ -147,7 +147,7 @@
     "hero_title_logged": "おかえりなさい！",
     "hero_content_logged": "数回クリックするだけでオンラインプレゼンスを管理できます。続ける準備はできましたか？",
     "button_preview_site": "サイトをプレビュー",
-    "show_preview": "プレビューを表示",
+    "show_preview": "あなたのウェブページのプレビューを表示",
     "hide_preview": "プレビューを非表示",
     "upgrade_to_premium": "プレミアムにアップグレード",
     "email": "メールアドレスを入力してください",
@@ -157,6 +157,7 @@
     "step_page_description": "プレミアムアカウントで、ソーシャル、ウェブサイト、メールなどすべてのオンライン連絡先をまとめた個人ページを数クリックで作成。自分を見つけてもらい、伝えるのに最適です。",
     "network_section_heading": "近くの優れた専門家や組織を見つけよう",
     "network_section_description": "専門家やサービスをお探しですか？業種を問わず、プロフェッショナルや組織とつながるために検索エンジンを活用してください。",
-    "network_section_button": "ネットワークを探索する"
+    "network_section_button": "ネットワークを探索する",
+    "public_card": "公開カード"
   }
 }
