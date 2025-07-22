@@ -1,52 +1,18 @@
-// import { type RequestHandler } from '@builder.io/qwik-city';
-// import { supabase } from '~/lib/db';
-
-// export const onGet: RequestHandler = async ({ query, json }) => {
-//   const q = query.get('q')?.toLowerCase().trim() || '';
-
-//   if (!q || q.length < 1) {
-//     json(200, { suggestions: [] });
-//     return;
-//   }
-
-//   // Query con più campi, filtro su più colonne usando 'or' per match parziali
-//   const { data, error } = await supabase
-//     .from('professionals')
-//     .select('id, first_name, last_name, job_title, position, img_url, service_primary_name, service_secondary_name')
-//     .or(
-//       `first_name.ilike.%${q}%,last_name.ilike.%${q}%,job_title.ilike.%${q}%,position.ilike.%${q}%,service_title.ilike.%${q}%,service_primary_name.ilike.%${q}%,service_secondary_name.ilike.%${q}%`
-//     )
-//     .limit(6);
-
-//   if (error) {
-//     console.error('Supabase error:', error);
-//     json(500, { error: 'Errore durante la ricerca' });
-//     return;
-//   }
-
-//   json(200, {
-//     suggestions: data.map((p) => ({
-//       id: p.id,
-//       name: `${p.first_name} ${p.last_name}`,
-//       job_title: p.job_title,
-//       position: p.position,
-//       img_url: p.img_url,
-//     })),
-//   });
-// };
-
 import { type RequestHandler } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/db';
+import { _, setLocaleGetter } from 'compiled-i18n';
 
 export const onGet: RequestHandler = async ({ query, json }) => {
   const q = query.get('q')?.toLowerCase().trim() || '';
+  const currentLocale = query.get('locale') || 'it-IT';
+  setLocaleGetter(() => currentLocale);
 
-  if (!q || q.length < 1) {
+  if (!q) {
     json(200, { suggestions: [] });
     return;
   }
 
-  const terms = q.split(/\s+/).filter(Boolean); // divide in parole chiave
+  const terms = q.split(/\s+/).filter(Boolean);
 
   const searchableFields = [
     'first_name',
@@ -58,14 +24,14 @@ export const onGet: RequestHandler = async ({ query, json }) => {
     'service_secondary_name',
   ];
 
-  // Costruisci la query .or con ogni campo e ogni parola
+  // Creo una stringa OR con tutti i termini e campi
   const orConditions = terms.flatMap((term) => searchableFields.map((field) => `${field}.ilike.%${term}%`)).join(',');
 
   const { data, error } = await supabase
     .from('professionals')
     .select('id, first_name, last_name, job_title, position, img_url')
-    .or(orConditions) // <-- match se almeno un termine è presente in un campo
-    .limit(6);
+    .or(orConditions)
+    .limit(50);
 
   if (error) {
     console.error('Supabase error:', error);
@@ -73,8 +39,28 @@ export const onGet: RequestHandler = async ({ query, json }) => {
     return;
   }
 
+  const filtered = data.filter((item) =>
+    terms.every((term) =>
+      searchableFields.some((field) => {
+        const value = (item[field as keyof typeof item] ?? '').toLowerCase();
+
+        const words = value.split(/\s+/);
+
+        return words.some((word: string) => word.startsWith(term));
+      })
+    )
+  );
+
+  if (filtered.length === 0) {
+    json(200, {
+      suggestions: [],
+      message: `${_('no_search_results')} "${q}"`,
+    });
+    return;
+  }
+
   json(200, {
-    suggestions: data.map((p) => ({
+    suggestions: filtered.slice(0, 6).map((p) => ({
       id: p.id,
       name: `${p.first_name} ${p.last_name}`,
       job_title: p.job_title,

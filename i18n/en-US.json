@@ -158,6 +158,7 @@
     "network_section_heading": "Find top professionals and organizations near you",
     "network_section_description": "Looking for an expert or a business? Use our search engine to connect with professionals and organizations from any field.",
     "network_section_button": "Explore the network",
-    "public_card": "Public card"
+    "public_card": "Public card",
+    "no_search_results": "No results found for"
   }
 }

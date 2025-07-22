@@ -20,21 +20,27 @@ const Search = component$(() => {
   const suggestions = useSignal<Suggestion[]>([]); // 👈 suggestions list
   const rawInput = useSignal('');
   const loading = useSignal(false);
+  const message = useSignal('');
+
+  useStyles$(styles);
 
   const fetchSuggestions = $(async (query: string) => {
     if (!query) {
       suggestions.value = [];
+      message.value = '';
       return;
     }
 
     loading.value = true;
     try {
-      const res = await fetch(`/api/search-suggestions?q=${encodeURIComponent(query)}`);
+      const res = await fetch(`/api/search-suggestions?q=${encodeURIComponent(query)}&locale=${currentLocale}`);
       const data = await res.json();
       suggestions.value = Array.isArray(data.suggestions) ? data.suggestions : [];
+      message.value = data.message ?? '';
     } catch (err) {
       console.error('Errore nel recupero suggerimenti:', err);
       suggestions.value = [];
+      message.value = 'Si è verificato un errore durante la ricerca.';
     } finally {
       loading.value = false;
     }
@@ -44,8 +50,13 @@ const Search = component$(() => {
     fetchSuggestions(value);
   }, 500);
 
-  useStyles$(styles);
-
+  const handleSuggestion = $((suggestion: Suggestion) => {
+    console.log('Suggerimento selezionato:', suggestion);
+    rawInput.value = `${suggestion.job_title} ${suggestion.position}`;
+    // 👇 Qui puoi fare qualunque logica: routing, form update, ecc.
+    // es: navigate(`/profile/${suggestion.id}`);
+    /* mia logica */
+  });
   return (
     <main class="search-container">
       <Link href={`/${currentLocale}`} class="back_button">
@@ -72,7 +83,7 @@ const Search = component$(() => {
           <ul class="suggestions-list">
             {Array.isArray(suggestions.value) &&
               suggestions.value.map((s) => (
-                <li key={s.id} class="suggestion-item">
+                <li key={s.id} class="suggestion-item" onClick$={() => handleSuggestion(s)}>
                   <Image
                     objectFit="cover"
                     width={40}
@@ -94,6 +105,7 @@ const Search = component$(() => {
                 </li>
               ))}
           </ul>
+          {!loading.value && message.value && suggestions.value.length === 0 && <p class="no-results">{message.value}</p>}
         </div>
       </div>
     </main>
