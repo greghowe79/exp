@@ -110,3 +110,41 @@
     height: 300px;
   }
 }
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem;
+  cursor: default;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 20rem;
+  overflow-y: auto;
+}
+
+.suggestions-list > :first-child {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.suggestions-list > :last-child {
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+.suggestions-container {
+  border-radius: 0.75rem;
+  box-shadow:
+    0 9px 8px -3px rgba(64, 60, 67, 0.24),
+    8px 0 8px -7px rgba(64, 60, 67, 0.24),
+    -8px 0 8px -7px rgba(64, 60, 67, 0.24);
+}

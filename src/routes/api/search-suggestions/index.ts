@@ -62,7 +62,7 @@ export const onGet: RequestHandler = async ({ query, json }) => {
   json(200, {
     suggestions: filtered.slice(0, 6).map((p) => ({
       id: p.id,
-      name: `${p.first_name} ${p.last_name}`,
+      name: `${p.first_name} ${p.last_name.charAt(0)}.`,
       job_title: p.job_title,
       position: p.position,
       img_url: p.img_url,

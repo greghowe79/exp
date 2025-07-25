@@ -1,6 +1,7 @@
 import { $ } from '@builder.io/qwik';
 import { _ } from 'compiled-i18n';
 
+
 export const validateEmail = $((value: string): string | null => {
   if (value.length === 0) {
     return _('form.errors.inputRequired');
@@ -31,3 +32,4 @@ export const validatePhone = $((value: string): string | null => {
 
   return null;
 });
+

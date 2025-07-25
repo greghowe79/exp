@@ -18,6 +18,7 @@ interface Suggestion {
 const Search = component$(() => {
   const currentLocale = getLocale();
   const suggestions = useSignal<Suggestion[]>([]); // 👈 suggestions list
+  const searchResults = useSignal<any[]>([]);
   const rawInput = useSignal('');
   const loading = useSignal(false);
   const message = useSignal('');
@@ -50,13 +51,33 @@ const Search = component$(() => {
     fetchSuggestions(value);
   }, 500);
 
-  const handleSuggestion = $((suggestion: Suggestion) => {
-    console.log('Suggerimento selezionato:', suggestion);
-    rawInput.value = `${suggestion.job_title} ${suggestion.position}`;
-    // 👇 Qui puoi fare qualunque logica: routing, form update, ecc.
-    // es: navigate(`/profile/${suggestion.id}`);
-    /* mia logica */
+  const handleSuggestion = $(async (suggestion: Suggestion | string) => {
+    let query = '';
+
+    if (typeof suggestion === 'string') {
+      query = suggestion;
+    } else {
+      query = `${suggestion.job_title} ${suggestion.position}`;
+    }
+
+    rawInput.value = query;
+    suggestions.value = [];
+
+    console.log('Suggerimento selezionato:', rawInput.value);
+    loading.value = true;
+
+    try {
+      const res = await fetch(`/api/search-results?q=${encodeURIComponent(rawInput.value)}&locale=${currentLocale}`);
+      const data = await res.json();
+      searchResults.value = Array.isArray(data.results) ? data.results : [];
+    } catch (err) {
+      console.error('Errore nel recupero risultati:', err);
+      searchResults.value = [];
+    } finally {
+      loading.value = false;
+    }
   });
+
   return (
     <main class="search-container">
       <Link href={`/${currentLocale}`} class="back_button">
@@ -64,20 +85,30 @@ const Search = component$(() => {
       </Link>
       <div class="content-container">
         <img class="logo" src="http://localhost:5173/favicon.svg" width="150" height="150" alt="Site Snap logo" />
-
-        <Input
-          id="input_search"
-          type="search"
-          label="Cerca professionisti o organizzazioni"
-          placeholder="Cerca con Site Snap o digita un URL"
-          value={rawInput}
-          onInput$={(_, target) => {
-            rawInput.value = target.value;
-            debounce(target.value);
+        <form
+          preventdefault:submit
+          onSubmit$={async (event) => {
+            event.preventDefault();
+            if (rawInput.value.length > 0) await handleSuggestion(rawInput.value);
           }}
-          icon={<SearchIcon fill={'#232323'} />}
-          bgLight
-        />
+        >
+          <Input
+            id="input_search"
+            type="search"
+            label="Cerca professionisti o organizzazioni"
+            placeholder="Cerca con Site Snap o digita un URL"
+            value={rawInput}
+            onInput$={(_, target) => {
+              rawInput.value = target.value;
+              debounce(target.value);
+            }}
+            icon={<SearchIcon fill={'#232323'} />}
+            bgLight
+          />
+          <button class="hidden-button" type="submit" aria-label="submit">
+            submit
+          </button>
+        </form>
 
         <div class="suggestions-container">
           <ul class="suggestions-list">

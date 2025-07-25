@@ -18,6 +18,7 @@ import { Instagram } from '~/assets/instagram';
 import { GitHub } from '~/assets/github';
 import { getListColor } from '~/data/ba_color';
 import { getListAvatars } from '~/data/avatars';
+import { useDebouncer$ } from '~/utility/debouncer';
 
 export async function urlToFile(url: string, filename: string, mimeType: string): Promise<File> {
   const response = await fetch(url);
@@ -71,6 +72,25 @@ const UserProfileForm = component$(() => {
     selectedAvatarFile,
   } = useAuth('USER_PROFILE', nav);
 
+  interface LocationResult {
+    display_name: string;
+    lat: string;
+    lon: string;
+    address: {
+      postcode?: string;
+      city?: string;
+      town?: string;
+      village?: string;
+      county?: string;
+      state?: string;
+      region?: string;
+      country?: string;
+    };
+  }
+  const suggestions = useSignal<LocationResult[]>([]);
+  const loading = useSignal(false);
+  const rawInput = useSignal('');
+
   const handleSelect$ = $(async (avatarValue: string) => {
     const avatar = avatars.find((a) => a.value === avatarValue);
     if (!avatar) return;
@@ -79,6 +99,71 @@ const UserProfileForm = component$(() => {
 
     const file = await urlToFile(avatar.url, `${avatar.value}.png`, 'image/png');
     selectedAvatarFile.value = noSerialize(file);
+  });
+
+  // const fetchSuggestions = $(async (query: string) => {
+  //   if (!query) {
+  //     suggestions.value = [];
+  //     message.value = '';
+  //     return;
+  //   }
+
+  //   loading.value = true;
+  //   try {
+  //     const res = await fetch(`/api/search-suggestions?q=${encodeURIComponent(query)}&locale=${currentLocale}`);
+  //     const data = await res.json();
+  //     suggestions.value = Array.isArray(data.suggestions) ? data.suggestions : [];
+  //     message.value = data.message ?? '';
+  //   } catch (err) {
+  //     console.error('Errore nel recupero suggerimenti:', err);
+  //     suggestions.value = [];
+  //     message.value = 'Si è verificato un errore durante la ricerca.';
+  //   } finally {
+  //     loading.value = false;
+  //   }
+  // });
+
+  const fetchSuggestions = $(async (query: string) => {
+    if (query.length < 3) {
+      suggestions.value = [];
+      return;
+    }
+
+    loading.value = true;
+
+    const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
+      query
+    )}&format=json&addressdetails=1&limit=5&accept-language=it`;
+
+    const res = await fetch(url, {
+      headers: {
+        'User-Agent': 'my-qwik-empty-starter (alessandromosca3011@gmail.com)', // necessario!
+      },
+    });
+
+    const data = await res.json();
+    suggestions.value = data;
+    loading.value = false;
+  });
+
+  const debounce = useDebouncer$((value: string) => {
+    fetchSuggestions(value);
+  }, 500);
+
+  const handleLocationClick = $((s: LocationResult) => {
+    const { address } = s;
+
+    const cap = address.postcode ?? '';
+    const comune = address.city || address.town || address.village || '';
+    const provincia = address.county ?? '';
+    const regione = address.state ?? address.region ?? '';
+    const nazione = address.country ?? '';
+
+    const formatted = [cap, comune, provincia, regione, nazione].filter(Boolean).join(', ');
+
+    position.value = formatted;
+    rawInput.value = formatted;
+    suggestions.value = [];
   });
 
   return (
@@ -198,12 +283,32 @@ const UserProfileForm = component$(() => {
           <Input
             id="position_user_profile"
             type="text"
-            placeholder={_('user_profile_position')}
+            placeholder={_('placeholder_location_format')}
             value={position}
             icon={Marker}
             label={_('user_profile_position')}
             bgLight
+            required
+            onInput$={(_, target) => {
+              rawInput.value = target.value;
+              debounce(target.value);
+            }}
           />
+          {loading.value ? (
+            <p class="text-sm text-gray-500">Caricamento...</p>
+          ) : (
+            suggestions.value.length > 0 && (
+              <div class="suggestions-container">
+                <ul class="suggestions-list">
+                  {suggestions.value.map((s, i) => (
+                    <li key={i} class="suggestion-item" onClick$={() => handleLocationClick(s)}>
+                      {s.display_name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          )}
 
           <div>
             <h2>{_('choose_background_color')}</h2>
