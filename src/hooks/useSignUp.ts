@@ -72,11 +72,22 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
 
     if (type === 'USER_PROFILE') {
       const requiredFields = [
+        currentFile.value,
+        selectedAvatarFile.value,
         firstName.value.trim(),
         lastName.value.trim(),
         jobTitle.value.trim(),
         description.value.trim(),
         email.value.trim(),
+        bgColor.value.trim(),
+        serviceTitle.value.trim(),
+        serviceDescription.value.trim(),
+        servicePrimaryName.value.trim(),
+        servicePrimaryPercent.value.trim(),
+        serviceSecondaryName.value.trim(),
+        serviceSecondaryPercent.value.trim(),
+        serviceTertiaryName.value.trim(),
+        serviceTertiaryPercent.value.trim(),
       ];
       const anyEmptyRequired = requiredFields.some((field) => !field);
 

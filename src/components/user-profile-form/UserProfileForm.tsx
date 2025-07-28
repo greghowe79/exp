@@ -26,11 +26,31 @@ export async function urlToFile(url: string, filename: string, mimeType: string)
   return new File([buffer], filename, { type: mimeType });
 }
 
+interface LocationResult {
+  display_name: string;
+  lat: string;
+  lon: string;
+  place_id: string;
+  address: {
+    postcode?: string;
+    city?: string;
+    town?: string;
+    village?: string;
+    county?: string;
+    state?: string;
+    region?: string;
+    country?: string;
+  };
+}
+
 const UserProfileForm = component$(() => {
   const nav = useNavigate();
   const selectedAvatar = useSignal<string | null>(null);
   const colors = getListColor();
   const avatars = getListAvatars();
+  const suggestions = useSignal<LocationResult[]>([]);
+  const loading = useSignal(false);
+  const rawInput = useSignal('');
 
   useStyles$(styles);
 
@@ -72,25 +92,6 @@ const UserProfileForm = component$(() => {
     selectedAvatarFile,
   } = useAuth('USER_PROFILE', nav);
 
-  interface LocationResult {
-    display_name: string;
-    lat: string;
-    lon: string;
-    address: {
-      postcode?: string;
-      city?: string;
-      town?: string;
-      village?: string;
-      county?: string;
-      state?: string;
-      region?: string;
-      country?: string;
-    };
-  }
-  const suggestions = useSignal<LocationResult[]>([]);
-  const loading = useSignal(false);
-  const rawInput = useSignal('');
-
   const handleSelect$ = $(async (avatarValue: string) => {
     const avatar = avatars.find((a) => a.value === avatarValue);
     if (!avatar) return;
@@ -100,28 +101,6 @@ const UserProfileForm = component$(() => {
     const file = await urlToFile(avatar.url, `${avatar.value}.png`, 'image/png');
     selectedAvatarFile.value = noSerialize(file);
   });
-
-  // const fetchSuggestions = $(async (query: string) => {
-  //   if (!query) {
-  //     suggestions.value = [];
-  //     message.value = '';
-  //     return;
-  //   }
-
-  //   loading.value = true;
-  //   try {
-  //     const res = await fetch(`/api/search-suggestions?q=${encodeURIComponent(query)}&locale=${currentLocale}`);
-  //     const data = await res.json();
-  //     suggestions.value = Array.isArray(data.suggestions) ? data.suggestions : [];
-  //     message.value = data.message ?? '';
-  //   } catch (err) {
-  //     console.error('Errore nel recupero suggerimenti:', err);
-  //     suggestions.value = [];
-  //     message.value = 'Si è verificato un errore durante la ricerca.';
-  //   } finally {
-  //     loading.value = false;
-  //   }
-  // });
 
   const fetchSuggestions = $(async (query: string) => {
     if (query.length < 3) {
@@ -153,13 +132,13 @@ const UserProfileForm = component$(() => {
   const handleLocationClick = $((s: LocationResult) => {
     const { address } = s;
 
-    const cap = address.postcode ?? '';
-    const comune = address.city || address.town || address.village || '';
-    const provincia = address.county ?? '';
-    const regione = address.state ?? address.region ?? '';
-    const nazione = address.country ?? '';
+    const postcode = address.postcode ?? '';
+    const town = address.city || address.town || address.village || '';
+    const county = address.county ?? '';
+    const state = address.state ?? address.region ?? '';
+    const country = address.country ?? '';
 
-    const formatted = [cap, comune, provincia, regione, nazione].filter(Boolean).join(', ');
+    const formatted = [postcode, town, county, state, country].filter(Boolean).join(', ');
 
     position.value = formatted;
     rawInput.value = formatted;
@@ -173,7 +152,7 @@ const UserProfileForm = component$(() => {
         <p class="contact_form-section-description">{_('main_contact_description')}</p>
 
         <div class="contact-entry">
-          <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} />
+          <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} required />
           <div>
             <h2>{_('choose_your_avatar')}</h2>
 
@@ -300,8 +279,8 @@ const UserProfileForm = component$(() => {
             suggestions.value.length > 0 && (
               <div class="suggestions-container">
                 <ul class="suggestions-list">
-                  {suggestions.value.map((s, i) => (
-                    <li key={i} class="suggestion-item" onClick$={() => handleLocationClick(s)}>
+                  {suggestions.value.map((s) => (
+                    <li key={s.place_id} class="suggestion-item" onClick$={() => handleLocationClick(s)}>
                       {s.display_name}
                     </li>
                   ))}
@@ -375,6 +354,7 @@ const UserProfileForm = component$(() => {
             placeholder={_('service_name_example')}
             value={servicePrimaryName}
             bgLight
+            required
           />
           <Input
             id="service_primary_percent"
@@ -383,6 +363,7 @@ const UserProfileForm = component$(() => {
             value={servicePrimaryPercent}
             label={_('percentage_example')}
             bgLight
+            required
           />
         </div>
 
@@ -394,6 +375,7 @@ const UserProfileForm = component$(() => {
             placeholder={_('service_name_example_personal_coaching')}
             value={serviceSecondaryName}
             bgLight
+            required
           />
           <Input
             id="service_secondary_percent"
@@ -402,6 +384,7 @@ const UserProfileForm = component$(() => {
             value={serviceSecondaryPercent}
             label={_('percentage_example_90')}
             bgLight
+            required
           />
         </div>
 
@@ -413,6 +396,7 @@ const UserProfileForm = component$(() => {
             placeholder={_('service_name_example_professional_translation')}
             value={serviceTertiaryName}
             bgLight
+            required
           />
           <Input
             id="service_tertiary_percent"
@@ -421,6 +405,7 @@ const UserProfileForm = component$(() => {
             value={serviceTertiaryPercent}
             label={_('percentage_example_75')}
             bgLight
+            required
           />
         </div>
       </div>

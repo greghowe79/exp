@@ -27,7 +27,7 @@
     "page_pricing_greeting": "Ciao",
     "page_pricing_duration_month": "al mese",
     "page_pricing_duration_year": "all' anno",
-    "user_profile_image": "Carica la tua immagine del profilo",
+    "user_profile_image": "Carica la tua immagine del profilo *",
     "user_profile_name": "Nome *",
     "user_profile_lastname": "Cognome *",
     "user_profile_job": "Qualifica professionale *",
@@ -160,6 +160,6 @@
     "network_section_button": "Explora la rete",
     "public_card": "Card pubblica",
     "no_search_results": "Nessun risultato trovato per",
-    "placeholder_location_format": "CAP, Comune, Provincia, Regione, Nazione"
+    "placeholder_location_format": "CAP, Comune, Provincia, Regione, Nazione *"
   }
 }
