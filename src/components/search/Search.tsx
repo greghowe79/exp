@@ -84,7 +84,7 @@ const Search = component$(() => {
         ← {_('form_back_home')}
       </Link>
       <div class="content-container">
-        <img class="logo" src="http://localhost:5173/favicon.svg" width="150" height="150" alt="Site Snap logo" />
+        <img class="logo" src="http://localhost:5173/logo.svg" width="150" height="150" alt="Site Snap logo" />
         <form
           preventdefault:submit
           onSubmit$={async (event) => {
