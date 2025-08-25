@@ -2,10 +2,10 @@ import { $, component$, useSignal, useStyles$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
 import { _, getLocale } from 'compiled-i18n';
 import styles from './styles.css?inline';
-import { Input } from '@greghowe79/the-lib';
+import { Card, Input } from '@greghowe79/the-lib';
 import { SearchIcon } from '~/assets/search';
 import { useDebouncer$ } from '~/utility/debouncer';
-import { Image } from '@unpic/qwik';
+import { FaGlobeLight } from '~/assets/worldLight';
 
 interface Suggestion {
   id: string;
@@ -17,7 +17,7 @@ interface Suggestion {
 
 const Search = component$(() => {
   const currentLocale = getLocale();
-  const suggestions = useSignal<Suggestion[]>([]); // 👈 suggestions list
+  const suggestions = useSignal<Suggestion[]>([]);
   const searchResults = useSignal<any[]>([]);
   const rawInput = useSignal('');
   const loading = useSignal(false);
@@ -96,7 +96,7 @@ const Search = component$(() => {
             id="input_search"
             type="search"
             label="Cerca professionisti o organizzazioni"
-            placeholder="Cerca con Site Snap o digita un URL"
+            placeholder="Cerca con Site Snap"
             value={rawInput}
             onInput$={(_, target) => {
               rawInput.value = target.value;
@@ -115,17 +115,7 @@ const Search = component$(() => {
             {Array.isArray(suggestions.value) &&
               suggestions.value.map((s) => (
                 <li key={s.id} class="suggestion-item" onClick$={() => handleSuggestion(s)}>
-                  <Image
-                    objectFit="cover"
-                    width={40}
-                    height={40}
-                    src={s.img_url}
-                    layout="constrained"
-                    decoding="async"
-                    loading="lazy"
-                    alt={s.name}
-                    class="thumbnail"
-                  />
+                  <img src={s.img_url} alt={s.name} class="thumbnail" width={40} height={40} />
                   <div>
                     <strong>{s.job_title}</strong>
                     <br />
@@ -139,6 +129,21 @@ const Search = component$(() => {
           {!loading.value && message.value && suggestions.value.length === 0 && <p class="no-results">{message.value}</p>}
         </div>
       </div>
+      {searchResults.value.length > 0 && (
+        <div class="results-container">
+          {searchResults.value.map((result) => (
+            <div class="results-content" key={result.id}>
+              <Card
+                item={result}
+                icon={FaGlobeLight}
+                subtitle={_('profile_about_section')}
+                link={_('profile_card_link')}
+                path={`/${currentLocale}/${_('slug_website')}/${result.id}`}
+              />
+            </div>
+          ))}
+        </div>
+      )}
     </main>
   );
 });

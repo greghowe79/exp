@@ -1,9 +1,9 @@
+/* eslint-disable qwik/jsx-img */
 import { component$, useResource$, Resource, useStyles$, useSignal } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { supabase } from '~/lib/db';
 import type { UserProfile } from '~/root';
 import { useLocation } from '@builder.io/qwik-city';
-import { Image } from '@unpic/qwik';
 import { FacebookFooter } from '~/assets/facebook_footer';
 import { LinkedinFooter } from '~/assets/linkedin_footer';
 import { InstagramFooter } from '~/assets/instagram_footer';
@@ -119,15 +119,7 @@ export const Website = component$(() => {
                 <h1 class="last_name">{profile.last_name}</h1>
               </div>
 
-              <Image
-                objectFit="cover"
-                src={profile.avatar_img_url}
-                layout="constrained"
-                decoding="async"
-                loading="eager"
-                alt={`${profile.first_name} ${profile.last_name}`}
-                class="card-avatar"
-              />
+              <img src={profile.avatar_img_url} alt={`${profile.first_name} ${profile.last_name}`} class="card-avatar-img" />
             </div>
           </section>
           <div class="overlapping-text">
@@ -165,15 +157,7 @@ export const Website = component$(() => {
               <div class="services_divider"></div>
               <div class="parent">
                 <div class="first_child">
-                  {' '}
-                  <Image
-                    src={profile.avatar_img_url}
-                    layout="constrained"
-                    decoding="async"
-                    loading="eager"
-                    alt={`${profile.first_name} ${profile.last_name}`}
-                    class="service_image"
-                  />
+                  <img src={profile.avatar_img_url} alt={`${profile.first_name} ${profile.last_name}`} class="service_image" />
                 </div>
                 <div class="second_child">
                   <div class="progress_wrapper">
