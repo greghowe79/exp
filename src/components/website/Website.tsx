@@ -293,7 +293,7 @@ export const Website = component$(() => {
               </div>
               <div class="footer-container">
                 <div class="footer-bottom">
-                  <div class="footer-legal-links">
+                  {/* <div class="footer-legal-links">
                     <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
                       {_('privacy_policy')}
                     </a>
@@ -305,9 +305,9 @@ export const Website = component$(() => {
                     <a href="/termini-condizioni" target="_blank" rel="noopener noreferrer">
                       {_('terms_of_use')}
                     </a>
-                  </div>
+                  </div> */}
                   <p class="copyright">
-                    &copy; {new Date().getFullYear()} {profile.first_name} {profile.last_name}. {_('all_rights_reserved')}
+                    &copy; {new Date().getFullYear()} Site Snap. {_('all_rights_reserved')}
                   </p>
                 </div>
               </div>

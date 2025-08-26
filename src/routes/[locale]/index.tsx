@@ -1,9 +1,8 @@
-import { component$, useContext, useSignal, useVisibleTask$ } from '@builder.io/qwik'; //Resource, useResource$, useSignal
+import { component$, useContext, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import { useLocation, useNavigate, type DocumentHead } from '@builder.io/qwik-city';
 import { Button, Hero, OnboardingSteps } from '@greghowe79/the-lib';
 import { _, setLocaleGetter } from 'compiled-i18n';
 import Network from '~/components/network/Network';
-//import SearchBar from '~/components/search-bar/SearchBar';
 import { useSteps } from '~/hooks/useSteps';
 import { supabase } from '~/lib/db';
 import { UserSessionContext } from '~/root';
@@ -11,8 +10,6 @@ import { UserSessionContext } from '~/root';
 export default component$(() => {
   const location = useLocation();
   const steps = useSteps(location);
-  // const query = useSignal('');
-  // const result = useSignal(0);
   const nav = useNavigate();
   const userSession = useContext(UserSessionContext);
   const hasWebsite = useSignal(true);
@@ -49,24 +46,6 @@ export default component$(() => {
     }
     isLoading.value = false;
   });
-
-  // const jokes = useResource$<{ value: string }[]>(async ({ track, cleanup }) => {
-  //   track(() => query.value);
-  //   const controller = new AbortController();
-  //   cleanup(() => controller.abort());
-
-  //   if (query.value.length < 3) {
-  //     return [];
-  //   }
-
-  //   const url = new URL('https://api.chucknorris.io/jokes/search');
-  //   url.searchParams.set('query', query.value);
-
-  //   const resp = await fetch(url, { signal: controller.signal });
-  //   const json = (await resp.json()) as { result: { value: string }[] };
-  //   result.value = json.result.length;
-  //   return json.result;
-  // });
 
   return (
     <main id="contenuto-home">
@@ -111,25 +90,11 @@ export default component$(() => {
               />
             )}
           </div>
-          {/*  <SearchBar query={query} /> */}
         </Hero>
       </section>
       <section id="home_step">
         <OnboardingSteps steps={steps} />
       </section>
-      {/* <section>
-        <Resource
-          value={jokes}
-          onPending={() => <>loading...</>}
-          onResolved={(jokes) => (
-            <ul>
-              {jokes.map((joke, i) => (
-                <li key={i}>{joke.value}</li>
-              ))}
-            </ul>
-          )}
-        />
-      </section> */}
 
       <section id="professional_network">
         <Network />

@@ -1,0 +1,135 @@
+footer {
+  background-color: #333;
+  color: #f5f5f7;
+  padding: 60px 20px 40px;
+}
+
+.footer-container {
+  max-width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-column {
+  flex: 1 1 250px;
+  min-width: 200px;
+}
+
+.footer-column h2 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  padding-bottom: 5px;
+}
+
+.footer-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #f5f5f7;
+  gap: 5px;
+}
+
+.footer-info i {
+  margin-right: 10px;
+  min-width: 20px;
+  text-align: center;
+  color: #00aced;
+}
+
+.footer-info a {
+  color: #f5f5f7;
+  text-decoration: none;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #ccc;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00aced;
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-column {
+    flex: 1 1 100px;
+  }
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #f5f5f7;
+  width: 100%;
+}
+
+.footer-legal-links {
+  margin-bottom: 10px;
+}
+
+.footer-legal-links a {
+  color: #f5f5f7;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-legal-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-legal-links span {
+  color: #aaa;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-container {
+    max-width: 80%;
+  }
+  .footer-column {
+    min-width: 0;
+    flex: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-legal-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.footer-info > .footer_email {
+  color: #0099ff;
+}
+
+.footer_email:hover {
+  text-decoration: underline;
+}
+
+.website_url:hover {
+  color: #0099ff;
+}
