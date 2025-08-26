@@ -9,6 +9,7 @@
     "step_search_description": "找到适合您需求的完美专业人士。探索详细资料以做出正确选择。",
     "step_register": "创建您的专业资料",
     "navbar_about": "关于我们",
+    "navbar_search": "搜索专业人士",
     "navbar_services": "服务",
     "navbar_contact": "联系我们",
     "navbar_pricing": "定价",
@@ -155,8 +156,8 @@
     "step_register_description": "免费注册，提升你的在线可见度：展示你的身份和服务，吸引更多客户。",
     "step_page_title": "一体化的个人网页",
     "step_page_description": "使用高级账户，只需几次点击即可创建一个个人页面，汇集你的所有在线联系方式：社交媒体、网站、电子邮件等。帮助你被发现，讲述你的故事。",
-    "network_section_heading": "寻找您身边最优秀的专业人士和组织",
-    "network_section_description": "正在寻找专家或服务？使用我们的搜索引擎，连接来自各行各业的专业人士和组织。",
+    "network_section_heading": "在你附近寻找最优秀的专业人士",
+    "network_section_description": "在找专家吗？使用我们的搜索引擎，与各行业的专业人士建立联系。",
     "network_section_button": "探索网络",
     "public_card": "公开卡片"
   }

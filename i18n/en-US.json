@@ -9,6 +9,7 @@
     "step_search_description": "Find the perfect professional for your needs. Explore detailed profiles to make the right choice.",
     "step_register": "Create Your Professional Profile",
     "navbar_about": "About us",
+    "navbar_search": "Search Professional",
     "navbar_services": "Services",
     "navbar_contact": "Contact us",
     "navbar_pricing": "Pricing",
@@ -155,8 +156,8 @@
     "step_register_description": "Register for free and boost your online visibility: show who you are, what you do, and attract new clients.",
     "step_page_title": "Your All-in-One Web Page",
     "step_page_description": "With a premium account, create a personal page in just a few clicks that brings together all your online contacts: social media, website, email, and more. Perfect to get discovered and tell your story.",
-    "network_section_heading": "Find top professionals and organizations near you",
-    "network_section_description": "Looking for an expert or a business? Use our search engine to connect with professionals and organizations from any field.",
+    "network_section_heading": "Find top professionals near you",
+    "network_section_description": "Looking for an expert? Use our search engine to connect with professionals from any field.",
     "network_section_button": "Explore the network",
     "public_card": "Public card",
     "no_search_results": "No results found for"

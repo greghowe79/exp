@@ -88,13 +88,13 @@ export const SignUp = component$(() => {
         ) : (
           <div class="button-container">
             <Button id="professionista" label={_('customer-type_one')} size="sm" onClick$={() => (formIsVisible.value = true)} />
-            <Button
+            {/* <Button
               id="azienda"
               label={_('customer-type_two')}
               size="sm"
               variant="tertiary"
               onClick$={() => (formIsVisible.value = true)}
-            />
+            /> */}
           </div>
         )}
       </Modal>

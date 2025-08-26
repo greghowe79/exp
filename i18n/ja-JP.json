@@ -9,6 +9,7 @@
     "step_search_description": "あなたのニーズに合った完璧な専門家を見つけましょう。正しい選択をするために詳細なプロフィールを探索してください。",
     "step_register": "プロのプロフィールを作成する",
     "navbar_about": "私たちについて",
+    "navbar_search": "専門家を検索",
     "navbar_services": "サービス",
     "navbar_contact": "お問い合わせ",
     "navbar_pricing": "価格設定",
@@ -155,8 +156,8 @@
     "step_register_description": "無料で登録してオンラインでの認知度を高めましょう。あなた自身や提供するサービスを紹介して、新しい顧客を獲得しましょう。",
     "step_page_title": "オールインワンの個人ウェブページ",
     "step_page_description": "プレミアムアカウントで、ソーシャル、ウェブサイト、メールなどすべてのオンライン連絡先をまとめた個人ページを数クリックで作成。自分を見つけてもらい、伝えるのに最適です。",
-    "network_section_heading": "近くの優れた専門家や組織を見つけよう",
-    "network_section_description": "専門家やサービスをお探しですか？業種を問わず、プロフェッショナルや組織とつながるために検索エンジンを活用してください。",
+    "network_section_heading": "近くの優れた専門家を見つけよう",
+    "network_section_description": "専門家をお探しですか？あらゆる分野のプロとつながるには、検索エンジンをご利用ください。",
     "network_section_button": "ネットワークを探索する",
     "public_card": "公開カード"
   }

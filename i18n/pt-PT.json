@@ -9,6 +9,7 @@
     "step_search_description": "Encontre o profissional perfeito para suas necessidades. Explore perfis detalhados para fazer a escolha certa.",
     "step_register": "Crie Seu Perfil Profissional",
     "navbar_about": "Sobre nós",
+    "navbar_search": "Buscar Profissional",
     "navbar_services": "Serviços",
     "navbar_contact": "Contate-nos",
     "navbar_pricing": "Preços",
@@ -155,8 +156,8 @@
     "step_register_description": "Regista-te gratuitamente e aumenta a tua visibilidade online: mostra quem és, o que fazes e atrai novos clientes.",
     "step_page_title": "Sua Página Web Tudo em Um",
     "step_page_description": "Com uma conta premium, crie em poucos cliques uma página pessoal que reúne todos os seus contatos online: redes sociais, site, e-mail e muito mais. Perfeita para ser encontrado e contar sua história.",
-    "network_section_heading": "Encontre os melhores profissionais e organizações perto de você",
-    "network_section_description": "Está procurando um especialista ou serviço? Use nosso motor de busca para se conectar com profissionais e organizações de todos os setores.",
+    "network_section_heading": "Encontre os melhores profissionais perto de você",
+    "network_section_description": "Está procurando um especialista? Use nosso motor de busca para se conectar com profissionais de todos os setores.",
     "network_section_button": "Explorar a rede",
     "public_card": "Cartão público"
   }
