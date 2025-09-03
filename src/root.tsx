@@ -36,13 +36,13 @@ export interface UserProfile {
   service_secondary_percent: string;
   service_tertiary_percent: string;
   bg_color: string;
-  facebook?: string;
-  twitter?: string;
-  instagram?: string;
-  linkedin?: string;
-  youtube?: string;
-  github?: string;
-  website?: string;
+  facebook?: string | null;
+  twitter?: string | null;
+  instagram?: string | null;
+  linkedin?: string | null;
+  youtube?: string | null;
+  github?: string | null;
+  website?: string | null;
   position: string;
   created_at: string;
 }

@@ -223,6 +223,9 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
       }
     }
 
+    function normalizeSocial(value: string) {
+      return value.trim() ? value.trim() : null;
+    }
     if (type === 'USER_PROFILE') {
       isLoading.value = true;
 
@@ -233,6 +236,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         await AuthService.uploadImageProfileToTheStorage(userSession, selectedAvatarFile, avatarImgUrl, CDNURL);
 
         const currentDate = new Date().toISOString();
+
         const userProfile: UserProfile = {
           id: userSession.userId,
           img_url: imgUrl.value,
@@ -243,13 +247,13 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           description: description.value,
           email: email.value,
           telephone: `${prefix.value.trim()} ${phone.value.trim()}`,
-          facebook: facebook.value,
-          linkedin: linkedin.value,
-          twitter: twitter.value,
-          youtube: youtube.value,
-          instagram: instagram.value,
-          github: github.value,
-          website: website.value,
+          facebook: normalizeSocial(facebook.value),
+          linkedin: normalizeSocial(linkedin.value),
+          twitter: normalizeSocial(twitter.value),
+          youtube: normalizeSocial(youtube.value),
+          instagram: normalizeSocial(instagram.value),
+          github: normalizeSocial(github.value),
+          website: normalizeSocial(website.value),
           service_title: serviceTitle.value,
           service_description: serviceDescription.value,
           service_primary_name: servicePrimaryName.value,
