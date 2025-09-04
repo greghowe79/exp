@@ -148,3 +148,30 @@
     8px 0 8px -7px rgba(64, 60, 67, 0.24),
     -8px 0 8px -7px rgba(64, 60, 67, 0.24);
 }
+
+.step-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step-navigation > #btn_next_step {
+  flex-direction: row-reverse;
+}
+.icon_right {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+.icon_left {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+.align_btn_right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

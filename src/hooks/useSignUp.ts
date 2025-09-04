@@ -53,6 +53,34 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const selectedFile = useSignal(_('user_profile_image'));
   const currentLocale = getLocale();
 
+  const isNextButtonDisabled = useComputed$(() => {
+    if (type === 'USER_PROFILE') {
+      const requiredFields = [
+        currentFile.value,
+        selectedAvatarFile.value,
+        firstName.value.trim(),
+        lastName.value.trim(),
+        jobTitle.value.trim(),
+        description.value.trim(),
+        email.value.trim(),
+        bgColor.value.trim(),
+        position.value.trim(),
+      ];
+      const anyEmptyRequired = requiredFields.some((field) => !field);
+
+      return (
+        !!emailError.value ||
+        !!phoneError.value || // opzionale, ma se invalido → blocca
+        // !!position.value ||
+        // isLoading.value ||
+        anyEmptyRequired
+      );
+    }
+
+    // // Default fallback
+    // return isLoading.value;
+  });
+
   const isSubmitDisabled = useComputed$(() => {
     if (type === 'LOGIN' || type === 'SIGNUP' || type === 'UPDATE-PASSWORD') {
       return (
@@ -362,6 +390,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     position,
     isLoading,
     isSubmitDisabled,
+    isNextButtonDisabled,
     handleAuth,
     selectedAvatarFile,
   };
