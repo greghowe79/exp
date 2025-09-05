@@ -56,6 +56,7 @@
     "slug_reset_password": "reinitialiser-mot-de-passe",
     "form.errors.invalidEmail": "Veuillez entrer une adresse e-mail valide",
     "form.errors.invalidPassword": "Le mot de passe doit comporter entre 8 et 16 caractères et inclure au moins un chiffre, une lettre minuscule, une lettre majuscule et un caractère spécial.",
+    "form.errors.invalidPosition": "Sélectionnez votre position dans la liste des suggestions.",
     "form.errors.inputRequired": "Champ requis",
     "popup.genericSuccessTitle": "Opération réussie.",
     "popup.userIdMissing": "Identifiant utilisateur manquant. Veuillez réessayer.",
@@ -159,6 +160,7 @@
     "network_section_heading": "Trouvez les meilleurs professionnels près de chez vous",
     "network_section_description": "Vous cherchez un expert ? Utilisez notre moteur de recherche pour entrer en contact avec des professionnels de tous secteurs.",
     "network_section_button": "Explorer le réseau",
-    "public_card": "Carte publique"
+    "public_card": "Carte publique",
+    "placeholder_location_format": "Code postal, Ville, Province, Région, Pays *"
   }
 }

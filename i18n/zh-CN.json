@@ -56,6 +56,7 @@
     "slug_reset_password": "reset-password",
     "form.errors.invalidEmail": "请输入有效的电子邮件地址",
     "form.errors.invalidPassword": "密码必须为8-16个字符，且至少包含一个数字、一个小写字母、一个大写字母和一个特殊字符。",
+    "form.errors.invalidPosition": "请从建议列表中选择您的位置。",
     "form.errors.inputRequired": "必填字段",
     "popup.genericSuccessTitle": "操作成功完成。",
     "popup.userIdMissing": "用户ID缺失。请再试一次。",
@@ -159,6 +160,7 @@
     "network_section_heading": "在你附近寻找最优秀的专业人士",
     "network_section_description": "在找专家吗？使用我们的搜索引擎，与各行业的专业人士建立联系。",
     "network_section_button": "探索网络",
-    "public_card": "公开卡片"
+    "public_card": "公开卡片",
+    "placeholder_location_format": "邮政编码，城市，省份，地区，国家 *"
   }
 }

@@ -1,7 +1,6 @@
 import { $ } from '@builder.io/qwik';
 import { _ } from 'compiled-i18n';
 
-
 export const validateEmail = $((value: string): string | null => {
   if (value.length === 0) {
     return _('form.errors.inputRequired');
@@ -33,3 +32,9 @@ export const validatePhone = $((value: string): string | null => {
   return null;
 });
 
+export const validatePosition = $((isValidLocation: boolean): string | null => {
+  if (!isValidLocation) {
+    return _('form.errors.invalidPosition');
+  }
+  return null;
+});

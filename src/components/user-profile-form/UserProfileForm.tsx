@@ -1,7 +1,7 @@
 import { $, component$, noSerialize, useSignal, useStyles$ } from '@builder.io/qwik';
 import { Button, Input, Select, TextArea } from '@greghowe79/the-lib';
 import { useAuth } from '~/hooks/useSignUp';
-import { validateEmail, validatePhone } from '~/utility/validators';
+import { validateEmail, validatePhone, validatePosition } from '~/utility/validators';
 import styles from './styles.css?inline';
 import { Facebook } from '~/assets/facebook';
 import { Linkedin } from '~/assets/linkedin';
@@ -55,7 +55,6 @@ const UserProfileForm = component$(() => {
   const rawInput = useSignal('');
 
   useStyles$(styles);
-  const currentStep = useSignal(1);
 
   const {
     serviceTitle,
@@ -91,9 +90,11 @@ const UserProfileForm = component$(() => {
     position,
     isLoading,
     isSubmitDisabled,
-    isNextButtonDisabled,
     handleAuth,
     selectedAvatarFile,
+    positionError,
+    isValidLocation,
+    currentStep,
   } = useAuth('USER_PROFILE', nav);
 
   const handleSelect$ = $(async (avatarValue: string) => {
@@ -147,6 +148,9 @@ const UserProfileForm = component$(() => {
     position.value = formatted;
     rawInput.value = formatted;
     suggestions.value = [];
+
+    isValidLocation.value = true;
+    positionError.value = null;
   });
 
   const goNext = $(() => {
@@ -281,9 +285,16 @@ const UserProfileForm = component$(() => {
               label={_('user_profile_position')}
               bgLight
               required
+              error={positionError}
+              onValidate$={async () => {
+                const error = await validatePosition(isValidLocation.value);
+                positionError.value = error ?? '';
+                return positionError.value;
+              }}
               onInput$={(_, target) => {
                 rawInput.value = target.value;
                 debounce(target.value);
+                isValidLocation.value = false;
               }}
             />
             {loading.value ? (
@@ -499,8 +510,8 @@ const UserProfileForm = component$(() => {
             onClick$={goNext}
             label={_('next')}
             size="lg"
-            disabled={isNextButtonDisabled.value}
-            icon={<ArrowRight fill={`${isNextButtonDisabled.value ? '#000000' : '#ffffff'}`} />}
+            disabled={isSubmitDisabled.value}
+            icon={<ArrowRight fill={`${isSubmitDisabled.value ? '#000000' : '#ffffff'}`} />}
           />
         ) : (
           <Button
@@ -513,7 +524,6 @@ const UserProfileForm = component$(() => {
           ></Button>
         )}
       </div>
-      {/* <Button id="save_user_form" type="submit" label="Salva" size="sm" isLoading={isLoading} disabled={isSubmitDisabled.value}></Button> */}
     </form>
   );
 });

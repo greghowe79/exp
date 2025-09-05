@@ -53,33 +53,9 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const selectedFile = useSignal(_('user_profile_image'));
   const currentLocale = getLocale();
 
-  const isNextButtonDisabled = useComputed$(() => {
-    if (type === 'USER_PROFILE') {
-      const requiredFields = [
-        currentFile.value,
-        selectedAvatarFile.value,
-        firstName.value.trim(),
-        lastName.value.trim(),
-        jobTitle.value.trim(),
-        description.value.trim(),
-        email.value.trim(),
-        bgColor.value.trim(),
-        position.value.trim(),
-      ];
-      const anyEmptyRequired = requiredFields.some((field) => !field);
-
-      return (
-        !!emailError.value ||
-        !!phoneError.value || // opzionale, ma se invalido → blocca
-        // !!position.value ||
-        // isLoading.value ||
-        anyEmptyRequired
-      );
-    }
-
-    // // Default fallback
-    // return isLoading.value;
-  });
+  const positionError = useSignal<string | null>(null);
+  const isValidLocation = useSignal(false);
+  const currentStep = useSignal(1);
 
   const isSubmitDisabled = useComputed$(() => {
     if (type === 'LOGIN' || type === 'SIGNUP' || type === 'UPDATE-PASSWORD') {
@@ -99,7 +75,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     }
 
     if (type === 'USER_PROFILE') {
-      const requiredFields = [
+      const requiredFieldsStepOne = [
         currentFile.value,
         selectedAvatarFile.value,
         firstName.value.trim(),
@@ -108,6 +84,11 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         description.value.trim(),
         email.value.trim(),
         bgColor.value.trim(),
+        position.value.trim(),
+      ];
+      const firstStepsRequiredFields = requiredFieldsStepOne.some((field) => !field);
+
+      const requiredFieldsStepTwo = [
         serviceTitle.value.trim(),
         serviceDescription.value.trim(),
         servicePrimaryName.value.trim(),
@@ -117,13 +98,16 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
         serviceTertiaryName.value.trim(),
         serviceTertiaryPercent.value.trim(),
       ];
-      const anyEmptyRequired = requiredFields.some((field) => !field);
+
+      const secondStepsRequiredFields = requiredFieldsStepTwo.some((field) => !field);
 
       return (
         !!emailError.value ||
-        !!phoneError.value || // opzionale, ma se invalido → blocca
+        !!phoneError.value ||
+        !!positionError.value ||
         isLoading.value ||
-        anyEmptyRequired
+        firstStepsRequiredFields ||
+        (currentStep.value === 2 && secondStepsRequiredFields)
       );
     }
 
@@ -254,6 +238,12 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     function normalizeSocial(value: string) {
       return value.trim() ? value.trim() : null;
     }
+
+    function normalizePhone(prefix: string, phone: string) {
+      const full = `${prefix.trim()} ${phone.trim()}`.trim();
+      return full ? full : null;
+    }
+
     if (type === 'USER_PROFILE') {
       isLoading.value = true;
 
@@ -274,7 +264,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           job_title: jobTitle.value,
           description: description.value,
           email: email.value,
-          telephone: `${prefix.value.trim()} ${phone.value.trim()}`,
+          telephone: normalizePhone(prefix.value, phone.value),
           facebook: normalizeSocial(facebook.value),
           linkedin: normalizeSocial(linkedin.value),
           twitter: normalizeSocial(twitter.value),
@@ -390,8 +380,10 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     position,
     isLoading,
     isSubmitDisabled,
-    isNextButtonDisabled,
     handleAuth,
     selectedAvatarFile,
+    positionError,
+    isValidLocation,
+    currentStep,
   };
 };

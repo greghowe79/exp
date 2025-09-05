@@ -56,6 +56,7 @@
     "slug_reset_password": "ripristina-password",
     "form.errors.invalidEmail": "Inserisci un indirizzo email valido",
     "form.errors.invalidPassword": "La password deve essere lunga 8-16 caratteri e includere almeno una cifra, una lettera minuscola, una lettera maiuscola e un carattere speciale.",
+    "form.errors.invalidPosition": "Seleziona la tua posizione dall’elenco dei suggerimenti.",
     "form.errors.inputRequired": "Campo obbligatorio",
     "popup.genericSuccessTitle": "Operazione completata con successo.",
     "popup.genericErrorTitle": "Operazione non riuscita",

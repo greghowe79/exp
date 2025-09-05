@@ -26,7 +26,7 @@ export interface UserProfile {
   job_title: string;
   description: string;
   email: string;
-  telephone: string;
+  telephone: string | null;
   service_title: string;
   service_description: string;
   service_primary_name: string;

@@ -56,6 +56,7 @@
     "slug_reset_password": "reset-password",
     "form.errors.invalidEmail": "有効なメールアドレスを入力してください",
     "form.errors.invalidPassword": "パスワードは8～16文字で、数字、小文字、大文字、特殊文字をそれぞれ少なくとも1つ含める必要があります。",
+    "form.errors.invalidPosition": "候補リストからご自身の位置を選択してください。",
     "form.errors.inputRequired": "必須項目です",
     "popup.genericSuccessTitle": "操作が正常に完了しました。",
     "popup.userIdMissing": "ユーザーIDが見つかりません。もう一度お試しください。",
@@ -159,6 +160,7 @@
     "network_section_heading": "近くの優れた専門家を見つけよう",
     "network_section_description": "専門家をお探しですか？あらゆる分野のプロとつながるには、検索エンジンをご利用ください。",
     "network_section_button": "ネットワークを探索する",
-    "public_card": "公開カード"
+    "public_card": "公開カード",
+    "placeholder_location_format": "郵便番号、市区町村、都道府県、地域、国 *"
   }
 }

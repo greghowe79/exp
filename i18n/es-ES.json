@@ -56,6 +56,7 @@
     "slug_reset_password": "restablecer-contraseña",
     "form.errors.invalidEmail": "Por favor, introduce una dirección de correo electrónico válida",
     "form.errors.invalidPassword": "La contraseña debe tener entre 8 y 16 caracteres e incluir al menos un dígito, una letra minúscula, una letra mayúscula y un carácter especial.",
+    "form.errors.invalidPosition": "Selecciona tu ubicación de la lista de sugerencias.",
     "form.errors.inputRequired": "Campo requerido",
     "popup.genericSuccessTitle": "Operación completada con éxito.",
     "popup.userIdMissing": "Falta el ID de usuario. Por favor, inténtalo de nuevo.",
@@ -159,6 +160,7 @@
     "network_section_heading": "Encuentra a los mejores profesionales cerca de ti",
     "network_section_description": "¿Buscas un experto? Usa nuestro motor de búsqueda para conectar con profesionales de cualquier sector.",
     "network_section_button": "Explora la red",
-    "public_card": "Tarjeta pública"
+    "public_card": "Tarjeta pública",
+    "placeholder_location_format": "Código postal, Ciudad, Provincia, Región, País *"
   }
 }

@@ -56,6 +56,7 @@
     "slug_website": "site",
     "form.errors.invalidEmail": "Insira um endereço de email válido",
     "form.errors.invalidPassword": "A senha deve ter entre 8 e 16 caracteres e incluir pelo menos um número, uma letra minúscula, uma letra maiúscula e um caractere especial.",
+    "form.errors.invalidPosition": "Selecione sua localização na lista de sugestões.",
     "form.errors.inputRequired": "Campo obrigatório",
     "popup.genericSuccessTitle": "Operação concluída com sucesso.",
     "popup.userIdMissing": "ID do usuário ausente. Por favor, tente novamente.",
@@ -159,6 +160,7 @@
     "network_section_heading": "Encontre os melhores profissionais perto de você",
     "network_section_description": "Está procurando um especialista? Use nosso motor de busca para se conectar com profissionais de todos os setores.",
     "network_section_button": "Explorar a rede",
-    "public_card": "Cartão público"
+    "public_card": "Cartão público",
+    "placeholder_location_format": "CEP, Cidade, Província, Região, País *"
   }
 }
