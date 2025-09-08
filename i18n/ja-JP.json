@@ -161,6 +161,14 @@
     "network_section_description": "専門家をお探しですか？あらゆる分野のプロとつながるには、検索エンジンをご利用ください。",
     "network_section_button": "ネットワークを探索する",
     "public_card": "公開カード",
-    "placeholder_location_format": "郵便番号、市区町村、都道府県、地域、国 *"
+    "placeholder_location_format": "郵便番号、市区町村、都道府県、地域、国 *",
+    "main_success_case_title": "あなたの3つの成功事例",
+    "main_success_case_description": "あなたの専門性を示す最大3つの成功事例を記述してください。",
+    "success_case_one_title": "最初の成功事例のタイトル",
+    "success_case_one_description": "最初の成功事例の説明",
+    "success_case_two_title": "2番目の成功事例のタイトル",
+    "success_case_two_description": "2番目の成功事例の説明",
+    "success_case_three_title": "3番目の成功事例のタイトル",
+    "success_case_three_description": "3番目の成功事例の説明"
   }
 }

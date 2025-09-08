@@ -95,6 +95,12 @@ const UserProfileForm = component$(() => {
     positionError,
     isValidLocation,
     currentStep,
+    firstSuccessfulCaseTitle,
+    firstSuccessfulCaseDescription,
+    secondSuccessfulCaseTitle,
+    secondSuccessfulCaseDescription,
+    thirdSuccessfulCaseTitle,
+    thirdSuccessfulCaseDescription,
   } = useAuth('USER_PROFILE', nav);
 
   const handleSelect$ = $(async (avatarValue: string) => {
@@ -154,7 +160,7 @@ const UserProfileForm = component$(() => {
   });
 
   const goNext = $(() => {
-    if (currentStep.value < 3) currentStep.value++;
+    if (currentStep.value < 4) currentStep.value++;
   });
 
   const goBack = $(() => {
@@ -499,11 +505,73 @@ const UserProfileForm = component$(() => {
         </div>
       )}
 
+      {currentStep.value === 4 && (
+        <div class="success_case_form-section">
+          <h3 class="success_case_form-section-title">{_('main_success_case_title')}</h3>
+          <p class="success_case_form-section-description">{_('main_success_case_description')}</p>
+
+          <div class="success-case-entry">
+            <Input
+              id="success_case_one_section-title"
+              type="text"
+              placeholder={_('success_case_one_title')}
+              value={firstSuccessfulCaseTitle}
+              label={_('success_case_one_title')}
+              bgLight
+              required
+            />
+            <TextArea
+              id="success_case_one_description"
+              content={firstSuccessfulCaseDescription}
+              required
+              bgLight
+              placeholder={_('success_case_one_description')}
+              title={_('success_case_one_description')}
+            />
+
+            <Input
+              id="success_case_two_section-title"
+              type="text"
+              placeholder={_('success_case_two_title')}
+              value={secondSuccessfulCaseTitle}
+              label={_('success_case_two_title')}
+              bgLight
+              required
+            />
+            <TextArea
+              id="success_case_two_description"
+              content={secondSuccessfulCaseDescription}
+              required
+              bgLight
+              placeholder={_('success_case_two_description')}
+              title={_('success_case_two_description')}
+            />
+            <Input
+              id="success_case_three_section-title"
+              type="text"
+              placeholder={_('success_case_three_title')}
+              value={thirdSuccessfulCaseTitle}
+              label={_('success_case_three_title')}
+              bgLight
+              required
+            />
+            <TextArea
+              id="success_case_three_description"
+              content={thirdSuccessfulCaseDescription}
+              required
+              bgLight
+              placeholder={_('success_case_three_description')}
+              title={_('success_case_three_description')}
+            />
+          </div>
+        </div>
+      )}
+
       <div class={currentStep.value === 1 ? 'align_btn_right' : 'step-navigation'}>
         {currentStep.value > 1 && (
           <Button id="btn_back_step" type="button" onClick$={goBack} label={_('back')} size="lg" icon={<ArrowLeft fill={'#ffffff'} />} />
         )}
-        {currentStep.value < 3 ? (
+        {currentStep.value < 4 ? (
           <Button
             id="btn_next_step"
             type="button"

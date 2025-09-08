@@ -162,6 +162,14 @@
     "network_section_button": "Explore the network",
     "public_card": "Public card",
     "no_search_results": "No results found for",
-    "placeholder_location_format": "ZIP, City, Province, Region, Country *"
+    "placeholder_location_format": "ZIP, City, Province, Region, Country *",
+    "main_success_case_title": "Your 3 successful cases",
+    "main_success_case_description": "Describe up to 3 successful cases that highlight your expertise.",
+    "success_case_one_title": "First successful case title",
+    "success_case_one_description": "First successful case description",
+    "success_case_two_title": "Second successful case title",
+    "success_case_two_description": "Second successful case description",
+    "success_case_three_title": "Third successful case title",
+    "success_case_three_description": "Third successful case description"
   }
 }

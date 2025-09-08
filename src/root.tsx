@@ -44,6 +44,12 @@ export interface UserProfile {
   github?: string | null;
   website?: string | null;
   position: string;
+  first_successful_case_title: string;
+  first_successful_case_description: string;
+  second_successful_case_title: string;
+  second_successful_case_description: string;
+  third_successful_case_title: string;
+  third_successful_case_description: string;
   created_at: string;
 }
 

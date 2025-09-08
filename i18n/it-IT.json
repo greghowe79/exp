@@ -162,6 +162,14 @@
     "network_section_button": "Explora la rete",
     "public_card": "Card pubblica",
     "no_search_results": "Nessun risultato trovato per",
-    "placeholder_location_format": "CAP, Comune, Provincia, Regione, Nazione *"
+    "placeholder_location_format": "CAP, Comune, Provincia, Regione, Nazione *",
+    "main_success_case_title": "I tuoi 3 casi di successo",
+    "main_success_case_description": "Descrivi fino a 3 casi di successo che evidenziano la tua esperienza.",
+    "success_case_one_title": "Titolo del primo caso di successo",
+    "success_case_one_description": "Descrizione del primo caso di successo",
+    "success_case_two_title": "Titolo del secondo caso di successo",
+    "success_case_two_description": "Descrizione del secondo caso di successo",
+    "success_case_three_title": "Titolo del terzo caso di successo",
+    "success_case_three_description": "Descrizione del terzo caso di successo"
   }
 }

@@ -3,7 +3,7 @@ import type { RouteLocation } from '@builder.io/qwik-city';
 import { _, setLocaleGetter } from 'compiled-i18n';
 import { Register } from '~/assets/register';
 import { Rocket } from '~/assets/rocket';
-//import { Search } from '~/assets/search';
+//import { SearchIcon } from '~/assets/search';
 
 const IconWrapper = component$<{ icon: any }>(({ icon: Icon }) => {
   return <Icon />;
@@ -14,7 +14,7 @@ export const useSteps = (location: RouteLocation) => {
   return [
     // {
     //   id: 'step-1',
-    //   icon: <IconWrapper icon={Search} />,
+    //   icon: <IconWrapper icon={SearchIcon} />,
     //   title: _('step_search'),
     //   description: _('step_search_description'),
     // },

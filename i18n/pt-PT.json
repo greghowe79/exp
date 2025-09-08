@@ -161,6 +161,14 @@
     "network_section_description": "Está procurando um especialista? Use nosso motor de busca para se conectar com profissionais de todos os setores.",
     "network_section_button": "Explorar a rede",
     "public_card": "Cartão público",
-    "placeholder_location_format": "CEP, Cidade, Província, Região, País *"
+    "placeholder_location_format": "CEP, Cidade, Província, Região, País *",
+    "main_success_case_title": "Seus 3 casos de sucesso",
+    "main_success_case_description": "Descreva até 3 casos de sucesso que destaquem sua experiência.",
+    "success_case_one_title": "Título do primeiro caso de sucesso",
+    "success_case_one_description": "Descrição do primeiro caso de sucesso",
+    "success_case_two_title": "Título do segundo caso de sucesso",
+    "success_case_two_description": "Descrição do segundo caso de sucesso",
+    "success_case_three_title": "Título do terceiro caso de sucesso",
+    "success_case_three_description": "Descrição do terceiro caso de sucesso"
   }
 }

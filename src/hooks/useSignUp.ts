@@ -46,6 +46,14 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const servicePrimaryPercent = useSignal<string>('');
   const serviceSecondaryPercent = useSignal<string>('');
   const serviceTertiaryPercent = useSignal<string>('');
+
+  const firstSuccessfulCaseTitle = useSignal('');
+  const firstSuccessfulCaseDescription = useSignal('');
+  const secondSuccessfulCaseTitle = useSignal('');
+  const secondSuccessfulCaseDescription = useSignal('');
+  const thirdSuccessfulCaseTitle = useSignal('');
+  const thirdSuccessfulCaseDescription = useSignal('');
+
   const colors = getListColor();
   const bgColor = useSignal(colors[0].value);
   const position = useSignal('');
@@ -101,13 +109,25 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
 
       const secondStepsRequiredFields = requiredFieldsStepTwo.some((field) => !field);
 
+      const requiredFieldsStepFourth = [
+        firstSuccessfulCaseTitle.value.trim(),
+        firstSuccessfulCaseDescription.value.trim(),
+        secondSuccessfulCaseTitle.value.trim(),
+        secondSuccessfulCaseDescription.value.trim(),
+        thirdSuccessfulCaseTitle.value.trim(),
+        thirdSuccessfulCaseDescription.value.trim(),
+      ];
+
+      const fourthStepsRequiredFields = requiredFieldsStepFourth.some((field) => !field);
+
       return (
         !!emailError.value ||
         !!phoneError.value ||
         !!positionError.value ||
         isLoading.value ||
         firstStepsRequiredFields ||
-        (currentStep.value === 2 && secondStepsRequiredFields)
+        (currentStep.value === 2 && secondStepsRequiredFields) ||
+        (currentStep.value === 4 && fourthStepsRequiredFields)
       );
     }
 
@@ -282,6 +302,12 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           service_tertiary_percent: serviceTertiaryPercent.value,
           bg_color: bgColor.value,
           position: position.value,
+          first_successful_case_title: firstSuccessfulCaseTitle.value,
+          first_successful_case_description: firstSuccessfulCaseDescription.value,
+          second_successful_case_title: secondSuccessfulCaseTitle.value,
+          second_successful_case_description: secondSuccessfulCaseDescription.value,
+          third_successful_case_title: thirdSuccessfulCaseTitle.value,
+          third_successful_case_description: thirdSuccessfulCaseDescription.value,
           created_at: currentDate,
         };
 
@@ -385,5 +411,11 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     positionError,
     isValidLocation,
     currentStep,
+    firstSuccessfulCaseTitle,
+    firstSuccessfulCaseDescription,
+    secondSuccessfulCaseTitle,
+    secondSuccessfulCaseDescription,
+    thirdSuccessfulCaseTitle,
+    thirdSuccessfulCaseDescription,
   };
 };

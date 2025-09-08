@@ -161,6 +161,14 @@
     "network_section_description": "在找专家吗？使用我们的搜索引擎，与各行业的专业人士建立联系。",
     "network_section_button": "探索网络",
     "public_card": "公开卡片",
-    "placeholder_location_format": "邮政编码，城市，省份，地区，国家 *"
+    "placeholder_location_format": "邮政编码，城市，省份，地区，国家 *",
+    "main_success_case_title": "您的3个成功案例",
+    "main_success_case_description": "请描述最多3个能够突出您专业能力的成功案例。",
+    "success_case_one_title": "第一个成功案例标题",
+    "success_case_one_description": "第一个成功案例描述",
+    "success_case_two_title": "第二个成功案例标题",
+    "success_case_two_description": "第二个成功案例描述",
+    "success_case_three_title": "第三个成功案例标题",
+    "success_case_three_description": "第三个成功案例描述"
   }
 }

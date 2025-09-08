@@ -10,7 +10,8 @@
 
 .service-entry,
 .contact-entry,
-.channel-entry {
+.channel-entry,
+.success-case-entry {
   display: flex;
   flex-direction: column;
   gap: 1rem;

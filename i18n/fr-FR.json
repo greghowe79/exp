@@ -161,6 +161,14 @@
     "network_section_description": "Vous cherchez un expert ? Utilisez notre moteur de recherche pour entrer en contact avec des professionnels de tous secteurs.",
     "network_section_button": "Explorer le réseau",
     "public_card": "Carte publique",
-    "placeholder_location_format": "Code postal, Ville, Province, Région, Pays *"
+    "placeholder_location_format": "Code postal, Ville, Province, Région, Pays *",
+    "main_success_case_title": "Vos 3 cas de réussite",
+    "main_success_case_description": "Décrivez jusqu'à 3 cas de réussite qui mettent en valeur votre expertise.",
+    "success_case_one_title": "Titre du premier cas de réussite",
+    "success_case_one_description": "Description du premier cas de réussite",
+    "success_case_two_title": "Titre du deuxième cas de réussite",
+    "success_case_two_description": "Description du deuxième cas de réussite",
+    "success_case_three_title": "Titre du troisième cas de réussite",
+    "success_case_three_description": "Description du troisième cas de réussite"
   }
 }

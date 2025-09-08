@@ -161,6 +161,14 @@
     "network_section_description": "¿Buscas un experto? Usa nuestro motor de búsqueda para conectar con profesionales de cualquier sector.",
     "network_section_button": "Explora la red",
     "public_card": "Tarjeta pública",
-    "placeholder_location_format": "Código postal, Ciudad, Provincia, Región, País *"
+    "placeholder_location_format": "Código postal, Ciudad, Provincia, Región, País *",
+    "main_success_case_title": "Tus 3 casos de éxito",
+    "main_success_case_description": "Describe hasta 3 casos de éxito que destaquen tu experiencia.",
+    "success_case_one_title": "Título del primer caso de éxito",
+    "success_case_one_description": "Descripción del primer caso de éxito",
+    "success_case_two_title": "Título del segundo caso de éxito",
+    "success_case_two_description": "Descripción del segundo caso de éxito",
+    "success_case_three_title": "Título del tercer caso de éxito",
+    "success_case_three_description": "Descripción del tercer caso de éxito"
   }
 }

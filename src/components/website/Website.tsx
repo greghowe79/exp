@@ -217,6 +217,68 @@ export const Website = component$(() => {
                 </div>
               </div>
             </section>
+
+            {/* --- SEZIONE STORIE DI SUCCESSO --- */}
+            <section class="success-stories" id="success-stories">
+              <div class="divider"></div>
+              <div class="section_area">
+                <div class="section_content_wrapper">
+                  <div class="content-section">
+                    <div class="header_section" style={{ borderBottom: `2px solid ${profile.bg_color}` }}>
+                      <div class="title" style={{ color: `${profile.bg_color}` }}>
+                        STORIE DI SUCCESSO
+                      </div>
+                      <div class="step" style={{ color: `${profile.bg_color}` }}>
+                        02
+                      </div>
+                    </div>
+
+                    <div class="success-grid">
+                      {/* Progetto 1 */}
+                      <div class="success-card">
+                        <img
+                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/v916-nunny-633-removebg-preview.png"
+                          alt="Collaborazione team"
+                          class="success-image"
+                        />
+                        <div class="success-content">
+                          <h3 class="success-title">{profile.first_successful_case_title}</h3>
+                          <p class="success-description">{profile.first_successful_case_description}</p>
+                        </div>
+                      </div>
+
+                      {/* Progetto 2 */}
+                      <div class="success-card">
+                        <img
+                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/36716-removebg-preview.png"
+                          alt="Tecnologia e creatività"
+                          class="success-image"
+                        />
+                        <div class="success-content">
+                          <h3 class="success-title">{profile.second_successful_case_title}</h3>
+                          <p class="success-description">{profile.second_successful_case_description}</p>
+                        </div>
+                      </div>
+
+                      {/* Progetto 3 */}
+                      <div class="success-card">
+                        <img
+                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/d02f46e9-e544-405a-ba1b-5f87f204268d-removebg-preview.png"
+                          alt="Successo e crescita"
+                          class="success-image"
+                        />
+                        <div class="success-content">
+                          <h3 class="success-title">{profile.third_successful_case_title}</h3>
+                          <p class="success-description">{profile.third_successful_case_description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            {/* --- FINE SEZIONE STORIE DI SUCCESSO --- */}
+
             <footer id="contact">
               <div class="footer-container">
                 <div class="footer-column">
@@ -255,7 +317,7 @@ export const Website = component$(() => {
                   )}
                 </div>
 
-                <div class="footer-column">
+                {/* <div class="footer-column">
                   <h3>{_('social_media')}</h3>
                   <div class="social-icons">
                     {profile.facebook && (
@@ -289,7 +351,45 @@ export const Website = component$(() => {
                       </a>
                     )}
                   </div>
-                </div>
+                </div> */}
+
+                {(profile.facebook || profile.instagram || profile.linkedin || profile.twitter || profile.github || profile.youtube) && (
+                  <div class="footer-column">
+                    <h3>{_('social_media')}</h3>
+                    <div class="social-icons">
+                      {profile.facebook && (
+                        <a href={profile.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                          <FacebookFooter fill={'#232323'} />
+                        </a>
+                      )}
+                      {profile.instagram && (
+                        <a href={profile.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                          <InstagramFooter fill={'#232323'} />
+                        </a>
+                      )}
+                      {profile.linkedin && (
+                        <a href={profile.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                          <LinkedinFooter fill={'#232323'} />
+                        </a>
+                      )}
+                      {profile.twitter && (
+                        <a href={profile.twitter} aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                          <TwitterFooter fill={'#232323'} />
+                        </a>
+                      )}
+                      {profile.github && (
+                        <a href={profile.github} aria-label="Github" target="_blank" rel="noopener noreferrer">
+                          <GitHubFooter fill={'#232323'} />
+                        </a>
+                      )}
+                      {profile.youtube && (
+                        <a href={profile.youtube} aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                          <YouTubeFooter fill={'#232323'} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
               <div class="footer-container">
                 <div class="footer-bottom">
