@@ -263,7 +263,7 @@ export const Website = component$(() => {
                       {/* Progetto 3 */}
                       <div class="success-card">
                         <img
-                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/d02f46e9-e544-405a-ba1b-5f87f204268d-removebg-preview.png"
+                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/target-removebg-preview.png"
                           alt="Successo e crescita"
                           class="success-image"
                         />
