@@ -169,6 +169,12 @@
     "success_case_two_title": "Título do segundo caso de sucesso",
     "success_case_two_description": "Descrição do segundo caso de sucesso",
     "success_case_three_title": "Título do terceiro caso de sucesso",
-    "success_case_three_description": "Descrição do terceiro caso de sucesso"
+    "success_case_three_description": "Descrição do terceiro caso de sucesso",
+    "back": "Voltar",
+    "next": "Próximo",
+    "save": "Salvar",
+    "profile_unavailable": "Perfil indisponível",
+    "popup.already_subscribed_title": "Assinatura ativa",
+    "popup.already_subscribed_description": "Você já possui uma assinatura ativa. Você pode continuar usando nossos serviços sem interrupções."
   }
 }

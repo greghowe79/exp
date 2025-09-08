@@ -169,6 +169,12 @@
     "success_case_two_title": "2番目の成功事例のタイトル",
     "success_case_two_description": "2番目の成功事例の説明",
     "success_case_three_title": "3番目の成功事例のタイトル",
-    "success_case_three_description": "3番目の成功事例の説明"
+    "success_case_three_description": "3番目の成功事例の説明",
+    "back": "戻る",
+    "next": "次へ",
+    "save": "保存",
+    "profile_unavailable": "プロフィールは利用できません",
+    "popup.already_subscribed_title": "アクティブなサブスクリプション",
+    "popup.already_subscribed_description": "すでにアクティブなサブスクリプションがあります。サービスを中断せずにご利用いただけます。"
   }
 }

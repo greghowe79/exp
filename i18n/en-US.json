@@ -170,6 +170,12 @@
     "success_case_two_title": "Second successful case title",
     "success_case_two_description": "Second successful case description",
     "success_case_three_title": "Third successful case title",
-    "success_case_three_description": "Third successful case description"
+    "success_case_three_description": "Third successful case description",
+    "back": "Back",
+    "next": "Next",
+    "save": "Save",
+    "profile_unavailable": "Profile not available",
+    "popup.already_subscribed_title": "Active Subscription",
+    "popup.already_subscribed_description": "You already have an active subscription. You can continue using our services without interruption."
   }
 }

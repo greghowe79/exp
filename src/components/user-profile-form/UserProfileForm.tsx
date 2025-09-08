@@ -585,7 +585,7 @@ const UserProfileForm = component$(() => {
           <Button
             id="save_user_form"
             type="submit"
-            label="Salva"
+            label={_('save')}
             size="lg"
             isLoading={isLoading}
             disabled={isSubmitDisabled.value}

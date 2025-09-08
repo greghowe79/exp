@@ -169,6 +169,12 @@
     "success_case_two_title": "第二个成功案例标题",
     "success_case_two_description": "第二个成功案例描述",
     "success_case_three_title": "第三个成功案例标题",
-    "success_case_three_description": "第三个成功案例描述"
+    "success_case_three_description": "第三个成功案例描述",
+    "back": "返回",
+    "next": "下一步",
+    "save": "保存",
+    "profile_unavailable": "个人资料不可用",
+    "popup.already_subscribed_title": "有效订阅",
+    "popup.already_subscribed_description": "您已有一个有效订阅。您可以继续使用我们的服务而不受影响。"
   }
 }

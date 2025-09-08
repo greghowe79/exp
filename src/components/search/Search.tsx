@@ -131,17 +131,21 @@ const Search = component$(() => {
       </div>
       {searchResults.value.length > 0 && (
         <div class="results-container">
-          {searchResults.value.map((result) => (
-            <div class="results-content" key={result.id}>
-              <Card
-                item={result}
-                icon={FaGlobeLight}
-                subtitle={_('profile_about_section')}
-                link={_('profile_card_link')}
-                path={`/${currentLocale}/${_('slug_website')}/${result.id}`}
-              />
-            </div>
-          ))}
+          {searchResults.value.map((result) => {
+            console.log('Result item:', result);
+            return (
+              <div class="results-content" key={result.id}>
+                <Card
+                  item={result}
+                  icon={FaGlobeLight}
+                  subtitle={_('profile_about_section')}
+                  link={result.has_access ? _('profile_card_link') : _('profile_unavailable')}
+                  path={result.has_access ? `/${currentLocale}/${_('slug_website')}/${result.id}` : '#'}
+                  disabled={!result.has_access}
+                />
+              </div>
+            );
+          })}
         </div>
       )}
     </main>

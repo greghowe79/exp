@@ -170,7 +170,7 @@ export const onGet: RequestHandler = async ({ query, json }) => {
   const { data, error } = await supabase
     .from('professionals')
     .select(
-      'id, first_name, last_name, job_title, position, img_url, service_title, service_primary_name, service_secondary_name, description'
+      'id, first_name, last_name, job_title, position, img_url, service_title, service_primary_name, service_secondary_name, description,has_access'
     )
     .or(orConditions)
     .limit(100);
@@ -209,6 +209,7 @@ export const onGet: RequestHandler = async ({ query, json }) => {
       description: p.description,
       position: p.position,
       img_url: p.img_url,
+      has_access: p.has_access,
     })),
   });
 };

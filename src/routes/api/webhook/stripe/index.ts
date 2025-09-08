@@ -47,6 +47,14 @@ export const onPost: RequestHandler = async (reqEvent) => {
           if (error) {
             console.error('Errore aggiornando profilo:', error);
           }
+          const { error: update_access_error } = await supabase
+            .from('professionals')
+            .update({ has_access: true })
+            .eq('email', customer.email);
+
+          if (update_access_error) {
+            console.error('Errore aggiornamento tabella professionisti:', update_access_error);
+          }
         }
       }
 

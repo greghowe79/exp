@@ -28,6 +28,7 @@ export const Services = component$(() => {
             <li>Nome e cognome</li>
             <li>Descrizione professionale</li>
             <li>Fino a 3 servizi offerti</li>
+            <li>Fino a 3 casi di successo che evidenziano la tua esperienza</li>
             <li>Footer con posizione, email, telefono, social, sito web</li>
           </ul>
         </section>
