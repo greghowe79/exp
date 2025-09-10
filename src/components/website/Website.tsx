@@ -90,6 +90,21 @@ export const Website = component$(() => {
                       {_('user_navigation_link_section_services')}
                     </a>
                   </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      preventdefault:click
+                      onClick$={() => {
+                        const el = document.getElementById('success-stories');
+                        el?.scrollIntoView({ behavior: 'smooth' });
+                        menuOpen.value = false;
+                      }}
+                    >
+                      {_('user_navigation_link_section_success_stories')}
+                    </a>
+                  </li>
+
                   <li>
                     <a
                       href="#"

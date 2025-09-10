@@ -50,6 +50,7 @@ export interface UserProfile {
   second_successful_case_description: string;
   third_successful_case_title: string;
   third_successful_case_description: string;
+  has_access: boolean;
   created_at: string;
 }
 

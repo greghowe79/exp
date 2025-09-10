@@ -275,6 +275,8 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
 
         const currentDate = new Date().toISOString();
 
+        const { data } = await supabase.from('profiles').select('has_access').eq('id', userSession.userId).maybeSingle();
+
         const userProfile: UserProfile = {
           id: userSession.userId,
           img_url: imgUrl.value,
@@ -308,12 +310,11 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           second_successful_case_description: secondSuccessfulCaseDescription.value,
           third_successful_case_title: thirdSuccessfulCaseTitle.value,
           third_successful_case_description: thirdSuccessfulCaseDescription.value,
+          has_access: data?.has_access,
           created_at: currentDate,
         };
 
         await AuthService.insertUser(userProfile);
-
-        const { data } = await supabase.from('profiles').select('has_access').eq('id', userSession.userId).maybeSingle();
 
         data?.has_access
           ? await navigate?.(`/${currentLocale}/${_('slug_website')}/${userSession.userId}`)
