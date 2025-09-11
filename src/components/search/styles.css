@@ -36,6 +36,8 @@
   display: flex;
   flex-direction: column;
   width: 31.25rem;
+  max-width: 100%;
+  padding: 0 1.25rem;
 }
 
 .logo {

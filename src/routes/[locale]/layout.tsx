@@ -97,7 +97,7 @@ export default component$(() => {
       </div>
       {normalizedPath === `/` && <Footer />}
 
-      {/* <AutoLogout /> */}
+      <AutoLogout />
     </>
   );
 });

@@ -1,9 +1,9 @@
 /* eslint-disable qwik/jsx-img */
-import { component$, useResource$, Resource, useStyles$, useSignal } from '@builder.io/qwik';
+import { component$, useResource$, Resource, useStyles$, useSignal, useContext } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { supabase } from '~/lib/db';
-import type { UserProfile } from '~/root';
-import { useLocation } from '@builder.io/qwik-city';
+import { UserSessionContext, type UserProfile } from '~/root';
+import { Link, useLocation } from '@builder.io/qwik-city';
 import { FacebookFooter } from '~/assets/facebook_footer';
 import { LinkedinFooter } from '~/assets/linkedin_footer';
 import { InstagramFooter } from '~/assets/instagram_footer';
@@ -12,11 +12,14 @@ import { GlobeFooter } from '~/assets/globe_footer';
 import { EnvelopeFooter } from '~/assets/envelope_footer';
 import { MobileFooter } from '~/assets/mobile_footer';
 import { LocationFooter } from '~/assets/location_footer';
-import { _ } from 'compiled-i18n';
+import { _, getLocale } from 'compiled-i18n';
 import { YouTubeFooter } from '~/assets/youtube_footer';
 import { GitHubFooter } from '~/assets/github_footer';
+import { Logo } from '~/components/logo/logo';
 
 export const Website = component$(() => {
+  const userSession = useContext(UserSessionContext);
+  const currentLocale = getLocale();
   const location = useLocation();
   const id = location.params.slug.split('/')[1];
   const menuOpen = useSignal(false);
@@ -43,6 +46,14 @@ export const Website = component$(() => {
           >
             <nav>
               <div class="inner_nav">
+                <div>
+                  <Link
+                    href={userSession.isLoggedIn ? `/${currentLocale}` : `/${currentLocale}/${_('slug_website')}/${profile.id}`}
+                    aria-label="Homepage"
+                  >
+                    <Logo fillCircle="#fff" fillPath={profile.bg_color} />
+                  </Link>
+                </div>
                 <div class="inner_nav_element_container">
                   <span class="email">
                     <a href={`mailto:${profile.email}`} target="_blank" rel="noopener noreferrer">
@@ -146,7 +157,7 @@ export const Website = component$(() => {
               <div class="section_area">
                 <div class="section_content_wrapper">
                   <div class="content-section">
-                    <div class="header_section" style={{ borderBottom: `2px solid ${profile.bg_color}` }}>
+                    <div class="header_section" style={{ borderBottom: `3px solid ${profile.bg_color}` }}>
                       <div class="title" style={{ color: `${profile.bg_color}` }}>
                         {`${_('about_header_title')} ${profile.first_name.toLocaleUpperCase()} ${profile.last_name.toLocaleUpperCase()} `}
                       </div>
@@ -161,6 +172,67 @@ export const Website = component$(() => {
                 </div>
               </div>
             </section>
+
+            {/* --- SEZIONE STORIE DI SUCCESSO --- */}
+            <section class="success-stories" id="success-stories">
+              <div class="divider"></div>
+              <div class="section_area">
+                <div class="section_content_wrapper">
+                  <div class="content-section">
+                    <div class="header_section" style={{ borderBottom: `3px solid ${profile.bg_color}` }}>
+                      <div class="title" style={{ color: `${profile.bg_color}` }}>
+                        STORIE DI SUCCESSO
+                      </div>
+                      <div class="step" style={{ color: `${profile.bg_color}` }}>
+                        02
+                      </div>
+                    </div>
+
+                    <div class="success-grid">
+                      {/* Progetto 1 */}
+                      <div class="success-card">
+                        <img
+                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/v916-nunny-633-removebg-preview.png"
+                          alt="Collaborazione team"
+                          class="success-image"
+                        />
+                        <div class="success-content">
+                          <h3 class="success-title">{profile.first_successful_case_title}</h3>
+                          <p class="success-description">{profile.first_successful_case_description}</p>
+                        </div>
+                      </div>
+
+                      {/* Progetto 2 */}
+                      <div class="success-card">
+                        <img
+                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/36716-removebg-preview.png"
+                          alt="Tecnologia e creatività"
+                          class="success-image"
+                        />
+                        <div class="success-content">
+                          <h3 class="success-title">{profile.second_successful_case_title}</h3>
+                          <p class="success-description">{profile.second_successful_case_description}</p>
+                        </div>
+                      </div>
+
+                      {/* Progetto 3 */}
+                      <div class="success-card">
+                        <img
+                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/target-removebg-preview.png"
+                          alt="Successo e crescita"
+                          class="success-image"
+                        />
+                        <div class="success-content">
+                          <h3 class="success-title">{profile.third_successful_case_title}</h3>
+                          <p class="success-description">{profile.third_successful_case_description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            {/* --- FINE SEZIONE STORIE DI SUCCESSO --- */}
 
             <section
               class="services"
@@ -234,7 +306,7 @@ export const Website = component$(() => {
             </section>
 
             {/* --- SEZIONE STORIE DI SUCCESSO --- */}
-            <section class="success-stories" id="success-stories">
+            {/* <section class="success-stories" id="success-stories">
               <div class="divider"></div>
               <div class="section_area">
                 <div class="section_content_wrapper">
@@ -249,7 +321,7 @@ export const Website = component$(() => {
                     </div>
 
                     <div class="success-grid">
-                      {/* Progetto 1 */}
+                  
                       <div class="success-card">
                         <img
                           src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/v916-nunny-633-removebg-preview.png"
@@ -262,7 +334,7 @@ export const Website = component$(() => {
                         </div>
                       </div>
 
-                      {/* Progetto 2 */}
+                    
                       <div class="success-card">
                         <img
                           src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/36716-removebg-preview.png"
@@ -275,7 +347,7 @@ export const Website = component$(() => {
                         </div>
                       </div>
 
-                      {/* Progetto 3 */}
+                     
                       <div class="success-card">
                         <img
                           src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/target-removebg-preview.png"
@@ -291,7 +363,7 @@ export const Website = component$(() => {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
             {/* --- FINE SEZIONE STORIE DI SUCCESSO --- */}
 
             <footer id="contact">
@@ -331,42 +403,6 @@ export const Website = component$(() => {
                     </div>
                   )}
                 </div>
-
-                {/* <div class="footer-column">
-                  <h3>{_('social_media')}</h3>
-                  <div class="social-icons">
-                    {profile.facebook && (
-                      <a href={profile.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-                        <FacebookFooter fill={'#232323'} />
-                      </a>
-                    )}
-                    {profile.instagram && (
-                      <a href={profile.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                        <InstagramFooter fill={'#232323'} />
-                      </a>
-                    )}
-                    {profile.linkedin && (
-                      <a href={profile.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                        <LinkedinFooter fill={'#232323'} />
-                      </a>
-                    )}
-                    {profile.twitter && (
-                      <a href={profile.twitter} aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-                        <TwitterFooter fill={'#232323'} />
-                      </a>
-                    )}
-                    {profile.github && (
-                      <a href={profile.github} aria-label="Github" target="_blank" rel="noopener noreferrer">
-                        <GitHubFooter fill={'#232323'} />
-                      </a>
-                    )}
-                    {profile.youtube && (
-                      <a href={profile.youtube} aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                        <YouTubeFooter fill={'#232323'} />
-                      </a>
-                    )}
-                  </div>
-                </div> */}
 
                 {(profile.facebook || profile.instagram || profile.linkedin || profile.twitter || profile.github || profile.youtube) && (
                   <div class="footer-column">

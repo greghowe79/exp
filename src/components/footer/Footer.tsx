@@ -15,12 +15,12 @@ import { YouTubeFooter } from '~/assets/youtube_footer';
 export const Footer = component$(() => {
   useStyles$(styles);
   return (
-    <footer id="contact">
+    <footer id="site_contact">
       <div class="footer-container">
         <div class="footer-column">
           <h2>{_('page_contact')}</h2>
 
-          <div class="footer-info">
+          <div class="site_footer_info">
             <LocationFooter fill={'#f5f5f7'} />{' '}
             <a
               class="website_url"
@@ -33,18 +33,18 @@ export const Footer = component$(() => {
             </a>
           </div>
 
-          <div class="footer-info">
+          <div class="site_footer_info">
             <MobileFooter fill={'#f5f5f7'} /> <a href="tel:+393714200848">+39 371 4200848</a>
           </div>
 
-          <div class="footer-info">
+          <div class="site_footer_info">
             <EnvelopeFooter fill={'#f5f5f7'} />
             <a class="footer_email" href="mailto:alessandromosca3011@gmail.com" target="_blank" rel="noopener noreferrer">
               alessandromosca3011@gmail.com
             </a>
           </div>
 
-          <div class="footer-info">
+          <div class="site_footer_info">
             <GlobeFooter fill={'#f5f5f7'} />
             <a href="https://www.brifiworks.com/" target="_blank" class="website_url" rel="noopener noreferrer">
               https://www.brifiworks.com/
