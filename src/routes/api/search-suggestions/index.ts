@@ -22,6 +22,7 @@ export const onGet: RequestHandler = async ({ query, json }) => {
     'service_title',
     'service_primary_name',
     'service_secondary_name',
+    'description',
   ];
 
   // Creo una stringa OR con tutti i termini e campi
@@ -29,7 +30,7 @@ export const onGet: RequestHandler = async ({ query, json }) => {
 
   const { data, error } = await supabase
     .from('professionals')
-    .select('id, first_name, last_name, job_title, position, img_url')
+    .select('id, first_name, last_name, job_title, position, description, img_url')
     .or(orConditions)
     .limit(50);
 

@@ -9,6 +9,11 @@ body {
   margin: 0;
   font-family: 'Roboto Condensed', sans-serif;
 }
+
+body:has(.open) {
+  overflow: hidden;
+}
+
 #home_step {
   display: flex;
   justify-content: center;

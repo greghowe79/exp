@@ -4,7 +4,7 @@ import { Stripe } from 'stripe';
 import { supabase } from '~/lib/db';
 export const onPost: RequestHandler = async (reqEvent) => {
   const stripe_key = reqEvent.env.get('STRIPE_SECRET_KEY');
-  const webhook_secret = reqEvent.env.get('STRIPE_WEBHOOK-SECRET');
+  const webhook_secret = reqEvent.env.get('STRIPE_WEBHOOK_SECRET');
   const stripe = new Stripe(stripe_key!);
   const body = reqEvent.request.body;
   const buffers = [];

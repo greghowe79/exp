@@ -162,6 +162,7 @@ export const onGet: RequestHandler = async ({ query, json }) => {
     'service_title',
     'service_primary_name',
     'service_secondary_name',
+    'description',
   ];
 
   // Query ampia con OR
@@ -170,7 +171,7 @@ export const onGet: RequestHandler = async ({ query, json }) => {
   const { data, error } = await supabase
     .from('professionals')
     .select(
-      'id, first_name, last_name, job_title, position, img_url, service_title, service_primary_name, service_secondary_name, description,has_access'
+      'id, first_name, last_name, job_title, position, img_url, service_title, service_primary_name, service_secondary_name, description, has_access'
     )
     .or(orConditions)
     .limit(100);
