@@ -62,10 +62,72 @@ export const onPost: RequestHandler = async (reqEvent) => {
         const subscription = await stripe.subscriptions.retrieve(event.data.object.id);
 
         if (subscription.customer) {
-          const { error } = await supabase.from('profiles').update({ has_access: false }).eq('customer_id', subscription.customer);
+          const { error } = await supabase
+            .from('profiles')
+            .update({ has_access: false, price_id: '', customer_id: '' })
+            .eq('customer_id', subscription.customer);
           if (error) {
             console.error('Errore aggiornando profilo (revoca accesso):', error);
           }
+
+          const { data, error: emailError } = await supabase
+            .from('profiles')
+            .select('email')
+            .eq('customer_id', subscription.customer)
+            .single();
+
+          if (emailError) {
+            console.error('Email non trovata per cancellazione abbonamento:', emailError);
+          }
+
+          const { error: deleteAccessError } = await supabase.from('professionals').update({ has_access: false }).eq('email', data?.email);
+
+          if (deleteAccessError) {
+            console.error('Email non trovata nella tabella professionals per cancellazione abbonamento:', deleteAccessError);
+          }
+        }
+      }
+
+      if (event.type === 'invoice.payment_succeeded') {
+        const invoice = event.data.object as Stripe.Invoice;
+
+        const { error } = await supabase
+          .from('profiles')
+          .update({ has_access: true })
+          .eq('customer_id', invoice.customer as string);
+
+        if (error) {
+          console.error('Errore aggiornando profilo:', error);
+        }
+
+        const { error: update_access_error } = await supabase
+          .from('professionals')
+          .update({ has_access: true })
+          .eq('email', invoice.customer_email as string);
+
+        if (update_access_error) {
+          console.error('Errore aggiornamento tabella professionisti:', update_access_error);
+        }
+      }
+
+      if (event.type === 'invoice.payment_failed') {
+        const invoice = event.data.object as Stripe.Invoice;
+        const { error } = await supabase
+          .from('profiles')
+          .update({ has_access: false })
+          .eq('customer_id', invoice.customer as string);
+
+        if (error) {
+          console.error('Errore aggiornando profilo:', error);
+        }
+
+        const { error: update_access_error } = await supabase
+          .from('professionals')
+          .update({ has_access: false })
+          .eq('email', invoice.customer_email as string);
+
+        if (update_access_error) {
+          console.error('Errore aggiornamento tabella professionisti:', update_access_error);
         }
       }
     } catch (err: any) {
