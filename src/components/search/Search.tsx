@@ -2,10 +2,13 @@ import { $, component$, useSignal, useStyles$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
 import { _, getLocale } from 'compiled-i18n';
 import styles from './styles.css?inline';
-import { Card, Input } from '@greghowe79/the-lib';
+import { Button, Card, Input } from '@greghowe79/the-lib';
 import { SearchIcon } from '~/assets/search';
 import { useDebouncer$ } from '~/utility/debouncer';
 import { FaGlobeLight } from '~/assets/worldLight';
+
+import { ArrowRight } from '~/assets/arrow_right';
+import { ArrowLeft } from '~/assets/arrow_left';
 
 interface Suggestion {
   id: string;
@@ -22,6 +25,8 @@ const Search = component$(() => {
   const rawInput = useSignal('');
   const loading = useSignal(false);
   const message = useSignal('');
+  const currentPage = useSignal(1);
+  const totalPages = useSignal(1);
 
   useStyles$(styles);
 
@@ -51,7 +56,7 @@ const Search = component$(() => {
     fetchSuggestions(value);
   }, 500);
 
-  const handleSuggestion = $(async (suggestion: Suggestion | string) => {
+  const handleSuggestion = $(async (suggestion: Suggestion | string, page = 1) => {
     let query = '';
 
     if (typeof suggestion === 'string') {
@@ -63,13 +68,15 @@ const Search = component$(() => {
     rawInput.value = query;
     suggestions.value = [];
 
-    console.log('Suggerimento selezionato:', rawInput.value);
     loading.value = true;
 
     try {
-      const res = await fetch(`/api/search-results?q=${encodeURIComponent(rawInput.value)}&locale=${currentLocale}`);
+      const res = await fetch(`/api/search-results?q=${encodeURIComponent(rawInput.value)}&locale=${currentLocale}&page=${page}`);
       const data = await res.json();
       searchResults.value = Array.isArray(data.results) ? data.results : [];
+
+      currentPage.value = data.page ?? 1;
+      totalPages.value = data.totalPages ?? 1;
     } catch (err) {
       console.error('Errore nel recupero risultati:', err);
       searchResults.value = [];
@@ -146,6 +153,34 @@ const Search = component$(() => {
               </div>
             );
           })}
+        </div>
+      )}
+
+      {searchResults.value.length > 0 && (
+        <div class="pagination-container">
+          <div style={{ visibility: currentPage.value > 1 ? 'visible' : 'hidden' }}>
+            <Button
+              id="btn_back_step"
+              type="button"
+              onClick$={() => handleSuggestion(rawInput.value, currentPage.value - 1)}
+              variant="icon"
+              size="lg"
+              icon={<ArrowLeft fill="#232323" />}
+            />
+          </div>
+
+          <span>{`${_('page')} ${currentPage.value} ${_('of')} ${totalPages.value}`}</span>
+
+          <div style={{ visibility: currentPage.value < totalPages.value ? 'visible' : 'hidden' }}>
+            <Button
+              id="btn_next_step"
+              type="button"
+              onClick$={() => handleSuggestion(rawInput.value, currentPage.value + 1)}
+              variant="icon"
+              size="lg"
+              icon={<ArrowRight fill="#232323" />}
+            />
+          </div>
         </div>
       )}
     </main>

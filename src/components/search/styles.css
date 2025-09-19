@@ -137,3 +137,26 @@
   align-items: center;
   justify-content: center;
 }
+
+.icon_right {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+#btn_next_step {
+  flex-direction: row-reverse;
+}
+
+.icon_left {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 200px;
+}
