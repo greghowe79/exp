@@ -1,8 +1,8 @@
 /* eslint-disable qwik/jsx-img */
-import { component$, useResource$, Resource, useStyles$, useSignal, useContext } from '@builder.io/qwik';
+import { component$, useResource$, Resource, useStyles$, useSignal } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { supabase } from '~/lib/db';
-import { UserSessionContext, type UserProfile } from '~/root';
+import { type UserProfile } from '~/root';
 import { Link, useLocation } from '@builder.io/qwik-city';
 import { FacebookFooter } from '~/assets/facebook_footer';
 import { LinkedinFooter } from '~/assets/linkedin_footer';
@@ -18,7 +18,6 @@ import { GitHubFooter } from '~/assets/github_footer';
 import { Logo } from '~/components/logo/logo';
 
 export const Website = component$(() => {
-  const userSession = useContext(UserSessionContext);
   const currentLocale = getLocale();
   const location = useLocation();
   const id = location.params.slug.split('/')[1];
@@ -47,10 +46,7 @@ export const Website = component$(() => {
             <nav>
               <div class="inner_nav">
                 <div>
-                  <Link
-                    href={userSession.isLoggedIn ? `/${currentLocale}` : `/${currentLocale}/${_('slug_website')}/${profile.id}`}
-                    aria-label="Homepage"
-                  >
+                  <Link href={`/${currentLocale}/${_('slug_search')}`} aria-label="Searchpage">
                     <Logo fillCircle="#fff" fillPath={profile.bg_color} />
                   </Link>
                 </div>

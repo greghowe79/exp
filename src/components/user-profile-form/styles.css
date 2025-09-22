@@ -46,6 +46,7 @@
 
 .avatar-item {
   text-align: center;
+  cursor: pointer;
 }
 
 .avatar-image {
@@ -57,7 +58,16 @@
 }
 
 .avatar-image.selected {
-  border-color: blue;
+  border-color: #0095ae;
+}
+
+.avatar-item.selected .avatar-image {
+  border-color: #0095ae;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.avatar-item:hover .avatar-image {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .avatar-label {
@@ -144,6 +154,11 @@
 
 .suggestions-container {
   border-radius: 0.75rem;
+  z-index: 2;
+  background: #fff;
+  width: 100%;
+  top: calc(100% + 0.5rem);
+  position: absolute;
   box-shadow:
     0 9px 8px -3px rgba(64, 60, 67, 0.24),
     8px 0 8px -7px rgba(64, 60, 67, 0.24),
@@ -175,4 +190,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.suggestions-parent {
+  position: relative;
 }

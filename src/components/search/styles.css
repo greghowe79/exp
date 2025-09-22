@@ -38,6 +38,7 @@
   width: 31.25rem;
   max-width: 100%;
   padding: 0 1.25rem;
+  position: relative;
 }
 
 .logo {
@@ -65,17 +66,18 @@
   font-family: 'Roboto', sans-serif;
   line-height: 1.4;
 
-  word-wrap: break-word; /* Forza a capo le parole lunghe */
-  overflow-wrap: break-word; /* Supporto per tutti i browser */
-  white-space: pre-wrap; /* Mantieni spazi e vai a capo automaticamente */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .suggestions-container {
   z-index: 2;
-  top: 325px;
+  top: calc(100% + 0.5rem);
   background-color: white;
-  position: fixed;
-  width: 31.25rem;
+
+  position: absolute;
+  width: calc(100% - 2.5rem);
   border-radius: 0.75rem;
   box-shadow:
     0 9px 8px -3px rgba(64, 60, 67, 0.24),

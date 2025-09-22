@@ -121,19 +121,16 @@ const UserProfileForm = component$(() => {
 
     loading.value = true;
 
-    const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
-      query
-    )}&format=json&addressdetails=1&limit=5&accept-language=it`;
-
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': 'my-qwik-empty-starter (alessandromosca3011@gmail.com)', // necessario!
-      },
-    });
-
-    const data = await res.json();
-    suggestions.value = data;
-    loading.value = false;
+    try {
+      const res = await fetch(`/api/search-location?q=${encodeURIComponent(query)}`);
+      const data = await res.json();
+      suggestions.value = Array.isArray(data) ? data : [];
+    } catch (err) {
+      console.error('Errore fetch suggerimenti:', err);
+      suggestions.value = [];
+    } finally {
+      loading.value = false;
+    }
   });
 
   const debounce = useDebouncer$((value: string) => {
@@ -181,15 +178,12 @@ const UserProfileForm = component$(() => {
 
               <div class="avatar-container">
                 {avatars.map((avatar) => (
-                  <div class="avatar-item" key={avatar.value}>
-                    <img
-                      src={avatar.url}
-                      alt={avatar.label}
-                      width={120}
-                      height={120}
-                      class={`avatar-image ${selectedAvatar.value === avatar.value ? 'selected' : ''}`}
-                      onClick$={() => handleSelect$(avatar.value)}
-                    />
+                  <div
+                    class={`avatar-item ${selectedAvatar.value === avatar.value ? 'selected' : ''}`}
+                    key={avatar.value}
+                    onClick$={() => handleSelect$(avatar.value)}
+                  >
+                    <img src={avatar.url} alt={avatar.label} width={120} height={120} class="avatar-image" />
                     <div class="avatar-label">{avatar.label}</div>
                   </div>
                 ))}
@@ -281,44 +275,44 @@ const UserProfileForm = component$(() => {
               icon={FaGlobe}
               bgLight
             />
-
-            <Input
-              id="position_user_profile"
-              type="text"
-              placeholder={_('placeholder_location_format')}
-              value={position}
-              icon={Marker}
-              label={_('user_profile_position')}
-              bgLight
-              required
-              error={positionError}
-              onValidate$={async () => {
-                const error = await validatePosition(isValidLocation.value);
-                positionError.value = error ?? '';
-                return positionError.value;
-              }}
-              onInput$={(_, target) => {
-                rawInput.value = target.value;
-                debounce(target.value);
-                isValidLocation.value = false;
-              }}
-            />
-            {loading.value ? (
-              <p class="text-sm text-gray-500">Caricamento...</p>
-            ) : (
-              suggestions.value.length > 0 && (
-                <div class="suggestions-container">
-                  <ul class="suggestions-list">
-                    {suggestions.value.map((s) => (
-                      <li key={s.place_id} class="suggestion-item" onClick$={() => handleLocationClick(s)}>
-                        {s.display_name}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )
-            )}
-
+            <div class="suggestions-parent">
+              <Input
+                id="position_user_profile"
+                type="text"
+                placeholder={_('placeholder_location_format')}
+                value={position}
+                icon={Marker}
+                label={_('user_profile_position')}
+                bgLight
+                required
+                error={positionError}
+                onValidate$={async () => {
+                  const error = await validatePosition(isValidLocation.value);
+                  positionError.value = error ?? '';
+                  return positionError.value;
+                }}
+                onInput$={(_, target) => {
+                  rawInput.value = target.value;
+                  debounce(target.value);
+                  isValidLocation.value = false;
+                }}
+              />
+              {loading.value ? (
+                <p class="loading-position">Caricamento...</p>
+              ) : (
+                suggestions.value.length > 0 && (
+                  <div class="suggestions-container">
+                    <ul class="suggestions-list">
+                      {suggestions.value.map((s) => (
+                        <li key={s.place_id} class="suggestion-item" onClick$={() => handleLocationClick(s)}>
+                          {s.display_name}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+              )}
+            </div>
             <div>
               <h2>{_('choose_background_color')}</h2>
 
