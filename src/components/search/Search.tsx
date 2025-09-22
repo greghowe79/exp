@@ -162,7 +162,10 @@ const Search = component$(() => {
             <Button
               id="btn_back_step"
               type="button"
-              onClick$={() => handleSuggestion(rawInput.value, currentPage.value - 1)}
+              onClick$={() => {
+                handleSuggestion(rawInput.value, currentPage.value - 1);
+                window.scrollTo(0, 0);
+              }}
               variant="icon"
               size="lg"
               icon={<ArrowLeft fill="#232323" />}
@@ -175,7 +178,10 @@ const Search = component$(() => {
             <Button
               id="btn_next_step"
               type="button"
-              onClick$={() => handleSuggestion(rawInput.value, currentPage.value + 1)}
+              onClick$={() => {
+                handleSuggestion(rawInput.value, currentPage.value + 1);
+                window.scrollTo(0, 0);
+              }}
               variant="icon"
               size="lg"
               icon={<ArrowRight fill="#232323" />}
