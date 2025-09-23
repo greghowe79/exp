@@ -45,6 +45,7 @@ export const AutoLogout = component$(() => {
   useOnDocument('scroll', resetActivity);
   useOnDocument('touchstart', resetActivity);
 
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
     const interval = setInterval(() => {
       if (!userSession.isLoggedIn) {

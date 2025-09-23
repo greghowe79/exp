@@ -96,6 +96,8 @@ const Search = component$(() => {
           preventdefault:submit
           onSubmit$={async (event) => {
             event.preventDefault();
+            debounce.cancel();
+            suggestions.value = [];
             if (rawInput.value.length > 0) await handleSuggestion(rawInput.value);
           }}
         >
@@ -107,7 +109,7 @@ const Search = component$(() => {
             value={rawInput}
             onInput$={(_, target) => {
               rawInput.value = target.value;
-              debounce(target.value);
+              debounce.run(target.value);
             }}
             icon={<SearchIcon fill={'#232323'} />}
             bgLight

@@ -316,7 +316,7 @@ export const onGet: RequestHandler = async ({ query, json }) => {
   const currentLocale = query.get('locale') || 'it-IT';
   setLocaleGetter(() => currentLocale);
 
-  const maxPerPage = 9; // massimo risultati per pagina
+  const maxPerPage = 12; // massimo risultati per pagina
   let page = parseInt(query.get('page') || '1');
 
   if (!q) {
