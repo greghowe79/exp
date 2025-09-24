@@ -1,75 +1,84 @@
-import { component$, useStyles$ } from '@builder.io/qwik';
+import { component$, useContext, useStyles$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { _, getLocale } from 'compiled-i18n';
 import { Link } from '@builder.io/qwik-city';
+import { UserSessionContext } from '~/root';
 
 export const Services = component$(() => {
   const currentLocale = getLocale();
+  const userSession = useContext(UserSessionContext);
+
   useStyles$(styles);
   return (
     <>
       <header>
-        <h1 class="service_main_title">Servizi offerti dal portale</h1>
-        <p>Dal profilo alla visibilità: scopri cosa puoi fare</p>
+        <h1 class="service_main_title">{_('page_services_main_title')}</h1>
+        <p>{_('page_services_subtitle')}</p>
       </header>
 
       <main class="services_container">
         <div class="highlight">
-          <strong>Chiunque può registrarsi e creare la propria pagina personale gratuitamente.</strong>
+          <strong>{_('highlight_strong')}</strong>
           <br />
-          Ma solo con l’abbonamento la pagina viene resa pubblica, visibile e completamente accessibile nel motore di ricerca.
+          {_('highlight_after')}
         </div>
 
         <section class="section">
-          <h2 class="service_subtitle">✅ Cosa puoi creare (gratuitamente)</h2>
-          <p>Tutti gli utenti registrati possono creare una pagina web con:</p>
+          <h2 class="service_subtitle">{_('section_free_title')}</h2>
+          <p>{_('section_free_description')}</p>
           <ul class="check-list">
-            <li>Avatar (immagine profilo)</li>
-            <li>Nome e cognome</li>
-            <li>Descrizione professionale</li>
-            <li>Fino a 3 servizi offerti</li>
-            <li>Fino a 3 casi di successo che evidenziano la tua esperienza</li>
-            <li>Footer con posizione, email, telefono, social, sito web</li>
+            <li>{_('free_avatar')}</li>
+            <li>{_('free_name')}</li>
+            <li>{_('free_professional_description')}</li>
+            <li>{_('free_up_to_3_services')}</li>
+            <li>{_('free_up_to_3_success_cases')}</li>
+            <li>{_('free_footer_info')}</li>
           </ul>
         </section>
 
         <section class="section">
-          <h2 class="service_subtitle">🔒 Se non attivi l’abbonamento</h2>
+          <h2 class="service_subtitle">{_('section_no_subscription_title')}</h2>
           <ul class="check-list">
             <li>
-              La tua <strong>card personale</strong> (avatar, nome, professione, descrizione breve) è visibile nel motore di ricerca
+              {_('no_sub_card_before')}
+              <strong>{_('no_sub_card_strong')}</strong>
+              {_('no_sub_card_after')}
             </li>
             <li>
-              La tua pagina completa <strong>non è accessibile</strong> ai visitatori
+              {_('no_sub_page_before')}
+              <strong>{_('no_sub_page_strong')}</strong>
+              {_('no_sub_page_after')}
             </li>
-            <li>I tuoi contatti e dettagli rimangono nascosti</li>
+            <li>{_('no_sub_contacts_hidden')}</li>
           </ul>
         </section>
 
         <section class="section">
-          <h2 class="service_subtitle">🚀 Con l’abbonamento attivo (€4.9/mese o €39/anno)</h2>
+          <h2 class="service_subtitle">{_('section_subscription_title')}</h2>
           <ul class="check-list">
             <li>
-              La tua <strong>pagina web completa viene pubblicata</strong>
+              {_('sub_page_before')}
+              <strong>{_('sub_page_strong')}</strong>
             </li>
-            <li>I visitatori possono vedere i tuoi contatti, descrizione e servizi</li>
-            <li>Appari tra i risultati del motore di ricerca con profilo completo</li>
-            <li>Ricevi più visibilità e possibilità di essere contattato</li>
+            <li>{_('sub_visitors')}</li>
+            <li>{_('sub_search')}</li>
+            <li>{_('sub_visibility')}</li>
           </ul>
         </section>
 
         <section class="section">
-          <h2 class="service_subtitle">🛠 Come funziona</h2>
+          <h2 class="service_subtitle">{_('section_how_title')}</h2>
           <ol>
-            <li>Registrati gratuitamente</li>
-            <li>Crea la tua pagina personale</li>
-            <li>Attiva l’abbonamento per renderla pubblica e visibile</li>
+            <li>{_('how_step1')}</li>
+            <li>{_('how_step2')}</li>
+            <li>{_('how_step3')}</li>
           </ol>
         </section>
 
         <div class="cta">
-          <Link href={`/${currentLocale}/${_('slug_signup')}/`}>Registrati gratuitamente</Link>
-          <Link href={`/${currentLocale}/${_('slug_pricing')}/`}>Attiva la tua visibilità</Link>
+          {!userSession.isLoggedIn && <Link href={`/${currentLocale}/${_('slug_signup')}/`}>{_('cta_signup')}</Link>}
+
+          {!userSession.hasAccess && <Link href={`/${currentLocale}/${_('slug_pricing')}/`}>{_('cta_pricing')}</Link>}
         </div>
       </main>
     </>

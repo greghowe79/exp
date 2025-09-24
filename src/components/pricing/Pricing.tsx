@@ -118,8 +118,6 @@ export const Pricing = component$(() => {
                       return;
                     }
                   }}
-                  // target={userSession.isLoggedIn && !userSession.hasAccess ? '_blank' : undefined}
-                  // rel={userSession.isLoggedIn && !userSession.hasAccess ? 'noopener noreferrer' : undefined}
                 >
                   {_('page_pricing_btn')}
                 </a>
