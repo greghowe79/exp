@@ -102,7 +102,7 @@ const UserProfileForm = component$(() => {
     thirdSuccessfulCaseTitle,
     thirdSuccessfulCaseDescription,
   } = useAuth('USER_PROFILE', nav);
-
+  //
   const handleSelect$ = $(async (avatarValue: string) => {
     const avatar = avatars.find((a) => a.value === avatarValue);
     if (!avatar) return;
