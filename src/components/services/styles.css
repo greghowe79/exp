@@ -50,6 +50,7 @@ ol {
   font-weight: bold;
   border-radius: 6px;
   font-weight: 500;
+  width: 14.375rem;
 }
 .cta a:hover {
   background-color: #005bb5;
@@ -122,5 +123,6 @@ strong {
     text-align: center;
     font-size: 1rem;
     padding: 0.9rem 1rem;
+    margin: 1rem 0 0;
   }
 }
