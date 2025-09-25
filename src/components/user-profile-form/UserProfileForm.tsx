@@ -293,7 +293,7 @@ const UserProfileForm = component$(() => {
                 }}
                 onInput$={(_, target) => {
                   rawInput.value = target.value;
-                  debounce(target.value);
+                  debounce.run(target.value);
                   isValidLocation.value = false;
                 }}
               />
