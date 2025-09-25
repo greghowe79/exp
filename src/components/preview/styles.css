@@ -41,7 +41,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  height: 500px;
+  height: 50rem;
 }
 
 .preview-overlay {
@@ -79,7 +79,8 @@
   padding: 1.5rem 2rem;
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  max-width: 350px;
+  width: 31rem;
+  max-width: 90%;
   text-align: center;
   z-index: 10;
   pointer-events: auto;
@@ -91,7 +92,6 @@
 }
 
 .preview-upsell h3 {
-  margin-bottom: 0.5rem;
   font-size: 1.5rem;
   color: #222;
 }
@@ -103,7 +103,7 @@
 }
 
 .preview-upsell ul {
-  list-style: disc;
+  list-style: none;
   padding-left: 1.2rem;
   margin-bottom: 1.5rem;
   color: #444;
@@ -152,4 +152,43 @@
 
 .back_button:hover {
   text-decoration: underline;
+}
+
+ul.check-list {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+ul.check-list li {
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+ul.check-list li::before {
+  content: '✔️ ';
+}
+
+ul.check-list strong {
+  letter-spacing: 0.03rem;
+  color: #333;
+}
+
+@media screen and (max-width: 768px) {
+  ul.check-list {
+    padding-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  ul.check-list li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.4rem;
+  }
+  .preview-upsell {
+    padding: 2rem 1rem;
+  }
+  .preview-upsell h3 {
+    font-size: 1.25rem;
+  }
 }

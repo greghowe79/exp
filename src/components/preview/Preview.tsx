@@ -54,11 +54,15 @@ const Preview = component$(() => {
                   <div class="iframe-click-blocker" />
                   <div class="preview-upsell">
                     <h3>✨ {_('unlock_full_site')}</h3>
-                    <p>{_('premium_features_intro')}</p>
-                    <ul>
-                      <li>{_('premium_feature_remove_blur')}</li>
-                      <li>{_('premium_feature_custom_domain')}</li>
-                      <li>{_('premium_feature_advanced_stats')}</li>
+                    {/* <p>{_('premium_features_intro')}</p> */}
+                    <ul class="check-list">
+                      <li>
+                        {_('sub_page_before')}
+                        <strong>{_('sub_page_strong')}</strong>
+                      </li>
+                      <li>{_('sub_visitors')}</li>
+                      <li>{_('sub_search')}</li>
+                      <li>{_('sub_visibility')}</li>
                     </ul>
                     <button class="upgrade-button" onClick$={() => nav(`/${currentLocale}/${_('slug_pricing')}/`)}>
                       {_('upgrade_to_premium')}
@@ -81,28 +85,3 @@ const Preview = component$(() => {
 });
 
 export default Preview;
-
-{
-  /* <div class="card-social">
-                {item.facebook && (
-                  <a href={item.facebook} target="_blank" rel="noopener noreferrer">
-                    <FacebookLight />
-                  </a>
-                )}
-                {item.twitter && (
-                  <a href={item.twitter} target="_blank" rel="noopener noreferrer">
-                    <TwitterLight />
-                  </a>
-                )}
-                {item.instagram && (
-                  <a href={item.instagram} target="_blank" rel="noopener noreferrer">
-                    <InstagramLight />
-                  </a>
-                )}
-                {item.linkedin && (
-                  <a href={item.linkedin} target="_blank" rel="noopener noreferrer">
-                    <LinkedinLight />
-                  </a>
-                )}
-              </div> */
-}
