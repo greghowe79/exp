@@ -92,6 +92,8 @@ const Search = component$(() => {
       </Link>
       <div class="content-container">
         <img class="logo" src="http://localhost:5173/logo.svg" width="150" height="150" alt="Site Snap logo" />
+
+        <h1 class="visually-hidden">{_('search_professionals')}</h1>
         <form
           preventdefault:submit
           onSubmit$={async (event) => {
@@ -104,8 +106,8 @@ const Search = component$(() => {
           <Input
             id="input_search"
             type="search"
-            label="Cerca professionisti o organizzazioni"
-            placeholder="Cerca con Site Snap"
+            label={_('search_professionals')}
+            placeholder={_('search_with_sitesnap')}
             value={rawInput}
             onInput$={(_, target) => {
               rawInput.value = target.value;
