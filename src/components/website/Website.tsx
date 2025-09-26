@@ -22,6 +22,7 @@ export const Website = component$(() => {
   const location = useLocation();
   const id = location.params.slug.split('/')[1];
   const menuOpen = useSignal(false);
+  const isPreview = location.url.searchParams.get('preview') === 'true';
 
   const data = useResource$<UserProfile>(async () => {
     const { data, error } = await supabase.from('professionals').select('*').eq('id', id).single();
@@ -46,19 +47,20 @@ export const Website = component$(() => {
             <nav>
               <div class="inner_nav">
                 <div>
-                  <Link href={`/${currentLocale}/${_('slug_search')}`} aria-label="Searchpage">
+                  <Link href={`/${currentLocale}/${_('slug_search')}`} aria-label="Searchpage" class={isPreview ? 'disabled-link' : ''}>
                     <Logo fillCircle="#fff" fillPath={profile.bg_color} />
                   </Link>
                 </div>
                 <div class="inner_nav_element_container">
                   <span class="email">
-                    <a href={`mailto:${profile.email}`} target="_blank" rel="noopener noreferrer">
+                    <a href={`mailto:${profile.email}`} target="_blank" rel="noopener noreferrer" class={isPreview ? 'disabled-link' : ''}>
                       {profile.email}
                     </a>
                   </span>
 
                   <button
-                    class={`menu-button ${menuOpen.value ? 'open' : ''}`}
+                    //class={`menu-button ${menuOpen.value ? 'open' : ''}`}
+                    class={`menu-button ${menuOpen.value ? 'open' : ''} ${isPreview ? 'disabled' : ''}`}
                     onClick$={() => (menuOpen.value = !menuOpen.value)}
                     aria-label="Toggle navigation menu"
                   >
@@ -301,67 +303,6 @@ export const Website = component$(() => {
               </div>
             </section>
 
-            {/* --- SEZIONE STORIE DI SUCCESSO --- */}
-            {/* <section class="success-stories" id="success-stories">
-              <div class="divider"></div>
-              <div class="section_area">
-                <div class="section_content_wrapper">
-                  <div class="content-section">
-                    <div class="header_section" style={{ borderBottom: `2px solid ${profile.bg_color}` }}>
-                      <div class="title" style={{ color: `${profile.bg_color}` }}>
-                        STORIE DI SUCCESSO
-                      </div>
-                      <div class="step" style={{ color: `${profile.bg_color}` }}>
-                        02
-                      </div>
-                    </div>
-
-                    <div class="success-grid">
-                  
-                      <div class="success-card">
-                        <img
-                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/v916-nunny-633-removebg-preview.png"
-                          alt="Collaborazione team"
-                          class="success-image"
-                        />
-                        <div class="success-content">
-                          <h3 class="success-title">{profile.first_successful_case_title}</h3>
-                          <p class="success-description">{profile.first_successful_case_description}</p>
-                        </div>
-                      </div>
-
-                    
-                      <div class="success-card">
-                        <img
-                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/36716-removebg-preview.png"
-                          alt="Tecnologia e creatività"
-                          class="success-image"
-                        />
-                        <div class="success-content">
-                          <h3 class="success-title">{profile.second_successful_case_title}</h3>
-                          <p class="success-description">{profile.second_successful_case_description}</p>
-                        </div>
-                      </div>
-
-                     
-                      <div class="success-card">
-                        <img
-                          src="https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/website/target-removebg-preview.png"
-                          alt="Successo e crescita"
-                          class="success-image"
-                        />
-                        <div class="success-content">
-                          <h3 class="success-title">{profile.third_successful_case_title}</h3>
-                          <p class="success-description">{profile.third_successful_case_description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section> */}
-            {/* --- FINE SEZIONE STORIE DI SUCCESSO --- */}
-
             <footer id="contact">
               <div class="footer-container">
                 <div class="footer-column">
@@ -370,7 +311,7 @@ export const Website = component$(() => {
                     <div class="footer-info">
                       <LocationFooter fill={'#232323'} />{' '}
                       <a
-                        class="website_url"
+                        class={`website_url ${isPreview ? 'disabled-link' : ''}`}
                         href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(profile.position)}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -381,19 +322,32 @@ export const Website = component$(() => {
                   )}
                   {profile.telephone && (
                     <div class="footer-info">
-                      <MobileFooter fill={'#232323'} /> <a href={`tel:${profile.telephone}`}>{profile.telephone}</a>
+                      <MobileFooter fill={'#232323'} />{' '}
+                      <a class={isPreview ? 'disabled-link' : ''} href={`tel:${profile.telephone}`}>
+                        {profile.telephone}
+                      </a>
                     </div>
                   )}
                   <div class="footer-info">
                     <EnvelopeFooter fill={'#232323'} />
-                    <a class="footer_email" href={`mailto:${profile.email}`} target="_blank" rel="noopener noreferrer">
+                    <a
+                      class={`footer_email ${isPreview ? 'disabled-link' : ''}`}
+                      href={`mailto:${profile.email}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {profile.email}
                     </a>
                   </div>
                   {profile.website && (
                     <div class="footer-info">
                       <GlobeFooter fill={'#232323'} />
-                      <a href={profile.website} target="_blank" class="website_url" rel="noopener noreferrer">
+                      <a
+                        href={profile.website}
+                        target="_blank"
+                        class={`website_url ${isPreview ? 'disabled-link' : ''}`}
+                        rel="noopener noreferrer"
+                      >
                         {profile.website}
                       </a>
                     </div>
@@ -405,32 +359,68 @@ export const Website = component$(() => {
                     <h3>{_('social_media')}</h3>
                     <div class="social-icons">
                       {profile.facebook && (
-                        <a href={profile.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={profile.facebook}
+                          aria-label="Facebook"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class={isPreview ? 'disabled-link' : ''}
+                        >
                           <FacebookFooter fill={'#232323'} />
                         </a>
                       )}
                       {profile.instagram && (
-                        <a href={profile.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={profile.instagram}
+                          aria-label="Instagram"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class={isPreview ? 'disabled-link' : ''}
+                        >
                           <InstagramFooter fill={'#232323'} />
                         </a>
                       )}
                       {profile.linkedin && (
-                        <a href={profile.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={profile.linkedin}
+                          aria-label="LinkedIn"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class={isPreview ? 'disabled-link' : ''}
+                        >
                           <LinkedinFooter fill={'#232323'} />
                         </a>
                       )}
                       {profile.twitter && (
-                        <a href={profile.twitter} aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={profile.twitter}
+                          aria-label="Twitter"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class={isPreview ? 'disabled-link' : ''}
+                        >
                           <TwitterFooter fill={'#232323'} />
                         </a>
                       )}
                       {profile.github && (
-                        <a href={profile.github} aria-label="Github" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={profile.github}
+                          aria-label="Github"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class={isPreview ? 'disabled-link' : ''}
+                        >
                           <GitHubFooter fill={'#232323'} />
                         </a>
                       )}
                       {profile.youtube && (
-                        <a href={profile.youtube} aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={profile.youtube}
+                          aria-label="YouTube"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class={isPreview ? 'disabled-link' : ''}
+                        >
                           <YouTubeFooter fill={'#232323'} />
                         </a>
                       )}

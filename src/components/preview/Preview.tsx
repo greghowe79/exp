@@ -50,7 +50,7 @@ const Preview = component$(() => {
             {showPreview.value && (
               <div class="website-preview">
                 <div class="preview-overlay">
-                  <iframe src={`/${currentLocale}/${_('slug_website')}/${id}`} class="preview-iframe" />
+                  <iframe src={`/${currentLocale}/${_('slug_website')}/${id}?preview=true`} class="preview-iframe" />
                   <div class="iframe-click-blocker" />
                   <div class="preview-upsell">
                     <h3>✨ {_('unlock_full_site')}</h3>
