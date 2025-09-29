@@ -1,4 +1,4 @@
-import { $, useComputed$, useSignal, useContext, type NoSerialize } from '@builder.io/qwik';
+import { $, useComputed$, useSignal, useContext, type NoSerialize, useVisibleTask$ } from '@builder.io/qwik';
 import { PopupContext, type UserProfile, UserSessionContext } from '~/root';
 import { _, getLocale } from 'compiled-i18n';
 import { AuthService } from '~/services/auth.service';
@@ -65,6 +65,75 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const isValidLocation = useSignal(false);
   const currentStep = useSignal(1);
 
+  const hasWebsite = useSignal(false);
+  const isInitialized = useSignal(false);
+  const selectedAvatar = useSignal<string | null>(null);
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(async () => {
+    if (type !== 'USER_PROFILE') return;
+
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+
+    if (!session) {
+      isInitialized.value = true;
+      return;
+    }
+
+    userSession.userId = session.user.id;
+
+    const { data, error } = await supabase.from('professionals').select('*').eq('id', userSession.userId).maybeSingle();
+
+    if (error) {
+      console.error(error);
+      hasWebsite.value = false;
+      isInitialized.value = true;
+      return;
+    }
+
+    if (data) {
+      hasWebsite.value = true;
+      firstName.value = data.first_name ?? '';
+      lastName.value = data.last_name ?? '';
+      jobTitle.value = data.job_title ?? '';
+      description.value = data.description ?? '';
+      email.value = data.email ?? '';
+      phone.value = data.telephone ?? '';
+      website.value = data.website ?? '';
+      facebook.value = data.facebook ?? '';
+      linkedin.value = data.linkedin ?? '';
+      twitter.value = data.twitter ?? '';
+      youtube.value = data.youtube ?? '';
+      instagram.value = data.instagram ?? '';
+      github.value = data.github ?? '';
+      serviceTitle.value = data.service_title ?? '';
+      serviceDescription.value = data.service_description ?? '';
+      servicePrimaryName.value = data.service_primary_name ?? '';
+      serviceSecondaryName.value = data.service_secondary_name ?? '';
+      serviceTertiaryName.value = data.service_tertiary_name ?? '';
+      servicePrimaryPercent.value = data.service_primary_percent ?? '';
+      serviceSecondaryPercent.value = data.service_secondary_percent ?? '';
+      serviceTertiaryPercent.value = data.service_tertiary_percent ?? '';
+      bgColor.value = data.bg_color ?? colors[0].value;
+      position.value = data.position ?? '';
+      firstSuccessfulCaseTitle.value = data.first_successful_case_title ?? '';
+      firstSuccessfulCaseDescription.value = data.first_successful_case_description ?? '';
+      secondSuccessfulCaseTitle.value = data.second_successful_case_title ?? '';
+      secondSuccessfulCaseDescription.value = data.second_successful_case_description ?? '';
+      thirdSuccessfulCaseTitle.value = data.third_successful_case_title ?? '';
+      thirdSuccessfulCaseDescription.value = data.third_successful_case_description ?? '';
+      imgUrl.value = data.img_url ?? '';
+      avatarImgUrl.value = data.avatar_img_url ?? '';
+      selectedAvatar.value = data.avatar_name ?? '';
+    } else {
+      hasWebsite.value = false;
+    }
+
+    isInitialized.value = true;
+  });
+
   const isSubmitDisabled = useComputed$(() => {
     if (type === 'LOGIN' || type === 'SIGNUP' || type === 'UPDATE-PASSWORD') {
       return (
@@ -84,8 +153,8 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
 
     if (type === 'USER_PROFILE') {
       const requiredFieldsStepOne = [
-        currentFile.value,
-        selectedAvatarFile.value,
+        currentFile.value || imgUrl.value,
+        selectedAvatarFile.value || selectedAvatar.value,
         firstName.value.trim(),
         lastName.value.trim(),
         jobTitle.value.trim(),
@@ -270,8 +339,8 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
       try {
         if (!userSession.userId) throw new Error('User ID mancante');
 
-        await AuthService.uploadImageProfileToTheStorage(userSession, currentFile, imgUrl, CDNURL);
-        await AuthService.uploadImageProfileToTheStorage(userSession, selectedAvatarFile, avatarImgUrl, CDNURL);
+        await AuthService.uploadImageProfileToTheStorage(userSession, currentFile, imgUrl, CDNURL, 'profile');
+        await AuthService.uploadImageProfileToTheStorage(userSession, selectedAvatarFile, avatarImgUrl, CDNURL, 'avatar');
 
         const currentDate = new Date().toISOString();
 
@@ -311,10 +380,23 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
           third_successful_case_title: thirdSuccessfulCaseTitle.value,
           third_successful_case_description: thirdSuccessfulCaseDescription.value,
           has_access: data?.has_access,
+          avatar_name: selectedAvatar.value,
           created_at: currentDate,
         };
 
-        await AuthService.insertUser(userProfile);
+        //await AuthService.insertUser(userProfile);
+
+        if (hasWebsite.value) {
+          // UPDATE record esistente
+          const { error } = await supabase.from('professionals').update(userProfile).eq('id', userSession.userId);
+
+          if (error) {
+            throw new Error(error.message);
+          }
+        } else {
+          // INSERT nuovo record
+          await AuthService.insertUser(userProfile);
+        }
 
         data?.has_access
           ? await navigate?.(`/${currentLocale}/${_('slug_website')}/${userSession.userId}`)
@@ -418,5 +500,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
     secondSuccessfulCaseDescription,
     thirdSuccessfulCaseTitle,
     thirdSuccessfulCaseDescription,
+    imgUrl,
+    selectedAvatar,
   };
 };

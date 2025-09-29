@@ -47,7 +47,7 @@ interface LocationResult {
 
 const UserProfileForm = component$(() => {
   const nav = useNavigate();
-  const selectedAvatar = useSignal<string | null>(null);
+  // const selectedAvatar = useSignal<string | null>(null);
   const colors = getListColor();
   const avatars = getListAvatars();
   const suggestions = useSignal<LocationResult[]>([]);
@@ -101,6 +101,8 @@ const UserProfileForm = component$(() => {
     secondSuccessfulCaseDescription,
     thirdSuccessfulCaseTitle,
     thirdSuccessfulCaseDescription,
+    imgUrl,
+    selectedAvatar,
   } = useAuth('USER_PROFILE', nav);
   //
   const handleSelect$ = $(async (avatarValue: string) => {
@@ -172,7 +174,20 @@ const UserProfileForm = component$(() => {
           <p class="contact_form-section-description">{_('main_contact_description')}</p>
 
           <div class="contact-entry">
-            <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} required />
+            <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} imgUrl={imgUrl} required />
+
+            <div class="wrap_profile_image">
+              <div class="profile-container">
+                <img
+                  src={imgUrl.value}
+                  alt="Professional image profile"
+                  width={200}
+                  height={200}
+                  style={{ display: imgUrl.value ? 'block' : 'none' }}
+                />
+              </div>
+            </div>
+
             <div>
               <h2>{_('choose_your_avatar')}</h2>
 
@@ -193,7 +208,6 @@ const UserProfileForm = component$(() => {
                 <strong>{avatars.find((a) => a.value === selectedAvatar.value)?.label ?? _('none')}</strong>
               </div>
             </div>
-
             <Input
               id="firstName_user_profile"
               type="text"
@@ -221,7 +235,6 @@ const UserProfileForm = component$(() => {
               label={_('user_profile_job')}
               required
             />
-
             <TextArea
               id="description_user_profile"
               content={description}
@@ -230,7 +243,6 @@ const UserProfileForm = component$(() => {
               placeholder={_('user_profile_summary')}
               title={_('user_profile_summary')}
             />
-
             <Input
               id="input_email_user_profile"
               type="email"
@@ -265,7 +277,6 @@ const UserProfileForm = component$(() => {
               }}
               bgLight
             />
-
             <Input
               id="website_user_profile"
               type="url"
