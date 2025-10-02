@@ -54,7 +54,7 @@ export default component$(() => {
   const listItems = getListItems(currentLocale);
 
   const newAction = !isSessionLoading.value ? actions : [];
-
+  ////
   return (
     <>
       {normalizedPath !== `/${_('slug_login')}/` &&
