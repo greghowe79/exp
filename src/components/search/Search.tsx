@@ -10,6 +10,8 @@ import { FaGlobeLight } from '~/assets/worldLight';
 import { ArrowRight } from '~/assets/arrow_right';
 import { ArrowLeft } from '~/assets/arrow_left';
 
+const PUBLIC_BASE_URL = import.meta.env.PUBLIC_BASE_URL || 'http://localhost:5173';
+
 interface Suggestion {
   id: string;
   name: string;
@@ -91,7 +93,8 @@ const Search = component$(() => {
         ← {_('form_back_home')}
       </Link>
       <div class="content-container">
-        <img class="logo" src="http://localhost:5173/logo.svg" width="150" height="150" alt="Site Snap logo" />
+        {/*  <img class="logo" src="http://localhost:5173/logo.svg" width="150" height="150" alt="Site Snap logo" /> */}
+        <img class="logo" src={`${PUBLIC_BASE_URL}/logo.svg`} width="150" height="150" alt="Site Snap logo" />
 
         <h1 class="visually-hidden">{_('search_professionals')}</h1>
         <form

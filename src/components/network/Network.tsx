@@ -3,6 +3,7 @@ import styles from './styles.css?inline';
 import { Button } from '@greghowe79/the-lib';
 import { useNavigate } from '@builder.io/qwik-city';
 import { _, getLocale } from 'compiled-i18n';
+const PUBLIC_BASE_URL = import.meta.env.PUBLIC_BASE_URL || 'http://localhost:5173';
 
 const Network = component$(() => {
   const navigate = useNavigate();
@@ -25,7 +26,8 @@ const Network = component$(() => {
         </div>
 
         <div class="column">
-          <img class="img-responsive" src="http://localhost:5173/network.png" width="630" height="400" alt="Professional Network" />
+          {/* <img class="img-responsive" src="http://localhost:5173/network.png" width="630" height="400" alt="Professional Network" /> */}
+          <img class="img-responsive" src={`${PUBLIC_BASE_URL}/network.png`} width="630" height="400" alt="Professional Network" />
         </div>
       </div>
     </div>
