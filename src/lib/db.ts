@@ -11,9 +11,9 @@
 
 import { createClient } from "@supabase/supabase-js";
 
-
-const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
-const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
+// Client per il browser: usa solo le variabili PUBLIC
+const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL;
+const supabaseKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseKey) {
   throw new Error('PUBLIC_SUPABASE_URL e PUBLIC_SUPABASE_ANON_KEY devono essere impostate');
