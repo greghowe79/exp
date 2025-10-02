@@ -57,7 +57,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const colors = getListColor();
   const bgColor = useSignal(colors[0].value);
   const position = useSignal('');
-  // const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
+  /// const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
 
   const CDNURL = import.meta.env.SUPABASE_BUCKET_URL || 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
   const selectedFile = useSignal(_('user_profile_image'));
