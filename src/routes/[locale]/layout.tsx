@@ -9,7 +9,7 @@ import LanguageSelector from '~/components/language-selector/languageSelector';
 import { guessLocale, locales, getLocale, _ } from 'compiled-i18n';
 import { PopupDisplay } from '~/components/popup/Popup';
 import { SessionLoadingContext } from '~/root';
-//import { AutoLogout } from '~/components/auto-logout/AutoLogout';
+import { AutoLogout } from '~/components/auto-logout/AutoLogout';
 import { Footer } from '~/components/footer/Footer';
 
 const replaceLocale = (pathname: string, oldLocale: string, locale: string) => {
@@ -98,7 +98,7 @@ export default component$(() => {
 
       {normalizedPath === `/` && <Footer />}
 
-      {/* <AutoLogout /> */}
+      <AutoLogout />
     </>
   );
 });
