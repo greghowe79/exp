@@ -16,6 +16,8 @@
 
 import { createClient } from '@supabase/supabase-js';
 
+
+
 if (!process.env.PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
   throw new Error('⚠️ Missing Supabase environment variables for server-side usage.');
 }
