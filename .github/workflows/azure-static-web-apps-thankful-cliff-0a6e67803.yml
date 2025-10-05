@@ -104,10 +104,38 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Create .env file
+        run: |
+          cat > .env << EOF
+          PUBLIC_SUPABASE_URL=${{ secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY=${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          PUBLIC_BASE_URL=${{ secrets.PUBLIC_BASE_URL }}
+          SUPABASE_BUCKET_URL=${{ secrets.SUPABASE_BUCKET_URL }}
+          STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}
+          STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}
+          EOF
+          echo "✅ .env file created"
+          # Verifica che le variabili siano impostate (senza mostrare i valori)
+          if [ -z "${{ secrets.PUBLIC_SUPABASE_URL }}" ]; then
+            echo "❌ PUBLIC_SUPABASE_URL is not set!"
+            exit 1
+          fi
+
+      - name: Debug environment
+        run: |
+          echo "Checking if .env file exists..."
+          if [ -f .env ]; then
+            echo "✅ .env file found"
+            echo "Number of lines in .env:"
+            wc -l .env
+          else
+            echo "❌ .env file not found!"
+          fi
+
       - name: Build app
         run: npm run build
         env:
-          # IMPORTANTE: Le variabili devono essere qui per il build SSR
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
