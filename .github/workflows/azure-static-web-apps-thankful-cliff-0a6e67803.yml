@@ -115,26 +115,6 @@ jobs:
           STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}
           EOF
           echo "✅ .env file created"
-          # Verifica che le variabili critiche siano impostate
-          if [ -z "${{ secrets.PUBLIC_SUPABASE_URL }}" ]; then
-            echo "❌ PUBLIC_SUPABASE_URL is not set!"
-            exit 1
-          fi
-          if [ -z "${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}" ]; then
-            echo "❌ PUBLIC_SUPABASE_ANON_KEY is not set!"
-            exit 1
-          fi
-
-      - name: Debug environment
-        run: |
-          echo "Checking if .env file exists..."
-          if [ -f .env ]; then
-            echo "✅ .env file found"
-            echo "Number of lines in .env:"
-            wc -l .env
-          else
-            echo "❌ .env file not found!"
-          fi
 
       - name: Build app
         run: npm run build
