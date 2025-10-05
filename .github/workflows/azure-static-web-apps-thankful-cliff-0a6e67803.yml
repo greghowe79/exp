@@ -110,15 +110,18 @@ jobs:
           PUBLIC_SUPABASE_URL=${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY=${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY=${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          PUBLIC_BASE_URL=${{ secrets.PUBLIC_BASE_URL }}
           SUPABASE_BUCKET_URL=${{ secrets.SUPABASE_BUCKET_URL }}
           STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}
           STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}
           EOF
           echo "✅ .env file created"
-          # Verifica che le variabili siano impostate (senza mostrare i valori)
+          # Verifica che le variabili critiche siano impostate
           if [ -z "${{ secrets.PUBLIC_SUPABASE_URL }}" ]; then
             echo "❌ PUBLIC_SUPABASE_URL is not set!"
+            exit 1
+          fi
+          if [ -z "${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}" ]; then
+            echo "❌ PUBLIC_SUPABASE_ANON_KEY is not set!"
             exit 1
           fi
 
@@ -139,7 +142,6 @@ jobs:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          PUBLIC_BASE_URL: ${{ secrets.PUBLIC_BASE_URL }}
           SUPABASE_BUCKET_URL: ${{ secrets.SUPABASE_BUCKET_URL }}
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
           STRIPE_WEBHOOK_SECRET: ${{ secrets.STRIPE_WEBHOOK_SECRET }}
