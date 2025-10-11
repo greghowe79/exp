@@ -47,7 +47,6 @@ interface LocationResult {
 
 const UserProfileForm = component$(() => {
   const nav = useNavigate();
-  // const selectedAvatar = useSignal<string | null>(null);
   const colors = getListColor();
   const avatars = getListAvatars();
   const suggestions = useSignal<LocationResult[]>([]);

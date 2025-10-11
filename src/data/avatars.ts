@@ -1,27 +1,18 @@
-// import { _ } from 'compiled-i18n';
-
-// export const getListAvatars = () => {
-//   return [
-//     { label: _('name_avatar_one'), value: 'creative', url: 'http://localhost:5173/man_one.png' },
-//     { label: _('name_avatar_two'), value: 'understated', url: 'http://localhost:5173/man_two.png' },
-//     { label: _('name_avatar_three'), value: 'meticulous', url: 'http://localhost:5173/man_three.png' },
-//     { label: _('name_avatar_four'), value: 'thoughtful', url: 'http://localhost:5173/woman_one.png' },
-//     { label: _('name_avatar_five'), value: 'bubbly', url: 'http://localhost:5173/woman_two.png' },
-//     { label: _('name_avatar_six'), value: 'brilliant', url: 'http://localhost:5173/woman_three.png' },
-//   ];
-// };
-
 import { _ } from 'compiled-i18n';
-
-const PUBLIC_BASE_URL = import.meta.env.PUBLIC_BASE_URL || 'http://localhost:5173';
+import manOneUrl from '../assets/images/man_one.png';
+import manTwoUrl from '../assets/images/man_two.png';
+import manThreeUrl from '../assets/images/man_three.png';
+import womanOneUrl from '../assets/images/woman_one.png';
+import womanTwoUrl from '../assets/images/woman_two.png';
+import womanThreeUrl from '../assets/images/woman_three.png';
 
 export const getListAvatars = () => {
   return [
-    { label: _('name_avatar_one'), value: 'creative', url: `${PUBLIC_BASE_URL}/man_one.png` },
-    { label: _('name_avatar_two'), value: 'understated', url: `${PUBLIC_BASE_URL}/man_two.png` },
-    { label: _('name_avatar_three'), value: 'meticulous', url: `${PUBLIC_BASE_URL}/man_three.png` },
-    { label: _('name_avatar_four'), value: 'thoughtful', url: `${PUBLIC_BASE_URL}/woman_one.png` },
-    { label: _('name_avatar_five'), value: 'bubbly', url: `${PUBLIC_BASE_URL}/woman_two.png` },
-    { label: _('name_avatar_six'), value: 'brilliant', url: `${PUBLIC_BASE_URL}/woman_three.png` },
+    { label: _('name_avatar_one'), value: 'creative', url: manOneUrl },
+    { label: _('name_avatar_two'), value: 'understated', url: manTwoUrl },
+    { label: _('name_avatar_three'), value: 'meticulous', url: manThreeUrl },
+    { label: _('name_avatar_four'), value: 'thoughtful', url: womanOneUrl },
+    { label: _('name_avatar_five'), value: 'bubbly', url: womanTwoUrl },
+    { label: _('name_avatar_six'), value: 'brilliant', url: womanThreeUrl },
   ];
 };
