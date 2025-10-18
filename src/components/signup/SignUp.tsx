@@ -1,4 +1,5 @@
-import { _, getLocale } from 'compiled-i18n';
+// import { _, getLocale } from 'compiled-i18n';
+import { getLocale } from 'compiled-i18n';
 import { component$, useStyles$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { Button, Modal, Input } from '@greghowe79/the-lib';
@@ -6,7 +7,11 @@ import { validateEmail, validatePassword } from '~/utility/validators';
 import { useAuth } from '~/hooks/useSignUp';
 import { Link } from '@builder.io/qwik-city';
 
-export const SignUp = component$(() => {
+interface TranslationsProps {
+  t: Record<string, string>;
+}
+
+export const SignUp = component$<TranslationsProps>(({ t }) => {
   const currentLocale = getLocale();
   useStyles$(styles);
 
@@ -27,15 +32,17 @@ export const SignUp = component$(() => {
   return (
     <div class="form-container">
       <Link href={`/${currentLocale}`} class="back_button">
-        ← {_('form_back_home')}
+        {/* ← {_('form_back_home')} */}← {t.form_back_home}
       </Link>
       <Modal
         open={open}
-        title={_('navbar_signup')}
+        //title={_('navbar_signup')}
+        title={t.navbar_signup}
         closeButtonVisible={false}
         primaryAction={handleAuth}
         isLoading={isLoading}
-        primaryButtonLabel={formIsVisible.value && _('navbar_signup')}
+        // primaryButtonLabel={formIsVisible.value && _('navbar_signup')}
+        primaryButtonLabel={formIsVisible.value ? t.navbar_signup : undefined}
         primaryButtonDisabled={isSubmitDisabled}
         type="small"
         light
@@ -87,7 +94,8 @@ export const SignUp = component$(() => {
           </form>
         ) : (
           <div class="button-container">
-            <Button id="professionista" label={_('customer-type_one')} size="sm" onClick$={() => (formIsVisible.value = true)} />
+            {/* <Button id="professionista" label={_('customer_type_one')} size="sm" onClick$={() => (formIsVisible.value = true)} /> */}
+            <Button id="professionista" label={t.customer_type_one} size="sm" onClick$={() => (formIsVisible.value = true)} />
             {/* <Button
               id="azienda"
               label={_('customer-type_two')}

@@ -6,12 +6,31 @@ import { useNavigationActions } from '~/hooks/useNavigationActions';
 import { getListItems } from '~/data/nav-data';
 import { languages } from '~/data/language-selector-data';
 import LanguageSelector from '~/components/language-selector/languageSelector';
-import { guessLocale, locales, getLocale, _ } from 'compiled-i18n';
+// import { guessLocale, locales, getLocale, _ } from 'compiled-i18n';
+import { guessLocale, locales, getLocale } from 'compiled-i18n';
 import { PopupDisplay } from '~/components/popup/Popup';
 import { SessionLoadingContext } from '~/root';
 // import { AutoLogout } from '~/components/auto-logout/AutoLogout';
 //
 import { Footer } from '~/components/footer/Footer';
+
+import itIT from '../../../i18n/it_IT.json';
+import enUS from '../../../i18n/en_US.json';
+import esES from '../../../i18n/es_ES.json';
+import frFR from '../../../i18n/fr_FR.json';
+import ptPT from '../../../i18n/pt_PT.json';
+import jaJP from '../../../i18n/ja_JP.json';
+import zhCN from '../../../i18n/zh_CN.json';
+
+const TRANSLATIONS: Record<string, any> = {
+  it_IT: itIT,
+  en_US: enUS,
+  es_ES: esES,
+  fr_FR: frFR,
+  pt_PT: ptPT,
+  ja_JP: jaJP,
+  zh_CN: zhCN,
+};
 
 const replaceLocale = (pathname: string, oldLocale: string, locale: string) => {
   const idx = pathname.indexOf(oldLocale);
@@ -56,16 +75,27 @@ export default component$(() => {
 
   const newAction = !isSessionLoading.value ? actions : [];
 
+  const t = TRANSLATIONS[location.params.locale]?.translations || TRANSLATIONS.en_US.translations;
+
+  console.log('LOCALE DENTRO LAYOUT', currentLocale);
   return (
     <>
-      {normalizedPath !== `/${_('slug_login')}/` &&
+      {/* {normalizedPath !== `/${_('slug_login')}/` &&
         normalizedPath !== `/${_('slug_signup')}/` &&
         normalizedPath !== `/${_('slug_success')}/` &&
         normalizedPath !== `/${_('slug_search')}/` &&
         normalizedPath !== `/${_('slug_preview')}/${id}/` &&
         normalizedPath !== `/${_('slug_reset_password')}/` &&
         normalizedPath !== `/${_('slug_dashboard')}/${id}/` &&
-        normalizedPath !== `/${_('slug_website')}/${id}/` && (
+        normalizedPath !== `/${_('slug_website')}/${id}/` && ( */}
+      {normalizedPath !== `/${t.slug_login}/` &&
+        normalizedPath !== `/${t.slug_signup}/` &&
+        normalizedPath !== `/${t.slug_success}/` &&
+        normalizedPath !== `/${t.slug_search}/` &&
+        normalizedPath !== `/${t.slug_preview}/${id}/` &&
+        normalizedPath !== `/${t.slug_reset_password}/` &&
+        normalizedPath !== `/${t.slug_dashboard}/${id}/` &&
+        normalizedPath !== `/${t.slug_website}/${id}/` && (
           <NavigationMenu
             ariaLabel="Menu principale"
             logoComponent={Logo}
@@ -82,22 +112,34 @@ export default component$(() => {
       )}
       <PopupDisplay />
       <div
+        // class={
+        //   normalizedPath !== `/${_('slug_login')}/` &&
+        //   normalizedPath !== `/${_('slug_signup')}/` &&
+        //   normalizedPath !== `/${_('slug_success')}/` &&
+        //   normalizedPath !== `/${_('slug_search')}/` &&
+        //   normalizedPath !== `/${_('slug_preview')}/${id}/` &&
+        //   normalizedPath !== `/${_('slug_reset_password')}/` &&
+        //   normalizedPath !== `/${_('slug_dashboard')}/${id}/` &&
+        //   normalizedPath !== `/${_('slug_website')}/${id}/` &&
+        //   'spacer'
+        // }
+
         class={
-          normalizedPath !== `/${_('slug_login')}/` &&
-          normalizedPath !== `/${_('slug_signup')}/` &&
-          normalizedPath !== `/${_('slug_success')}/` &&
-          normalizedPath !== `/${_('slug_search')}/` &&
-          normalizedPath !== `/${_('slug_preview')}/${id}/` &&
-          normalizedPath !== `/${_('slug_reset_password')}/` &&
-          normalizedPath !== `/${_('slug_dashboard')}/${id}/` &&
-          normalizedPath !== `/${_('slug_website')}/${id}/` &&
+          normalizedPath !== `/${t.slug_login}/` &&
+          normalizedPath !== `/${t.slug_signup}/` &&
+          normalizedPath !== `/${t.slug_success}/` &&
+          normalizedPath !== `/${t.slug_search}/` &&
+          normalizedPath !== `/${t.slug_preview}/${id}/` &&
+          normalizedPath !== `/${t.slug_reset_password}/` &&
+          normalizedPath !== `/${t.slug_dashboard}/${id}/` &&
+          normalizedPath !== `/${t.slug_website}/${id}/` &&
           'spacer'
         }
       >
         <Slot />
       </div>
 
-      {normalizedPath === `/` && <Footer />}
+      {normalizedPath === `/` && <Footer t={t} />}
 
       {/* <AutoLogout /> */}
     </>

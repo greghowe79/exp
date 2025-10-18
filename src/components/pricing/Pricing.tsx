@@ -1,12 +1,16 @@
 import { component$, useContext, useSignal, useStyles$, useTask$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
-import { _ } from 'compiled-i18n';
+//import { _ } from 'compiled-i18n';
 import { usePlans } from '~/data/prices_plan';
 import { useLocation } from '@builder.io/qwik-city';
 import { PopupContext, UserSessionContext } from '~/root';
 import { supabase } from '~/lib/db';
 
-export const Pricing = component$(() => {
+interface TranslationsProps {
+  t: Record<string, string>;
+}
+
+export const Pricing = component$<TranslationsProps>(({ t }) => {
   const userSession = useContext(UserSessionContext);
 
   const location = useLocation();
@@ -45,8 +49,10 @@ export const Pricing = component$(() => {
     <section id="pricing">
       <div class="pricing-container">
         <div class="pricing-header">
-          <p class="pricing-title">{_('navbar_pricing')}</p>
-          <h2 class="pricing-heading">{`${_('page_pricing_greeting')} Site Snap`}</h2>
+          {/* <p class="pricing-title">{_('navbar_pricing')}</p> */}
+          <p class="pricing-title">{t.navbar_pricing}</p>
+          {/* <h2 class="pricing-heading">{`${_('page_pricing_greeting')} Site Snap`}</h2> */}
+          <h2 class="pricing-heading">{`${t.page_pricing_greeting} Site Snap`}</h2>
         </div>
 
         <div class="pricing-plans">
@@ -55,14 +61,17 @@ export const Pricing = component$(() => {
               <div class="plan-options">
                 <div class="option" onClick$={() => (signalPlan.value = plans[0])}>
                   <input type="radio" name="monthly" class="radio" checked={signalPlan.value.price === 4.9} />
-                  <span>{_('page_pricing_type_monthly')}</span>
+                  {/* <span>{_('page_pricing_type_monthly')}</span> */}
+                  <span>{t.page_pricing_type_monthly}</span>
                 </div>
                 <div class="option" onClick$={() => (signalPlan.value = plans[1])}>
                   <input type="radio" name="yearly" class="radio" checked={signalPlan.value.price === 39.0} />
                   <span>
-                    {_('page_pricing_type_yearly')}
+                    {/* {_('page_pricing_type_yearly')} */}
+                    {t.page_pricing_type_yearly}
                     <br />
-                    (34% {_('page_pricing_off')} 💰)
+                    {/* (34% {_('page_pricing_off')} 💰) */}
+                    (34% {t.page_pricing_off} 💰)
                   </span>
                 </div>
               </div>
@@ -76,12 +85,17 @@ export const Pricing = component$(() => {
 
               <ul class="check-list">
                 <li>
-                  {_('sub_page_before')}
-                  <strong>{_('sub_page_strong')}</strong>
+                  {/* {_('sub_page_before')} */}
+                  {t.sub_page_before}
+                  {/* <strong>{_('sub_page_strong')}</strong> */}
+                  <strong>{t.sub_page_strong}</strong>
                 </li>
-                <li>{_('sub_visitors')}</li>
+                {/* <li>{_('sub_visitors')}</li>
                 <li>{_('sub_search')}</li>
-                <li>{_('sub_visibility')}</li>
+                <li>{_('sub_visibility')}</li> */}
+                <li>{t.sub_visitors}</li>
+                <li>{t.sub_search}</li>
+                <li>{t.sub_visibility}</li>
               </ul>
 
               <div class="subscribe-button-wrapper">
@@ -95,28 +109,43 @@ export const Pricing = component$(() => {
                   onClick$={(e) => {
                     if (!userSession.isLoggedIn) {
                       e.preventDefault();
+                      // popupContext.open('RESULT_POPUP', {
+                      //   title: _('popup.pricing_no_login_title'),
+                      //   description: _('popup.pricing_no_login_description'),
+                      //   primaryButtonLabel: _('button_close'),
+                      //   isSuccess: false,
+                      //   redirectAfterClose: `/${location.params.locale}/${_('slug_login')}/`,
+                      // });
                       popupContext.open('RESULT_POPUP', {
-                        title: _('popup.pricing_no_login_title'),
-                        description: _('popup.pricing_no_login_description'),
-                        primaryButtonLabel: _('button_close'),
+                        title: t['popup.pricing_no_login_title'],
+                        description: t['popup.pricing_no_login_description'],
+                        primaryButtonLabel: t.button_close,
                         isSuccess: false,
-                        redirectAfterClose: `/${location.params.locale}/${_('slug_login')}/`,
+                        redirectAfterClose: `/${location.params.locale}/${t.slug_login}/`,
                       });
+
                       return;
                     }
                     if (userSession.hasAccess) {
                       e.preventDefault();
+                      // popupContext.open('RESULT_POPUP', {
+                      //   title: _('popup.already_subscribed_title'),
+                      //   description: _('popup.already_subscribed_description'),
+                      //   primaryButtonLabel: _('button_close'),
+                      //   isSuccess: false,
+                      // });
                       popupContext.open('RESULT_POPUP', {
-                        title: _('popup.already_subscribed_title'),
-                        description: _('popup.already_subscribed_description'),
-                        primaryButtonLabel: _('button_close'),
+                        title: t['popup.already_subscribed_title'],
+                        description: t['popup.already_subscribed_description'],
+                        primaryButtonLabel: t.button_close,
                         isSuccess: false,
                       });
                       return;
                     }
                   }}
                 >
-                  {_('page_pricing_btn')}
+                  {/* {_('page_pricing_btn')} */}
+                  {t.page_pricing_btn}
                 </a>
               </div>
             </div>

@@ -1,4 +1,5 @@
-import { _, getLocale } from 'compiled-i18n';
+// import { _, getLocale } from 'compiled-i18n';
+import { getLocale } from 'compiled-i18n';
 import { component$, useStyles$ } from '@builder.io/qwik';
 import styles from './styles.css?inline';
 import { Modal, Input } from '@greghowe79/the-lib';
@@ -6,7 +7,11 @@ import { validateEmail, validatePassword } from '~/utility/validators';
 import { useAuth } from '~/hooks/useSignUp';
 import { Link, useNavigate } from '@builder.io/qwik-city';
 
-export const Login = component$(() => {
+interface TranslationsProps {
+  t: Record<string, string>;
+}
+
+export const Login = component$<TranslationsProps>(({ t }) => {
   useStyles$(styles);
   const nav = useNavigate();
   const currentLocale = getLocale();
@@ -15,17 +20,20 @@ export const Login = component$(() => {
 
   return (
     <main class="form-container">
-      <h1 class="visually-hidden">{_('navbar_login')}</h1>
+      {/* <h1 class="visually-hidden">{_('navbar_login')}</h1> */}
+      <h1 class="visually-hidden">{t.navbar_login}</h1>
       <Link href={`/${currentLocale}`} class="back_button">
-        ← {_('form_back_home')}
+        {/* ← {_('form_back_home')} */}← {t.form_back_home}
       </Link>
       <Modal
         open={open}
-        title={_('navbar_login')}
+        // title={_('navbar_login')}
+        title={t.navbar_login}
         closeButtonVisible={false}
         primaryAction={handleAuth}
         isLoading={isLoading}
-        primaryButtonLabel={_('navbar_login')}
+        // primaryButtonLabel={_('navbar_login')}
+        primaryButtonLabel={t.navbar_login}
         primaryButtonDisabled={isSubmitDisabled}
         type="small"
         light
@@ -57,7 +65,8 @@ export const Login = component$(() => {
               return emailError.value!;
             }}
             onInput$={() => (emailTouched.value = true)}
-            label={_('email')}
+            // label={_('email')}
+            label={t.email}
           />
 
           <Input
@@ -65,7 +74,8 @@ export const Login = component$(() => {
             type="password"
             placeholder="Enter your password"
             autocomplete="current-password"
-            label={_('password')}
+            //label={_('password')}
+            label={t.password}
             value={password}
             error={passwordError}
             onValidate$={async (value) => {
@@ -75,11 +85,15 @@ export const Login = component$(() => {
             onInput$={() => (passwordTouched.value = true)}
           />
           <div class="login_form_links_container">
-            <Link href={`/${currentLocale}/${_('slug_signup')}`} aria-label="signup" class="reset_password">
-              {_('form_signup')}
+            {/* <Link href={`/${currentLocale}/${_('slug_signup')}`} aria-label="signup" class="reset_password"> */}
+            <Link href={`/${currentLocale}/${t.slug_signup}`} aria-label="signup" class="reset_password">
+              {/* {_('form_signup')} */}
+              {t.form_signup}
             </Link>
-            <Link href={`/${currentLocale}/${_('slug_reset_password')}`} aria-label="reset-password" class="reset_password">
-              {_('form_reset_password')}
+            {/* <Link href={`/${currentLocale}/${_('slug_reset_password')}`} aria-label="reset-password" class="reset_password"> */}
+            <Link href={`/${currentLocale}/${t.slug_reset_password}`} aria-label="reset-password" class="reset_password">
+              {/* {_('form_reset_password')} */}
+              {t.form_reset_password}
             </Link>
           </div>
           <button class="hidden-button" type="submit" aria-label="submit">

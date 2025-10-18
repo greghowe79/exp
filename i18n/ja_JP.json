@@ -1,5 +1,5 @@
 {
-  "locale": "ja-JP",
+  "locale": "ja_JP",
   "name": "ja (JP)",
   "translations": {
     "hero_title": "プロのウェブページを作成する",
@@ -145,7 +145,7 @@
     "primary_service_name": "主要サービス名",
     "secondary_service_name": "二次サービス名",
     "tertiary_service_name": "三次サービス名",
-    "customer-type_one": "プロフェッショナル",
+    "customer_type_one": "プロフェッショナル",
     "customer-type_two": "組織",
     "hero_title_logged": "おかえりなさい！",
     "hero_content_logged": "数回クリックするだけでオンラインプレゼンスを管理できます。続ける準備はできましたか？",

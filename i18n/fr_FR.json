@@ -1,5 +1,5 @@
 {
-  "locale": "fr-FR",
+  "locale": "fr_FR",
   "name": "fr (FR)",
   "translations": {
     "hero_title": "Créez votre page web professionnelle",
@@ -145,7 +145,7 @@
     "primary_service_name": "Nom du service primaire",
     "secondary_service_name": "Nom du service secondaire",
     "tertiary_service_name": "Nom du service tertiaire",
-    "customer-type_one": "Professionnel",
+    "customer_type_one": "Professionnel",
     "customer-type_two": "Organisation",
     "hero_title_logged": "Bon retour !",
     "hero_content_logged": "Gérez votre présence en ligne en quelques clics. Prêt à continuer ?",

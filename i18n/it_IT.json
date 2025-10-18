@@ -1,5 +1,5 @@
 {
-  "locale": "it-IT",
+  "locale": "it_IT",
   "name": "it (IT)",
   "translations": {
     "hero_title": "Crea la tua pagina web professionale",
@@ -145,7 +145,7 @@
     "primary_service_name": "Nome servizio primario",
     "secondary_service_name": "Nome servizio secondario",
     "tertiary_service_name": "Nome servizio terziario",
-    "customer-type_one": "Professionista",
+    "customer_type_one": "Professionista",
     "customer-type_two": "Organizzazione",
     "hero_title_logged": "Bentornato!",
     "hero_content_logged": "Gestisci la tua presenza online in pochi clic. Sei pronto a continuare?",
@@ -160,7 +160,7 @@
     "step_page_description": "Con un account premium, in pochi click crei una pagina personale che raccoglie tutti i tuoi contatti online: social, sito web, email e molto altro. Perfetta per farti trovare e raccontare chi sei.",
     "network_section_heading": "Trova i migliori professionisti vicino a te",
     "network_section_description": "Cerchi un esperto? Usa il nostro motore di ricerca per connetterti con professionisti di ogni settore.",
-    "network_section_button": "Explora la rete",
+    "network_section_button": "Esplora la rete",
     "public_card": "Card pubblica",
     "no_search_results": "Nessun risultato trovato per",
     "placeholder_location_format": "CAP, Comune, Provincia, Regione, Nazione *",

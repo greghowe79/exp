@@ -1,13 +1,18 @@
 import { component$, useContext, useSignal, useStyles$, useVisibleTask$ } from '@builder.io/qwik';
 import { useReward } from 'qwik-rewards';
-import { getLocale, _ } from 'compiled-i18n';
+// import { getLocale, _ } from 'compiled-i18n';
+import { getLocale } from 'compiled-i18n';
 import { useNavigate } from '@builder.io/qwik-city';
 import styles from './styles.css?inline';
 import { UserSessionContext } from '~/root';
 import { supabase } from '~/lib/db';
 import { Button } from '@greghowe79/the-lib';
 
-export const Success = component$(() => {
+interface TranslationsProps {
+  t: Record<string, string>;
+}
+
+export const Success = component$<TranslationsProps>(({ t }) => {
   useStyles$(styles);
   const locale = getLocale();
   const hasWebsite = useSignal(true);
@@ -62,25 +67,31 @@ export const Success = component$(() => {
   return (
     <div class="success-container">
       <div id="confetti-anchor" />
-      <h1>🎉 {_('premium_success_title')}</h1>
-      <p>{_('premium_success_message')}</p>
+      {/* <h1>🎉 {_('premium_success_title')}</h1> */}
+      <h1>🎉 {t.premium_success_title}</h1>
+      {/* <p>{_('premium_success_message')}</p> */}
+      <p>{t.premium_success_message}</p>
       {hasWebsite.value ? (
         <Button
           id="redirect_website_btn"
-          label={_('button_go_live_site')}
+          // label={_('button_go_live_site')}
+          label={t.button_go_live_site}
           size="lg"
           isLoading={isLoading}
           disabled={isLoading.value}
-          onClick$={async () => await nav(`/${locale}/${_('slug_website')}/${userSession.userId}`)}
+          // onClick$={async () => await nav(`/${locale}/${_('slug_website')}/${userSession.userId}`)}
+          onClick$={async () => await nav(`/${locale}/${t.slug_website}/${userSession.userId}`)}
         ></Button>
       ) : (
         <Button
           id="redirect_dashboard_btn"
-          label={_('button_go_to_dashboard')}
+          // label={_('button_go_to_dashboard')}
+          label={t.button_go_to_dashboard}
           size="lg"
           isLoading={isLoading}
           disabled={isLoading.value}
-          onClick$={async () => await nav(`/${locale}/${_('slug_dashboard')}/${userSession.userId}`)}
+          // onClick$={async () => await nav(`/${locale}/${_('slug_dashboard')}/${userSession.userId}`)}
+          onClick$={async () => await nav(`/${locale}/${t.slug_dashboard}/${userSession.userId}`)}
         ></Button>
       )}
     </div>

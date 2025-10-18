@@ -1,11 +1,12 @@
 import { type RequestHandler } from '@builder.io/qwik-city';
 import { supabase } from '~/lib/db';
-import { _, setLocaleGetter } from 'compiled-i18n';
+import { _ } from 'compiled-i18n';
 
-export const onGet: RequestHandler = async ({ query, json }) => {
+export const onGet: RequestHandler = async ({ query, json, locale }) => {
   const q = query.get('q')?.toLowerCase().trim() || '';
-  const currentLocale = query.get('locale') || 'it-IT';
-  setLocaleGetter(() => currentLocale);
+  const currentLocale = query.get('locale') || 'it_IT';
+  //setLocaleGetter(() => currentLocale);
+  locale(currentLocale);
 
   if (!q) {
     json(200, { suggestions: [] });

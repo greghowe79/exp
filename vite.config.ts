@@ -24,7 +24,9 @@ export default defineConfig(({ command, mode }): UserConfig => {
   return {
     plugins: [
       i18nPlugin({
-        locales: ['it-IT', 'en-US','es-ES','fr-FR','pt-PT','ja-JP','zh-CN'], 
+        //locales: ['it_IT', 'en_US','es_ES','fr_FR','pt_PT','ja_JP','zh_CN'], 
+        locales: ['it_IT', 'en_US', 'es_ES', 'fr_FR', 'pt_PT', 'ja_JP', 'zh_CN'],
+      // defaultLocale: 'en_US',
       }),
       
     qwikCity(), 

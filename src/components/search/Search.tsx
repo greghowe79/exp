@@ -1,6 +1,7 @@
 import { $, component$, useSignal, useStyles$ } from '@builder.io/qwik';
 import { Link } from '@builder.io/qwik-city';
-import { _, getLocale } from 'compiled-i18n';
+// import { _, getLocale } from 'compiled-i18n';
+import { getLocale } from 'compiled-i18n';
 import styles from './styles.css?inline';
 import { Button, Card, Input } from '@greghowe79/the-lib';
 import { SearchIcon } from '~/assets/search';
@@ -9,8 +10,9 @@ import { FaGlobeLight } from '~/assets/worldLight';
 
 import { ArrowRight } from '~/assets/arrow_right';
 import { ArrowLeft } from '~/assets/arrow_left';
+import logoUrl from '~/assets/images/logo.svg';
 
-const PUBLIC_BASE_URL = import.meta.env.PUBLIC_BASE_URL || 'http://localhost:5173';
+//const PUBLIC_BASE_URL = import.meta.env.PUBLIC_BASE_URL || 'http://localhost:5173';
 
 interface Suggestion {
   id: string;
@@ -20,7 +22,10 @@ interface Suggestion {
   img_url: string;
 }
 
-const Search = component$(() => {
+interface TranslationsProps {
+  t: Record<string, string>;
+}
+const Search = component$<TranslationsProps>(({ t }) => {
   const currentLocale = getLocale();
   const suggestions = useSignal<Suggestion[]>([]);
   const searchResults = useSignal<any[]>([]);
@@ -90,13 +95,15 @@ const Search = component$(() => {
   return (
     <main class="search-container">
       <Link href={`/${currentLocale}`} class="back_button">
-        ← {_('form_back_home')}
+        {/* ← {_('form_back_home')} */}← {t.form_back_home}
       </Link>
       <div class="content-container">
         {/*  <img class="logo" src="http://localhost:5173/logo.svg" width="150" height="150" alt="Site Snap logo" /> */}
-        <img class="logo" src={`${PUBLIC_BASE_URL}/logo.svg`} width="150" height="150" alt="Site Snap logo" />
+        {/* <img class="logo" src={`${PUBLIC_BASE_URL}/logo.svg`} width="150" height="150" alt="Site Snap logo" /> */}
+        <img class="logo" src={logoUrl} width="150" height="150" alt="Site Snap logo" />
 
-        <h1 class="visually-hidden">{_('search_professionals')}</h1>
+        {/* <h1 class="visually-hidden">{_('search_professionals')}</h1> */}
+        <h1 class="visually-hidden">{t.search_professionals}</h1>
         <form
           preventdefault:submit
           onSubmit$={async (event) => {
@@ -109,8 +116,10 @@ const Search = component$(() => {
           <Input
             id="input_search"
             type="search"
-            label={_('search_professionals')}
-            placeholder={_('search_with_sitesnap')}
+            // label={_('search_professionals')}
+            label={t.search_professionals}
+            // placeholder={_('search_with_sitesnap')}
+            placeholder={t.search_with_sitesnap}
             value={rawInput}
             onInput$={(_, target) => {
               rawInput.value = target.value;
@@ -152,9 +161,12 @@ const Search = component$(() => {
                 <Card
                   item={result}
                   icon={FaGlobeLight}
-                  subtitle={_('profile_about_section')}
-                  link={result.has_access ? _('profile_card_link') : _('profile_unavailable')}
-                  path={result.has_access ? `/${currentLocale}/${_('slug_website')}/${result.id}` : '#'}
+                  // subtitle={_('profile_about_section')}
+                  subtitle={t.profile_about_section}
+                  // link={result.has_access ? _('profile_card_link') : _('profile_unavailable')}
+                  link={result.has_access ? t.profile_card_link : t.profile_unavailable}
+                  // path={result.has_access ? `/${currentLocale}/${_('slug_website')}/${result.id}` : '#'}
+                  path={result.has_access ? `/${currentLocale}/${t.slug_website}/${result.id}` : '#'}
                   disabled={!result.has_access}
                 />
               </div>
@@ -179,7 +191,8 @@ const Search = component$(() => {
             />
           </div>
 
-          <span>{`${_('page')} ${currentPage.value} ${_('of')} ${totalPages.value}`}</span>
+          {/* <span>{`${_('page')} ${currentPage.value} ${_('of')} ${totalPages.value}`}</span> */}
+          <span>{`${t.page} ${currentPage.value} ${t.of} ${totalPages.value}`}</span>
 
           <div style={{ visibility: currentPage.value < totalPages.value ? 'visible' : 'hidden' }}>
             <Button

@@ -1,5 +1,5 @@
 {
-  "locale": "zh-CN",
+  "locale": "zh_CN",
   "name": "zh (CN)",
   "translations": {
     "hero_title": "创建您的专业网页",
@@ -145,7 +145,7 @@
     "primary_service_name": "主要服务名称",
     "secondary_service_name": "次要服务名称",
     "tertiary_service_name": "第三服务名称",
-    "customer-type_one": "专业人士",
+    "customer_type_one": "专业人士",
     "customer-type_two": "组织",
     "hero_title_logged": "欢迎回来！",
     "hero_content_logged": "只需几次点击即可管理您的在线形象。准备继续了吗？",

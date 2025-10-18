@@ -12,13 +12,18 @@ import { MobileFooter } from '~/assets/mobile_footer';
 import { TwitterFooter } from '~/assets/twitter_footer';
 import { YouTubeFooter } from '~/assets/youtube_footer';
 
-export const Footer = component$(() => {
+interface TranslationsProps {
+  t: Record<string, string>;
+}
+
+export const Footer = component$<TranslationsProps>(({ t }) => {
   useStyles$(styles);
   return (
     <footer id="site_contact">
       <div class="footer-container">
         <div class="footer-column">
-          <h2>{_('page_contact')}</h2>
+          {/* <h2>{_('page_contact')}</h2> */}
+          <h2>{t.page_contact}</h2>
 
           <div class="site_footer_info">
             <LocationFooter fill={'#f5f5f7'} />{' '}
@@ -53,7 +58,8 @@ export const Footer = component$(() => {
         </div>
 
         <div class="footer-column">
-          <h3>{_('social_media')}</h3>
+          {/* <h3>{_('social_media')}</h3> */}
+          <h3>{t.social_media}</h3>
           <div class="social-icons">
             <a
               href="https://www.linkedin.com/in/alessandro-mosca-b4631b86/"
