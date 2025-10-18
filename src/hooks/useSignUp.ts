@@ -6,7 +6,7 @@ import type { RouteNavigate } from '@builder.io/qwik-city';
 import { getListColor } from '~/data/ba_color';
 import { supabase } from '~/lib/db';
 
-export const useAuth = (type: string, navigate?: RouteNavigate) => {
+export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string) => {
   const open = useSignal(true);
   const formIsVisible = useSignal(false);
   const password = useSignal('');
@@ -54,7 +54,7 @@ export const useAuth = (type: string, navigate?: RouteNavigate) => {
   const thirdSuccessfulCaseTitle = useSignal('');
   const thirdSuccessfulCaseDescription = useSignal('');
 
-  const colors = getListColor();
+  const colors = getListColor(locale || 'en_US');
   const bgColor = useSignal(colors[0].value);
   const position = useSignal('');
   /// const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';

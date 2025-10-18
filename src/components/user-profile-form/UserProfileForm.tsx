@@ -8,9 +8,9 @@ import { Linkedin } from '~/assets/linkedin';
 import { Email } from '~/assets/email';
 import { Marker } from '~/assets/marker';
 import { Mobile } from '~/assets/mobile';
-import { _ } from 'compiled-i18n';
+//import { _ } from 'compiled-i18n';
 import { options } from '~/data/country-code-data';
-import { useNavigate } from '@builder.io/qwik-city';
+import { useLocation, useNavigate } from '@builder.io/qwik-city';
 import { XIcon } from '~/assets/twitter';
 import { FaGlobe } from '~/assets/world';
 import { YouTube } from '~/assets/youtube';
@@ -45,10 +45,15 @@ interface LocationResult {
   };
 }
 
-const UserProfileForm = component$(() => {
+interface TranslationsProps {
+  t: Record<string, string>;
+}
+
+const UserProfileForm = component$<TranslationsProps>(({ t }) => {
   const nav = useNavigate();
-  const colors = getListColor();
-  const avatars = getListAvatars();
+  const location = useLocation();
+  const colors = getListColor(location.params.locale);
+  const avatars = getListAvatars(location.params.locale);
   const suggestions = useSignal<LocationResult[]>([]);
   const loading = useSignal(false);
   const rawInput = useSignal('');
@@ -102,7 +107,7 @@ const UserProfileForm = component$(() => {
     thirdSuccessfulCaseDescription,
     imgUrl,
     selectedAvatar,
-  } = useAuth('USER_PROFILE', nav);
+  } = useAuth('USER_PROFILE', nav, location.params.locale);
   //
   const handleSelect$ = $(async (avatarValue: string) => {
     const avatar = avatars.find((a) => a.value === avatarValue);
@@ -169,8 +174,10 @@ const UserProfileForm = component$(() => {
     <form preventdefault:submit onSubmit$={handleAuth} class="form">
       {currentStep.value === 1 && (
         <div class="contact_form-section">
-          <h2 class="contact_form-section-title">{_('main_contact_title')}</h2>
-          <p class="contact_form-section-description">{_('main_contact_description')}</p>
+          {/* <h2 class="contact_form-section-title">{_('main_contact_title')}</h2> */}
+          <h2 class="contact_form-section-title">{t.main_contact_title}</h2>
+          {/* <p class="contact_form-section-description">{_('main_contact_description')}</p> */}
+          <p class="contact_form-section-description">{t.main_contact_description}</p>
 
           <div class="contact-entry">
             <Input id="input_file_user_upload" type="file" currentFile={currentFile} selectedFile={selectedFile} imgUrl={imgUrl} required />
@@ -188,7 +195,8 @@ const UserProfileForm = component$(() => {
             </div>
 
             <div>
-              <h2>{_('choose_your_avatar')}</h2>
+              {/* <h2>{_('choose_your_avatar')}</h2> */}
+              <h2>{t.choose_your_avatar}</h2>
 
               <div class="avatar-container">
                 {avatars.map((avatar) => (
@@ -203,35 +211,43 @@ const UserProfileForm = component$(() => {
                 ))}
               </div>
               <div class="avatar-selected">
-                {_('selected_avatar')}
-                <strong>{avatars.find((a) => a.value === selectedAvatar.value)?.label ?? _('none')}</strong>
+                {/* {_('selected_avatar')} */}
+                {t.selected_avatar}
+                {/* <strong>{avatars.find((a) => a.value === selectedAvatar.value)?.label ?? _('none')}</strong> */}
+                <strong>{avatars.find((a) => a.value === selectedAvatar.value)?.label ?? t.none}</strong>
               </div>
             </div>
             <Input
               id="firstName_user_profile"
               type="text"
-              placeholder={_('user_profile_name')}
+              // placeholder={_('user_profile_name')}
+              placeholder={t.user_profile_name}
               value={firstName}
               bgLight
-              label={_('user_profile_name')}
+              // label={_('user_profile_name')}
+              label={t.user_profile_name}
               required
             />
             <Input
               id="lastName_user_profile"
               type="text"
-              placeholder={_('user_profile_lastname')}
+              // placeholder={_('user_profile_lastname')}
+              placeholder={t.user_profile_lastname}
               value={lastName}
-              label={_('user_profile_lastname')}
+              // label={_('user_profile_lastname')}
+              label={t.user_profile_lastname}
               bgLight
               required
             />
             <Input
               id="job_user_profile"
               type="text"
-              placeholder={_('user_profile_job')}
+              // placeholder={_('user_profile_job')}
+              placeholder={t.user_profile_job}
               value={jobTitle}
               bgLight
-              label={_('user_profile_job')}
+              // label={_('user_profile_job')}
+              label={t.user_profile_job}
               required
             />
             <TextArea
@@ -239,8 +255,10 @@ const UserProfileForm = component$(() => {
               content={description}
               required
               bgLight
-              placeholder={_('user_profile_summary')}
-              title={_('user_profile_summary')}
+              // placeholder={_('user_profile_summary')}
+              placeholder={t.user_profile_summary}
+              // title={_('user_profile_summary')}
+              title={t.user_profile_summary}
             />
             <Input
               id="input_email_user_profile"
@@ -259,12 +277,15 @@ const UserProfileForm = component$(() => {
               required
               autocomplete="email"
             />
-            <Select id="country" label={_('user_profile_country')} options={options} selected={selectedCountry} prefix={prefix} />
+            {/* <Select id="country" label={_('user_profile_country')} options={options} selected={selectedCountry} prefix={prefix} /> */}
+            <Select id="country" label={t.user_profile_country} options={options} selected={selectedCountry} prefix={prefix} />
             <Input
               id="telephone_user_profile"
               type="tel"
-              placeholder={_('user_profile_phone')}
-              label={_('user_profile_phone')}
+              // placeholder={_('user_profile_phone')}
+              placeholder={t.user_profile_phone}
+              // label={_('user_profile_phone')}
+              label={t.user_profile_phone}
               value={phone}
               icon={Mobile}
               prefix={prefix.value}
@@ -279,8 +300,10 @@ const UserProfileForm = component$(() => {
             <Input
               id="website_user_profile"
               type="url"
-              label={_('user_profile_website')}
-              placeholder={`https://www.${_('user_profile_website')}.com`}
+              // label={_('user_profile_website')}
+              label={t.user_profile_website}
+              // placeholder={`https://www.${_('user_profile_website')}.com`}
+              placeholder={`https://www.${t.user_profile_website}.com`}
               value={website}
               icon={FaGlobe}
               bgLight
@@ -289,10 +312,12 @@ const UserProfileForm = component$(() => {
               <Input
                 id="position_user_profile"
                 type="text"
-                placeholder={_('placeholder_location_format')}
+                // placeholder={_('placeholder_location_format')}
+                placeholder={t.placeholder_location_format}
                 value={position}
                 icon={Marker}
-                label={_('user_profile_position')}
+                // label={_('user_profile_position')}
+                label={t.user_profile_position}
                 bgLight
                 required
                 error={positionError}
@@ -324,10 +349,12 @@ const UserProfileForm = component$(() => {
               )}
             </div>
             <div>
-              <h2>{_('choose_background_color')}</h2>
+              {/* <h2>{_('choose_background_color')}</h2> */}
+              <h2>{t.choose_background_color}</h2>
 
               <fieldset class="color-selection">
-                <legend class="sr-only">{_('choose_background_color')}</legend>
+                {/* <legend class="sr-only">{_('choose_background_color')}</legend> */}
+                <legend class="sr-only">{t.choose_background_color}</legend>
                 {colors.map(({ label, value }) => {
                   return (
                     <div key={value} class="color-item">
@@ -346,7 +373,8 @@ const UserProfileForm = component$(() => {
               </fieldset>
 
               <p>
-                {_('selected_color')} <strong>{colors.find((c) => c.value === bgColor.value)?.label ?? bgColor.value}</strong>
+                {/* {_('selected_color')} <strong>{colors.find((c) => c.value === bgColor.value)?.label ?? bgColor.value}</strong> */}
+                {t.selected_color} <strong>{colors.find((c) => c.value === bgColor.value)?.label ?? bgColor.value}</strong>
               </p>
               <div
                 class="color-preview"
@@ -360,16 +388,20 @@ const UserProfileForm = component$(() => {
       )}
       {currentStep.value === 2 && (
         <div class="service_form-section">
-          <h3 class="service_form-section-title">{_('main_services')}</h3>
-          <p class="service_form-section-description">{_('main_services_description')}</p>
+          {/* <h3 class="service_form-section-title">{_('main_services')}</h3> */}
+          <h3 class="service_form-section-title">{t.main_services}</h3>
+          {/* <p class="service_form-section-description">{_('main_services_description')}</p> */}
+          <p class="service_form-section-description">{t.main_services_description}</p>
 
           <div class="service-entry">
             <Input
               id="service_section-title"
               type="text"
-              placeholder={_('section_services_title')}
+              // placeholder={_('section_services_title')}
+              placeholder={t.section_services_title}
               value={serviceTitle}
-              label={_('section_services_title')}
+              // label={_('section_services_title')}
+              label={t.section_services_title}
               bgLight
               required
             />
@@ -379,14 +411,18 @@ const UserProfileForm = component$(() => {
               content={serviceDescription}
               required
               bgLight
-              placeholder={_('insert_services_description')}
-              title={_('insert_services_description')}
+              // placeholder={_('insert_services_description')}
+              placeholder={t.insert_services_description}
+              // title={_('insert_services_description')}
+              title={t.insert_services_description}
             />
             <Input
               id="service_primary_name"
               type="text"
-              label={_('primary_service_name')}
-              placeholder={_('service_name_example')}
+              // label={_('primary_service_name')}
+              label={t.primary_service_name}
+              // placeholder={_('service_name_example')}
+              placeholder={t.service_name_example}
               value={servicePrimaryName}
               bgLight
               required
@@ -394,9 +430,11 @@ const UserProfileForm = component$(() => {
             <Input
               id="service_primary_percent"
               type="number"
-              placeholder={_('percentage_example')}
+              // placeholder={_('percentage_example')}
+              placeholder={t.percentage_example}
               value={servicePrimaryPercent}
-              label={_('percentage_example')}
+              // label={_('percentage_example')}
+              label={t.percentage_example}
               bgLight
               required
             />
@@ -406,8 +444,10 @@ const UserProfileForm = component$(() => {
             <Input
               id="service_secondary_name"
               type="text"
-              label={_('secondary_service_name')}
-              placeholder={_('service_name_example_personal_coaching')}
+              // label={_('secondary_service_name')}
+              label={t.secondary_service_name}
+              // placeholder={_('service_name_example_personal_coaching')}
+              placeholder={t.service_name_example_personal_coaching}
               value={serviceSecondaryName}
               bgLight
               required
@@ -415,9 +455,11 @@ const UserProfileForm = component$(() => {
             <Input
               id="service_secondary_percent"
               type="number"
-              placeholder={_('percentage_example_90')}
+              // placeholder={_('percentage_example_90')}
+              placeholder={t.percentage_example_90}
               value={serviceSecondaryPercent}
-              label={_('percentage_example_90')}
+              // label={_('percentage_example_90')}
+              label={t.percentage_example_90}
               bgLight
               required
             />
@@ -427,8 +469,10 @@ const UserProfileForm = component$(() => {
             <Input
               id="service_tertiary_name"
               type="text"
-              label={_('tertiary_service_name')}
-              placeholder={_('service_name_example_professional_translation')}
+              // label={_('tertiary_service_name')}
+              label={t.tertiary_service_name}
+              // placeholder={_('service_name_example_professional_translation')}
+              placeholder={t.service_name_example_professional_translation}
               value={serviceTertiaryName}
               bgLight
               required
@@ -436,9 +480,11 @@ const UserProfileForm = component$(() => {
             <Input
               id="service_tertiary_percent"
               type="number"
-              placeholder={_('percentage_example_75')}
+              // placeholder={_('percentage_example_75')}
+              placeholder={t.percentage_example_75}
               value={serviceTertiaryPercent}
-              label={_('percentage_example_75')}
+              // label={_('percentage_example_75')}
+              label={t.percentage_example_75}
               bgLight
               required
             />
@@ -447,15 +493,18 @@ const UserProfileForm = component$(() => {
       )}
       {currentStep.value === 3 && (
         <div class="channel_form-section">
-          <h3 class="channel_form-section-title">{_('main_channel_title')}</h3>
-          <p class="channel_form-section-description">{_('main-channel_description')}</p>
+          {/* <h3 class="channel_form-section-title">{_('main_channel_title')}</h3> */}
+          <h3 class="channel_form-section-title">{t.main_channel_title}</h3>
+          {/* <p class="channel_form-section-description">{_('main_channel_description')}</p> */}
+          <p class="channel_form-section-description">{t.main_channel_description}</p>
 
           <div class="channel-entry">
             <Input
               id="facebook_user_profile"
               type="url"
               label="Facebook"
-              placeholder={`https://www.facebook.com/${_('user_profile_social')}`}
+              // placeholder={`https://www.facebook.com/${_('user_profile_social')}`}
+              placeholder={`https://www.facebook.com/${t.user_profile_social}`}
               value={facebook}
               icon={Facebook}
               bgLight
@@ -464,7 +513,8 @@ const UserProfileForm = component$(() => {
               id="linkedin_user_profile"
               type="url"
               label="LinkedIn"
-              placeholder={`https://www.linkedin.com/${_('user_profile_social')}`}
+              // placeholder={`https://www.linkedin.com/${_('user_profile_social')}`}
+              placeholder={`https://www.linkedin.com/${t.user_profile_social}`}
               value={linkedin}
               icon={Linkedin}
               bgLight
@@ -473,7 +523,8 @@ const UserProfileForm = component$(() => {
               id="x_user_profile"
               type="url"
               label="X (ex Twitter)"
-              placeholder={`https://x.com/${_('user_profile_social')}`}
+              // placeholder={`https://x.com/${_('user_profile_social')}`}
+              placeholder={`https://x.com/${t.user_profile_social}`}
               value={twitter}
               icon={XIcon}
               bgLight
@@ -482,7 +533,8 @@ const UserProfileForm = component$(() => {
               id="instagram_user_profile"
               type="url"
               label="Instagram"
-              placeholder={`https://www.instagram.com/${_('user_profile_social')}`}
+              // placeholder={`https://www.instagram.com/${_('user_profile_social')}`}
+              placeholder={`https://www.instagram.com/${t.user_profile_social}`}
               value={instagram}
               icon={Instagram}
               bgLight
@@ -491,7 +543,8 @@ const UserProfileForm = component$(() => {
               id="github_user_profile"
               type="url"
               label="GitHub"
-              placeholder={`https://github.com/${_('user_profile_social')}`}
+              // placeholder={`https://github.com/${_('user_profile_social')}`}
+              placeholder={`https://github.com/${t.user_profile_social}`}
               value={github}
               icon={GitHub}
               bgLight
@@ -500,7 +553,8 @@ const UserProfileForm = component$(() => {
               id="youtube_user_profile"
               type="url"
               label="YouTube"
-              placeholder={`https://www.youtube.com/${_('user_profile_youtube')}`}
+              // placeholder={`https://www.youtube.com/${_('user_profile_youtube')}`}
+              placeholder={`https://www.youtube.com/${t.user_profile_youtube}`}
               value={youtube}
               icon={YouTube}
               bgLight
@@ -511,16 +565,20 @@ const UserProfileForm = component$(() => {
 
       {currentStep.value === 4 && (
         <div class="success_case_form-section">
-          <h3 class="success_case_form-section-title">{_('main_success_case_title')}</h3>
-          <p class="success_case_form-section-description">{_('main_success_case_description')}</p>
+          {/* <h3 class="success_case_form-section-title">{_('main_success_case_title')}</h3> */}
+          <h3 class="success_case_form-section-title">{t.main_success_case_title}</h3>
+          {/* <p class="success_case_form-section-description">{_('main_success_case_description')}</p> */}
+          <p class="success_case_form-section-description">{t.main_success_case_description}</p>
 
           <div class="success-case-entry">
             <Input
               id="success_case_one_section-title"
               type="text"
-              placeholder={_('success_case_one_title')}
+              // placeholder={_('success_case_one_title')}
+              placeholder={t.success_case_one_title}
               value={firstSuccessfulCaseTitle}
-              label={_('success_case_one_title')}
+              // label={_('success_case_one_title')}
+              label={t.success_case_one_title}
               bgLight
               required
             />
@@ -529,16 +587,20 @@ const UserProfileForm = component$(() => {
               content={firstSuccessfulCaseDescription}
               required
               bgLight
-              placeholder={_('success_case_one_description')}
-              title={_('success_case_one_description')}
+              // placeholder={_('success_case_one_description')}
+              placeholder={t.success_case_one_description}
+              // title={_('success_case_one_description')}
+              title={t.success_case_one_description}
             />
 
             <Input
               id="success_case_two_section-title"
               type="text"
-              placeholder={_('success_case_two_title')}
+              // placeholder={_('success_case_two_title')}
+              placeholder={t.success_case_two_title}
               value={secondSuccessfulCaseTitle}
-              label={_('success_case_two_title')}
+              // label={_('success_case_two_title')}
+              label={t.success_case_two_title}
               bgLight
               required
             />
@@ -547,15 +609,19 @@ const UserProfileForm = component$(() => {
               content={secondSuccessfulCaseDescription}
               required
               bgLight
-              placeholder={_('success_case_two_description')}
-              title={_('success_case_two_description')}
+              // placeholder={_('success_case_two_description')}
+              placeholder={t.success_case_two_description}
+              // title={_('success_case_two_description')}
+              title={t.success_case_two_description}
             />
             <Input
               id="success_case_three_section-title"
               type="text"
-              placeholder={_('success_case_three_title')}
+              // placeholder={_('success_case_three_title')}
+              placeholder={t.success_case_three_title}
               value={thirdSuccessfulCaseTitle}
-              label={_('success_case_three_title')}
+              // label={_('success_case_three_title')}
+              label={t.success_case_three_title}
               bgLight
               required
             />
@@ -564,8 +630,10 @@ const UserProfileForm = component$(() => {
               content={thirdSuccessfulCaseDescription}
               required
               bgLight
-              placeholder={_('success_case_three_description')}
-              title={_('success_case_three_description')}
+              // placeholder={_('success_case_three_description')}
+              placeholder={t.success_case_three_description}
+              // title={_('success_case_three_description')}
+              title={t.success_case_three_description}
             />
           </div>
         </div>
@@ -573,14 +641,16 @@ const UserProfileForm = component$(() => {
 
       <div class={currentStep.value === 1 ? 'align_btn_right' : 'step-navigation'}>
         {currentStep.value > 1 && (
-          <Button id="btn_back_step" type="button" onClick$={goBack} label={_('back')} size="lg" icon={<ArrowLeft fill={'#ffffff'} />} />
+          // <Button id="btn_back_step" type="button" onClick$={goBack} label={_('back')} size="lg" icon={<ArrowLeft fill={'#ffffff'} />} />
+          <Button id="btn_back_step" type="button" onClick$={goBack} label={t.back} size="lg" icon={<ArrowLeft fill={'#ffffff'} />} />
         )}
         {currentStep.value < 4 ? (
           <Button
             id="btn_next_step"
             type="button"
             onClick$={goNext}
-            label={_('next')}
+            // label={_('next')}
+            label={t.next}
             size="lg"
             disabled={isSubmitDisabled.value}
             icon={<ArrowRight fill={`${isSubmitDisabled.value ? '#000000' : '#ffffff'}`} />}
@@ -589,7 +659,8 @@ const UserProfileForm = component$(() => {
           <Button
             id="save_user_form"
             type="submit"
-            label={_('save')}
+            // label={_('save')}
+            label={t.save}
             size="lg"
             isLoading={isLoading}
             disabled={isSubmitDisabled.value}

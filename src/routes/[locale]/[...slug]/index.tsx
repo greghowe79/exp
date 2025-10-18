@@ -102,7 +102,7 @@ export default component$(() => {
     case 'signup':
       return <SignUp t={t} />;
     case 'dashboard':
-      return <Dashboard />;
+      return <Dashboard t={t} />;
     case 'preview':
       return <Preview />;
     case `reset`:
