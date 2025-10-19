@@ -175,21 +175,16 @@ export default component$(() => {
     const {
       data: { subscription: authListener },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
-      console.log('MANNAIA');
-      // let user = null;
-      // if (session?.user.id) {
-      //   const { data } = await supabase.from('profiles').select().eq('id', session.user.id).single();
-      //   user = data;
-      //   console.log('data', data);
-      // }
+      console.log('Auth event:', event);
+
       if (event === 'PASSWORD_RECOVERY') {
         isFormVisible.value = true;
       } else if (event === 'SIGNED_IN' && session?.access_token && session.refresh_token) {
         console.log('SIGNED IN');
-        // console.log('session', session);
+
         userSession.userId = session.user.id;
         userSession.isLoggedIn = true;
-        // userSession.hasAccess = user.has_access;
+
         userSession.email = session.user.email;
         isSessionLoading.value = false;
       } else if (event === 'SIGNED_OUT') {
@@ -197,10 +192,9 @@ export default component$(() => {
         userSession.isLoggedIn = false;
         userSession.userId = '';
       } else if (event === 'INITIAL_SESSION' && session?.access_token && session.refresh_token) {
-        console.log('DIO IMPALATO');
+        console.log('INITIAL_SESSION');
         userSession.userId = session.user.id;
 
-        //userSession.isLoggedIn = false;
         userSession.isLoggedIn = true;
         userSession.email = session.user.email;
       }

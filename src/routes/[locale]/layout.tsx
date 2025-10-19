@@ -77,7 +77,6 @@ export default component$(() => {
 
   const t = TRANSLATIONS[location.params.locale]?.translations || TRANSLATIONS.en_US.translations;
 
-  console.log('LOCALE DENTRO LAYOUT', currentLocale);
   return (
     <>
       {/* {normalizedPath !== `/${_('slug_login')}/` &&

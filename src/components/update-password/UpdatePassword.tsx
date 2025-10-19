@@ -1,7 +1,7 @@
 import { component$, useContext } from '@builder.io/qwik';
 import { FormContext } from '~/root';
 import { useSignal, useStyles$ } from '@builder.io/qwik';
-import { _ } from 'compiled-i18n';
+// import { _ } from 'compiled-i18n';
 import styles from './styles.css?inline';
 import { Input, Modal } from '@greghowe79/the-lib';
 import { useAuth } from '~/hooks/useSignUp';
@@ -15,8 +15,10 @@ export const UpdatePassword = component$<TranslationsProps>(({ t }) => {
   useStyles$(styles);
   const { open, password, passwordError, passwordTouched, isLoading, handleAuth } = useAuth('UPDATE-PASSWORD', t);
   const isSubmitDisabled = useSignal(true);
-  const title = _('form_update_password-title');
-  const buttonLabel = _('form_reset_password-button');
+  // const title = _('form_update_password_title');
+  const title = t.form_update_password_title;
+  // const buttonLabel = _('form_reset_password_button');
+  const buttonLabel = t.form_reset_password_button;
   const isFormVisible = useContext(FormContext);
   console.log('isFormVisible:', isFormVisible.value);
 
@@ -33,7 +35,8 @@ export const UpdatePassword = component$<TranslationsProps>(({ t }) => {
           primaryButtonDisabled={isSubmitDisabled}
           type="small"
         >
-          <p>{_('form_update_password-description')}</p>
+          {/* <p>{_('form_update_password_description')}</p> */}
+          <p>{t.form_update_password_description}</p>
           <form
             class="form"
             preventdefault:submit

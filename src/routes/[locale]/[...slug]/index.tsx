@@ -45,15 +45,9 @@ export const onGet = async ({ cookie, redirect, params, locale }: RequestEvent) 
   //setLocaleGetter(() => locale);
   locale(currentLocale);
 
-  // if (slug.startsWith('.well-known')) {
-  //   return;
-  // }
-
   if (slug.startsWith('node_modules') || slug.startsWith('.well-known')) {
     return;
   }
-
-  console.log('CURRENT-LOCALE:', currentLocale, 'SLUG DENTRO ONGET:', slug);
 
   if (slug === _('slug_dashboard') || slug === _('slug_preview') || slug === _('slug_success')) {
     const token = cookie.get('server-access-token')?.value;
