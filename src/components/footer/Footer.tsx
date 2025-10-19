@@ -1,5 +1,5 @@
 import { component$, useStyles$ } from '@builder.io/qwik';
-import { _ } from 'compiled-i18n';
+// import { _ } from 'compiled-i18n';
 import styles from './styles.css?inline';
 import { EnvelopeFooter } from '~/assets/envelope_footer';
 import { FacebookFooter } from '~/assets/facebook_footer';
@@ -106,19 +106,23 @@ export const Footer = component$<TranslationsProps>(({ t }) => {
         <div class="footer-bottom">
           <div class="footer-legal-links">
             <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
-              {_('privacy_policy')}
+              {/* {_('privacy_policy')} */}
+              {t.privacy_policy}
             </a>
             <span>|</span>
             <a href="/cookie-policy" target="_blank" rel="noopener noreferrer">
-              {_('cookie_policy')}
+              {/* {_('cookie_policy')} */}
+              {t.cookie_policy}
             </a>
             <span>|</span>
             <a href="/termini-condizioni" target="_blank" rel="noopener noreferrer">
-              {_('terms_of_use')}
+              {/* {_('terms_of_use')} */}
+              {t.terms_of_use}
             </a>
           </div>
           <p class="copyright">
-            &copy; {new Date().getFullYear()} Site Snap. {_('all_rights_reserved')}
+            {/* &copy; {new Date().getFullYear()} Site Snap. {_('all_rights_reserved')} */}
+            &copy; {new Date().getFullYear()} Site Snap. {t.all_rights_reserved}
           </p>
         </div>
       </div>
