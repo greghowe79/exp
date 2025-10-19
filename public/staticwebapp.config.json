@@ -1,8 +1,12 @@
 {
   "routes": [
     {
+      "route": "/api/search-location",
+      "rewrite": "/api/render"
+    },
+    {
       "route": "/api/*",
-      "allowedRoles": ["anonymous"]
+      "rewrite": "/api/render"
     },
     {
       "route": "*",
@@ -19,8 +23,7 @@
     }
   ],
   "navigationFallback": {
-    "rewrite": "/api/render",
-    "exclude": ["/api/*"]
+    "rewrite": "/api/render"
   },
   "platform": {
     "apiRuntime": "node:18"
