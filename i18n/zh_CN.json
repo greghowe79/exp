@@ -62,6 +62,8 @@
     "popup.userIdMissing": "用户ID缺失。请再试一次。",
     "popup.genericErrorTitle": "操作失败",
     "popup.emailAlreadyInUse": "该邮箱已被使用",
+    "yourPositionTextHere": "在此填写您的职位",
+    "successStoriesHeaderTitle": "成功案例",
     "generic_errorMessage": "出了点问题。请稍后再试。",
     "popup.signupDescription": "请检查您的电子邮件以确认注册。",
     "popup.reset_password_description": "请查看您的电子邮件并点击链接重置用户密码",

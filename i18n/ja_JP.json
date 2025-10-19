@@ -62,6 +62,8 @@
     "popup.userIdMissing": "ユーザーIDが見つかりません。もう一度お試しください。",
     "popup.genericErrorTitle": "操作に失敗しました",
     "popup.emailAlreadyInUse": "このメールアドレスは既に使用されています",
+    "yourPositionTextHere": "あなたの役職をここに入力してください",
+    "successStoriesHeaderTitle": "成功事例",
     "generic_errorMessage": "問題が発生しました。しばらくしてからもう一度お試しください。",
     "popup.signupDescription": "登録を確認するためにメールをご確認ください。",
     "popup.reset_password_description": "メールを確認し、リンクを辿ってユーザーパスワードをリセットしてください",

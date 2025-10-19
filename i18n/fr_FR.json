@@ -62,6 +62,8 @@
     "popup.userIdMissing": "Identifiant utilisateur manquant. Veuillez réessayer.",
     "popup.genericErrorTitle": "Opération échouée",
     "popup.emailAlreadyInUse": "Adresse e-mail déjà utilisée",
+    "yourPositionTextHere": "Votre poste ici",
+    "successStoriesHeaderTitle": "HISTOIRES DE SUCCÈS",
     "generic_errorMessage": "Quelque chose a mal tourné. Veuillez réessayer plus tard.",
     "popup.signupDescription": "Vérifiez votre e-mail pour confirmer l'inscription.",
     "popup.reset_password_description": "Vérifiez votre email et suivez le lien pour réinitialiser le mot de passe de votre utilisateur",

@@ -62,6 +62,8 @@
     "popup.userIdMissing": "Falta el ID de usuario. Por favor, inténtalo de nuevo.",
     "popup.genericErrorTitle": "Operación fallida",
     "popup.emailAlreadyInUse": "Correo electrónico ya utilizado",
+    "yourPositionTextHere": "Tu posición aquí",
+    "successStoriesHeaderTitle": "HISTORIAS DE ÉXITO",
     "generic_errorMessage": "Algo salió mal. Por favor, inténtalo de nuevo más tarde.",
     "popup.signupDescription": "Revisa tu correo electrónico para confirmar el registro.",
     "popup.reset_password_description": "Revisa tu correo electrónico y sigue el enlace para restablecer la contraseña de tu usuario",

@@ -110,7 +110,7 @@ export default component$(() => {
     case `update`:
       return <UpdatePassword t={t} />;
     case `website`:
-      return <Website />;
+      return <Website t={t} />;
     case `success`:
       return <Success t={t} />;
     case 'search':

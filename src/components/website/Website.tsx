@@ -12,12 +12,17 @@ import { GlobeFooter } from '~/assets/globe_footer';
 import { EnvelopeFooter } from '~/assets/envelope_footer';
 import { MobileFooter } from '~/assets/mobile_footer';
 import { LocationFooter } from '~/assets/location_footer';
-import { _, getLocale } from 'compiled-i18n';
+// import { _, getLocale } from 'compiled-i18n';
+import { getLocale } from 'compiled-i18n';
 import { YouTubeFooter } from '~/assets/youtube_footer';
 import { GitHubFooter } from '~/assets/github_footer';
 import { Logo } from '~/components/logo/logo';
 
-export const Website = component$(() => {
+interface TranslationsProps {
+  t: Record<string, string>;
+}
+
+export const Website = component$<TranslationsProps>(({ t }) => {
   const currentLocale = getLocale();
   const location = useLocation();
   const id = location.params.slug.split('/')[1];
@@ -47,7 +52,8 @@ export const Website = component$(() => {
             <nav>
               <div class="inner_nav">
                 <div>
-                  <Link href={`/${currentLocale}/${_('slug_search')}`} aria-label="Searchpage" class={isPreview ? 'disabled-link' : ''}>
+                  {/* <Link href={`/${currentLocale}/${_('slug_search')}`} aria-label="Searchpage" class={isPreview ? 'disabled-link' : ''}> */}
+                  <Link href={`/${currentLocale}/${t.slug_search}`} aria-label="Searchpage" class={isPreview ? 'disabled-link' : ''}>
                     <Logo fillCircle="#fff" fillPath={profile.bg_color} />
                   </Link>
                 </div>
@@ -83,7 +89,8 @@ export const Website = component$(() => {
                         menuOpen.value = false;
                       }}
                     >
-                      {_('user_navigation_link_section_about')}
+                      {/* {_('user_navigation_link_section_about')} */}
+                      {t.user_navigation_link_section_about}
                     </a>
                   </li>
                   <li>
@@ -96,7 +103,8 @@ export const Website = component$(() => {
                         menuOpen.value = false;
                       }}
                     >
-                      {_('user_navigation_link_section_services')}
+                      {/* {_('user_navigation_link_section_services')} */}
+                      {t.user_navigation_link_section_services}
                     </a>
                   </li>
 
@@ -110,7 +118,8 @@ export const Website = component$(() => {
                         menuOpen.value = false;
                       }}
                     >
-                      {_('user_navigation_link_section_success_stories')}
+                      {/* {_('user_navigation_link_section_success_stories')} */}
+                      {t.user_navigation_link_section_success_stories}
                     </a>
                   </li>
 
@@ -124,7 +133,8 @@ export const Website = component$(() => {
                         menuOpen.value = false;
                       }}
                     >
-                      {_('user_navigation_link_section_contact')}
+                      {/* {_('user_navigation_link_section_contact')} */}
+                      {t.user_navigation_link_section_contact}
                     </a>
                   </li>
                 </ul>
@@ -147,7 +157,7 @@ export const Website = component$(() => {
             </div>
           </section>
           <div class="overlapping-text">
-            <p class="bridge-text">{profile.job_title || 'Your position text here'}</p>
+            <p class="bridge-text">{profile.job_title || t.yourPositionTextHere}</p>
           </div>
           <div class="general_wrap" id="about">
             <section class="about">
@@ -157,7 +167,8 @@ export const Website = component$(() => {
                   <div class="content-section">
                     <div class="header_section" style={{ borderBottom: `3px solid ${profile.bg_color}` }}>
                       <div class="title" style={{ color: `${profile.bg_color}` }}>
-                        {`${_('about_header_title')} ${profile.first_name.toLocaleUpperCase()} ${profile.last_name.toLocaleUpperCase()} `}
+                        {/* {`${_('about_header_title')} ${profile.first_name.toLocaleUpperCase()} ${profile.last_name.toLocaleUpperCase()} `} */}
+                        {`${t.about_header_title} ${profile.first_name.toLocaleUpperCase()} ${profile.last_name.toLocaleUpperCase()} `}
                       </div>
                       <div class="step" style={{ color: `${profile.bg_color}` }}>
                         01
@@ -179,7 +190,7 @@ export const Website = component$(() => {
                   <div class="content-section">
                     <div class="header_section" style={{ borderBottom: `3px solid ${profile.bg_color}` }}>
                       <div class="title" style={{ color: `${profile.bg_color}` }}>
-                        STORIE DI SUCCESSO
+                        {t.successStoriesHeaderTitle}
                       </div>
                       <div class="step" style={{ color: `${profile.bg_color}` }}>
                         02
@@ -306,7 +317,8 @@ export const Website = component$(() => {
             <footer id="contact">
               <div class="footer-container">
                 <div class="footer-column">
-                  <h2>{_('page_contact')}</h2>
+                  {/* <h2>{_('page_contact')}</h2> */}
+                  <h2>{t.page_contact}</h2>
                   {profile.position && (
                     <div class="footer-info">
                       <LocationFooter fill={'#232323'} />{' '}
@@ -356,7 +368,8 @@ export const Website = component$(() => {
 
                 {(profile.facebook || profile.instagram || profile.linkedin || profile.twitter || profile.github || profile.youtube) && (
                   <div class="footer-column">
-                    <h3>{_('social_media')}</h3>
+                    {/* <h3>{_('social_media')}</h3> */}
+                    <h3>{t.social_media}</h3>
                     <div class="social-icons">
                       {profile.facebook && (
                         <a
@@ -444,7 +457,8 @@ export const Website = component$(() => {
                     </a>
                   </div> */}
                   <p class="copyright">
-                    &copy; {new Date().getFullYear()} Site Snap. {_('all_rights_reserved')}
+                    {/* &copy; {new Date().getFullYear()} Site Snap. {_('all_rights_reserved')} */}
+                    &copy; {new Date().getFullYear()} Site Snap. {t.all_rights_reserved}
                   </p>
                 </div>
               </div>
