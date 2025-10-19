@@ -288,7 +288,7 @@ export const useAuth = (type: string, t: Record<string, string>, navigate?: Rout
     if (type === 'RESET-PASSWORD') {
       isLoading.value = true;
       try {
-        await AuthService.resetPassword(email.value, currentLocale);
+        await AuthService.resetPassword(email.value, currentLocale, t);
 
         popupContext.open('RESULT_POPUP', {
           // title: _('popup.genericSuccessTitle'),

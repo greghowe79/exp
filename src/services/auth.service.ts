@@ -1,6 +1,6 @@
 import { type Locale } from 'compiled-i18n';
 import { supabase } from '~/lib/db';
-import { _ } from 'compiled-i18n';
+// import { _ } from 'compiled-i18n';
 import type { UserProfile, UserSess } from '~/root';
 import type { Signal } from '@builder.io/qwik';
 //import { v4 as uuidv4 } from 'uuid';
@@ -51,11 +51,12 @@ export const AuthService = {
     }
   },
 
-  async resetPassword(email: string, currentLocale: Locale) {
+  async resetPassword(email: string, currentLocale: Locale, t: Record<string, string>) {
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       // redirectTo: `http://localhost:5173/${currentLocale}/${_('slug_update_password')}/`,
 
-      redirectTo: `${PUBLIC_BASE_URL}/${currentLocale}/${_('slug_update_password')}/`,
+      // redirectTo: `${PUBLIC_BASE_URL}/${currentLocale}/${_('slug_update_password')}/`,
+      redirectTo: `${PUBLIC_BASE_URL}/${currentLocale}/${t.slug_update_password}/`,
     });
     if (error) throw error;
     return data;
