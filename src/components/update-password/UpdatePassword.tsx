@@ -42,7 +42,7 @@ export const UpdatePassword = component$<TranslationsProps>(({ t }) => {
             preventdefault:submit
             onSubmit$={async (event) => {
               event.preventDefault();
-              passwordError.value = await validatePassword(password.value);
+              passwordError.value = await validatePassword(password.value, t);
               passwordTouched.value = true;
 
               if (!passwordError.value) {
@@ -57,7 +57,7 @@ export const UpdatePassword = component$<TranslationsProps>(({ t }) => {
               value={password}
               error={passwordError}
               onValidate$={async (value) => {
-                passwordError.value = await validatePassword(value);
+                passwordError.value = await validatePassword(value, t);
                 isSubmitDisabled.value = !!passwordError.value;
                 return passwordError.value!;
               }}

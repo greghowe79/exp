@@ -268,7 +268,7 @@ const UserProfileForm = component$<TranslationsProps>(({ t }) => {
               value={email}
               error={emailError}
               onValidate$={async (value) => {
-                emailError.value = await validateEmail(value);
+                emailError.value = await validateEmail(value, t);
                 return emailError.value!;
               }}
               onInput$={() => (emailTouched.value = true)}
@@ -292,7 +292,7 @@ const UserProfileForm = component$<TranslationsProps>(({ t }) => {
               onInput$={() => (phoneTouched.value = true)}
               error={phoneError}
               onValidate$={async (value) => {
-                phoneError.value = await validatePhone(value);
+                phoneError.value = await validatePhone(value, t);
                 return phoneError.value!;
               }}
               bgLight
@@ -322,7 +322,7 @@ const UserProfileForm = component$<TranslationsProps>(({ t }) => {
                 required
                 error={positionError}
                 onValidate$={async () => {
-                  const error = await validatePosition(isValidLocation.value);
+                  const error = await validatePosition(isValidLocation.value, t);
                   positionError.value = error ?? '';
                   return positionError.value;
                 }}

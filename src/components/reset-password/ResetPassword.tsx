@@ -44,7 +44,7 @@ export const ResetPassword = component$<TranslationsProps>(({ t }) => {
           preventdefault:submit
           onSubmit$={async (event) => {
             event.preventDefault();
-            emailError.value = await validateEmail(email.value);
+            emailError.value = await validateEmail(email.value, t);
             emailTouched.value = true;
 
             if (!emailError.value) {
@@ -59,7 +59,7 @@ export const ResetPassword = component$<TranslationsProps>(({ t }) => {
             value={email}
             error={emailError}
             onValidate$={async (value) => {
-              emailError.value = await validateEmail(value);
+              emailError.value = await validateEmail(value, t);
               isSubmitDisabled.value = !!emailError.value;
               return emailError.value!;
             }}

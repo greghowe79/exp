@@ -93,6 +93,7 @@ export default component$(() => {
         normalizedPath !== `/${t.slug_search}/` &&
         normalizedPath !== `/${t.slug_preview}/${id}/` &&
         normalizedPath !== `/${t.slug_reset_password}/` &&
+        normalizedPath !== `/${t.slug_update_password}/` &&
         normalizedPath !== `/${t.slug_dashboard}/${id}/` &&
         normalizedPath !== `/${t.slug_website}/${id}/` && (
           <NavigationMenu
@@ -130,6 +131,7 @@ export default component$(() => {
           normalizedPath !== `/${t.slug_search}/` &&
           normalizedPath !== `/${t.slug_preview}/${id}/` &&
           normalizedPath !== `/${t.slug_reset_password}/` &&
+          normalizedPath !== `/${t.slug_update_password}/` &&
           normalizedPath !== `/${t.slug_dashboard}/${id}/` &&
           normalizedPath !== `/${t.slug_website}/${id}/` &&
           'spacer'

@@ -43,8 +43,8 @@ export const Login = component$<TranslationsProps>(({ t }) => {
           preventdefault:submit
           onSubmit$={async (event) => {
             event.preventDefault();
-            emailError.value = await validateEmail(email.value);
-            passwordError.value = await validatePassword(password.value);
+            emailError.value = await validateEmail(email.value, t);
+            passwordError.value = await validatePassword(password.value, t);
             emailTouched.value = true;
             passwordTouched.value = true;
 
@@ -61,7 +61,7 @@ export const Login = component$<TranslationsProps>(({ t }) => {
             value={email}
             error={emailError}
             onValidate$={async (value) => {
-              emailError.value = await validateEmail(value);
+              emailError.value = await validateEmail(value, t);
               return emailError.value!;
             }}
             onInput$={() => (emailTouched.value = true)}
@@ -79,7 +79,7 @@ export const Login = component$<TranslationsProps>(({ t }) => {
             value={password}
             error={passwordError}
             onValidate$={async (value) => {
-              passwordError.value = await validatePassword(value);
+              passwordError.value = await validatePassword(value, t);
               return passwordError.value!;
             }}
             onInput$={() => (passwordTouched.value = true)}
