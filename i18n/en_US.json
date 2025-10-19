@@ -61,6 +61,7 @@
     "popup.genericSuccessTitle": "Operation completed successfully.",
     "popup.userIdMissing": "User ID is missing. Please try again.",
     "popup.genericErrorTitle": "Operation failed",
+    "popup.emailAlreadyInUse": "Email already in use",
     "generic_errorMessage": "Something went wrong. Please try again later.",
     "popup.signupDescription": "Check your email to confirm the registration.",
     "popup.reset_password_description": "Check your email and follow the link to reset the password for your user",

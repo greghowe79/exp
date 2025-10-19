@@ -60,6 +60,7 @@
     "form.errors.inputRequired": "Campo obbligatorio",
     "popup.genericSuccessTitle": "Operazione completata con successo.",
     "popup.genericErrorTitle": "Operazione non riuscita",
+    "popup.emailAlreadyInUse": "Email già utilizzata",
     "generic_errorMessage": "Qualcosa è andato storto. Per favore riprova più tardi.",
     "popup.userIdMissing": "ID utente mancante. Riprova, per favore.",
     "popup.signupDescription": "Controlla la tua email per confermare la registrazione.",

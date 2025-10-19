@@ -107,7 +107,7 @@ const UserProfileForm = component$<TranslationsProps>(({ t }) => {
     thirdSuccessfulCaseDescription,
     imgUrl,
     selectedAvatar,
-  } = useAuth('USER_PROFILE', nav, location.params.locale);
+  } = useAuth('USER_PROFILE', t, nav, location.params.locale);
   //
   const handleSelect$ = $(async (avatarValue: string) => {
     const avatar = avatars.find((a) => a.value === avatarValue);

@@ -16,7 +16,7 @@ export const Login = component$<TranslationsProps>(({ t }) => {
   const nav = useNavigate();
   const currentLocale = getLocale();
   const { open, email, password, emailError, passwordError, emailTouched, passwordTouched, isLoading, isSubmitDisabled, handleAuth } =
-    useAuth('LOGIN', nav);
+    useAuth('LOGIN', t, nav);
 
   return (
     <main class="form-container">

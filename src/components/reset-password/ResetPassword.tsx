@@ -6,10 +6,14 @@ import { useAuth } from '~/hooks/useSignUp';
 import { validateEmail } from '~/utility/validators';
 import { Link } from '@builder.io/qwik-city';
 
-export const ResetPassword = component$(() => {
+interface TranslationsProps {
+  t: Record<string, string>;
+}
+
+export const ResetPassword = component$<TranslationsProps>(({ t }) => {
   useStyles$(styles);
   const currentLocale = getLocale();
-  const { open, email, emailError, emailTouched, isLoading, handleAuth } = useAuth('RESET-PASSWORD');
+  const { open, email, emailError, emailTouched, isLoading, handleAuth } = useAuth('RESET-PASSWORD', t);
   const isSubmitDisabled = useSignal(true);
   const title = _('form_reset_password-title');
   const buttonLabel = _('form_reset_password-button');

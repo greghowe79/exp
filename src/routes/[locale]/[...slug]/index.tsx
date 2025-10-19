@@ -104,11 +104,11 @@ export default component$(() => {
     case 'dashboard':
       return <Dashboard t={t} />;
     case 'preview':
-      return <Preview />;
+      return <Preview t={t} />;
     case `reset`:
-      return <ResetPassword />;
+      return <ResetPassword t={t} />;
     case `update`:
-      return <UpdatePassword />;
+      return <UpdatePassword t={t} />;
     case `website`:
       return <Website />;
     case `success`:

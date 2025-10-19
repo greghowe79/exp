@@ -7,9 +7,13 @@ import { Input, Modal } from '@greghowe79/the-lib';
 import { useAuth } from '~/hooks/useSignUp';
 import { validatePassword } from '~/utility/validators';
 
-export const UpdatePassword = component$(() => {
+interface TranslationsProps {
+  t: Record<string, string>;
+}
+
+export const UpdatePassword = component$<TranslationsProps>(({ t }) => {
   useStyles$(styles);
-  const { open, password, passwordError, passwordTouched, isLoading, handleAuth } = useAuth('UPDATE-PASSWORD');
+  const { open, password, passwordError, passwordTouched, isLoading, handleAuth } = useAuth('UPDATE-PASSWORD', t);
   const isSubmitDisabled = useSignal(true);
   const title = _('form_update_password-title');
   const buttonLabel = _('form_reset_password-button');

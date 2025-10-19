@@ -1,12 +1,13 @@
 import { $, useComputed$, useSignal, useContext, type NoSerialize, useVisibleTask$ } from '@builder.io/qwik';
 import { PopupContext, type UserProfile, UserSessionContext } from '~/root';
-import { _, getLocale } from 'compiled-i18n';
+// import { _, getLocale } from 'compiled-i18n';
+import { getLocale } from 'compiled-i18n';
 import { AuthService } from '~/services/auth.service';
 import type { RouteNavigate } from '@builder.io/qwik-city';
 import { getListColor } from '~/data/ba_color';
 import { supabase } from '~/lib/db';
 
-export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string) => {
+export const useAuth = (type: string, t: Record<string, string>, navigate?: RouteNavigate, locale?: string) => {
   const open = useSignal(true);
   const formIsVisible = useSignal(false);
   const password = useSignal('');
@@ -60,7 +61,8 @@ export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string)
   /// const CDNURL = 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
 
   const CDNURL = import.meta.env.SUPABASE_BUCKET_URL || 'https://durdisjtkedteoqbwyfd.supabase.co/storage/v1/object/public/professionals/';
-  const selectedFile = useSignal(_('user_profile_image'));
+  // const selectedFile = useSignal(_('user_profile_image'));
+  const selectedFile = useSignal(t.user_profile_image);
   const currentLocale = getLocale();
 
   const positionError = useSignal<string | null>(null);
@@ -217,8 +219,10 @@ export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string)
       }
       if (data.length > 0) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.genericErrorTitle'),
-          description: 'Email già utilizzata',
+          // title: _('popup.genericErrorTitle'),
+          title: t['popup.genericErrorTitle'],
+          // description: 'Email già utilizzata',
+          description: t['popup.emailAlreadyInUse'],
           isSuccess: false,
         });
         email.value = '';
@@ -232,10 +236,13 @@ export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string)
 
         if (data.user?.id) {
           popupContext.open('RESULT_POPUP', {
-            title: _('popup.genericSuccessTitle'),
-            description: _('popup.signupDescription'),
+            // title: _('popup.genericSuccessTitle'),
+            title: t['popup.genericSuccessTitle'],
+            // description: _('popup.signupDescription'),
+            description: t['popup.signupDescription'],
             isSuccess: true,
-            redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
+            // redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
+            redirectAfterClose: `/${currentLocale}/${t.slug_login}/`,
           });
           email.value = '';
           password.value = '';
@@ -244,7 +251,8 @@ export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string)
         }
       } catch (error: any) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.genericErrorTitle'),
+          // title: _('popup.genericErrorTitle'),
+          title: t['popup.genericErrorTitle'],
           description: error.message,
           isSuccess: false,
         });
@@ -267,7 +275,8 @@ export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string)
         }
       } catch (error: any) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.genericErrorTitle'),
+          // title: _('popup.genericErrorTitle'),
+          title: t['popup.genericErrorTitle'],
           description: error.message,
           isSuccess: false,
         });
@@ -282,8 +291,10 @@ export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string)
         await AuthService.resetPassword(email.value, currentLocale);
 
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.genericSuccessTitle'),
-          description: _('popup.reset_password_description'),
+          // title: _('popup.genericSuccessTitle'),
+          title: t['popup.genericSuccessTitle'],
+          // description: _('popup.reset_password_description'),
+          description: t['popup.reset_password_description'],
           isSuccess: true,
           redirectAfterClose: `/${currentLocale}/`,
         });
@@ -292,7 +303,8 @@ export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string)
         open.value = false;
       } catch (error: any) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.genericErrorTitle'),
+          // title: _('popup.genericErrorTitle'),
+          title: t['popup.genericErrorTitle'],
           description: error.message,
           isSuccess: false,
         });
@@ -307,17 +319,21 @@ export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string)
         await AuthService.updatePassword(password.value);
 
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.genericSuccessTitle'),
-          description: _('popup.update_password_description'),
+          // title: _('popup.genericSuccessTitle'),
+          title: t['popup.genericSuccessTitle'],
+          // description: _('popup.update_password_description'),
+          description: t['popup.update_password_description'],
           isSuccess: true,
-          redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
+          // redirectAfterClose: `/${currentLocale}/${_('slug_login')}/`,
+          redirectAfterClose: `/${currentLocale}/${t.slug_login}/`,
         });
         password.value = '';
         isLoading.value = false;
         open.value = false;
       } catch (error: any) {
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.genericErrorTitle'),
+          // title: _('popup.genericErrorTitle'),
+          title: t['popup.genericErrorTitle'],
           description: error.message,
           isSuccess: false,
         });
@@ -401,17 +417,23 @@ export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string)
         }
 
         data?.has_access
-          ? await navigate?.(`/${currentLocale}/${_('slug_website')}/${userSession.userId}`)
-          : await navigate?.(`/${currentLocale}/${_('slug_preview')}/${userSession.userId}`);
+          ? // ? await navigate?.(`/${currentLocale}/${_('slug_website')}/${userSession.userId}`)
+            await navigate?.(`/${currentLocale}/${t.slug_website}/${userSession.userId}`)
+          : // : await navigate?.(`/${currentLocale}/${_('slug_preview')}/${userSession.userId}`);
+            await navigate?.(`/${currentLocale}/${t.slug_preview}/${userSession.userId}`);
       } catch (error: any) {
-        let errorMessage = _('generic_errorMessage');
+        // let errorMessage = _('generic_errorMessage');
+        let errorMessage = t.generic_errorMessage;
 
         if (error?.message === 'User ID mancante') {
-          errorMessage = _('popup.userIdMissing');
+          // errorMessage = _('popup.userIdMissing');
+          errorMessage = t['popup.userIdMissing'];
         }
 
         popupContext.open('RESULT_POPUP', {
-          title: _('popup.genericErrorTitle'),
+          // title: _('popup.genericErrorTitle'),
+          title: t['popup.genericErrorTitle'],
+
           description: errorMessage,
           isSuccess: false,
         });
@@ -423,7 +445,8 @@ export const useAuth = (type: string, navigate?: RouteNavigate, locale?: string)
         jobTitle.value = '';
         description.value = '';
         phone.value = '';
-        selectedFile.value = _('user_profile_image');
+        // selectedFile.value = _('user_profile_image');
+        selectedFile.value = t.user_profile_image;
         selectedCountry.value = '';
         prefix.value = '';
         facebook.value = '';

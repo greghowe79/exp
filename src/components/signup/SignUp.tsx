@@ -27,7 +27,7 @@ export const SignUp = component$<TranslationsProps>(({ t }) => {
     isLoading,
     isSubmitDisabled,
     handleAuth,
-  } = useAuth('SIGNUP');
+  } = useAuth('SIGNUP', t);
 
   return (
     <div class="form-container">
