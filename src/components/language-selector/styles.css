@@ -1,6 +1,9 @@
+/* ==============================
+   BASE (mobile-first)
+   ============================== */
 .language-selector {
-  padding: 0.563rem 0.75rem;
-  max-width: 85%;
+  padding: 0; /* mobile: rimosso */
+  max-width: 100%; /* mobile: rimosso */
   border-radius: 0.313rem;
 }
 
@@ -16,13 +19,15 @@
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start; /* mobile */
   row-gap: 3.125rem;
 }
+
 .list-item {
-  width: 25%;
+  width: 50%; /* mobile */
   cursor: pointer;
 }
+
 .region {
   color: rgb(106, 106, 106);
 }
@@ -30,4 +35,22 @@
 .language-link {
   text-decoration: none;
   color: #333;
+}
+
+/* ==============================
+   BREAKPOINT: tablet/desktop
+   ============================== */
+@media (min-width: 481px) {
+  .language-selector {
+    padding: 0.563rem 0.75rem; /* tablet/desktop */
+    max-width: 85%; /* tablet/desktop */
+  }
+
+  .list {
+    align-items: center; /* tablet/desktop */
+  }
+
+  .list-item {
+    width: 25%; /* tablet/desktop */
+  }
 }

@@ -28,7 +28,7 @@ const LanguageSelector = component$<LanguagesProps>(({ languages, isModalOpen })
               onClick$={() => {
                 isModalOpen.value = false;
               }}
-              class="language-link"
+              class={`language-link ${isModalOpen.value ? 'open' : ''} `}
             >
               <div class="language-selector">
                 <div>{language.label}</div>
