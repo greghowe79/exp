@@ -1,7 +1,7 @@
 import { $, component$, noSerialize, useSignal, useStyles$ } from '@builder.io/qwik';
 import { Button, Input, Select, TextArea } from '@greghowe79/the-lib';
 import { useAuth } from '~/hooks/useSignUp';
-import { validateEmail, validatePhone, validatePosition } from '~/utility/validators';
+import { formatJobTitle, validateEmail, validatePhone, validatePosition } from '~/utility/validators';
 import styles from './styles.css?inline';
 import { Facebook } from '~/assets/facebook';
 import { Linkedin } from '~/assets/linkedin';
@@ -249,6 +249,9 @@ const UserProfileForm = component$<TranslationsProps>(({ t }) => {
               // label={_('user_profile_job')}
               label={t.user_profile_job}
               required
+              onInput$={(_, target) => {
+                jobTitle.value = formatJobTitle(target.value, location.params.locale);
+              }}
             />
             <TextArea
               id="description_user_profile"

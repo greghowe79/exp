@@ -29,6 +29,8 @@ export const useNavigationActions = (navigate: RouteNavigate, isModalOpen: Signa
   const t = TRANSLATIONS[currentLocale]?.translations || TRANSLATIONS.en_US.translations;
   const userSession = useContext(UserSessionContext);
 
+  //const customerPortalLink = 'https://billing.stripe.com/p/login/test_3cIaEZ2QY4Mv3sT6Za8Ra00';
+
   if (userSession.isLoggedIn) {
     // return [
     //   {
@@ -55,6 +57,14 @@ export const useNavigationActions = (navigate: RouteNavigate, isModalOpen: Signa
     // ];
 
     return [
+      // {
+      //   id: 'billing',
+      //   label: 'Billing',
+      //   onClick$: $(async () => {
+      //     await navigate(customerPortalLink + '?prefilled_email=' + userSession.email);
+      //   }),
+      //   variant: 'primary' as ButtonVariant,
+      // },
       {
         id: 'dashboard',
         label: t.navbar_dashboard,

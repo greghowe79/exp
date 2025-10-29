@@ -148,6 +148,10 @@ export const Pricing = component$<TranslationsProps>(({ t }) => {
                   {t.page_pricing_btn}
                 </a>
               </div>
+              {/* <p>
+                💡 Se cambi piano, Stripe applicherà automaticamente eventuali crediti per il periodo non utilizzato. L’importo finale
+                mostrato al pagamento può essere leggermente diverso da quello indicato.
+              </p> */}
             </div>
           </div>
         </div>
