@@ -218,6 +218,8 @@
     "unlock_full_site": "解锁所有功能",
     "premium_features_intro": "升级到高级版，充分利用您的网页！",
     "page": "页",
-    "of": "共"
+    "of": "共",
+    "show_password": "显示密码",
+    "hide_password": "隐藏密码"
   }
 }

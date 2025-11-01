@@ -218,6 +218,8 @@
     "unlock_full_site": "すべての機能をアンロック",
     "premium_features_intro": "プレミアムにアップグレードして、ウェブページを最大限に活用しましょう！",
     "page": "ページ",
-    "of": "の"
+    "of": "の",
+    "show_password": "パスワードを表示",
+    "hide_password": "パスワードを非表示"
   }
 }

@@ -220,6 +220,8 @@
     "unlock_full_site": "Unlock all features",
     "premium_features_intro": "Upgrade to Premium and make the most of your webpage!",
     "page": "Page",
-    "of": "of"
+    "of": "of",
+    "show_password": "Show password",
+    "hide_password": "Hide password"
   }
 }

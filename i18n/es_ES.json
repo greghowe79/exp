@@ -218,6 +218,8 @@
     "unlock_full_site": "Desbloquea todas las funciones",
     "premium_features_intro": "¡Pasa a Premium y aprovecha al máximo tu página web!",
     "page": "Página",
-    "of": "de"
+    "of": "de",
+    "show_password": "Mostrar contraseña",
+    "hide_password": "Ocultar contraseña"
   }
 }

@@ -219,6 +219,8 @@
     "unlock_full_site": "Sblocca tutte le funzionalità",
     "premium_features_intro": "Passa a Premium e sfrutta al massimo la tua pagina web!",
     "page": "Pagina",
-    "of": "di"
+    "of": "di",
+    "show_password": "Mostra password",
+    "hide_password": "Nascondi password"
   }
 }
